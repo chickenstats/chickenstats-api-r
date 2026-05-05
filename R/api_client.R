@@ -71,7 +71,7 @@ ApiClient <- R6::R6Class(
     # Authorization URL
     oauth_authorization_url = "",
     # Token URL
-    oauth_token_url = "/api/v1/login/access-token",
+    oauth_token_url = "/api/v1/login/auth0-token",
     # Enable PKCE?
     oauth_pkce = TRUE,
     # Bearer token

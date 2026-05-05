@@ -150,7 +150,7 @@ Authentication schemes defined for the API:
 
 - **Type**: OAuth
 - **Flow**: password
-- **Token URL**: /api/v1/login/access-token
+- **Token URL**: /api/v1/login/auth0-token
 - **Scopes**: N/A
 
 
