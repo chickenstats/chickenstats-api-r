@@ -74,10 +74,13 @@ All URIs are relative to *https://api.chickenstats.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*InferenceApi* | [**ReadPredGoal**](docs/InferenceApi.md#ReadPredGoal) | **GET** /api/v1/inference/pred_goal | Read Pred Goal
 *LinesApi* | [**ReadGameLines**](docs/LinesApi.md#ReadGameLines) | **GET** /api/v1/chicken_nhl/lines/game | Read Game Lines
 *LinesApi* | [**ReadLineIds**](docs/LinesApi.md#ReadLineIds) | **GET** /api/v1/chicken_nhl/lines/line_ids | Read Line Ids
 *LinesApi* | [**ReadLinesGameIds**](docs/LinesApi.md#ReadLinesGameIds) | **GET** /api/v1/chicken_nhl/lines/game_ids | Read Lines Game Ids
 *LinesApi* | [**ReadSeasonLines**](docs/LinesApi.md#ReadSeasonLines) | **GET** /api/v1/chicken_nhl/lines/season | Read Season Lines
+*LiveApi* | [**ReadLiveGames**](docs/LiveApi.md#ReadLiveGames) | **GET** /api/v1/live/games | Read Live Games
+*LiveApi* | [**ReadLivePbp**](docs/LiveApi.md#ReadLivePbp) | **GET** /api/v1/live/play_by_play | Read Live Pbp
 *LoginApi* | [**LoginAuth0Token**](docs/LoginApi.md#LoginAuth0Token) | **POST** /api/v1/login/auth0-token | Login Auth0 Token
 *LoginApi* | [**LoginCallback**](docs/LoginApi.md#LoginCallback) | **POST** /api/v1/login/callback | Login Callback
 *LoginApi* | [**RecoverPassword**](docs/LoginApi.md#RecoverPassword) | **POST** /api/v1/password-recovery/{email} | Recover Password
@@ -87,6 +90,7 @@ Class | Method | HTTP request | Description
 *PlayByPlayApi* | [**ReadPbp**](docs/PlayByPlayApi.md#ReadPbp) | **GET** /api/v1/chicken_nhl/play_by_play | Read Pbp
 *PlayByPlayApi* | [**ReadPbpGameIds**](docs/PlayByPlayApi.md#ReadPbpGameIds) | **GET** /api/v1/chicken_nhl/play_by_play/game_ids | Read Pbp Game Ids
 *PlayByPlayApi* | [**ReadPbpPlayIds**](docs/PlayByPlayApi.md#ReadPbpPlayIds) | **GET** /api/v1/chicken_nhl/play_by_play/play_ids | Read Pbp Play Ids
+*RapmApi* | [**ReadRapm**](docs/RapmApi.md#ReadRapm) | **GET** /api/v1/chicken_nhl/rapm | Read Rapm
 *StatsApi* | [**ReadGameStats**](docs/StatsApi.md#ReadGameStats) | **GET** /api/v1/chicken_nhl/stats/game | Read Game Stats
 *StatsApi* | [**ReadSeasonStats**](docs/StatsApi.md#ReadSeasonStats) | **GET** /api/v1/chicken_nhl/stats/season | Read Season Stats
 *StatsApi* | [**ReadStatsGameIds**](docs/StatsApi.md#ReadStatsGameIds) | **GET** /api/v1/chicken_nhl/stats/game_ids | Read Stats Game Ids
@@ -114,11 +118,18 @@ Class | Method | HTTP request | Description
  - [LinesPublic](docs/LinesPublic.md)
  - [LinesSeason](docs/LinesSeason.md)
  - [LinesSeasonResponse](docs/LinesSeasonResponse.md)
+ - [LiveGamesPublic](docs/LiveGamesPublic.md)
+ - [LivePbpPublic](docs/LivePbpPublic.md)
+ - [LivePbpResponse](docs/LivePbpResponse.md)
  - [Message](docs/Message.md)
  - [NewPassword](docs/NewPassword.md)
  - [PbpPublic](docs/PbpPublic.md)
  - [PbpResponse](docs/PbpResponse.md)
+ - [PredGoalResponse](docs/PredGoalResponse.md)
+ - [PredGoalRow](docs/PredGoalRow.md)
  - [ProgrammaticCredentials](docs/ProgrammaticCredentials.md)
+ - [RapmResponse](docs/RapmResponse.md)
+ - [RapmScores](docs/RapmScores.md)
  - [StatsCreate](docs/StatsCreate.md)
  - [StatsGame](docs/StatsGame.md)
  - [StatsGameResponse](docs/StatsGameResponse.md)

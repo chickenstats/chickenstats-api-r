@@ -44,8 +44,12 @@
 #' @field ihdg  integer [optional]
 #' @field a1  integer [optional]
 #' @field a2  integer [optional]
+#' @field base_ixg  numeric [optional]
+#' @field base_ixg_adj  numeric [optional]
 #' @field ixg  numeric [optional]
 #' @field ixg_adj  numeric [optional]
+#' @field context_ixg  numeric [optional]
+#' @field context_ixg_adj  numeric [optional]
 #' @field isf  integer [optional]
 #' @field isf_adj  numeric [optional]
 #' @field ihdsf  integer [optional]
@@ -91,6 +95,14 @@
 #' @field ga_adj  numeric [optional]
 #' @field hdgf  integer [optional]
 #' @field hdga  integer [optional]
+#' @field base_xgf  numeric [optional]
+#' @field base_xga  numeric [optional]
+#' @field base_xgf_adj  numeric [optional]
+#' @field base_xga_adj  numeric [optional]
+#' @field context_xgf  numeric [optional]
+#' @field context_xga  numeric [optional]
+#' @field context_xgf_adj  numeric [optional]
+#' @field context_xga_adj  numeric [optional]
 #' @field xgf  numeric [optional]
 #' @field xga  numeric [optional]
 #' @field xgf_adj  numeric [optional]
@@ -193,8 +205,12 @@ StatsGame <- R6::R6Class(
     `ihdg` = NULL,
     `a1` = NULL,
     `a2` = NULL,
+    `base_ixg` = NULL,
+    `base_ixg_adj` = NULL,
     `ixg` = NULL,
     `ixg_adj` = NULL,
+    `context_ixg` = NULL,
+    `context_ixg_adj` = NULL,
     `isf` = NULL,
     `isf_adj` = NULL,
     `ihdsf` = NULL,
@@ -240,6 +256,14 @@ StatsGame <- R6::R6Class(
     `ga_adj` = NULL,
     `hdgf` = NULL,
     `hdga` = NULL,
+    `base_xgf` = NULL,
+    `base_xga` = NULL,
+    `base_xgf_adj` = NULL,
+    `base_xga_adj` = NULL,
+    `context_xgf` = NULL,
+    `context_xga` = NULL,
+    `context_xgf_adj` = NULL,
+    `context_xga_adj` = NULL,
     `xgf` = NULL,
     `xga` = NULL,
     `xgf_adj` = NULL,
@@ -340,8 +364,12 @@ StatsGame <- R6::R6Class(
     #' @param ihdg ihdg. Default to 0.
     #' @param a1 a1. Default to 0.
     #' @param a2 a2. Default to 0.
+    #' @param base_ixg base_ixg. Default to 0.
+    #' @param base_ixg_adj base_ixg_adj. Default to 0.
     #' @param ixg ixg. Default to 0.
     #' @param ixg_adj ixg_adj. Default to 0.
+    #' @param context_ixg context_ixg. Default to 0.
+    #' @param context_ixg_adj context_ixg_adj. Default to 0.
     #' @param isf isf. Default to 0.
     #' @param isf_adj isf_adj. Default to 0.
     #' @param ihdsf ihdsf. Default to 0.
@@ -387,6 +415,14 @@ StatsGame <- R6::R6Class(
     #' @param ga_adj ga_adj. Default to 0.
     #' @param hdgf hdgf. Default to 0.
     #' @param hdga hdga. Default to 0.
+    #' @param base_xgf base_xgf. Default to 0.
+    #' @param base_xga base_xga. Default to 0.
+    #' @param base_xgf_adj base_xgf_adj. Default to 0.
+    #' @param base_xga_adj base_xga_adj. Default to 0.
+    #' @param context_xgf context_xgf. Default to 0.
+    #' @param context_xga context_xga. Default to 0.
+    #' @param context_xgf_adj context_xgf_adj. Default to 0.
+    #' @param context_xga_adj context_xga_adj. Default to 0.
     #' @param xgf xgf. Default to 0.
     #' @param xga xga. Default to 0.
     #' @param xgf_adj xgf_adj. Default to 0.
@@ -447,7 +483,7 @@ StatsGame <- R6::R6Class(
     #' @param dzs dzs. Default to 0.
     #' @param otf otf. Default to 0.
     #' @param ... Other optional arguments.
-    initialize = function(`season`, `session`, `game_id`, `game_date`, `player`, `eh_id`, `api_id`, `position`, `team`, `toi`, `opp_team` = NULL, `strength_state` = NULL, `period` = NULL, `score_state` = NULL, `forwards` = NULL, `forwards_eh_id` = NULL, `forwards_api_id` = NULL, `defense` = NULL, `defense_eh_id` = NULL, `defense_api_id` = NULL, `own_goalie` = NULL, `own_goalie_eh_id` = NULL, `own_goalie_api_id` = NULL, `opp_forwards` = NULL, `opp_forwards_eh_id` = NULL, `opp_forwards_api_id` = NULL, `opp_defense` = NULL, `opp_defense_eh_id` = NULL, `opp_defense_api_id` = NULL, `opp_goalie` = NULL, `opp_goalie_eh_id` = NULL, `opp_goalie_api_id` = NULL, `g` = 0, `g_adj` = 0, `ihdg` = 0, `a1` = 0, `a2` = 0, `ixg` = 0, `ixg_adj` = 0, `isf` = 0, `isf_adj` = 0, `ihdsf` = 0, `imsf` = 0, `imsf_adj` = 0, `ihdm` = 0, `iff` = 0, `iff_adj` = 0, `ihdf` = 0, `isb` = 0, `isb_adj` = 0, `icf` = 0, `icf_adj` = 0, `ibs` = 0, `ibs_adj` = 0, `igive` = 0, `itake` = 0, `ihf` = 0, `iht` = 0, `ifow` = 0, `ifol` = 0, `iozfw` = 0, `iozfl` = 0, `inzfw` = 0, `inzfl` = 0, `idzfw` = 0, `idzfl` = 0, `a1_xg` = 0, `a2_xg` = 0, `ipent0` = 0, `ipent2` = 0, `ipent4` = 0, `ipent5` = 0, `ipent10` = 0, `ipend0` = 0, `ipend2` = 0, `ipend4` = 0, `ipend5` = 0, `ipend10` = 0, `gf` = 0, `ga` = 0, `gf_adj` = 0, `ga_adj` = 0, `hdgf` = 0, `hdga` = 0, `xgf` = 0, `xga` = 0, `xgf_adj` = 0, `xga_adj` = 0, `sf` = 0, `sa` = 0, `sf_adj` = 0, `sa_adj` = 0, `hdsf` = 0, `hdsa` = 0, `ff` = 0, `fa` = 0, `ff_adj` = 0, `fa_adj` = 0, `hdff` = 0, `hdfa` = 0, `cf` = 0, `ca` = 0, `cf_adj` = 0, `ca_adj` = 0, `bsf` = 0, `bsa` = 0, `bsf_adj` = 0, `bsa_adj` = 0, `msf` = 0, `msa` = 0, `msf_adj` = 0, `msa_adj` = 0, `hdmsf` = 0, `hdmsa` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hf` = 0, `ht` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `fow` = 0, `fol` = 0, `ozfw` = 0, `ozfl` = 0, `nzfw` = 0, `nzfl` = 0, `dzfw` = 0, `dzfl` = 0, `pent0` = 0, `pent2` = 0, `pent4` = 0, `pent5` = 0, `pent10` = 0, `pend0` = 0, `pend2` = 0, `pend4` = 0, `pend5` = 0, `pend10` = 0, `ozs` = 0, `nzs` = 0, `dzs` = 0, `otf` = 0, ...) {
+    initialize = function(`season`, `session`, `game_id`, `game_date`, `player`, `eh_id`, `api_id`, `position`, `team`, `toi`, `opp_team` = NULL, `strength_state` = NULL, `period` = NULL, `score_state` = NULL, `forwards` = NULL, `forwards_eh_id` = NULL, `forwards_api_id` = NULL, `defense` = NULL, `defense_eh_id` = NULL, `defense_api_id` = NULL, `own_goalie` = NULL, `own_goalie_eh_id` = NULL, `own_goalie_api_id` = NULL, `opp_forwards` = NULL, `opp_forwards_eh_id` = NULL, `opp_forwards_api_id` = NULL, `opp_defense` = NULL, `opp_defense_eh_id` = NULL, `opp_defense_api_id` = NULL, `opp_goalie` = NULL, `opp_goalie_eh_id` = NULL, `opp_goalie_api_id` = NULL, `g` = 0, `g_adj` = 0, `ihdg` = 0, `a1` = 0, `a2` = 0, `base_ixg` = 0, `base_ixg_adj` = 0, `ixg` = 0, `ixg_adj` = 0, `context_ixg` = 0, `context_ixg_adj` = 0, `isf` = 0, `isf_adj` = 0, `ihdsf` = 0, `imsf` = 0, `imsf_adj` = 0, `ihdm` = 0, `iff` = 0, `iff_adj` = 0, `ihdf` = 0, `isb` = 0, `isb_adj` = 0, `icf` = 0, `icf_adj` = 0, `ibs` = 0, `ibs_adj` = 0, `igive` = 0, `itake` = 0, `ihf` = 0, `iht` = 0, `ifow` = 0, `ifol` = 0, `iozfw` = 0, `iozfl` = 0, `inzfw` = 0, `inzfl` = 0, `idzfw` = 0, `idzfl` = 0, `a1_xg` = 0, `a2_xg` = 0, `ipent0` = 0, `ipent2` = 0, `ipent4` = 0, `ipent5` = 0, `ipent10` = 0, `ipend0` = 0, `ipend2` = 0, `ipend4` = 0, `ipend5` = 0, `ipend10` = 0, `gf` = 0, `ga` = 0, `gf_adj` = 0, `ga_adj` = 0, `hdgf` = 0, `hdga` = 0, `base_xgf` = 0, `base_xga` = 0, `base_xgf_adj` = 0, `base_xga_adj` = 0, `context_xgf` = 0, `context_xga` = 0, `context_xgf_adj` = 0, `context_xga_adj` = 0, `xgf` = 0, `xga` = 0, `xgf_adj` = 0, `xga_adj` = 0, `sf` = 0, `sa` = 0, `sf_adj` = 0, `sa_adj` = 0, `hdsf` = 0, `hdsa` = 0, `ff` = 0, `fa` = 0, `ff_adj` = 0, `fa_adj` = 0, `hdff` = 0, `hdfa` = 0, `cf` = 0, `ca` = 0, `cf_adj` = 0, `ca_adj` = 0, `bsf` = 0, `bsa` = 0, `bsf_adj` = 0, `bsa_adj` = 0, `msf` = 0, `msa` = 0, `msf_adj` = 0, `msa_adj` = 0, `hdmsf` = 0, `hdmsa` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hf` = 0, `ht` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `fow` = 0, `fol` = 0, `ozfw` = 0, `ozfl` = 0, `nzfw` = 0, `nzfl` = 0, `dzfw` = 0, `dzfl` = 0, `pent0` = 0, `pent2` = 0, `pent4` = 0, `pent5` = 0, `pent10` = 0, `pend0` = 0, `pend2` = 0, `pend4` = 0, `pend5` = 0, `pend10` = 0, `ozs` = 0, `nzs` = 0, `dzs` = 0, `otf` = 0, ...) {
       if (!missing(`season`)) {
         if (!(is.numeric(`season`) && length(`season`) == 1)) {
           stop(paste("Error! Invalid data for `season`. Must be an integer:", `season`))
@@ -664,11 +700,23 @@ StatsGame <- R6::R6Class(
         }
         self$`a2` <- `a2`
       }
+      if (!is.null(`base_ixg`)) {
+        self$`base_ixg` <- `base_ixg`
+      }
+      if (!is.null(`base_ixg_adj`)) {
+        self$`base_ixg_adj` <- `base_ixg_adj`
+      }
       if (!is.null(`ixg`)) {
         self$`ixg` <- `ixg`
       }
       if (!is.null(`ixg_adj`)) {
         self$`ixg_adj` <- `ixg_adj`
+      }
+      if (!is.null(`context_ixg`)) {
+        self$`context_ixg` <- `context_ixg`
+      }
+      if (!is.null(`context_ixg_adj`)) {
+        self$`context_ixg_adj` <- `context_ixg_adj`
       }
       if (!is.null(`isf`)) {
         if (!(is.numeric(`isf`) && length(`isf`) == 1)) {
@@ -909,6 +957,30 @@ StatsGame <- R6::R6Class(
           stop(paste("Error! Invalid data for `hdga`. Must be an integer:", `hdga`))
         }
         self$`hdga` <- `hdga`
+      }
+      if (!is.null(`base_xgf`)) {
+        self$`base_xgf` <- `base_xgf`
+      }
+      if (!is.null(`base_xga`)) {
+        self$`base_xga` <- `base_xga`
+      }
+      if (!is.null(`base_xgf_adj`)) {
+        self$`base_xgf_adj` <- `base_xgf_adj`
+      }
+      if (!is.null(`base_xga_adj`)) {
+        self$`base_xga_adj` <- `base_xga_adj`
+      }
+      if (!is.null(`context_xgf`)) {
+        self$`context_xgf` <- `context_xgf`
+      }
+      if (!is.null(`context_xga`)) {
+        self$`context_xga` <- `context_xga`
+      }
+      if (!is.null(`context_xgf_adj`)) {
+        self$`context_xgf_adj` <- `context_xgf_adj`
+      }
+      if (!is.null(`context_xga_adj`)) {
+        self$`context_xga_adj` <- `context_xga_adj`
       }
       if (!is.null(`xgf`)) {
         self$`xgf` <- `xgf`
@@ -1400,6 +1472,14 @@ StatsGame <- R6::R6Class(
         StatsGameObject[["a2"]] <-
           self$`a2`
       }
+      if (!is.null(self$`base_ixg`)) {
+        StatsGameObject[["base_ixg"]] <-
+          self$`base_ixg`
+      }
+      if (!is.null(self$`base_ixg_adj`)) {
+        StatsGameObject[["base_ixg_adj"]] <-
+          self$`base_ixg_adj`
+      }
       if (!is.null(self$`ixg`)) {
         StatsGameObject[["ixg"]] <-
           self$`ixg`
@@ -1407,6 +1487,14 @@ StatsGame <- R6::R6Class(
       if (!is.null(self$`ixg_adj`)) {
         StatsGameObject[["ixg_adj"]] <-
           self$`ixg_adj`
+      }
+      if (!is.null(self$`context_ixg`)) {
+        StatsGameObject[["context_ixg"]] <-
+          self$`context_ixg`
+      }
+      if (!is.null(self$`context_ixg_adj`)) {
+        StatsGameObject[["context_ixg_adj"]] <-
+          self$`context_ixg_adj`
       }
       if (!is.null(self$`isf`)) {
         StatsGameObject[["isf"]] <-
@@ -1587,6 +1675,38 @@ StatsGame <- R6::R6Class(
       if (!is.null(self$`hdga`)) {
         StatsGameObject[["hdga"]] <-
           self$`hdga`
+      }
+      if (!is.null(self$`base_xgf`)) {
+        StatsGameObject[["base_xgf"]] <-
+          self$`base_xgf`
+      }
+      if (!is.null(self$`base_xga`)) {
+        StatsGameObject[["base_xga"]] <-
+          self$`base_xga`
+      }
+      if (!is.null(self$`base_xgf_adj`)) {
+        StatsGameObject[["base_xgf_adj"]] <-
+          self$`base_xgf_adj`
+      }
+      if (!is.null(self$`base_xga_adj`)) {
+        StatsGameObject[["base_xga_adj"]] <-
+          self$`base_xga_adj`
+      }
+      if (!is.null(self$`context_xgf`)) {
+        StatsGameObject[["context_xgf"]] <-
+          self$`context_xgf`
+      }
+      if (!is.null(self$`context_xga`)) {
+        StatsGameObject[["context_xga"]] <-
+          self$`context_xga`
+      }
+      if (!is.null(self$`context_xgf_adj`)) {
+        StatsGameObject[["context_xgf_adj"]] <-
+          self$`context_xgf_adj`
+      }
+      if (!is.null(self$`context_xga_adj`)) {
+        StatsGameObject[["context_xga_adj"]] <-
+          self$`context_xga_adj`
       }
       if (!is.null(self$`xgf`)) {
         StatsGameObject[["xgf"]] <-
@@ -1945,11 +2065,23 @@ StatsGame <- R6::R6Class(
       if (!is.null(this_object$`a2`)) {
         self$`a2` <- this_object$`a2`
       }
+      if (!is.null(this_object$`base_ixg`)) {
+        self$`base_ixg` <- this_object$`base_ixg`
+      }
+      if (!is.null(this_object$`base_ixg_adj`)) {
+        self$`base_ixg_adj` <- this_object$`base_ixg_adj`
+      }
       if (!is.null(this_object$`ixg`)) {
         self$`ixg` <- this_object$`ixg`
       }
       if (!is.null(this_object$`ixg_adj`)) {
         self$`ixg_adj` <- this_object$`ixg_adj`
+      }
+      if (!is.null(this_object$`context_ixg`)) {
+        self$`context_ixg` <- this_object$`context_ixg`
+      }
+      if (!is.null(this_object$`context_ixg_adj`)) {
+        self$`context_ixg_adj` <- this_object$`context_ixg_adj`
       }
       if (!is.null(this_object$`isf`)) {
         self$`isf` <- this_object$`isf`
@@ -2085,6 +2217,30 @@ StatsGame <- R6::R6Class(
       }
       if (!is.null(this_object$`hdga`)) {
         self$`hdga` <- this_object$`hdga`
+      }
+      if (!is.null(this_object$`base_xgf`)) {
+        self$`base_xgf` <- this_object$`base_xgf`
+      }
+      if (!is.null(this_object$`base_xga`)) {
+        self$`base_xga` <- this_object$`base_xga`
+      }
+      if (!is.null(this_object$`base_xgf_adj`)) {
+        self$`base_xgf_adj` <- this_object$`base_xgf_adj`
+      }
+      if (!is.null(this_object$`base_xga_adj`)) {
+        self$`base_xga_adj` <- this_object$`base_xga_adj`
+      }
+      if (!is.null(this_object$`context_xgf`)) {
+        self$`context_xgf` <- this_object$`context_xgf`
+      }
+      if (!is.null(this_object$`context_xga`)) {
+        self$`context_xga` <- this_object$`context_xga`
+      }
+      if (!is.null(this_object$`context_xgf_adj`)) {
+        self$`context_xgf_adj` <- this_object$`context_xgf_adj`
+      }
+      if (!is.null(this_object$`context_xga_adj`)) {
+        self$`context_xga_adj` <- this_object$`context_xga_adj`
       }
       if (!is.null(this_object$`xgf`)) {
         self$`xgf` <- this_object$`xgf`
@@ -2321,8 +2477,12 @@ StatsGame <- R6::R6Class(
       self$`ihdg` <- this_object$`ihdg`
       self$`a1` <- this_object$`a1`
       self$`a2` <- this_object$`a2`
+      self$`base_ixg` <- this_object$`base_ixg`
+      self$`base_ixg_adj` <- this_object$`base_ixg_adj`
       self$`ixg` <- this_object$`ixg`
       self$`ixg_adj` <- this_object$`ixg_adj`
+      self$`context_ixg` <- this_object$`context_ixg`
+      self$`context_ixg_adj` <- this_object$`context_ixg_adj`
       self$`isf` <- this_object$`isf`
       self$`isf_adj` <- this_object$`isf_adj`
       self$`ihdsf` <- this_object$`ihdsf`
@@ -2368,6 +2528,14 @@ StatsGame <- R6::R6Class(
       self$`ga_adj` <- this_object$`ga_adj`
       self$`hdgf` <- this_object$`hdgf`
       self$`hdga` <- this_object$`hdga`
+      self$`base_xgf` <- this_object$`base_xgf`
+      self$`base_xga` <- this_object$`base_xga`
+      self$`base_xgf_adj` <- this_object$`base_xgf_adj`
+      self$`base_xga_adj` <- this_object$`base_xga_adj`
+      self$`context_xgf` <- this_object$`context_xgf`
+      self$`context_xga` <- this_object$`context_xga`
+      self$`context_xgf_adj` <- this_object$`context_xgf_adj`
+      self$`context_xga_adj` <- this_object$`context_xga_adj`
       self$`xgf` <- this_object$`xgf`
       self$`xga` <- this_object$`xga`
       self$`xgf_adj` <- this_object$`xgf_adj`

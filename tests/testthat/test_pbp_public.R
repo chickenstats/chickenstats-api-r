@@ -1097,6 +1097,34 @@ test_that("change_off_goalie_api_id", {
   #expect_equal(model.instance$`change_off_goalie_api_id`, "EXPECTED_RESULT")
 })
 
+test_that("base_xg", {
+  # tests for the property `base_xg` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`base_xg`, "EXPECTED_RESULT")
+})
+
+test_that("base_xg_adj", {
+  # tests for the property `base_xg_adj` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`base_xg_adj`, "EXPECTED_RESULT")
+})
+
+test_that("context_xg", {
+  # tests for the property `context_xg` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`context_xg`, "EXPECTED_RESULT")
+})
+
+test_that("context_xg_adj", {
+  # tests for the property `context_xg_adj` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`context_xg_adj`, "EXPECTED_RESULT")
+})
+
 test_that("pred_goal", {
   # tests for the property `pred_goal` (numeric)
 
