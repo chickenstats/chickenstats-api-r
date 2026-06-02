@@ -167,8 +167,8 @@ PlayByPlayApi <- R6::R6Class(
 
 
 
-      if (`limit` > 100000) {
-        stop("Invalid value for `limit` when calling PlayByPlayApi$ReadPbp, must be smaller than or equal to 100000.")
+      if (`limit` > 50000) {
+        stop("Invalid value for `limit` when calling PlayByPlayApi$ReadPbp, must be smaller than or equal to 50000.")
       }
       if (`limit` < 1) {
         stop("Invalid value for `limit` when calling PlayByPlayApi$ReadPbp, must be bigger than or equal to 1.")

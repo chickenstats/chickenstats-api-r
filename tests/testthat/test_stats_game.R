@@ -264,6 +264,20 @@ test_that("a2", {
   #expect_equal(model.instance$`a2`, "EXPECTED_RESULT")
 })
 
+test_that("base_ixg", {
+  # tests for the property `base_ixg` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`base_ixg`, "EXPECTED_RESULT")
+})
+
+test_that("base_ixg_adj", {
+  # tests for the property `base_ixg_adj` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`base_ixg_adj`, "EXPECTED_RESULT")
+})
+
 test_that("ixg", {
   # tests for the property `ixg` (numeric)
 
@@ -276,6 +290,20 @@ test_that("ixg_adj", {
 
   # uncomment below to test the property
   #expect_equal(model.instance$`ixg_adj`, "EXPECTED_RESULT")
+})
+
+test_that("context_ixg", {
+  # tests for the property `context_ixg` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`context_ixg`, "EXPECTED_RESULT")
+})
+
+test_that("context_ixg_adj", {
+  # tests for the property `context_ixg_adj` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`context_ixg_adj`, "EXPECTED_RESULT")
 })
 
 test_that("isf", {
@@ -591,6 +619,62 @@ test_that("hdga", {
 
   # uncomment below to test the property
   #expect_equal(model.instance$`hdga`, "EXPECTED_RESULT")
+})
+
+test_that("base_xgf", {
+  # tests for the property `base_xgf` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`base_xgf`, "EXPECTED_RESULT")
+})
+
+test_that("base_xga", {
+  # tests for the property `base_xga` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`base_xga`, "EXPECTED_RESULT")
+})
+
+test_that("base_xgf_adj", {
+  # tests for the property `base_xgf_adj` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`base_xgf_adj`, "EXPECTED_RESULT")
+})
+
+test_that("base_xga_adj", {
+  # tests for the property `base_xga_adj` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`base_xga_adj`, "EXPECTED_RESULT")
+})
+
+test_that("context_xgf", {
+  # tests for the property `context_xgf` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`context_xgf`, "EXPECTED_RESULT")
+})
+
+test_that("context_xga", {
+  # tests for the property `context_xga` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`context_xga`, "EXPECTED_RESULT")
+})
+
+test_that("context_xgf_adj", {
+  # tests for the property `context_xgf_adj` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`context_xgf_adj`, "EXPECTED_RESULT")
+})
+
+test_that("context_xga_adj", {
+  # tests for the property `context_xga_adj` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`context_xga_adj`, "EXPECTED_RESULT")
 })
 
 test_that("xgf", {

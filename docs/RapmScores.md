@@ -1,0 +1,72 @@
+# chickenstats.api::RapmScores
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **character** |  | 
+**api_id** | **integer** |  | 
+**season** | **integer** |  | 
+**session** | **character** |  | 
+**situation** | **character** |  | 
+**name** | **character** |  | [optional] 
+**team** | **character** |  | [optional] 
+**pos** | **character** |  | [optional] 
+**pos2** | **character** |  | [optional] 
+**toi_minutes** | **numeric** |  | [optional] 
+**rapm_off** | **numeric** |  | [optional] 
+**rapm_def** | **numeric** |  | [optional] 
+**off_coeff_corsi** | **numeric** |  | [optional] 
+**off_coeff_goals** | **numeric** |  | [optional] 
+**def_coeff_corsi** | **numeric** |  | [optional] 
+**def_coeff_goals** | **numeric** |  | [optional] 
+**metric_for_context_xg** | **numeric** |  | [optional] 
+**metric_against_context_xg** | **numeric** |  | [optional] 
+**metric_diff_context_xg** | **numeric** |  | [optional] 
+**metric_for_corsi** | **numeric** |  | [optional] 
+**metric_against_corsi** | **numeric** |  | [optional] 
+**metric_diff_corsi** | **numeric** |  | [optional] 
+**metric_for_goals** | **numeric** |  | [optional] 
+**metric_against_goals** | **numeric** |  | [optional] 
+**metric_diff_goals** | **numeric** |  | [optional] 
+**on_ice_for_60_context_xg** | **numeric** |  | [optional] 
+**on_ice_against_60_context_xg** | **numeric** |  | [optional] 
+**on_ice_diff_60_context_xg** | **numeric** |  | [optional] 
+**on_ice_for_60_corsi** | **numeric** |  | [optional] 
+**on_ice_against_60_corsi** | **numeric** |  | [optional] 
+**on_ice_diff_60_corsi** | **numeric** |  | [optional] 
+**on_ice_for_60_goals** | **numeric** |  | [optional] 
+**on_ice_against_60_goals** | **numeric** |  | [optional] 
+**on_ice_diff_60_goals** | **numeric** |  | [optional] 
+**total_rapm_context_xg** | **numeric** |  | [optional] 
+**total_rapm_corsi** | **numeric** |  | [optional] 
+**total_rapm_goals** | **numeric** |  | [optional] 
+**off_coeff_context_xg_z** | **numeric** |  | [optional] 
+**off_coeff_corsi_z** | **numeric** |  | [optional] 
+**off_coeff_goals_z** | **numeric** |  | [optional] 
+**def_coeff_context_xg_z** | **numeric** |  | [optional] 
+**def_coeff_corsi_z** | **numeric** |  | [optional] 
+**def_coeff_goals_z** | **numeric** |  | [optional] 
+**metric_for_context_xg_z** | **numeric** |  | [optional] 
+**metric_against_context_xg_z** | **numeric** |  | [optional] 
+**metric_diff_context_xg_z** | **numeric** |  | [optional] 
+**metric_for_corsi_z** | **numeric** |  | [optional] 
+**metric_against_corsi_z** | **numeric** |  | [optional] 
+**metric_diff_corsi_z** | **numeric** |  | [optional] 
+**metric_for_goals_z** | **numeric** |  | [optional] 
+**metric_against_goals_z** | **numeric** |  | [optional] 
+**metric_diff_goals_z** | **numeric** |  | [optional] 
+**on_ice_for_60_context_xg_z** | **numeric** |  | [optional] 
+**on_ice_against_60_context_xg_z** | **numeric** |  | [optional] 
+**on_ice_diff_60_context_xg_z** | **numeric** |  | [optional] 
+**on_ice_for_60_corsi_z** | **numeric** |  | [optional] 
+**on_ice_against_60_corsi_z** | **numeric** |  | [optional] 
+**on_ice_diff_60_corsi_z** | **numeric** |  | [optional] 
+**on_ice_for_60_goals_z** | **numeric** |  | [optional] 
+**on_ice_against_60_goals_z** | **numeric** |  | [optional] 
+**on_ice_diff_60_goals_z** | **numeric** |  | [optional] 
+**total_rapm_context_xg_z** | **numeric** |  | [optional] 
+**total_rapm_corsi_z** | **numeric** |  | [optional] 
+**total_rapm_goals_z** | **numeric** |  | [optional] 
+
+

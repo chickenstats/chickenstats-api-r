@@ -163,6 +163,10 @@
 #' @field change_off_goalie  character [optional]
 #' @field change_off_goalie_eh_id  character [optional]
 #' @field change_off_goalie_api_id  character [optional]
+#' @field base_xg  numeric [optional]
+#' @field base_xg_adj  numeric [optional]
+#' @field context_xg  numeric [optional]
+#' @field context_xg_adj  numeric [optional]
 #' @field pred_goal  numeric [optional]
 #' @field pred_goal_adj  numeric [optional]
 #' @field goal  integer [optional]
@@ -365,6 +369,10 @@ PbpPublic <- R6::R6Class(
     `change_off_goalie` = NULL,
     `change_off_goalie_eh_id` = NULL,
     `change_off_goalie_api_id` = NULL,
+    `base_xg` = NULL,
+    `base_xg_adj` = NULL,
+    `context_xg` = NULL,
+    `context_xg_adj` = NULL,
     `pred_goal` = NULL,
     `pred_goal_adj` = NULL,
     `goal` = NULL,
@@ -565,8 +573,12 @@ PbpPublic <- R6::R6Class(
     #' @param change_off_goalie change_off_goalie
     #' @param change_off_goalie_eh_id change_off_goalie_eh_id
     #' @param change_off_goalie_api_id change_off_goalie_api_id
-    #' @param pred_goal pred_goal. Default to 0.
-    #' @param pred_goal_adj pred_goal_adj. Default to 0.
+    #' @param base_xg base_xg
+    #' @param base_xg_adj base_xg_adj
+    #' @param context_xg context_xg
+    #' @param context_xg_adj context_xg_adj
+    #' @param pred_goal pred_goal
+    #' @param pred_goal_adj pred_goal_adj
     #' @param goal goal. Default to 0.
     #' @param goal_adj goal_adj. Default to 0.
     #' @param hd_goal hd_goal. Default to 0.
@@ -606,7 +618,7 @@ PbpPublic <- R6::R6Class(
     #' @param pen5 pen5. Default to 0.
     #' @param pen10 pen10. Default to 0.
     #' @param ... Other optional arguments.
-    initialize = function(`id`, `season`, `session`, `game_id`, `game_date`, `event_idx`, `period`, `period_seconds`, `game_seconds`, `event`, `score_diff`, `forwards_percent`, `opp_forwards_percent`, `home_score`, `home_score_diff`, `away_score`, `away_score_diff`, `is_home`, `is_away`, `home_team`, `away_team`, `home_skaters`, `away_skaters`, `strength_state` = NULL, `event_team` = NULL, `opp_team` = NULL, `description` = NULL, `zone` = NULL, `coords_x` = NULL, `coords_y` = NULL, `danger` = NULL, `high_danger` = NULL, `player_1` = NULL, `player_1_api_id` = NULL, `player_1_eh_id` = NULL, `player_1_position` = NULL, `player_1_type` = NULL, `player_2` = NULL, `player_2_api_id` = NULL, `player_2_eh_id` = NULL, `player_2_position` = NULL, `player_2_type` = NULL, `player_3` = NULL, `player_3_api_id` = NULL, `player_3_eh_id` = NULL, `player_3_position` = NULL, `player_3_type` = NULL, `score_state` = NULL, `shot_type` = NULL, `event_length` = NULL, `event_distance` = NULL, `pbp_distance` = NULL, `event_angle` = NULL, `penalty` = NULL, `penalty_length` = NULL, `event_team_skaters` = NULL, `teammates` = NULL, `teammates_eh_id` = NULL, `teammates_api_id` = NULL, `teammates_positions` = NULL, `own_goalie` = NULL, `own_goalie_eh_id` = NULL, `own_goalie_api_id` = NULL, `forwards` = NULL, `forwards_eh_id` = NULL, `forwards_api_id` = NULL, `forwards_count` = NULL, `defense` = NULL, `defense_eh_id` = NULL, `defense_api_id` = NULL, `defense_count` = NULL, `opp_strength_state` = NULL, `opp_score_state` = NULL, `opp_score_diff` = NULL, `opp_team_skaters` = NULL, `opp_team_on` = NULL, `opp_team_on_eh_id` = NULL, `opp_team_on_api_id` = NULL, `opp_team_on_positions` = NULL, `opp_goalie` = NULL, `opp_goalie_eh_id` = NULL, `opp_goalie_api_id` = NULL, `opp_forwards` = NULL, `opp_forwards_eh_id` = NULL, `opp_forwards_api_id` = NULL, `opp_forwards_count` = NULL, `opp_defense` = NULL, `opp_defense_eh_id` = NULL, `opp_defense_api_id` = NULL, `opp_defense_count` = NULL, `home_on` = NULL, `home_on_eh_id` = NULL, `home_on_api_id` = NULL, `home_on_positions` = NULL, `away_on` = NULL, `away_on_eh_id` = NULL, `away_on_api_id` = NULL, `away_on_positions` = NULL, `home_forwards` = NULL, `home_forwards_eh_id` = NULL, `home_forwards_api_id` = NULL, `home_forwards_count` = NULL, `home_forwards_percent` = NULL, `home_defense` = NULL, `home_defense_eh_id` = NULL, `home_defense_api_id` = NULL, `home_defense_count` = NULL, `home_goalie` = NULL, `home_goalie_eh_id` = NULL, `home_goalie_api_id` = NULL, `away_forwards` = NULL, `away_forwards_eh_id` = NULL, `away_forwards_api_id` = NULL, `away_forwards_count` = NULL, `away_forwards_percent` = NULL, `away_defense` = NULL, `away_defense_eh_id` = NULL, `away_defense_api_id` = NULL, `away_defense_count` = NULL, `away_goalie` = NULL, `away_goalie_eh_id` = NULL, `away_goalie_api_id` = NULL, `change_on_count` = NULL, `change_off_count` = NULL, `change_on` = NULL, `change_on_eh_id` = NULL, `change_on_api_id` = NULL, `change_on_positions` = NULL, `change_off` = NULL, `change_off_eh_id` = NULL, `change_off_api_id` = NULL, `change_off_positions` = NULL, `change_on_forwards_count` = NULL, `change_off_forwards_count` = NULL, `change_on_forwards` = NULL, `change_on_forwards_eh_id` = NULL, `change_on_forwards_api_id` = NULL, `change_off_forwards` = NULL, `change_off_forwards_eh_id` = NULL, `change_off_forwards_api_id` = NULL, `change_on_defense_count` = NULL, `change_off_defense_count` = NULL, `change_on_defense` = NULL, `change_on_defense_eh_id` = NULL, `change_on_defense_api_id` = NULL, `change_off_defense` = NULL, `change_off_defense_eh_id` = NULL, `change_off_defense_api_id` = NULL, `change_on_goalie_count` = NULL, `change_off_goalie_count` = NULL, `change_on_goalie` = NULL, `change_on_goalie_eh_id` = NULL, `change_on_goalie_api_id` = NULL, `change_off_goalie` = NULL, `change_off_goalie_eh_id` = NULL, `change_off_goalie_api_id` = NULL, `pred_goal` = 0, `pred_goal_adj` = 0, `goal` = 0, `goal_adj` = 0, `hd_goal` = 0, `shot` = 0, `shot_adj` = 0, `hd_shot` = 0, `miss` = 0, `miss_adj` = 0, `hd_miss` = 0, `fenwick` = 0, `fenwick_adj` = 0, `hd_fenwick` = 0, `corsi` = 0, `corsi_adj` = 0, `block` = 0, `block_adj` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hit` = 0, `give` = 0, `take` = 0, `fac` = 0, `penl` = 0, `change` = 0, `stop` = 0, `chl` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `ozc` = 0, `nzc` = 0, `dzc` = 0, `otf` = 0, `pen0` = 0, `pen2` = 0, `pen4` = 0, `pen5` = 0, `pen10` = 0, ...) {
+    initialize = function(`id`, `season`, `session`, `game_id`, `game_date`, `event_idx`, `period`, `period_seconds`, `game_seconds`, `event`, `score_diff`, `forwards_percent`, `opp_forwards_percent`, `home_score`, `home_score_diff`, `away_score`, `away_score_diff`, `is_home`, `is_away`, `home_team`, `away_team`, `home_skaters`, `away_skaters`, `strength_state` = NULL, `event_team` = NULL, `opp_team` = NULL, `description` = NULL, `zone` = NULL, `coords_x` = NULL, `coords_y` = NULL, `danger` = NULL, `high_danger` = NULL, `player_1` = NULL, `player_1_api_id` = NULL, `player_1_eh_id` = NULL, `player_1_position` = NULL, `player_1_type` = NULL, `player_2` = NULL, `player_2_api_id` = NULL, `player_2_eh_id` = NULL, `player_2_position` = NULL, `player_2_type` = NULL, `player_3` = NULL, `player_3_api_id` = NULL, `player_3_eh_id` = NULL, `player_3_position` = NULL, `player_3_type` = NULL, `score_state` = NULL, `shot_type` = NULL, `event_length` = NULL, `event_distance` = NULL, `pbp_distance` = NULL, `event_angle` = NULL, `penalty` = NULL, `penalty_length` = NULL, `event_team_skaters` = NULL, `teammates` = NULL, `teammates_eh_id` = NULL, `teammates_api_id` = NULL, `teammates_positions` = NULL, `own_goalie` = NULL, `own_goalie_eh_id` = NULL, `own_goalie_api_id` = NULL, `forwards` = NULL, `forwards_eh_id` = NULL, `forwards_api_id` = NULL, `forwards_count` = NULL, `defense` = NULL, `defense_eh_id` = NULL, `defense_api_id` = NULL, `defense_count` = NULL, `opp_strength_state` = NULL, `opp_score_state` = NULL, `opp_score_diff` = NULL, `opp_team_skaters` = NULL, `opp_team_on` = NULL, `opp_team_on_eh_id` = NULL, `opp_team_on_api_id` = NULL, `opp_team_on_positions` = NULL, `opp_goalie` = NULL, `opp_goalie_eh_id` = NULL, `opp_goalie_api_id` = NULL, `opp_forwards` = NULL, `opp_forwards_eh_id` = NULL, `opp_forwards_api_id` = NULL, `opp_forwards_count` = NULL, `opp_defense` = NULL, `opp_defense_eh_id` = NULL, `opp_defense_api_id` = NULL, `opp_defense_count` = NULL, `home_on` = NULL, `home_on_eh_id` = NULL, `home_on_api_id` = NULL, `home_on_positions` = NULL, `away_on` = NULL, `away_on_eh_id` = NULL, `away_on_api_id` = NULL, `away_on_positions` = NULL, `home_forwards` = NULL, `home_forwards_eh_id` = NULL, `home_forwards_api_id` = NULL, `home_forwards_count` = NULL, `home_forwards_percent` = NULL, `home_defense` = NULL, `home_defense_eh_id` = NULL, `home_defense_api_id` = NULL, `home_defense_count` = NULL, `home_goalie` = NULL, `home_goalie_eh_id` = NULL, `home_goalie_api_id` = NULL, `away_forwards` = NULL, `away_forwards_eh_id` = NULL, `away_forwards_api_id` = NULL, `away_forwards_count` = NULL, `away_forwards_percent` = NULL, `away_defense` = NULL, `away_defense_eh_id` = NULL, `away_defense_api_id` = NULL, `away_defense_count` = NULL, `away_goalie` = NULL, `away_goalie_eh_id` = NULL, `away_goalie_api_id` = NULL, `change_on_count` = NULL, `change_off_count` = NULL, `change_on` = NULL, `change_on_eh_id` = NULL, `change_on_api_id` = NULL, `change_on_positions` = NULL, `change_off` = NULL, `change_off_eh_id` = NULL, `change_off_api_id` = NULL, `change_off_positions` = NULL, `change_on_forwards_count` = NULL, `change_off_forwards_count` = NULL, `change_on_forwards` = NULL, `change_on_forwards_eh_id` = NULL, `change_on_forwards_api_id` = NULL, `change_off_forwards` = NULL, `change_off_forwards_eh_id` = NULL, `change_off_forwards_api_id` = NULL, `change_on_defense_count` = NULL, `change_off_defense_count` = NULL, `change_on_defense` = NULL, `change_on_defense_eh_id` = NULL, `change_on_defense_api_id` = NULL, `change_off_defense` = NULL, `change_off_defense_eh_id` = NULL, `change_off_defense_api_id` = NULL, `change_on_goalie_count` = NULL, `change_off_goalie_count` = NULL, `change_on_goalie` = NULL, `change_on_goalie_eh_id` = NULL, `change_on_goalie_api_id` = NULL, `change_off_goalie` = NULL, `change_off_goalie_eh_id` = NULL, `change_off_goalie_api_id` = NULL, `base_xg` = NULL, `base_xg_adj` = NULL, `context_xg` = NULL, `context_xg_adj` = NULL, `pred_goal` = NULL, `pred_goal_adj` = NULL, `goal` = 0, `goal_adj` = 0, `hd_goal` = 0, `shot` = 0, `shot_adj` = 0, `hd_shot` = 0, `miss` = 0, `miss_adj` = 0, `hd_miss` = 0, `fenwick` = 0, `fenwick_adj` = 0, `hd_fenwick` = 0, `corsi` = 0, `corsi_adj` = 0, `block` = 0, `block_adj` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hit` = 0, `give` = 0, `take` = 0, `fac` = 0, `penl` = 0, `change` = 0, `stop` = 0, `chl` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `ozc` = 0, `nzc` = 0, `dzc` = 0, `otf` = 0, `pen0` = 0, `pen2` = 0, `pen4` = 0, `pen5` = 0, `pen10` = 0, ...) {
       if (!missing(`id`)) {
         if (!(is.numeric(`id`) && length(`id`) == 1)) {
           stop(paste("Error! Invalid data for `id`. Must be an integer:", `id`))
@@ -1516,6 +1528,18 @@ PbpPublic <- R6::R6Class(
         }
         self$`change_off_goalie_api_id` <- `change_off_goalie_api_id`
       }
+      if (!is.null(`base_xg`)) {
+        self$`base_xg` <- `base_xg`
+      }
+      if (!is.null(`base_xg_adj`)) {
+        self$`base_xg_adj` <- `base_xg_adj`
+      }
+      if (!is.null(`context_xg`)) {
+        self$`context_xg` <- `context_xg`
+      }
+      if (!is.null(`context_xg_adj`)) {
+        self$`context_xg_adj` <- `context_xg_adj`
+      }
       if (!is.null(`pred_goal`)) {
         self$`pred_goal` <- `pred_goal`
       }
@@ -2386,6 +2410,22 @@ PbpPublic <- R6::R6Class(
         PbpPublicObject[["change_off_goalie_api_id"]] <-
           self$`change_off_goalie_api_id`
       }
+      if (!is.null(self$`base_xg`)) {
+        PbpPublicObject[["base_xg"]] <-
+          self$`base_xg`
+      }
+      if (!is.null(self$`base_xg_adj`)) {
+        PbpPublicObject[["base_xg_adj"]] <-
+          self$`base_xg_adj`
+      }
+      if (!is.null(self$`context_xg`)) {
+        PbpPublicObject[["context_xg"]] <-
+          self$`context_xg`
+      }
+      if (!is.null(self$`context_xg_adj`)) {
+        PbpPublicObject[["context_xg_adj"]] <-
+          self$`context_xg_adj`
+      }
       if (!is.null(self$`pred_goal`)) {
         PbpPublicObject[["pred_goal"]] <-
           self$`pred_goal`
@@ -3024,6 +3064,18 @@ PbpPublic <- R6::R6Class(
       if (!is.null(this_object$`change_off_goalie_api_id`)) {
         self$`change_off_goalie_api_id` <- this_object$`change_off_goalie_api_id`
       }
+      if (!is.null(this_object$`base_xg`)) {
+        self$`base_xg` <- this_object$`base_xg`
+      }
+      if (!is.null(this_object$`base_xg_adj`)) {
+        self$`base_xg_adj` <- this_object$`base_xg_adj`
+      }
+      if (!is.null(this_object$`context_xg`)) {
+        self$`context_xg` <- this_object$`context_xg`
+      }
+      if (!is.null(this_object$`context_xg_adj`)) {
+        self$`context_xg_adj` <- this_object$`context_xg_adj`
+      }
       if (!is.null(this_object$`pred_goal`)) {
         self$`pred_goal` <- this_object$`pred_goal`
       }
@@ -3321,6 +3373,10 @@ PbpPublic <- R6::R6Class(
       self$`change_off_goalie` <- this_object$`change_off_goalie`
       self$`change_off_goalie_eh_id` <- this_object$`change_off_goalie_eh_id`
       self$`change_off_goalie_api_id` <- this_object$`change_off_goalie_api_id`
+      self$`base_xg` <- this_object$`base_xg`
+      self$`base_xg_adj` <- this_object$`base_xg_adj`
+      self$`context_xg` <- this_object$`context_xg`
+      self$`context_xg_adj` <- this_object$`context_xg_adj`
       self$`pred_goal` <- this_object$`pred_goal`
       self$`pred_goal_adj` <- this_object$`pred_goal_adj`
       self$`goal` <- this_object$`goal`
