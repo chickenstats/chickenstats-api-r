@@ -10,33 +10,17 @@
 #' @field season  integer
 #' @field session  character
 #' @field game_id  integer
-#' @field game_date  character
-#' @field player  character
-#' @field eh_id  character
 #' @field api_id  integer
-#' @field position  character
 #' @field team  character
 #' @field opp_team  character [optional]
 #' @field strength_state  character [optional]
 #' @field period  integer [optional]
 #' @field score_state  character [optional]
-#' @field forwards  character [optional]
-#' @field forwards_eh_id  character [optional]
 #' @field forwards_api_id  character [optional]
-#' @field defense  character [optional]
-#' @field defense_eh_id  character [optional]
 #' @field defense_api_id  character [optional]
-#' @field own_goalie  character [optional]
-#' @field own_goalie_eh_id  character [optional]
 #' @field own_goalie_api_id  integer [optional]
-#' @field opp_forwards  character [optional]
-#' @field opp_forwards_eh_id  character [optional]
 #' @field opp_forwards_api_id  character [optional]
-#' @field opp_defense  character [optional]
-#' @field opp_defense_eh_id  character [optional]
 #' @field opp_defense_api_id  character [optional]
-#' @field opp_goalie  character [optional]
-#' @field opp_goalie_eh_id  character [optional]
 #' @field opp_goalie_api_id  integer [optional]
 #' @field toi  numeric
 #' @field g  integer [optional]
@@ -172,33 +156,17 @@ StatsCreate <- R6::R6Class(
     `season` = NULL,
     `session` = NULL,
     `game_id` = NULL,
-    `game_date` = NULL,
-    `player` = NULL,
-    `eh_id` = NULL,
     `api_id` = NULL,
-    `position` = NULL,
     `team` = NULL,
     `opp_team` = NULL,
     `strength_state` = NULL,
     `period` = NULL,
     `score_state` = NULL,
-    `forwards` = NULL,
-    `forwards_eh_id` = NULL,
     `forwards_api_id` = NULL,
-    `defense` = NULL,
-    `defense_eh_id` = NULL,
     `defense_api_id` = NULL,
-    `own_goalie` = NULL,
-    `own_goalie_eh_id` = NULL,
     `own_goalie_api_id` = NULL,
-    `opp_forwards` = NULL,
-    `opp_forwards_eh_id` = NULL,
     `opp_forwards_api_id` = NULL,
-    `opp_defense` = NULL,
-    `opp_defense_eh_id` = NULL,
     `opp_defense_api_id` = NULL,
-    `opp_goalie` = NULL,
-    `opp_goalie_eh_id` = NULL,
     `opp_goalie_api_id` = NULL,
     `toi` = NULL,
     `g` = NULL,
@@ -332,11 +300,7 @@ StatsCreate <- R6::R6Class(
     #' @param season season
     #' @param session session
     #' @param game_id game_id
-    #' @param game_date game_date
-    #' @param player player
-    #' @param eh_id eh_id
     #' @param api_id api_id
-    #' @param position position
     #' @param team team
     #' @param toi toi
     #' @param id id
@@ -344,23 +308,11 @@ StatsCreate <- R6::R6Class(
     #' @param strength_state strength_state
     #' @param period period
     #' @param score_state score_state
-    #' @param forwards forwards
-    #' @param forwards_eh_id forwards_eh_id
     #' @param forwards_api_id forwards_api_id
-    #' @param defense defense
-    #' @param defense_eh_id defense_eh_id
     #' @param defense_api_id defense_api_id
-    #' @param own_goalie own_goalie
-    #' @param own_goalie_eh_id own_goalie_eh_id
     #' @param own_goalie_api_id own_goalie_api_id
-    #' @param opp_forwards opp_forwards
-    #' @param opp_forwards_eh_id opp_forwards_eh_id
     #' @param opp_forwards_api_id opp_forwards_api_id
-    #' @param opp_defense opp_defense
-    #' @param opp_defense_eh_id opp_defense_eh_id
     #' @param opp_defense_api_id opp_defense_api_id
-    #' @param opp_goalie opp_goalie
-    #' @param opp_goalie_eh_id opp_goalie_eh_id
     #' @param opp_goalie_api_id opp_goalie_api_id
     #' @param g g. Default to 0.
     #' @param g_adj g_adj. Default to 0.
@@ -486,7 +438,7 @@ StatsCreate <- R6::R6Class(
     #' @param dzs dzs. Default to 0.
     #' @param otf otf. Default to 0.
     #' @param ... Other optional arguments.
-    initialize = function(`season`, `session`, `game_id`, `game_date`, `player`, `eh_id`, `api_id`, `position`, `team`, `toi`, `id`, `opp_team` = NULL, `strength_state` = NULL, `period` = NULL, `score_state` = NULL, `forwards` = NULL, `forwards_eh_id` = NULL, `forwards_api_id` = NULL, `defense` = NULL, `defense_eh_id` = NULL, `defense_api_id` = NULL, `own_goalie` = NULL, `own_goalie_eh_id` = NULL, `own_goalie_api_id` = NULL, `opp_forwards` = NULL, `opp_forwards_eh_id` = NULL, `opp_forwards_api_id` = NULL, `opp_defense` = NULL, `opp_defense_eh_id` = NULL, `opp_defense_api_id` = NULL, `opp_goalie` = NULL, `opp_goalie_eh_id` = NULL, `opp_goalie_api_id` = NULL, `g` = 0, `g_adj` = 0, `ihdg` = 0, `a1` = 0, `a2` = 0, `base_ixg` = 0, `base_ixg_adj` = 0, `ixg` = 0, `ixg_adj` = 0, `context_ixg` = 0, `context_ixg_adj` = 0, `isf` = 0, `isf_adj` = 0, `ihdsf` = 0, `imsf` = 0, `imsf_adj` = 0, `ihdm` = 0, `iff` = 0, `iff_adj` = 0, `ihdf` = 0, `isb` = 0, `isb_adj` = 0, `icf` = 0, `icf_adj` = 0, `ibs` = 0, `ibs_adj` = 0, `igive` = 0, `itake` = 0, `ihf` = 0, `iht` = 0, `ifow` = 0, `ifol` = 0, `iozfw` = 0, `iozfl` = 0, `inzfw` = 0, `inzfl` = 0, `idzfw` = 0, `idzfl` = 0, `a1_xg` = 0, `a2_xg` = 0, `ipent0` = 0, `ipent2` = 0, `ipent4` = 0, `ipent5` = 0, `ipent10` = 0, `ipend0` = 0, `ipend2` = 0, `ipend4` = 0, `ipend5` = 0, `ipend10` = 0, `gf` = 0, `ga` = 0, `gf_adj` = 0, `ga_adj` = 0, `hdgf` = 0, `hdga` = 0, `base_xgf` = 0, `base_xga` = 0, `base_xgf_adj` = 0, `base_xga_adj` = 0, `context_xgf` = 0, `context_xga` = 0, `context_xgf_adj` = 0, `context_xga_adj` = 0, `xgf` = 0, `xga` = 0, `xgf_adj` = 0, `xga_adj` = 0, `sf` = 0, `sa` = 0, `sf_adj` = 0, `sa_adj` = 0, `hdsf` = 0, `hdsa` = 0, `ff` = 0, `fa` = 0, `ff_adj` = 0, `fa_adj` = 0, `hdff` = 0, `hdfa` = 0, `cf` = 0, `ca` = 0, `cf_adj` = 0, `ca_adj` = 0, `bsf` = 0, `bsa` = 0, `bsf_adj` = 0, `bsa_adj` = 0, `msf` = 0, `msa` = 0, `msf_adj` = 0, `msa_adj` = 0, `hdmsf` = 0, `hdmsa` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hf` = 0, `ht` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `fow` = 0, `fol` = 0, `ozfw` = 0, `ozfl` = 0, `nzfw` = 0, `nzfl` = 0, `dzfw` = 0, `dzfl` = 0, `pent0` = 0, `pent2` = 0, `pent4` = 0, `pent5` = 0, `pent10` = 0, `pend0` = 0, `pend2` = 0, `pend4` = 0, `pend5` = 0, `pend10` = 0, `ozs` = 0, `nzs` = 0, `dzs` = 0, `otf` = 0, ...) {
+    initialize = function(`season`, `session`, `game_id`, `api_id`, `team`, `toi`, `id`, `opp_team` = NULL, `strength_state` = NULL, `period` = NULL, `score_state` = NULL, `forwards_api_id` = NULL, `defense_api_id` = NULL, `own_goalie_api_id` = NULL, `opp_forwards_api_id` = NULL, `opp_defense_api_id` = NULL, `opp_goalie_api_id` = NULL, `g` = 0, `g_adj` = 0, `ihdg` = 0, `a1` = 0, `a2` = 0, `base_ixg` = 0, `base_ixg_adj` = 0, `ixg` = 0, `ixg_adj` = 0, `context_ixg` = 0, `context_ixg_adj` = 0, `isf` = 0, `isf_adj` = 0, `ihdsf` = 0, `imsf` = 0, `imsf_adj` = 0, `ihdm` = 0, `iff` = 0, `iff_adj` = 0, `ihdf` = 0, `isb` = 0, `isb_adj` = 0, `icf` = 0, `icf_adj` = 0, `ibs` = 0, `ibs_adj` = 0, `igive` = 0, `itake` = 0, `ihf` = 0, `iht` = 0, `ifow` = 0, `ifol` = 0, `iozfw` = 0, `iozfl` = 0, `inzfw` = 0, `inzfl` = 0, `idzfw` = 0, `idzfl` = 0, `a1_xg` = 0, `a2_xg` = 0, `ipent0` = 0, `ipent2` = 0, `ipent4` = 0, `ipent5` = 0, `ipent10` = 0, `ipend0` = 0, `ipend2` = 0, `ipend4` = 0, `ipend5` = 0, `ipend10` = 0, `gf` = 0, `ga` = 0, `gf_adj` = 0, `ga_adj` = 0, `hdgf` = 0, `hdga` = 0, `base_xgf` = 0, `base_xga` = 0, `base_xgf_adj` = 0, `base_xga_adj` = 0, `context_xgf` = 0, `context_xga` = 0, `context_xgf_adj` = 0, `context_xga_adj` = 0, `xgf` = 0, `xga` = 0, `xgf_adj` = 0, `xga_adj` = 0, `sf` = 0, `sa` = 0, `sf_adj` = 0, `sa_adj` = 0, `hdsf` = 0, `hdsa` = 0, `ff` = 0, `fa` = 0, `ff_adj` = 0, `fa_adj` = 0, `hdff` = 0, `hdfa` = 0, `cf` = 0, `ca` = 0, `cf_adj` = 0, `ca_adj` = 0, `bsf` = 0, `bsa` = 0, `bsf_adj` = 0, `bsa_adj` = 0, `msf` = 0, `msa` = 0, `msf_adj` = 0, `msa_adj` = 0, `hdmsf` = 0, `hdmsa` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hf` = 0, `ht` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `fow` = 0, `fol` = 0, `ozfw` = 0, `ozfl` = 0, `nzfw` = 0, `nzfl` = 0, `dzfw` = 0, `dzfl` = 0, `pent0` = 0, `pent2` = 0, `pent4` = 0, `pent5` = 0, `pent10` = 0, `pend0` = 0, `pend2` = 0, `pend4` = 0, `pend5` = 0, `pend10` = 0, `ozs` = 0, `nzs` = 0, `dzs` = 0, `otf` = 0, ...) {
       if (!missing(`season`)) {
         if (!(is.numeric(`season`) && length(`season`) == 1)) {
           stop(paste("Error! Invalid data for `season`. Must be an integer:", `season`))
@@ -505,35 +457,11 @@ StatsCreate <- R6::R6Class(
         }
         self$`game_id` <- `game_id`
       }
-      if (!missing(`game_date`)) {
-        if (!(is.character(`game_date`) && length(`game_date`) == 1)) {
-          stop(paste("Error! Invalid data for `game_date`. Must be a string:", `game_date`))
-        }
-        self$`game_date` <- `game_date`
-      }
-      if (!missing(`player`)) {
-        if (!(is.character(`player`) && length(`player`) == 1)) {
-          stop(paste("Error! Invalid data for `player`. Must be a string:", `player`))
-        }
-        self$`player` <- `player`
-      }
-      if (!missing(`eh_id`)) {
-        if (!(is.character(`eh_id`) && length(`eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `eh_id`. Must be a string:", `eh_id`))
-        }
-        self$`eh_id` <- `eh_id`
-      }
       if (!missing(`api_id`)) {
         if (!(is.numeric(`api_id`) && length(`api_id`) == 1)) {
           stop(paste("Error! Invalid data for `api_id`. Must be an integer:", `api_id`))
         }
         self$`api_id` <- `api_id`
-      }
-      if (!missing(`position`)) {
-        if (!(is.character(`position`) && length(`position`) == 1)) {
-          stop(paste("Error! Invalid data for `position`. Must be a string:", `position`))
-        }
-        self$`position` <- `position`
       }
       if (!missing(`team`)) {
         if (!(is.character(`team`) && length(`team`) == 1)) {
@@ -574,35 +502,11 @@ StatsCreate <- R6::R6Class(
         }
         self$`score_state` <- `score_state`
       }
-      if (!is.null(`forwards`)) {
-        if (!(is.character(`forwards`) && length(`forwards`) == 1)) {
-          stop(paste("Error! Invalid data for `forwards`. Must be a string:", `forwards`))
-        }
-        self$`forwards` <- `forwards`
-      }
-      if (!is.null(`forwards_eh_id`)) {
-        if (!(is.character(`forwards_eh_id`) && length(`forwards_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `forwards_eh_id`. Must be a string:", `forwards_eh_id`))
-        }
-        self$`forwards_eh_id` <- `forwards_eh_id`
-      }
       if (!is.null(`forwards_api_id`)) {
         if (!(is.character(`forwards_api_id`) && length(`forwards_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `forwards_api_id`. Must be a string:", `forwards_api_id`))
         }
         self$`forwards_api_id` <- `forwards_api_id`
-      }
-      if (!is.null(`defense`)) {
-        if (!(is.character(`defense`) && length(`defense`) == 1)) {
-          stop(paste("Error! Invalid data for `defense`. Must be a string:", `defense`))
-        }
-        self$`defense` <- `defense`
-      }
-      if (!is.null(`defense_eh_id`)) {
-        if (!(is.character(`defense_eh_id`) && length(`defense_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `defense_eh_id`. Must be a string:", `defense_eh_id`))
-        }
-        self$`defense_eh_id` <- `defense_eh_id`
       }
       if (!is.null(`defense_api_id`)) {
         if (!(is.character(`defense_api_id`) && length(`defense_api_id`) == 1)) {
@@ -610,35 +514,11 @@ StatsCreate <- R6::R6Class(
         }
         self$`defense_api_id` <- `defense_api_id`
       }
-      if (!is.null(`own_goalie`)) {
-        if (!(is.character(`own_goalie`) && length(`own_goalie`) == 1)) {
-          stop(paste("Error! Invalid data for `own_goalie`. Must be a string:", `own_goalie`))
-        }
-        self$`own_goalie` <- `own_goalie`
-      }
-      if (!is.null(`own_goalie_eh_id`)) {
-        if (!(is.character(`own_goalie_eh_id`) && length(`own_goalie_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `own_goalie_eh_id`. Must be a string:", `own_goalie_eh_id`))
-        }
-        self$`own_goalie_eh_id` <- `own_goalie_eh_id`
-      }
       if (!is.null(`own_goalie_api_id`)) {
         if (!(is.numeric(`own_goalie_api_id`) && length(`own_goalie_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `own_goalie_api_id`. Must be an integer:", `own_goalie_api_id`))
         }
         self$`own_goalie_api_id` <- `own_goalie_api_id`
-      }
-      if (!is.null(`opp_forwards`)) {
-        if (!(is.character(`opp_forwards`) && length(`opp_forwards`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_forwards`. Must be a string:", `opp_forwards`))
-        }
-        self$`opp_forwards` <- `opp_forwards`
-      }
-      if (!is.null(`opp_forwards_eh_id`)) {
-        if (!(is.character(`opp_forwards_eh_id`) && length(`opp_forwards_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_forwards_eh_id`. Must be a string:", `opp_forwards_eh_id`))
-        }
-        self$`opp_forwards_eh_id` <- `opp_forwards_eh_id`
       }
       if (!is.null(`opp_forwards_api_id`)) {
         if (!(is.character(`opp_forwards_api_id`) && length(`opp_forwards_api_id`) == 1)) {
@@ -646,35 +526,11 @@ StatsCreate <- R6::R6Class(
         }
         self$`opp_forwards_api_id` <- `opp_forwards_api_id`
       }
-      if (!is.null(`opp_defense`)) {
-        if (!(is.character(`opp_defense`) && length(`opp_defense`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_defense`. Must be a string:", `opp_defense`))
-        }
-        self$`opp_defense` <- `opp_defense`
-      }
-      if (!is.null(`opp_defense_eh_id`)) {
-        if (!(is.character(`opp_defense_eh_id`) && length(`opp_defense_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_defense_eh_id`. Must be a string:", `opp_defense_eh_id`))
-        }
-        self$`opp_defense_eh_id` <- `opp_defense_eh_id`
-      }
       if (!is.null(`opp_defense_api_id`)) {
         if (!(is.character(`opp_defense_api_id`) && length(`opp_defense_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `opp_defense_api_id`. Must be a string:", `opp_defense_api_id`))
         }
         self$`opp_defense_api_id` <- `opp_defense_api_id`
-      }
-      if (!is.null(`opp_goalie`)) {
-        if (!(is.character(`opp_goalie`) && length(`opp_goalie`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_goalie`. Must be a string:", `opp_goalie`))
-        }
-        self$`opp_goalie` <- `opp_goalie`
-      }
-      if (!is.null(`opp_goalie_eh_id`)) {
-        if (!(is.character(`opp_goalie_eh_id`) && length(`opp_goalie_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_goalie_eh_id`. Must be a string:", `opp_goalie_eh_id`))
-        }
-        self$`opp_goalie_eh_id` <- `opp_goalie_eh_id`
       }
       if (!is.null(`opp_goalie_api_id`)) {
         if (!(is.numeric(`opp_goalie_api_id`) && length(`opp_goalie_api_id`) == 1)) {
@@ -1345,25 +1201,9 @@ StatsCreate <- R6::R6Class(
         StatsCreateObject[["game_id"]] <-
           self$`game_id`
       }
-      if (!is.null(self$`game_date`)) {
-        StatsCreateObject[["game_date"]] <-
-          self$`game_date`
-      }
-      if (!is.null(self$`player`)) {
-        StatsCreateObject[["player"]] <-
-          self$`player`
-      }
-      if (!is.null(self$`eh_id`)) {
-        StatsCreateObject[["eh_id"]] <-
-          self$`eh_id`
-      }
       if (!is.null(self$`api_id`)) {
         StatsCreateObject[["api_id"]] <-
           self$`api_id`
-      }
-      if (!is.null(self$`position`)) {
-        StatsCreateObject[["position"]] <-
-          self$`position`
       }
       if (!is.null(self$`team`)) {
         StatsCreateObject[["team"]] <-
@@ -1385,73 +1225,25 @@ StatsCreate <- R6::R6Class(
         StatsCreateObject[["score_state"]] <-
           self$`score_state`
       }
-      if (!is.null(self$`forwards`)) {
-        StatsCreateObject[["forwards"]] <-
-          self$`forwards`
-      }
-      if (!is.null(self$`forwards_eh_id`)) {
-        StatsCreateObject[["forwards_eh_id"]] <-
-          self$`forwards_eh_id`
-      }
       if (!is.null(self$`forwards_api_id`)) {
         StatsCreateObject[["forwards_api_id"]] <-
           self$`forwards_api_id`
-      }
-      if (!is.null(self$`defense`)) {
-        StatsCreateObject[["defense"]] <-
-          self$`defense`
-      }
-      if (!is.null(self$`defense_eh_id`)) {
-        StatsCreateObject[["defense_eh_id"]] <-
-          self$`defense_eh_id`
       }
       if (!is.null(self$`defense_api_id`)) {
         StatsCreateObject[["defense_api_id"]] <-
           self$`defense_api_id`
       }
-      if (!is.null(self$`own_goalie`)) {
-        StatsCreateObject[["own_goalie"]] <-
-          self$`own_goalie`
-      }
-      if (!is.null(self$`own_goalie_eh_id`)) {
-        StatsCreateObject[["own_goalie_eh_id"]] <-
-          self$`own_goalie_eh_id`
-      }
       if (!is.null(self$`own_goalie_api_id`)) {
         StatsCreateObject[["own_goalie_api_id"]] <-
           self$`own_goalie_api_id`
-      }
-      if (!is.null(self$`opp_forwards`)) {
-        StatsCreateObject[["opp_forwards"]] <-
-          self$`opp_forwards`
-      }
-      if (!is.null(self$`opp_forwards_eh_id`)) {
-        StatsCreateObject[["opp_forwards_eh_id"]] <-
-          self$`opp_forwards_eh_id`
       }
       if (!is.null(self$`opp_forwards_api_id`)) {
         StatsCreateObject[["opp_forwards_api_id"]] <-
           self$`opp_forwards_api_id`
       }
-      if (!is.null(self$`opp_defense`)) {
-        StatsCreateObject[["opp_defense"]] <-
-          self$`opp_defense`
-      }
-      if (!is.null(self$`opp_defense_eh_id`)) {
-        StatsCreateObject[["opp_defense_eh_id"]] <-
-          self$`opp_defense_eh_id`
-      }
       if (!is.null(self$`opp_defense_api_id`)) {
         StatsCreateObject[["opp_defense_api_id"]] <-
           self$`opp_defense_api_id`
-      }
-      if (!is.null(self$`opp_goalie`)) {
-        StatsCreateObject[["opp_goalie"]] <-
-          self$`opp_goalie`
-      }
-      if (!is.null(self$`opp_goalie_eh_id`)) {
-        StatsCreateObject[["opp_goalie_eh_id"]] <-
-          self$`opp_goalie_eh_id`
       }
       if (!is.null(self$`opp_goalie_api_id`)) {
         StatsCreateObject[["opp_goalie_api_id"]] <-
@@ -1976,20 +1768,8 @@ StatsCreate <- R6::R6Class(
       if (!is.null(this_object$`game_id`)) {
         self$`game_id` <- this_object$`game_id`
       }
-      if (!is.null(this_object$`game_date`)) {
-        self$`game_date` <- this_object$`game_date`
-      }
-      if (!is.null(this_object$`player`)) {
-        self$`player` <- this_object$`player`
-      }
-      if (!is.null(this_object$`eh_id`)) {
-        self$`eh_id` <- this_object$`eh_id`
-      }
       if (!is.null(this_object$`api_id`)) {
         self$`api_id` <- this_object$`api_id`
-      }
-      if (!is.null(this_object$`position`)) {
-        self$`position` <- this_object$`position`
       }
       if (!is.null(this_object$`team`)) {
         self$`team` <- this_object$`team`
@@ -2006,56 +1786,20 @@ StatsCreate <- R6::R6Class(
       if (!is.null(this_object$`score_state`)) {
         self$`score_state` <- this_object$`score_state`
       }
-      if (!is.null(this_object$`forwards`)) {
-        self$`forwards` <- this_object$`forwards`
-      }
-      if (!is.null(this_object$`forwards_eh_id`)) {
-        self$`forwards_eh_id` <- this_object$`forwards_eh_id`
-      }
       if (!is.null(this_object$`forwards_api_id`)) {
         self$`forwards_api_id` <- this_object$`forwards_api_id`
-      }
-      if (!is.null(this_object$`defense`)) {
-        self$`defense` <- this_object$`defense`
-      }
-      if (!is.null(this_object$`defense_eh_id`)) {
-        self$`defense_eh_id` <- this_object$`defense_eh_id`
       }
       if (!is.null(this_object$`defense_api_id`)) {
         self$`defense_api_id` <- this_object$`defense_api_id`
       }
-      if (!is.null(this_object$`own_goalie`)) {
-        self$`own_goalie` <- this_object$`own_goalie`
-      }
-      if (!is.null(this_object$`own_goalie_eh_id`)) {
-        self$`own_goalie_eh_id` <- this_object$`own_goalie_eh_id`
-      }
       if (!is.null(this_object$`own_goalie_api_id`)) {
         self$`own_goalie_api_id` <- this_object$`own_goalie_api_id`
-      }
-      if (!is.null(this_object$`opp_forwards`)) {
-        self$`opp_forwards` <- this_object$`opp_forwards`
-      }
-      if (!is.null(this_object$`opp_forwards_eh_id`)) {
-        self$`opp_forwards_eh_id` <- this_object$`opp_forwards_eh_id`
       }
       if (!is.null(this_object$`opp_forwards_api_id`)) {
         self$`opp_forwards_api_id` <- this_object$`opp_forwards_api_id`
       }
-      if (!is.null(this_object$`opp_defense`)) {
-        self$`opp_defense` <- this_object$`opp_defense`
-      }
-      if (!is.null(this_object$`opp_defense_eh_id`)) {
-        self$`opp_defense_eh_id` <- this_object$`opp_defense_eh_id`
-      }
       if (!is.null(this_object$`opp_defense_api_id`)) {
         self$`opp_defense_api_id` <- this_object$`opp_defense_api_id`
-      }
-      if (!is.null(this_object$`opp_goalie`)) {
-        self$`opp_goalie` <- this_object$`opp_goalie`
-      }
-      if (!is.null(this_object$`opp_goalie_eh_id`)) {
-        self$`opp_goalie_eh_id` <- this_object$`opp_goalie_eh_id`
       }
       if (!is.null(this_object$`opp_goalie_api_id`)) {
         self$`opp_goalie_api_id` <- this_object$`opp_goalie_api_id`
@@ -2459,33 +2203,17 @@ StatsCreate <- R6::R6Class(
       self$`season` <- this_object$`season`
       self$`session` <- this_object$`session`
       self$`game_id` <- this_object$`game_id`
-      self$`game_date` <- this_object$`game_date`
-      self$`player` <- this_object$`player`
-      self$`eh_id` <- this_object$`eh_id`
       self$`api_id` <- this_object$`api_id`
-      self$`position` <- this_object$`position`
       self$`team` <- this_object$`team`
       self$`opp_team` <- this_object$`opp_team`
       self$`strength_state` <- this_object$`strength_state`
       self$`period` <- this_object$`period`
       self$`score_state` <- this_object$`score_state`
-      self$`forwards` <- this_object$`forwards`
-      self$`forwards_eh_id` <- this_object$`forwards_eh_id`
       self$`forwards_api_id` <- this_object$`forwards_api_id`
-      self$`defense` <- this_object$`defense`
-      self$`defense_eh_id` <- this_object$`defense_eh_id`
       self$`defense_api_id` <- this_object$`defense_api_id`
-      self$`own_goalie` <- this_object$`own_goalie`
-      self$`own_goalie_eh_id` <- this_object$`own_goalie_eh_id`
       self$`own_goalie_api_id` <- this_object$`own_goalie_api_id`
-      self$`opp_forwards` <- this_object$`opp_forwards`
-      self$`opp_forwards_eh_id` <- this_object$`opp_forwards_eh_id`
       self$`opp_forwards_api_id` <- this_object$`opp_forwards_api_id`
-      self$`opp_defense` <- this_object$`opp_defense`
-      self$`opp_defense_eh_id` <- this_object$`opp_defense_eh_id`
       self$`opp_defense_api_id` <- this_object$`opp_defense_api_id`
-      self$`opp_goalie` <- this_object$`opp_goalie`
-      self$`opp_goalie_eh_id` <- this_object$`opp_goalie_eh_id`
       self$`opp_goalie_api_id` <- this_object$`opp_goalie_api_id`
       self$`toi` <- this_object$`toi`
       self$`g` <- this_object$`g`
@@ -2645,30 +2373,6 @@ StatsCreate <- R6::R6Class(
       } else {
         stop(paste("The JSON input `", input, "` is invalid for StatsCreate: the required field `game_id` is missing."))
       }
-      # check the required field `game_date`
-      if (!is.null(input_json$`game_date`)) {
-        if (!(is.character(input_json$`game_date`) && length(input_json$`game_date`) == 1)) {
-          stop(paste("Error! Invalid data for `game_date`. Must be a string:", input_json$`game_date`))
-        }
-      } else {
-        stop(paste("The JSON input `", input, "` is invalid for StatsCreate: the required field `game_date` is missing."))
-      }
-      # check the required field `player`
-      if (!is.null(input_json$`player`)) {
-        if (!(is.character(input_json$`player`) && length(input_json$`player`) == 1)) {
-          stop(paste("Error! Invalid data for `player`. Must be a string:", input_json$`player`))
-        }
-      } else {
-        stop(paste("The JSON input `", input, "` is invalid for StatsCreate: the required field `player` is missing."))
-      }
-      # check the required field `eh_id`
-      if (!is.null(input_json$`eh_id`)) {
-        if (!(is.character(input_json$`eh_id`) && length(input_json$`eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `eh_id`. Must be a string:", input_json$`eh_id`))
-        }
-      } else {
-        stop(paste("The JSON input `", input, "` is invalid for StatsCreate: the required field `eh_id` is missing."))
-      }
       # check the required field `api_id`
       if (!is.null(input_json$`api_id`)) {
         if (!(is.numeric(input_json$`api_id`) && length(input_json$`api_id`) == 1)) {
@@ -2676,14 +2380,6 @@ StatsCreate <- R6::R6Class(
         }
       } else {
         stop(paste("The JSON input `", input, "` is invalid for StatsCreate: the required field `api_id` is missing."))
-      }
-      # check the required field `position`
-      if (!is.null(input_json$`position`)) {
-        if (!(is.character(input_json$`position`) && length(input_json$`position`) == 1)) {
-          stop(paste("Error! Invalid data for `position`. Must be a string:", input_json$`position`))
-        }
-      } else {
-        stop(paste("The JSON input `", input, "` is invalid for StatsCreate: the required field `position` is missing."))
       }
       # check the required field `team`
       if (!is.null(input_json$`team`)) {
@@ -2736,28 +2432,8 @@ StatsCreate <- R6::R6Class(
         return(FALSE)
       }
 
-      # check if the required `game_date` is null
-      if (is.null(self$`game_date`)) {
-        return(FALSE)
-      }
-
-      # check if the required `player` is null
-      if (is.null(self$`player`)) {
-        return(FALSE)
-      }
-
-      # check if the required `eh_id` is null
-      if (is.null(self$`eh_id`)) {
-        return(FALSE)
-      }
-
       # check if the required `api_id` is null
       if (is.null(self$`api_id`)) {
-        return(FALSE)
-      }
-
-      # check if the required `position` is null
-      if (is.null(self$`position`)) {
         return(FALSE)
       }
 
@@ -2800,29 +2476,9 @@ StatsCreate <- R6::R6Class(
         invalid_fields["game_id"] <- "Non-nullable required field `game_id` cannot be null."
       }
 
-      # check if the required `game_date` is null
-      if (is.null(self$`game_date`)) {
-        invalid_fields["game_date"] <- "Non-nullable required field `game_date` cannot be null."
-      }
-
-      # check if the required `player` is null
-      if (is.null(self$`player`)) {
-        invalid_fields["player"] <- "Non-nullable required field `player` cannot be null."
-      }
-
-      # check if the required `eh_id` is null
-      if (is.null(self$`eh_id`)) {
-        invalid_fields["eh_id"] <- "Non-nullable required field `eh_id` cannot be null."
-      }
-
       # check if the required `api_id` is null
       if (is.null(self$`api_id`)) {
         invalid_fields["api_id"] <- "Non-nullable required field `api_id` cannot be null."
-      }
-
-      # check if the required `position` is null
-      if (is.null(self$`position`)) {
-        invalid_fields["position"] <- "Non-nullable required field `position` cannot be null."
       }
 
       # check if the required `team` is null

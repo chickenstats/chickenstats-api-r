@@ -10,6 +10,7 @@
 #' @field email  character [optional]
 #' @field is_active  character [optional]
 #' @field is_superuser  character [optional]
+#' @field is_contributor  character [optional]
 #' @field full_name  character [optional]
 #' @field tier  character [optional]
 #' @field password  character [optional]
@@ -22,6 +23,7 @@ UserUpdate <- R6::R6Class(
     `email` = NULL,
     `is_active` = NULL,
     `is_superuser` = NULL,
+    `is_contributor` = NULL,
     `full_name` = NULL,
     `tier` = NULL,
     `password` = NULL,
@@ -32,11 +34,12 @@ UserUpdate <- R6::R6Class(
     #' @param email email
     #' @param is_active is_active. Default to TRUE.
     #' @param is_superuser is_superuser. Default to FALSE.
+    #' @param is_contributor is_contributor. Default to FALSE.
     #' @param full_name full_name
     #' @param tier tier. Default to "free".
     #' @param password password
     #' @param ... Other optional arguments.
-    initialize = function(`email` = NULL, `is_active` = TRUE, `is_superuser` = FALSE, `full_name` = NULL, `tier` = "free", `password` = NULL, ...) {
+    initialize = function(`email` = NULL, `is_active` = TRUE, `is_superuser` = FALSE, `is_contributor` = FALSE, `full_name` = NULL, `tier` = "free", `password` = NULL, ...) {
       if (!is.null(`email`)) {
         if (!(is.character(`email`) && length(`email`) == 1)) {
           stop(paste("Error! Invalid data for `email`. Must be a string:", `email`))
@@ -54,6 +57,12 @@ UserUpdate <- R6::R6Class(
           stop(paste("Error! Invalid data for `is_superuser`. Must be a boolean:", `is_superuser`))
         }
         self$`is_superuser` <- `is_superuser`
+      }
+      if (!is.null(`is_contributor`)) {
+        if (!(is.logical(`is_contributor`) && length(`is_contributor`) == 1)) {
+          stop(paste("Error! Invalid data for `is_contributor`. Must be a boolean:", `is_contributor`))
+        }
+        self$`is_contributor` <- `is_contributor`
       }
       if (!is.null(`full_name`)) {
         if (!(is.character(`full_name`) && length(`full_name`) == 1)) {
@@ -118,6 +127,10 @@ UserUpdate <- R6::R6Class(
         UserUpdateObject[["is_superuser"]] <-
           self$`is_superuser`
       }
+      if (!is.null(self$`is_contributor`)) {
+        UserUpdateObject[["is_contributor"]] <-
+          self$`is_contributor`
+      }
       if (!is.null(self$`full_name`)) {
         UserUpdateObject[["full_name"]] <-
           self$`full_name`
@@ -148,6 +161,9 @@ UserUpdate <- R6::R6Class(
       }
       if (!is.null(this_object$`is_superuser`)) {
         self$`is_superuser` <- this_object$`is_superuser`
+      }
+      if (!is.null(this_object$`is_contributor`)) {
+        self$`is_contributor` <- this_object$`is_contributor`
       }
       if (!is.null(this_object$`full_name`)) {
         self$`full_name` <- this_object$`full_name`
@@ -182,6 +198,7 @@ UserUpdate <- R6::R6Class(
       self$`email` <- this_object$`email`
       self$`is_active` <- this_object$`is_active`
       self$`is_superuser` <- this_object$`is_superuser`
+      self$`is_contributor` <- this_object$`is_contributor`
       self$`full_name` <- this_object$`full_name`
       self$`tier` <- this_object$`tier`
       self$`password` <- this_object$`password`

@@ -22,6 +22,7 @@ test_that("ReadGameStats", {
   # @param score_state character  (optional)
   # @param teammates character  (optional)
   # @param opposition character  (optional)
+  # @param include array[character]  (optional)
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [StatsGameResponse]
@@ -45,6 +46,7 @@ test_that("ReadSeasonStats", {
   # @param score_state character  (optional)
   # @param teammates character  (optional)
   # @param opposition character  (optional)
+  # @param include array[character]  (optional)
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [StatsSeasonResponse]

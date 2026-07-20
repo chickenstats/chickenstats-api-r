@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **ReadPbp**
-> PbpResponse ReadPbp(season = var.season, sessions = var.sessions, game_id = var.game_id, event = var.event, player_1 = var.player_1, goalie = var.goalie, event_team = var.event_team, opp_team = var.opp_team, strength_state = var.strength_state, limit = 10000, offset = 0)
+> PbpResponse ReadPbp(season = var.season, sessions = var.sessions, game_id = var.game_id, play_id = var.play_id, event = var.event, player_1 = var.player_1, goalie = var.goalie, event_team = var.event_team, opp_team = var.opp_team, strength_state = var.strength_state, include = var.include, limit = 10000, offset = 0)
 
 Read Pbp
 
@@ -24,12 +24,14 @@ library(chickenstats.api)
 var_season <- c(123) # array[integer] |  (Optional)
 var_sessions <- c("R") # array[character] |  (Optional)
 var_game_id <- c(123) # array[integer] |  (Optional)
+var_play_id <- c(123) # array[integer] |  (Optional)
 var_event <- c("inner_example") # array[character] |  (Optional)
 var_player_1 <- c("inner_example") # array[character] |  (Optional)
 var_goalie <- c("inner_example") # array[character] |  (Optional)
 var_event_team <- c("inner_example") # array[character] |  (Optional)
 var_opp_team <- c("inner_example") # array[character] |  (Optional)
 var_strength_state <- c("5v5") # array[character] |  (Optional)
+var_include <- c("player") # array[character] |  (Optional)
 var_limit <- 10000 # integer |  (Optional)
 var_offset <- 0 # integer |  (Optional)
 
@@ -37,8 +39,8 @@ api_instance <- PlayByPlayApi$new()
 # Configure OAuth2 access token for authorization: OAuth2PasswordBearer
 api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$ReadPbp(season = var_season, sessions = var_sessions, game_id = var_game_id, event = var_event, player_1 = var_player_1, goalie = var_goalie, event_team = var_event_team, opp_team = var_opp_team, strength_state = var_strength_state, limit = var_limit, offset = var_offsetdata_file = "result.txt")
-result <- api_instance$ReadPbp(season = var_season, sessions = var_sessions, game_id = var_game_id, event = var_event, player_1 = var_player_1, goalie = var_goalie, event_team = var_event_team, opp_team = var_opp_team, strength_state = var_strength_state, limit = var_limit, offset = var_offset)
+# result <- api_instance$ReadPbp(season = var_season, sessions = var_sessions, game_id = var_game_id, play_id = var_play_id, event = var_event, player_1 = var_player_1, goalie = var_goalie, event_team = var_event_team, opp_team = var_opp_team, strength_state = var_strength_state, include = var_include, limit = var_limit, offset = var_offsetdata_file = "result.txt")
+result <- api_instance$ReadPbp(season = var_season, sessions = var_sessions, game_id = var_game_id, play_id = var_play_id, event = var_event, player_1 = var_player_1, goalie = var_goalie, event_team = var_event_team, opp_team = var_opp_team, strength_state = var_strength_state, include = var_include, limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -49,12 +51,14 @@ Name | Type | Description  | Notes
  **season** | list( **integer** )|  | [optional] 
  **sessions** | Enum [R, P] |  | [optional] 
  **game_id** | list( **integer** )|  | [optional] 
+ **play_id** | list( **integer** )|  | [optional] 
  **event** | list( **character** )|  | [optional] 
  **player_1** | list( **character** )|  | [optional] 
  **goalie** | list( **character** )|  | [optional] 
  **event_team** | list( **character** )|  | [optional] 
  **opp_team** | list( **character** )|  | [optional] 
  **strength_state** | Enum [5v5, 4v4, 3v3, 5v4, 5v3, 4v3, 4v5, 3v4, 3v5] |  | [optional] 
+ **include** | Enum [player, game] |  | [optional] 
  **limit** | **integer**|  | [optional] [default to 10000]
  **offset** | **integer**|  | [optional] [default to 0]
 

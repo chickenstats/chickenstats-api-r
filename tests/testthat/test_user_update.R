@@ -26,6 +26,13 @@ test_that("is_superuser", {
   #expect_equal(model.instance$`is_superuser`, "EXPECTED_RESULT")
 })
 
+test_that("is_contributor", {
+  # tests for the property `is_contributor` (character)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`is_contributor`, "EXPECTED_RESULT")
+})
+
 test_that("full_name", {
   # tests for the property `full_name` (character)
 

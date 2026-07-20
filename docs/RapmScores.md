@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **season** | **integer** |  | 
 **session** | **character** |  | 
 **situation** | **character** |  | 
-**name** | **character** |  | [optional] 
 **team** | **character** |  | [optional] 
 **pos** | **character** |  | [optional] 
 **pos2** | **character** |  | [optional] 

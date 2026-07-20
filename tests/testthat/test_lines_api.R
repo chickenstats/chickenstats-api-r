@@ -19,21 +19,10 @@ test_that("ReadGameLines", {
   # @param level character  (optional)
   # @param linemates character  (optional)
   # @param opposition character  (optional)
+  # @param include array[character]  (optional)
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [LinesGameResponse]
-
-  # uncomment below to test the operation
-  #expect_equal(result, "EXPECTED_RESULT")
-})
-
-test_that("ReadLineIds", {
-  # tests for ReadLineIds
-  # base path: https://api.chickenstats.com
-  # Read Line Ids
-  # @param season array[integer]  (optional)
-  # @param sessions array[character]  (optional)
-  # @return [array[character]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -46,6 +35,18 @@ test_that("ReadLinesGameIds", {
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)
   # @return [array[integer]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("ReadLinesLineIds", {
+  # tests for ReadLinesLineIds
+  # base path: https://api.chickenstats.com
+  # Read Lines Line Ids
+  # @param season array[integer]  (optional)
+  # @param sessions array[character]  (optional)
+  # @return [array[character]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

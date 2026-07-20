@@ -4,26 +4,26 @@ All URIs are relative to *https://api.chickenstats.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**LoginAuth0Token**](LoginApi.md#LoginAuth0Token) | **POST** /api/v1/login/auth0-token | Login Auth0 Token
-[**LoginCallback**](LoginApi.md#LoginCallback) | **POST** /api/v1/login/callback | Login Callback
+[**LoginFirebaseToken**](LoginApi.md#LoginFirebaseToken) | **POST** /api/v1/login/firebase-token | Login Firebase Token
+[**LoginVerifyToken**](LoginApi.md#LoginVerifyToken) | **POST** /api/v1/login/verify-token | Login Verify Token
 [**RecoverPassword**](LoginApi.md#RecoverPassword) | **POST** /api/v1/password-recovery/{email} | Recover Password
 [**RecoverPasswordHtmlContent**](LoginApi.md#RecoverPasswordHtmlContent) | **POST** /api/v1/password-recovery-html-content/{email} | Recover Password Html Content
 [**ResetPassword**](LoginApi.md#ResetPassword) | **POST** /api/v1/reset-password/ | Reset Password
 [**TestToken**](LoginApi.md#TestToken) | **POST** /api/v1/login/test-token | Test Token
 
 
-# **LoginAuth0Token**
-> Token LoginAuth0Token(username, password, grant_type = var.grant_type, scope = "", client_id = var.client_id, client_secret = var.client_secret)
+# **LoginFirebaseToken**
+> Token LoginFirebaseToken(username, password, grant_type = var.grant_type, scope = "", client_id = var.client_id, client_secret = var.client_secret)
 
-Login Auth0 Token
+Login Firebase Token
 
-Exchange email + password for an Auth0 access token (for use with API data endpoints).
+Exchange email + password for a Firebase ID token (for use with API data endpoints).
 
 ### Example
 ```R
 library(chickenstats.api)
 
-# Login Auth0 Token
+# Login Firebase Token
 #
 # prepare function argument(s)
 var_username <- "username_example" # character | 
@@ -35,8 +35,8 @@ var_client_secret <- "client_secret_example" # character |  (Optional)
 
 api_instance <- LoginApi$new()
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$LoginAuth0Token(var_username, var_password, grant_type = var_grant_type, scope = var_scope, client_id = var_client_id, client_secret = var_client_secretdata_file = "result.txt")
-result <- api_instance$LoginAuth0Token(var_username, var_password, grant_type = var_grant_type, scope = var_scope, client_id = var_client_id, client_secret = var_client_secret)
+# result <- api_instance$LoginFirebaseToken(var_username, var_password, grant_type = var_grant_type, scope = var_scope, client_id = var_client_id, client_secret = var_client_secretdata_file = "result.txt")
+result <- api_instance$LoginFirebaseToken(var_username, var_password, grant_type = var_grant_type, scope = var_scope, client_id = var_client_id, client_secret = var_client_secret)
 dput(result)
 ```
 
@@ -70,26 +70,26 @@ No authorization required
 | **200** | Successful Response |  -  |
 | **422** | Validation Error |  -  |
 
-# **LoginCallback**
-> Token LoginCallback(code)
+# **LoginVerifyToken**
+> Token LoginVerifyToken(id_token)
 
-Login Callback
+Login Verify Token
 
-Exchange an Auth0 authorization code (Universal Login) for a local HS256 session token.
+Exchange a Firebase ID token for a local session token.  Takes a client-obtained Firebase ID token (e.g. from \"Sign in with Google\") and returns a local HS256 session token for the FastHTML frontend's session cookie.
 
 ### Example
 ```R
 library(chickenstats.api)
 
-# Login Callback
+# Login Verify Token
 #
 # prepare function argument(s)
-var_code <- "code_example" # character | 
+var_id_token <- IdToken$new("id_token_example") # IdToken | 
 
 api_instance <- LoginApi$new()
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$LoginCallback(var_codedata_file = "result.txt")
-result <- api_instance$LoginCallback(var_code)
+# result <- api_instance$LoginVerifyToken(var_id_tokendata_file = "result.txt")
+result <- api_instance$LoginVerifyToken(var_id_token)
 dput(result)
 ```
 
@@ -97,7 +97,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **character**|  | 
+ **id_token** | [**IdToken**](IdToken.md)|  | 
 
 ### Return type
 
@@ -109,7 +109,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

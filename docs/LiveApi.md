@@ -21,8 +21,6 @@ library(chickenstats.api)
 #
 
 api_instance <- LiveApi$new()
-# Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$ReadLiveGames(data_file = "result.txt")
 result <- api_instance$ReadLiveGames()
@@ -38,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+No authorization required
 
 ### HTTP request headers
 

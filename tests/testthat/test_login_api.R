@@ -5,11 +5,11 @@ context("Test LoginApi")
 
 api_instance <- LoginApi$new()
 
-test_that("LoginAuth0Token", {
-  # tests for LoginAuth0Token
+test_that("LoginFirebaseToken", {
+  # tests for LoginFirebaseToken
   # base path: https://api.chickenstats.com
-  # Login Auth0 Token
-  # Exchange email + password for an Auth0 access token (for use with API data endpoints).
+  # Login Firebase Token
+  # Exchange email + password for a Firebase ID token (for use with API data endpoints).
   # @param username character 
   # @param password character 
   # @param grant_type character  (optional)
@@ -22,12 +22,12 @@ test_that("LoginAuth0Token", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("LoginCallback", {
-  # tests for LoginCallback
+test_that("LoginVerifyToken", {
+  # tests for LoginVerifyToken
   # base path: https://api.chickenstats.com
-  # Login Callback
-  # Exchange an Auth0 authorization code (Universal Login) for a local HS256 session token.
-  # @param code character 
+  # Login Verify Token
+  # Exchange a Firebase ID token for a local session token.  Takes a client-obtained Firebase ID token (e.g. from \&quot;Sign in with Google\&quot;) and returns a local HS256 session token for the FastHTML frontend&#39;s session cookie.
+  # @param id_token IdToken 
   # @return [Token]
 
   # uncomment below to test the operation
