@@ -25,6 +25,7 @@
 #' var_strength_state <- c("5v5") # array[character] |  (Optional)
 #' var_score_state <- "score_state_example" # character |  (Optional)
 #' var_level <- "level_example" # character |  (Optional)
+#' var_include <- c("game") # array[character] |  (Optional)
 #' var_limit <- 10000 # integer |  (Optional)
 #' var_offset <- 0 # integer |  (Optional)
 #'
@@ -35,8 +36,8 @@
 #' api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ReadGameTeamStats(season = var_season, sessions = var_sessions, game_id = var_game_id, team = var_team, opp_team = var_opp_team, strength_state = var_strength_state, score_state = var_score_state, level = var_level, limit = var_limit, offset = var_offsetdata_file = "result.txt")
-#' result <- api_instance$ReadGameTeamStats(season = var_season, sessions = var_sessions, game_id = var_game_id, team = var_team, opp_team = var_opp_team, strength_state = var_strength_state, score_state = var_score_state, level = var_level, limit = var_limit, offset = var_offset)
+#' # result <- api_instance$ReadGameTeamStats(season = var_season, sessions = var_sessions, game_id = var_game_id, team = var_team, opp_team = var_opp_team, strength_state = var_strength_state, score_state = var_score_state, level = var_level, include = var_include, limit = var_limit, offset = var_offsetdata_file = "result.txt")
+#' result <- api_instance$ReadGameTeamStats(season = var_season, sessions = var_sessions, game_id = var_game_id, team = var_team, opp_team = var_opp_team, strength_state = var_strength_state, score_state = var_score_state, level = var_level, include = var_include, limit = var_limit, offset = var_offset)
 #' dput(result)
 #'
 #'
@@ -132,14 +133,15 @@ TeamStatsApi <- R6::R6Class(
     #' @param strength_state (optional) No description
     #' @param score_state (optional) No description
     #' @param level (optional) No description
+    #' @param include (optional) No description
     #' @param limit (optional) No description (default value: 10000)
     #' @param offset (optional) No description (default value: 0)
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #'
     #' @return TeamStatsGameResponse
-    ReadGameTeamStats = function(season = NULL, sessions = NULL, game_id = NULL, team = NULL, opp_team = NULL, strength_state = NULL, score_state = NULL, level = NULL, limit = 10000, offset = 0, data_file = NULL, ...) {
-      local_var_response <- self$ReadGameTeamStatsWithHttpInfo(season, sessions, game_id, team, opp_team, strength_state, score_state, level, limit, offset, data_file = data_file, ...)
+    ReadGameTeamStats = function(season = NULL, sessions = NULL, game_id = NULL, team = NULL, opp_team = NULL, strength_state = NULL, score_state = NULL, level = NULL, include = NULL, limit = 10000, offset = 0, data_file = NULL, ...) {
+      local_var_response <- self$ReadGameTeamStatsWithHttpInfo(season, sessions, game_id, team, opp_team, strength_state, score_state, level, include, limit, offset, data_file = data_file, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -162,13 +164,14 @@ TeamStatsApi <- R6::R6Class(
     #' @param strength_state (optional) No description
     #' @param score_state (optional) No description
     #' @param level (optional) No description
+    #' @param include (optional) No description
     #' @param limit (optional) No description (default value: 10000)
     #' @param offset (optional) No description (default value: 0)
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #'
     #' @return API response (TeamStatsGameResponse) with additional information such as HTTP status code, headers
-    ReadGameTeamStatsWithHttpInfo = function(season = NULL, sessions = NULL, game_id = NULL, team = NULL, opp_team = NULL, strength_state = NULL, score_state = NULL, level = NULL, limit = 10000, offset = 0, data_file = NULL, ...) {
+    ReadGameTeamStatsWithHttpInfo = function(season = NULL, sessions = NULL, game_id = NULL, team = NULL, opp_team = NULL, strength_state = NULL, score_state = NULL, level = NULL, include = NULL, limit = 10000, offset = 0, data_file = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -177,6 +180,7 @@ TeamStatsApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
+
 
 
 
@@ -241,6 +245,15 @@ TeamStatsApi <- R6::R6Class(
         stop("Invalid value for level when calling TeamStatsApi$ReadGameTeamStats. Must be [game, period].")
       }
       query_params[["level"]] <- `level`
+
+      # explore
+      for (query_item in `include`) {
+        # validate enum values
+        if (!is.null(query_item) && !(query_item %in% c("game"))) {
+          stop("Invalid value for include when calling TeamStatsApi$ReadGameTeamStats. Must be [game].")
+        }
+        query_params[["include"]] <- c(query_params[["include"]], list(`include` = query_item))
+      }
 
       query_params[["limit"]] <- `limit`
 

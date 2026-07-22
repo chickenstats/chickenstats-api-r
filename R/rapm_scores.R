@@ -12,7 +12,6 @@
 #' @field season  integer
 #' @field session  character
 #' @field situation  character
-#' @field name  character [optional]
 #' @field team  character [optional]
 #' @field pos  character [optional]
 #' @field pos2  character [optional]
@@ -82,7 +81,6 @@ RapmScores <- R6::R6Class(
     `season` = NULL,
     `session` = NULL,
     `situation` = NULL,
-    `name` = NULL,
     `team` = NULL,
     `pos` = NULL,
     `pos2` = NULL,
@@ -150,7 +148,6 @@ RapmScores <- R6::R6Class(
     #' @param season season
     #' @param session session
     #' @param situation situation
-    #' @param name name
     #' @param team team
     #' @param pos pos
     #' @param pos2 pos2
@@ -210,7 +207,7 @@ RapmScores <- R6::R6Class(
     #' @param total_rapm_corsi_z total_rapm_corsi_z
     #' @param total_rapm_goals_z total_rapm_goals_z
     #' @param ... Other optional arguments.
-    initialize = function(`id`, `api_id`, `season`, `session`, `situation`, `name` = NULL, `team` = NULL, `pos` = NULL, `pos2` = NULL, `toi_minutes` = NULL, `rapm_off` = NULL, `rapm_def` = NULL, `off_coeff_corsi` = NULL, `off_coeff_goals` = NULL, `def_coeff_corsi` = NULL, `def_coeff_goals` = NULL, `metric_for_context_xg` = NULL, `metric_against_context_xg` = NULL, `metric_diff_context_xg` = NULL, `metric_for_corsi` = NULL, `metric_against_corsi` = NULL, `metric_diff_corsi` = NULL, `metric_for_goals` = NULL, `metric_against_goals` = NULL, `metric_diff_goals` = NULL, `on_ice_for_60_context_xg` = NULL, `on_ice_against_60_context_xg` = NULL, `on_ice_diff_60_context_xg` = NULL, `on_ice_for_60_corsi` = NULL, `on_ice_against_60_corsi` = NULL, `on_ice_diff_60_corsi` = NULL, `on_ice_for_60_goals` = NULL, `on_ice_against_60_goals` = NULL, `on_ice_diff_60_goals` = NULL, `total_rapm_context_xg` = NULL, `total_rapm_corsi` = NULL, `total_rapm_goals` = NULL, `off_coeff_context_xg_z` = NULL, `off_coeff_corsi_z` = NULL, `off_coeff_goals_z` = NULL, `def_coeff_context_xg_z` = NULL, `def_coeff_corsi_z` = NULL, `def_coeff_goals_z` = NULL, `metric_for_context_xg_z` = NULL, `metric_against_context_xg_z` = NULL, `metric_diff_context_xg_z` = NULL, `metric_for_corsi_z` = NULL, `metric_against_corsi_z` = NULL, `metric_diff_corsi_z` = NULL, `metric_for_goals_z` = NULL, `metric_against_goals_z` = NULL, `metric_diff_goals_z` = NULL, `on_ice_for_60_context_xg_z` = NULL, `on_ice_against_60_context_xg_z` = NULL, `on_ice_diff_60_context_xg_z` = NULL, `on_ice_for_60_corsi_z` = NULL, `on_ice_against_60_corsi_z` = NULL, `on_ice_diff_60_corsi_z` = NULL, `on_ice_for_60_goals_z` = NULL, `on_ice_against_60_goals_z` = NULL, `on_ice_diff_60_goals_z` = NULL, `total_rapm_context_xg_z` = NULL, `total_rapm_corsi_z` = NULL, `total_rapm_goals_z` = NULL, ...) {
+    initialize = function(`id`, `api_id`, `season`, `session`, `situation`, `team` = NULL, `pos` = NULL, `pos2` = NULL, `toi_minutes` = NULL, `rapm_off` = NULL, `rapm_def` = NULL, `off_coeff_corsi` = NULL, `off_coeff_goals` = NULL, `def_coeff_corsi` = NULL, `def_coeff_goals` = NULL, `metric_for_context_xg` = NULL, `metric_against_context_xg` = NULL, `metric_diff_context_xg` = NULL, `metric_for_corsi` = NULL, `metric_against_corsi` = NULL, `metric_diff_corsi` = NULL, `metric_for_goals` = NULL, `metric_against_goals` = NULL, `metric_diff_goals` = NULL, `on_ice_for_60_context_xg` = NULL, `on_ice_against_60_context_xg` = NULL, `on_ice_diff_60_context_xg` = NULL, `on_ice_for_60_corsi` = NULL, `on_ice_against_60_corsi` = NULL, `on_ice_diff_60_corsi` = NULL, `on_ice_for_60_goals` = NULL, `on_ice_against_60_goals` = NULL, `on_ice_diff_60_goals` = NULL, `total_rapm_context_xg` = NULL, `total_rapm_corsi` = NULL, `total_rapm_goals` = NULL, `off_coeff_context_xg_z` = NULL, `off_coeff_corsi_z` = NULL, `off_coeff_goals_z` = NULL, `def_coeff_context_xg_z` = NULL, `def_coeff_corsi_z` = NULL, `def_coeff_goals_z` = NULL, `metric_for_context_xg_z` = NULL, `metric_against_context_xg_z` = NULL, `metric_diff_context_xg_z` = NULL, `metric_for_corsi_z` = NULL, `metric_against_corsi_z` = NULL, `metric_diff_corsi_z` = NULL, `metric_for_goals_z` = NULL, `metric_against_goals_z` = NULL, `metric_diff_goals_z` = NULL, `on_ice_for_60_context_xg_z` = NULL, `on_ice_against_60_context_xg_z` = NULL, `on_ice_diff_60_context_xg_z` = NULL, `on_ice_for_60_corsi_z` = NULL, `on_ice_against_60_corsi_z` = NULL, `on_ice_diff_60_corsi_z` = NULL, `on_ice_for_60_goals_z` = NULL, `on_ice_against_60_goals_z` = NULL, `on_ice_diff_60_goals_z` = NULL, `total_rapm_context_xg_z` = NULL, `total_rapm_corsi_z` = NULL, `total_rapm_goals_z` = NULL, ...) {
       if (!missing(`id`)) {
         if (!(is.character(`id`) && length(`id`) == 1)) {
           stop(paste("Error! Invalid data for `id`. Must be a string:", `id`))
@@ -240,12 +237,6 @@ RapmScores <- R6::R6Class(
           stop(paste("Error! Invalid data for `situation`. Must be a string:", `situation`))
         }
         self$`situation` <- `situation`
-      }
-      if (!is.null(`name`)) {
-        if (!(is.character(`name`) && length(`name`) == 1)) {
-          stop(paste("Error! Invalid data for `name`. Must be a string:", `name`))
-        }
-        self$`name` <- `name`
       }
       if (!is.null(`team`)) {
         if (!(is.character(`team`) && length(`team`) == 1)) {
@@ -482,10 +473,6 @@ RapmScores <- R6::R6Class(
       if (!is.null(self$`situation`)) {
         RapmScoresObject[["situation"]] <-
           self$`situation`
-      }
-      if (!is.null(self$`name`)) {
-        RapmScoresObject[["name"]] <-
-          self$`name`
       }
       if (!is.null(self$`team`)) {
         RapmScoresObject[["team"]] <-
@@ -744,9 +731,6 @@ RapmScores <- R6::R6Class(
       if (!is.null(this_object$`situation`)) {
         self$`situation` <- this_object$`situation`
       }
-      if (!is.null(this_object$`name`)) {
-        self$`name` <- this_object$`name`
-      }
       if (!is.null(this_object$`team`)) {
         self$`team` <- this_object$`team`
       }
@@ -947,7 +931,6 @@ RapmScores <- R6::R6Class(
       self$`season` <- this_object$`season`
       self$`session` <- this_object$`session`
       self$`situation` <- this_object$`situation`
-      self$`name` <- this_object$`name`
       self$`team` <- this_object$`team`
       self$`pos` <- this_object$`pos`
       self$`pos2` <- this_object$`pos2`

@@ -40,13 +40,6 @@ test_that("situation", {
   #expect_equal(model.instance$`situation`, "EXPECTED_RESULT")
 })
 
-test_that("name", {
-  # tests for the property `name` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`name`, "EXPECTED_RESULT")
-})
-
 test_that("team", {
   # tests for the property `team` (character)
 

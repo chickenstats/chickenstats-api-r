@@ -516,13 +516,6 @@ test_that("game_id", {
   #expect_equal(model.instance$`game_id`, "EXPECTED_RESULT")
 })
 
-test_that("game_date", {
-  # tests for the property `game_date` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`game_date`, "EXPECTED_RESULT")
-})
-
 test_that("team", {
   # tests for the property `team` (character)
 

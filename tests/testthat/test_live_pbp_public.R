@@ -33,13 +33,6 @@ test_that("game_id", {
   #expect_equal(model.instance$`game_id`, "EXPECTED_RESULT")
 })
 
-test_that("game_date", {
-  # tests for the property `game_date` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`game_date`, "EXPECTED_RESULT")
-})
-
 test_that("event_idx", {
   # tests for the property `event_idx` (integer)
 
@@ -138,32 +131,11 @@ test_that("high_danger", {
   #expect_equal(model.instance$`high_danger`, "EXPECTED_RESULT")
 })
 
-test_that("player_1", {
-  # tests for the property `player_1` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`player_1`, "EXPECTED_RESULT")
-})
-
 test_that("player_1_api_id", {
   # tests for the property `player_1_api_id` (integer)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`player_1_api_id`, "EXPECTED_RESULT")
-})
-
-test_that("player_1_eh_id", {
-  # tests for the property `player_1_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`player_1_eh_id`, "EXPECTED_RESULT")
-})
-
-test_that("player_1_position", {
-  # tests for the property `player_1_position` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`player_1_position`, "EXPECTED_RESULT")
 })
 
 test_that("player_1_type", {
@@ -173,32 +145,11 @@ test_that("player_1_type", {
   #expect_equal(model.instance$`player_1_type`, "EXPECTED_RESULT")
 })
 
-test_that("player_2", {
-  # tests for the property `player_2` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`player_2`, "EXPECTED_RESULT")
-})
-
 test_that("player_2_api_id", {
   # tests for the property `player_2_api_id` (integer)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`player_2_api_id`, "EXPECTED_RESULT")
-})
-
-test_that("player_2_eh_id", {
-  # tests for the property `player_2_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`player_2_eh_id`, "EXPECTED_RESULT")
-})
-
-test_that("player_2_position", {
-  # tests for the property `player_2_position` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`player_2_position`, "EXPECTED_RESULT")
 })
 
 test_that("player_2_type", {
@@ -208,32 +159,11 @@ test_that("player_2_type", {
   #expect_equal(model.instance$`player_2_type`, "EXPECTED_RESULT")
 })
 
-test_that("player_3", {
-  # tests for the property `player_3` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`player_3`, "EXPECTED_RESULT")
-})
-
 test_that("player_3_api_id", {
   # tests for the property `player_3_api_id` (integer)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`player_3_api_id`, "EXPECTED_RESULT")
-})
-
-test_that("player_3_eh_id", {
-  # tests for the property `player_3_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`player_3_eh_id`, "EXPECTED_RESULT")
-})
-
-test_that("player_3_position", {
-  # tests for the property `player_3_position` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`player_3_position`, "EXPECTED_RESULT")
 })
 
 test_that("player_3_type", {
@@ -327,20 +257,6 @@ test_that("event_team_skaters", {
   #expect_equal(model.instance$`event_team_skaters`, "EXPECTED_RESULT")
 })
 
-test_that("teammates", {
-  # tests for the property `teammates` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`teammates`, "EXPECTED_RESULT")
-})
-
-test_that("teammates_eh_id", {
-  # tests for the property `teammates_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`teammates_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("teammates_api_id", {
   # tests for the property `teammates_api_id` (character)
 
@@ -348,46 +264,11 @@ test_that("teammates_api_id", {
   #expect_equal(model.instance$`teammates_api_id`, "EXPECTED_RESULT")
 })
 
-test_that("teammates_positions", {
-  # tests for the property `teammates_positions` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`teammates_positions`, "EXPECTED_RESULT")
-})
-
-test_that("own_goalie", {
-  # tests for the property `own_goalie` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`own_goalie`, "EXPECTED_RESULT")
-})
-
-test_that("own_goalie_eh_id", {
-  # tests for the property `own_goalie_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`own_goalie_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("own_goalie_api_id", {
-  # tests for the property `own_goalie_api_id` (character)
+  # tests for the property `own_goalie_api_id` (integer)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`own_goalie_api_id`, "EXPECTED_RESULT")
-})
-
-test_that("forwards", {
-  # tests for the property `forwards` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`forwards`, "EXPECTED_RESULT")
-})
-
-test_that("forwards_eh_id", {
-  # tests for the property `forwards_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`forwards_eh_id`, "EXPECTED_RESULT")
 })
 
 test_that("forwards_api_id", {
@@ -402,20 +283,6 @@ test_that("forwards_count", {
 
   # uncomment below to test the property
   #expect_equal(model.instance$`forwards_count`, "EXPECTED_RESULT")
-})
-
-test_that("defense", {
-  # tests for the property `defense` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`defense`, "EXPECTED_RESULT")
-})
-
-test_that("defense_eh_id", {
-  # tests for the property `defense_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`defense_eh_id`, "EXPECTED_RESULT")
 })
 
 test_that("defense_api_id", {
@@ -460,20 +327,6 @@ test_that("opp_team_skaters", {
   #expect_equal(model.instance$`opp_team_skaters`, "EXPECTED_RESULT")
 })
 
-test_that("opp_team_on", {
-  # tests for the property `opp_team_on` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`opp_team_on`, "EXPECTED_RESULT")
-})
-
-test_that("opp_team_on_eh_id", {
-  # tests for the property `opp_team_on_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`opp_team_on_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("opp_team_on_api_id", {
   # tests for the property `opp_team_on_api_id` (character)
 
@@ -481,46 +334,11 @@ test_that("opp_team_on_api_id", {
   #expect_equal(model.instance$`opp_team_on_api_id`, "EXPECTED_RESULT")
 })
 
-test_that("opp_team_on_positions", {
-  # tests for the property `opp_team_on_positions` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`opp_team_on_positions`, "EXPECTED_RESULT")
-})
-
-test_that("opp_goalie", {
-  # tests for the property `opp_goalie` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`opp_goalie`, "EXPECTED_RESULT")
-})
-
-test_that("opp_goalie_eh_id", {
-  # tests for the property `opp_goalie_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`opp_goalie_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("opp_goalie_api_id", {
-  # tests for the property `opp_goalie_api_id` (character)
+  # tests for the property `opp_goalie_api_id` (integer)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`opp_goalie_api_id`, "EXPECTED_RESULT")
-})
-
-test_that("opp_forwards", {
-  # tests for the property `opp_forwards` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`opp_forwards`, "EXPECTED_RESULT")
-})
-
-test_that("opp_forwards_eh_id", {
-  # tests for the property `opp_forwards_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`opp_forwards_eh_id`, "EXPECTED_RESULT")
 })
 
 test_that("opp_forwards_api_id", {
@@ -535,20 +353,6 @@ test_that("opp_forwards_count", {
 
   # uncomment below to test the property
   #expect_equal(model.instance$`opp_forwards_count`, "EXPECTED_RESULT")
-})
-
-test_that("opp_defense", {
-  # tests for the property `opp_defense` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`opp_defense`, "EXPECTED_RESULT")
-})
-
-test_that("opp_defense_eh_id", {
-  # tests for the property `opp_defense_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`opp_defense_eh_id`, "EXPECTED_RESULT")
 })
 
 test_that("opp_defense_api_id", {
@@ -607,20 +411,6 @@ test_that("is_away", {
   #expect_equal(model.instance$`is_away`, "EXPECTED_RESULT")
 })
 
-test_that("home_team", {
-  # tests for the property `home_team` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`home_team`, "EXPECTED_RESULT")
-})
-
-test_that("away_team", {
-  # tests for the property `away_team` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`away_team`, "EXPECTED_RESULT")
-})
-
 test_that("home_skaters", {
   # tests for the property `home_skaters` (integer)
 
@@ -635,20 +425,6 @@ test_that("away_skaters", {
   #expect_equal(model.instance$`away_skaters`, "EXPECTED_RESULT")
 })
 
-test_that("home_on", {
-  # tests for the property `home_on` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`home_on`, "EXPECTED_RESULT")
-})
-
-test_that("home_on_eh_id", {
-  # tests for the property `home_on_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`home_on_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("home_on_api_id", {
   # tests for the property `home_on_api_id` (character)
 
@@ -656,53 +432,11 @@ test_that("home_on_api_id", {
   #expect_equal(model.instance$`home_on_api_id`, "EXPECTED_RESULT")
 })
 
-test_that("home_on_positions", {
-  # tests for the property `home_on_positions` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`home_on_positions`, "EXPECTED_RESULT")
-})
-
-test_that("away_on", {
-  # tests for the property `away_on` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`away_on`, "EXPECTED_RESULT")
-})
-
-test_that("away_on_eh_id", {
-  # tests for the property `away_on_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`away_on_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("away_on_api_id", {
   # tests for the property `away_on_api_id` (character)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`away_on_api_id`, "EXPECTED_RESULT")
-})
-
-test_that("away_on_positions", {
-  # tests for the property `away_on_positions` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`away_on_positions`, "EXPECTED_RESULT")
-})
-
-test_that("home_forwards", {
-  # tests for the property `home_forwards` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`home_forwards`, "EXPECTED_RESULT")
-})
-
-test_that("home_forwards_eh_id", {
-  # tests for the property `home_forwards_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`home_forwards_eh_id`, "EXPECTED_RESULT")
 })
 
 test_that("home_forwards_api_id", {
@@ -726,20 +460,6 @@ test_that("home_forwards_percent", {
   #expect_equal(model.instance$`home_forwards_percent`, "EXPECTED_RESULT")
 })
 
-test_that("home_defense", {
-  # tests for the property `home_defense` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`home_defense`, "EXPECTED_RESULT")
-})
-
-test_that("home_defense_eh_id", {
-  # tests for the property `home_defense_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`home_defense_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("home_defense_api_id", {
   # tests for the property `home_defense_api_id` (character)
 
@@ -754,39 +474,11 @@ test_that("home_defense_count", {
   #expect_equal(model.instance$`home_defense_count`, "EXPECTED_RESULT")
 })
 
-test_that("home_goalie", {
-  # tests for the property `home_goalie` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`home_goalie`, "EXPECTED_RESULT")
-})
-
-test_that("home_goalie_eh_id", {
-  # tests for the property `home_goalie_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`home_goalie_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("home_goalie_api_id", {
-  # tests for the property `home_goalie_api_id` (character)
+  # tests for the property `home_goalie_api_id` (integer)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`home_goalie_api_id`, "EXPECTED_RESULT")
-})
-
-test_that("away_forwards", {
-  # tests for the property `away_forwards` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`away_forwards`, "EXPECTED_RESULT")
-})
-
-test_that("away_forwards_eh_id", {
-  # tests for the property `away_forwards_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`away_forwards_eh_id`, "EXPECTED_RESULT")
 })
 
 test_that("away_forwards_api_id", {
@@ -810,20 +502,6 @@ test_that("away_forwards_percent", {
   #expect_equal(model.instance$`away_forwards_percent`, "EXPECTED_RESULT")
 })
 
-test_that("away_defense", {
-  # tests for the property `away_defense` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`away_defense`, "EXPECTED_RESULT")
-})
-
-test_that("away_defense_eh_id", {
-  # tests for the property `away_defense_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`away_defense_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("away_defense_api_id", {
   # tests for the property `away_defense_api_id` (character)
 
@@ -838,22 +516,8 @@ test_that("away_defense_count", {
   #expect_equal(model.instance$`away_defense_count`, "EXPECTED_RESULT")
 })
 
-test_that("away_goalie", {
-  # tests for the property `away_goalie` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`away_goalie`, "EXPECTED_RESULT")
-})
-
-test_that("away_goalie_eh_id", {
-  # tests for the property `away_goalie_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`away_goalie_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("away_goalie_api_id", {
-  # tests for the property `away_goalie_api_id` (character)
+  # tests for the property `away_goalie_api_id` (integer)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`away_goalie_api_id`, "EXPECTED_RESULT")
@@ -873,20 +537,6 @@ test_that("change_off_count", {
   #expect_equal(model.instance$`change_off_count`, "EXPECTED_RESULT")
 })
 
-test_that("change_on", {
-  # tests for the property `change_on` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_on`, "EXPECTED_RESULT")
-})
-
-test_that("change_on_eh_id", {
-  # tests for the property `change_on_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_on_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("change_on_api_id", {
   # tests for the property `change_on_api_id` (character)
 
@@ -894,39 +544,11 @@ test_that("change_on_api_id", {
   #expect_equal(model.instance$`change_on_api_id`, "EXPECTED_RESULT")
 })
 
-test_that("change_on_positions", {
-  # tests for the property `change_on_positions` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_on_positions`, "EXPECTED_RESULT")
-})
-
-test_that("change_off", {
-  # tests for the property `change_off` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_off`, "EXPECTED_RESULT")
-})
-
-test_that("change_off_eh_id", {
-  # tests for the property `change_off_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_off_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("change_off_api_id", {
   # tests for the property `change_off_api_id` (character)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`change_off_api_id`, "EXPECTED_RESULT")
-})
-
-test_that("change_off_positions", {
-  # tests for the property `change_off_positions` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_off_positions`, "EXPECTED_RESULT")
 })
 
 test_that("change_on_forwards_count", {
@@ -943,39 +565,11 @@ test_that("change_off_forwards_count", {
   #expect_equal(model.instance$`change_off_forwards_count`, "EXPECTED_RESULT")
 })
 
-test_that("change_on_forwards", {
-  # tests for the property `change_on_forwards` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_on_forwards`, "EXPECTED_RESULT")
-})
-
-test_that("change_on_forwards_eh_id", {
-  # tests for the property `change_on_forwards_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_on_forwards_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("change_on_forwards_api_id", {
   # tests for the property `change_on_forwards_api_id` (character)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`change_on_forwards_api_id`, "EXPECTED_RESULT")
-})
-
-test_that("change_off_forwards", {
-  # tests for the property `change_off_forwards` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_off_forwards`, "EXPECTED_RESULT")
-})
-
-test_that("change_off_forwards_eh_id", {
-  # tests for the property `change_off_forwards_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_off_forwards_eh_id`, "EXPECTED_RESULT")
 })
 
 test_that("change_off_forwards_api_id", {
@@ -999,39 +593,11 @@ test_that("change_off_defense_count", {
   #expect_equal(model.instance$`change_off_defense_count`, "EXPECTED_RESULT")
 })
 
-test_that("change_on_defense", {
-  # tests for the property `change_on_defense` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_on_defense`, "EXPECTED_RESULT")
-})
-
-test_that("change_on_defense_eh_id", {
-  # tests for the property `change_on_defense_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_on_defense_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("change_on_defense_api_id", {
   # tests for the property `change_on_defense_api_id` (character)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`change_on_defense_api_id`, "EXPECTED_RESULT")
-})
-
-test_that("change_off_defense", {
-  # tests for the property `change_off_defense` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_off_defense`, "EXPECTED_RESULT")
-})
-
-test_that("change_off_defense_eh_id", {
-  # tests for the property `change_off_defense_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_off_defense_eh_id`, "EXPECTED_RESULT")
 })
 
 test_that("change_off_defense_api_id", {
@@ -1055,39 +621,11 @@ test_that("change_off_goalie_count", {
   #expect_equal(model.instance$`change_off_goalie_count`, "EXPECTED_RESULT")
 })
 
-test_that("change_on_goalie", {
-  # tests for the property `change_on_goalie` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_on_goalie`, "EXPECTED_RESULT")
-})
-
-test_that("change_on_goalie_eh_id", {
-  # tests for the property `change_on_goalie_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_on_goalie_eh_id`, "EXPECTED_RESULT")
-})
-
 test_that("change_on_goalie_api_id", {
   # tests for the property `change_on_goalie_api_id` (character)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`change_on_goalie_api_id`, "EXPECTED_RESULT")
-})
-
-test_that("change_off_goalie", {
-  # tests for the property `change_off_goalie` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_off_goalie`, "EXPECTED_RESULT")
-})
-
-test_that("change_off_goalie_eh_id", {
-  # tests for the property `change_off_goalie_eh_id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`change_off_goalie_eh_id`, "EXPECTED_RESULT")
 })
 
 test_that("change_off_goalie_api_id", {
@@ -1403,6 +941,20 @@ test_that("pen10", {
 
   # uncomment below to test the property
   #expect_equal(model.instance$`pen10`, "EXPECTED_RESULT")
+})
+
+test_that("player", {
+  # tests for the property `player` (PlayerPublic)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`player`, "EXPECTED_RESULT")
+})
+
+test_that("game", {
+  # tests for the property `game` (GamePublic)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`game`, "EXPECTED_RESULT")
 })
 
 test_that("last_updated", {

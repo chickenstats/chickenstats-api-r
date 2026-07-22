@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **ReadGameTeamStats**
-> TeamStatsGameResponse ReadGameTeamStats(season = var.season, sessions = var.sessions, game_id = var.game_id, team = var.team, opp_team = var.opp_team, strength_state = var.strength_state, score_state = var.score_state, level = var.level, limit = 10000, offset = 0)
+> TeamStatsGameResponse ReadGameTeamStats(season = var.season, sessions = var.sessions, game_id = var.game_id, team = var.team, opp_team = var.opp_team, strength_state = var.strength_state, score_state = var.score_state, level = var.level, include = var.include, limit = 10000, offset = 0)
 
 Read Game Team Stats
 
@@ -30,6 +30,7 @@ var_opp_team <- c("inner_example") # array[character] |  (Optional)
 var_strength_state <- c("5v5") # array[character] |  (Optional)
 var_score_state <- "score_state_example" # character |  (Optional)
 var_level <- "level_example" # character |  (Optional)
+var_include <- c("game") # array[character] |  (Optional)
 var_limit <- 10000 # integer |  (Optional)
 var_offset <- 0 # integer |  (Optional)
 
@@ -37,8 +38,8 @@ api_instance <- TeamStatsApi$new()
 # Configure OAuth2 access token for authorization: OAuth2PasswordBearer
 api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$ReadGameTeamStats(season = var_season, sessions = var_sessions, game_id = var_game_id, team = var_team, opp_team = var_opp_team, strength_state = var_strength_state, score_state = var_score_state, level = var_level, limit = var_limit, offset = var_offsetdata_file = "result.txt")
-result <- api_instance$ReadGameTeamStats(season = var_season, sessions = var_sessions, game_id = var_game_id, team = var_team, opp_team = var_opp_team, strength_state = var_strength_state, score_state = var_score_state, level = var_level, limit = var_limit, offset = var_offset)
+# result <- api_instance$ReadGameTeamStats(season = var_season, sessions = var_sessions, game_id = var_game_id, team = var_team, opp_team = var_opp_team, strength_state = var_strength_state, score_state = var_score_state, level = var_level, include = var_include, limit = var_limit, offset = var_offsetdata_file = "result.txt")
+result <- api_instance$ReadGameTeamStats(season = var_season, sessions = var_sessions, game_id = var_game_id, team = var_team, opp_team = var_opp_team, strength_state = var_strength_state, score_state = var_score_state, level = var_level, include = var_include, limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -54,6 +55,7 @@ Name | Type | Description  | Notes
  **strength_state** | Enum [5v5, 4v4, 3v3, 5v4, 5v3, 4v3, 4v5, 3v4, 3v5] |  | [optional] 
  **score_state** | **character**|  | [optional] 
  **level** | Enum [game, period] |  | [optional] 
+ **include** | Enum [game] |  | [optional] 
  **limit** | **integer**|  | [optional] [default to 10000]
  **offset** | **integer**|  | [optional] [default to 0]
 

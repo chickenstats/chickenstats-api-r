@@ -9,7 +9,7 @@
 #' @format An \code{R6Class} generator object
 #' @field cf_client_id  character
 #' @field cf_client_secret  character [optional]
-#' @field auth0_token_endpoint  character [optional]
+#' @field token_endpoint  character [optional]
 #' @field note  character [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -19,7 +19,7 @@ ProgrammaticCredentials <- R6::R6Class(
   public = list(
     `cf_client_id` = NULL,
     `cf_client_secret` = NULL,
-    `auth0_token_endpoint` = NULL,
+    `token_endpoint` = NULL,
     `note` = NULL,
 
     #' @description
@@ -27,10 +27,10 @@ ProgrammaticCredentials <- R6::R6Class(
     #'
     #' @param cf_client_id cf_client_id
     #' @param cf_client_secret cf_client_secret
-    #' @param auth0_token_endpoint auth0_token_endpoint. Default to "POST /api/v1/login/auth0-token".
+    #' @param token_endpoint token_endpoint. Default to "POST /api/v1/login/firebase-token".
     #' @param note note. Default to "The secret is shown once. Store it securely — rotate if lost.".
     #' @param ... Other optional arguments.
-    initialize = function(`cf_client_id`, `cf_client_secret` = NULL, `auth0_token_endpoint` = "POST /api/v1/login/auth0-token", `note` = "The secret is shown once. Store it securely — rotate if lost.", ...) {
+    initialize = function(`cf_client_id`, `cf_client_secret` = NULL, `token_endpoint` = "POST /api/v1/login/firebase-token", `note` = "The secret is shown once. Store it securely — rotate if lost.", ...) {
       if (!missing(`cf_client_id`)) {
         if (!(is.character(`cf_client_id`) && length(`cf_client_id`) == 1)) {
           stop(paste("Error! Invalid data for `cf_client_id`. Must be a string:", `cf_client_id`))
@@ -43,11 +43,11 @@ ProgrammaticCredentials <- R6::R6Class(
         }
         self$`cf_client_secret` <- `cf_client_secret`
       }
-      if (!is.null(`auth0_token_endpoint`)) {
-        if (!(is.character(`auth0_token_endpoint`) && length(`auth0_token_endpoint`) == 1)) {
-          stop(paste("Error! Invalid data for `auth0_token_endpoint`. Must be a string:", `auth0_token_endpoint`))
+      if (!is.null(`token_endpoint`)) {
+        if (!(is.character(`token_endpoint`) && length(`token_endpoint`) == 1)) {
+          stop(paste("Error! Invalid data for `token_endpoint`. Must be a string:", `token_endpoint`))
         }
-        self$`auth0_token_endpoint` <- `auth0_token_endpoint`
+        self$`token_endpoint` <- `token_endpoint`
       }
       if (!is.null(`note`)) {
         if (!(is.character(`note`) && length(`note`) == 1)) {
@@ -96,9 +96,9 @@ ProgrammaticCredentials <- R6::R6Class(
         ProgrammaticCredentialsObject[["cf_client_secret"]] <-
           self$`cf_client_secret`
       }
-      if (!is.null(self$`auth0_token_endpoint`)) {
-        ProgrammaticCredentialsObject[["auth0_token_endpoint"]] <-
-          self$`auth0_token_endpoint`
+      if (!is.null(self$`token_endpoint`)) {
+        ProgrammaticCredentialsObject[["token_endpoint"]] <-
+          self$`token_endpoint`
       }
       if (!is.null(self$`note`)) {
         ProgrammaticCredentialsObject[["note"]] <-
@@ -120,8 +120,8 @@ ProgrammaticCredentials <- R6::R6Class(
       if (!is.null(this_object$`cf_client_secret`)) {
         self$`cf_client_secret` <- this_object$`cf_client_secret`
       }
-      if (!is.null(this_object$`auth0_token_endpoint`)) {
-        self$`auth0_token_endpoint` <- this_object$`auth0_token_endpoint`
+      if (!is.null(this_object$`token_endpoint`)) {
+        self$`token_endpoint` <- this_object$`token_endpoint`
       }
       if (!is.null(this_object$`note`)) {
         self$`note` <- this_object$`note`
@@ -149,7 +149,7 @@ ProgrammaticCredentials <- R6::R6Class(
       this_object <- jsonlite::fromJSON(input_json)
       self$`cf_client_id` <- this_object$`cf_client_id`
       self$`cf_client_secret` <- this_object$`cf_client_secret`
-      self$`auth0_token_endpoint` <- this_object$`auth0_token_endpoint`
+      self$`token_endpoint` <- this_object$`token_endpoint`
       self$`note` <- this_object$`note`
       self
     },

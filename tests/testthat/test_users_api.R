@@ -9,7 +9,7 @@ test_that("DeleteUserMe", {
   # tests for DeleteUserMe
   # base path: https://api.chickenstats.com
   # Delete User Me
-  # Delete own user and block Auth0 account.
+  # Delete own user and disable Firebase account.
   # @return [Message]
 
   # uncomment below to test the operation
@@ -42,7 +42,7 @@ test_that("ResendVerification", {
   # tests for ResendVerification
   # base path: https://api.chickenstats.com
   # Resend Verification
-  # Trigger Auth0 to resend the verification email.
+  # Trigger Firebase to resend the verification email.
   # @return [Message]
 
   # uncomment below to test the operation
@@ -64,20 +64,9 @@ test_that("Signup", {
   # tests for Signup
   # base path: https://api.chickenstats.com
   # Signup
-  # Public self-registration. Creates a local user, an Auth0 user, and a Ghost member.  If the account exists but is inactive (previously deactivated/pruned), reactivates it with the new credentials rather than rejecting the request.
+  # Public self-registration. Creates a local user, a Firebase user, and a Ghost member.  If the account exists but is inactive (previously deactivated/pruned), reactivates it with the new credentials rather than rejecting the request.
   # @param user_register UserRegister 
   # @return [UserPublic]
-
-  # uncomment below to test the operation
-  #expect_equal(result, "EXPECTED_RESULT")
-})
-
-test_that("SyncGhostTier", {
-  # tests for SyncGhostTier
-  # base path: https://api.chickenstats.com
-  # Sync Ghost Tier
-  # Refresh tier from Ghost subscription state. No-op for contributor/superuser.
-  # @return [Message]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -87,7 +76,7 @@ test_that("UpdatePasswordMe", {
   # tests for UpdatePasswordMe
   # base path: https://api.chickenstats.com
   # Update Password Me
-  # Update own password in Auth0. Verifies current password against Auth0 before changing.
+  # Update own password in Firebase. Verifies current password against Firebase before changing.
   # @param update_password UpdatePassword 
   # @return [Message]
 

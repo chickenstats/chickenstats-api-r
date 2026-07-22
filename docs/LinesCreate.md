@@ -77,29 +77,16 @@ Name | Type | Description | Notes
 **season** | **integer** |  | 
 **session** | **character** |  | 
 **game_id** | **integer** |  | 
-**game_date** | **character** |  | 
 **team** | **character** |  | 
 **opp_team** | **character** |  | [optional] 
 **strength_state** | **character** |  | [optional] 
 **period** | **integer** |  | [optional] 
 **score_state** | **character** |  | [optional] 
-**forwards** | **character** |  | [optional] 
-**forwards_eh_id** | **character** |  | [optional] 
 **forwards_api_id** | **character** |  | [optional] 
-**defense** | **character** |  | [optional] 
-**defense_eh_id** | **character** |  | [optional] 
 **defense_api_id** | **character** |  | [optional] 
-**own_goalie** | **character** |  | [optional] 
-**own_goalie_eh_id** | **character** |  | [optional] 
 **own_goalie_api_id** | **integer** |  | [optional] 
-**opp_forwards** | **character** |  | [optional] 
-**opp_forwards_eh_id** | **character** |  | [optional] 
 **opp_forwards_api_id** | **character** |  | [optional] 
-**opp_defense** | **character** |  | [optional] 
-**opp_defense_eh_id** | **character** |  | [optional] 
 **opp_defense_api_id** | **character** |  | [optional] 
-**opp_goalie** | **character** |  | [optional] 
-**opp_goalie_eh_id** | **character** |  | [optional] 
 **opp_goalie_api_id** | **integer** |  | [optional] 
 **id** | **character** |  | 
 

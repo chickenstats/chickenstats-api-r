@@ -77,7 +77,6 @@ Name | Type | Description | Notes
 **season** | **integer** |  | 
 **session** | **character** |  | 
 **game_id** | **integer** |  | [optional] 
-**game_date** | **character** |  | [optional] 
 **team** | **character** |  | 
 **opp_team** | **character** |  | [optional] 
 **strength_state** | **character** |  | [optional] 

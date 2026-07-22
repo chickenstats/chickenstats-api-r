@@ -19,11 +19,11 @@ test_that("cf_client_secret", {
   #expect_equal(model.instance$`cf_client_secret`, "EXPECTED_RESULT")
 })
 
-test_that("auth0_token_endpoint", {
-  # tests for the property `auth0_token_endpoint` (character)
+test_that("token_endpoint", {
+  # tests for the property `token_endpoint` (character)
 
   # uncomment below to test the property
-  #expect_equal(model.instance$`auth0_token_endpoint`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`token_endpoint`, "EXPECTED_RESULT")
 })
 
 test_that("note", {

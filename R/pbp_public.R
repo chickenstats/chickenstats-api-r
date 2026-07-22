@@ -11,7 +11,6 @@
 #' @field season  integer
 #' @field session  character
 #' @field game_id  integer
-#' @field game_date  character
 #' @field event_idx  integer
 #' @field period  integer
 #' @field period_seconds  integer
@@ -26,20 +25,11 @@
 #' @field coords_y  numeric [optional]
 #' @field danger  integer [optional]
 #' @field high_danger  integer [optional]
-#' @field player_1  character [optional]
 #' @field player_1_api_id  integer [optional]
-#' @field player_1_eh_id  character [optional]
-#' @field player_1_position  character [optional]
 #' @field player_1_type  character [optional]
-#' @field player_2  character [optional]
 #' @field player_2_api_id  integer [optional]
-#' @field player_2_eh_id  character [optional]
-#' @field player_2_position  character [optional]
 #' @field player_2_type  character [optional]
-#' @field player_3  character [optional]
 #' @field player_3_api_id  integer [optional]
-#' @field player_3_eh_id  character [optional]
-#' @field player_3_position  character [optional]
 #' @field player_3_type  character [optional]
 #' @field score_state  character [optional]
 #' @field score_diff  integer
@@ -53,38 +43,20 @@
 #' @field penalty  character [optional]
 #' @field penalty_length  integer [optional]
 #' @field event_team_skaters  integer [optional]
-#' @field teammates  character [optional]
-#' @field teammates_eh_id  character [optional]
 #' @field teammates_api_id  character [optional]
-#' @field teammates_positions  character [optional]
-#' @field own_goalie  character [optional]
-#' @field own_goalie_eh_id  character [optional]
-#' @field own_goalie_api_id  character [optional]
-#' @field forwards  character [optional]
-#' @field forwards_eh_id  character [optional]
+#' @field own_goalie_api_id  integer [optional]
 #' @field forwards_api_id  character [optional]
 #' @field forwards_count  integer [optional]
-#' @field defense  character [optional]
-#' @field defense_eh_id  character [optional]
 #' @field defense_api_id  character [optional]
 #' @field defense_count  integer [optional]
 #' @field opp_strength_state  character [optional]
 #' @field opp_score_state  character [optional]
 #' @field opp_score_diff  integer [optional]
 #' @field opp_team_skaters  integer [optional]
-#' @field opp_team_on  character [optional]
-#' @field opp_team_on_eh_id  character [optional]
 #' @field opp_team_on_api_id  character [optional]
-#' @field opp_team_on_positions  character [optional]
-#' @field opp_goalie  character [optional]
-#' @field opp_goalie_eh_id  character [optional]
-#' @field opp_goalie_api_id  character [optional]
-#' @field opp_forwards  character [optional]
-#' @field opp_forwards_eh_id  character [optional]
+#' @field opp_goalie_api_id  integer [optional]
 #' @field opp_forwards_api_id  character [optional]
 #' @field opp_forwards_count  integer [optional]
-#' @field opp_defense  character [optional]
-#' @field opp_defense_eh_id  character [optional]
 #' @field opp_defense_api_id  character [optional]
 #' @field opp_defense_count  integer [optional]
 #' @field home_score  integer
@@ -93,75 +65,37 @@
 #' @field away_score_diff  integer
 #' @field is_home  integer
 #' @field is_away  integer
-#' @field home_team  character
-#' @field away_team  character
 #' @field home_skaters  integer
 #' @field away_skaters  integer
-#' @field home_on  character [optional]
-#' @field home_on_eh_id  character [optional]
 #' @field home_on_api_id  character [optional]
-#' @field home_on_positions  character [optional]
-#' @field away_on  character [optional]
-#' @field away_on_eh_id  character [optional]
 #' @field away_on_api_id  character [optional]
-#' @field away_on_positions  character [optional]
-#' @field home_forwards  character [optional]
-#' @field home_forwards_eh_id  character [optional]
 #' @field home_forwards_api_id  character [optional]
 #' @field home_forwards_count  integer [optional]
 #' @field home_forwards_percent  numeric [optional]
-#' @field home_defense  character [optional]
-#' @field home_defense_eh_id  character [optional]
 #' @field home_defense_api_id  character [optional]
 #' @field home_defense_count  integer [optional]
-#' @field home_goalie  character [optional]
-#' @field home_goalie_eh_id  character [optional]
-#' @field home_goalie_api_id  character [optional]
-#' @field away_forwards  character [optional]
-#' @field away_forwards_eh_id  character [optional]
+#' @field home_goalie_api_id  integer [optional]
 #' @field away_forwards_api_id  character [optional]
 #' @field away_forwards_count  integer [optional]
 #' @field away_forwards_percent  numeric [optional]
-#' @field away_defense  character [optional]
-#' @field away_defense_eh_id  character [optional]
 #' @field away_defense_api_id  character [optional]
 #' @field away_defense_count  integer [optional]
-#' @field away_goalie  character [optional]
-#' @field away_goalie_eh_id  character [optional]
-#' @field away_goalie_api_id  character [optional]
+#' @field away_goalie_api_id  integer [optional]
 #' @field change_on_count  integer [optional]
 #' @field change_off_count  integer [optional]
-#' @field change_on  character [optional]
-#' @field change_on_eh_id  character [optional]
 #' @field change_on_api_id  character [optional]
-#' @field change_on_positions  character [optional]
-#' @field change_off  character [optional]
-#' @field change_off_eh_id  character [optional]
 #' @field change_off_api_id  character [optional]
-#' @field change_off_positions  character [optional]
 #' @field change_on_forwards_count  integer [optional]
 #' @field change_off_forwards_count  integer [optional]
-#' @field change_on_forwards  character [optional]
-#' @field change_on_forwards_eh_id  character [optional]
 #' @field change_on_forwards_api_id  character [optional]
-#' @field change_off_forwards  character [optional]
-#' @field change_off_forwards_eh_id  character [optional]
 #' @field change_off_forwards_api_id  character [optional]
 #' @field change_on_defense_count  integer [optional]
 #' @field change_off_defense_count  integer [optional]
-#' @field change_on_defense  character [optional]
-#' @field change_on_defense_eh_id  character [optional]
 #' @field change_on_defense_api_id  character [optional]
-#' @field change_off_defense  character [optional]
-#' @field change_off_defense_eh_id  character [optional]
 #' @field change_off_defense_api_id  character [optional]
 #' @field change_on_goalie_count  integer [optional]
 #' @field change_off_goalie_count  integer [optional]
-#' @field change_on_goalie  character [optional]
-#' @field change_on_goalie_eh_id  character [optional]
 #' @field change_on_goalie_api_id  character [optional]
-#' @field change_off_goalie  character [optional]
-#' @field change_off_goalie_eh_id  character [optional]
 #' @field change_off_goalie_api_id  character [optional]
 #' @field base_xg  numeric [optional]
 #' @field base_xg_adj  numeric [optional]
@@ -207,6 +141,8 @@
 #' @field pen4  integer [optional]
 #' @field pen5  integer [optional]
 #' @field pen10  integer [optional]
+#' @field player  \link{PlayerPublic} [optional]
+#' @field game  \link{GamePublic} [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -217,7 +153,6 @@ PbpPublic <- R6::R6Class(
     `season` = NULL,
     `session` = NULL,
     `game_id` = NULL,
-    `game_date` = NULL,
     `event_idx` = NULL,
     `period` = NULL,
     `period_seconds` = NULL,
@@ -232,20 +167,11 @@ PbpPublic <- R6::R6Class(
     `coords_y` = NULL,
     `danger` = NULL,
     `high_danger` = NULL,
-    `player_1` = NULL,
     `player_1_api_id` = NULL,
-    `player_1_eh_id` = NULL,
-    `player_1_position` = NULL,
     `player_1_type` = NULL,
-    `player_2` = NULL,
     `player_2_api_id` = NULL,
-    `player_2_eh_id` = NULL,
-    `player_2_position` = NULL,
     `player_2_type` = NULL,
-    `player_3` = NULL,
     `player_3_api_id` = NULL,
-    `player_3_eh_id` = NULL,
-    `player_3_position` = NULL,
     `player_3_type` = NULL,
     `score_state` = NULL,
     `score_diff` = NULL,
@@ -259,38 +185,20 @@ PbpPublic <- R6::R6Class(
     `penalty` = NULL,
     `penalty_length` = NULL,
     `event_team_skaters` = NULL,
-    `teammates` = NULL,
-    `teammates_eh_id` = NULL,
     `teammates_api_id` = NULL,
-    `teammates_positions` = NULL,
-    `own_goalie` = NULL,
-    `own_goalie_eh_id` = NULL,
     `own_goalie_api_id` = NULL,
-    `forwards` = NULL,
-    `forwards_eh_id` = NULL,
     `forwards_api_id` = NULL,
     `forwards_count` = NULL,
-    `defense` = NULL,
-    `defense_eh_id` = NULL,
     `defense_api_id` = NULL,
     `defense_count` = NULL,
     `opp_strength_state` = NULL,
     `opp_score_state` = NULL,
     `opp_score_diff` = NULL,
     `opp_team_skaters` = NULL,
-    `opp_team_on` = NULL,
-    `opp_team_on_eh_id` = NULL,
     `opp_team_on_api_id` = NULL,
-    `opp_team_on_positions` = NULL,
-    `opp_goalie` = NULL,
-    `opp_goalie_eh_id` = NULL,
     `opp_goalie_api_id` = NULL,
-    `opp_forwards` = NULL,
-    `opp_forwards_eh_id` = NULL,
     `opp_forwards_api_id` = NULL,
     `opp_forwards_count` = NULL,
-    `opp_defense` = NULL,
-    `opp_defense_eh_id` = NULL,
     `opp_defense_api_id` = NULL,
     `opp_defense_count` = NULL,
     `home_score` = NULL,
@@ -299,75 +207,37 @@ PbpPublic <- R6::R6Class(
     `away_score_diff` = NULL,
     `is_home` = NULL,
     `is_away` = NULL,
-    `home_team` = NULL,
-    `away_team` = NULL,
     `home_skaters` = NULL,
     `away_skaters` = NULL,
-    `home_on` = NULL,
-    `home_on_eh_id` = NULL,
     `home_on_api_id` = NULL,
-    `home_on_positions` = NULL,
-    `away_on` = NULL,
-    `away_on_eh_id` = NULL,
     `away_on_api_id` = NULL,
-    `away_on_positions` = NULL,
-    `home_forwards` = NULL,
-    `home_forwards_eh_id` = NULL,
     `home_forwards_api_id` = NULL,
     `home_forwards_count` = NULL,
     `home_forwards_percent` = NULL,
-    `home_defense` = NULL,
-    `home_defense_eh_id` = NULL,
     `home_defense_api_id` = NULL,
     `home_defense_count` = NULL,
-    `home_goalie` = NULL,
-    `home_goalie_eh_id` = NULL,
     `home_goalie_api_id` = NULL,
-    `away_forwards` = NULL,
-    `away_forwards_eh_id` = NULL,
     `away_forwards_api_id` = NULL,
     `away_forwards_count` = NULL,
     `away_forwards_percent` = NULL,
-    `away_defense` = NULL,
-    `away_defense_eh_id` = NULL,
     `away_defense_api_id` = NULL,
     `away_defense_count` = NULL,
-    `away_goalie` = NULL,
-    `away_goalie_eh_id` = NULL,
     `away_goalie_api_id` = NULL,
     `change_on_count` = NULL,
     `change_off_count` = NULL,
-    `change_on` = NULL,
-    `change_on_eh_id` = NULL,
     `change_on_api_id` = NULL,
-    `change_on_positions` = NULL,
-    `change_off` = NULL,
-    `change_off_eh_id` = NULL,
     `change_off_api_id` = NULL,
-    `change_off_positions` = NULL,
     `change_on_forwards_count` = NULL,
     `change_off_forwards_count` = NULL,
-    `change_on_forwards` = NULL,
-    `change_on_forwards_eh_id` = NULL,
     `change_on_forwards_api_id` = NULL,
-    `change_off_forwards` = NULL,
-    `change_off_forwards_eh_id` = NULL,
     `change_off_forwards_api_id` = NULL,
     `change_on_defense_count` = NULL,
     `change_off_defense_count` = NULL,
-    `change_on_defense` = NULL,
-    `change_on_defense_eh_id` = NULL,
     `change_on_defense_api_id` = NULL,
-    `change_off_defense` = NULL,
-    `change_off_defense_eh_id` = NULL,
     `change_off_defense_api_id` = NULL,
     `change_on_goalie_count` = NULL,
     `change_off_goalie_count` = NULL,
-    `change_on_goalie` = NULL,
-    `change_on_goalie_eh_id` = NULL,
     `change_on_goalie_api_id` = NULL,
-    `change_off_goalie` = NULL,
-    `change_off_goalie_eh_id` = NULL,
     `change_off_goalie_api_id` = NULL,
     `base_xg` = NULL,
     `base_xg_adj` = NULL,
@@ -413,6 +283,8 @@ PbpPublic <- R6::R6Class(
     `pen4` = NULL,
     `pen5` = NULL,
     `pen10` = NULL,
+    `player` = NULL,
+    `game` = NULL,
 
     #' @description
     #' Initialize a new PbpPublic class.
@@ -421,7 +293,6 @@ PbpPublic <- R6::R6Class(
     #' @param season season
     #' @param session session
     #' @param game_id game_id
-    #' @param game_date game_date
     #' @param event_idx event_idx
     #' @param period period
     #' @param period_seconds period_seconds
@@ -436,8 +307,6 @@ PbpPublic <- R6::R6Class(
     #' @param away_score_diff away_score_diff
     #' @param is_home is_home
     #' @param is_away is_away
-    #' @param home_team home_team
-    #' @param away_team away_team
     #' @param home_skaters home_skaters
     #' @param away_skaters away_skaters
     #' @param strength_state strength_state
@@ -449,20 +318,11 @@ PbpPublic <- R6::R6Class(
     #' @param coords_y coords_y
     #' @param danger danger
     #' @param high_danger high_danger
-    #' @param player_1 player_1
     #' @param player_1_api_id player_1_api_id
-    #' @param player_1_eh_id player_1_eh_id
-    #' @param player_1_position player_1_position
     #' @param player_1_type player_1_type
-    #' @param player_2 player_2
     #' @param player_2_api_id player_2_api_id
-    #' @param player_2_eh_id player_2_eh_id
-    #' @param player_2_position player_2_position
     #' @param player_2_type player_2_type
-    #' @param player_3 player_3
     #' @param player_3_api_id player_3_api_id
-    #' @param player_3_eh_id player_3_eh_id
-    #' @param player_3_position player_3_position
     #' @param player_3_type player_3_type
     #' @param score_state score_state
     #' @param shot_type shot_type
@@ -473,105 +333,51 @@ PbpPublic <- R6::R6Class(
     #' @param penalty penalty
     #' @param penalty_length penalty_length
     #' @param event_team_skaters event_team_skaters
-    #' @param teammates teammates
-    #' @param teammates_eh_id teammates_eh_id
     #' @param teammates_api_id teammates_api_id
-    #' @param teammates_positions teammates_positions
-    #' @param own_goalie own_goalie
-    #' @param own_goalie_eh_id own_goalie_eh_id
     #' @param own_goalie_api_id own_goalie_api_id
-    #' @param forwards forwards
-    #' @param forwards_eh_id forwards_eh_id
     #' @param forwards_api_id forwards_api_id
     #' @param forwards_count forwards_count
-    #' @param defense defense
-    #' @param defense_eh_id defense_eh_id
     #' @param defense_api_id defense_api_id
     #' @param defense_count defense_count
     #' @param opp_strength_state opp_strength_state
     #' @param opp_score_state opp_score_state
     #' @param opp_score_diff opp_score_diff
     #' @param opp_team_skaters opp_team_skaters
-    #' @param opp_team_on opp_team_on
-    #' @param opp_team_on_eh_id opp_team_on_eh_id
     #' @param opp_team_on_api_id opp_team_on_api_id
-    #' @param opp_team_on_positions opp_team_on_positions
-    #' @param opp_goalie opp_goalie
-    #' @param opp_goalie_eh_id opp_goalie_eh_id
     #' @param opp_goalie_api_id opp_goalie_api_id
-    #' @param opp_forwards opp_forwards
-    #' @param opp_forwards_eh_id opp_forwards_eh_id
     #' @param opp_forwards_api_id opp_forwards_api_id
     #' @param opp_forwards_count opp_forwards_count
-    #' @param opp_defense opp_defense
-    #' @param opp_defense_eh_id opp_defense_eh_id
     #' @param opp_defense_api_id opp_defense_api_id
     #' @param opp_defense_count opp_defense_count
-    #' @param home_on home_on
-    #' @param home_on_eh_id home_on_eh_id
     #' @param home_on_api_id home_on_api_id
-    #' @param home_on_positions home_on_positions
-    #' @param away_on away_on
-    #' @param away_on_eh_id away_on_eh_id
     #' @param away_on_api_id away_on_api_id
-    #' @param away_on_positions away_on_positions
-    #' @param home_forwards home_forwards
-    #' @param home_forwards_eh_id home_forwards_eh_id
     #' @param home_forwards_api_id home_forwards_api_id
     #' @param home_forwards_count home_forwards_count
     #' @param home_forwards_percent home_forwards_percent
-    #' @param home_defense home_defense
-    #' @param home_defense_eh_id home_defense_eh_id
     #' @param home_defense_api_id home_defense_api_id
     #' @param home_defense_count home_defense_count
-    #' @param home_goalie home_goalie
-    #' @param home_goalie_eh_id home_goalie_eh_id
     #' @param home_goalie_api_id home_goalie_api_id
-    #' @param away_forwards away_forwards
-    #' @param away_forwards_eh_id away_forwards_eh_id
     #' @param away_forwards_api_id away_forwards_api_id
     #' @param away_forwards_count away_forwards_count
     #' @param away_forwards_percent away_forwards_percent
-    #' @param away_defense away_defense
-    #' @param away_defense_eh_id away_defense_eh_id
     #' @param away_defense_api_id away_defense_api_id
     #' @param away_defense_count away_defense_count
-    #' @param away_goalie away_goalie
-    #' @param away_goalie_eh_id away_goalie_eh_id
     #' @param away_goalie_api_id away_goalie_api_id
     #' @param change_on_count change_on_count
     #' @param change_off_count change_off_count
-    #' @param change_on change_on
-    #' @param change_on_eh_id change_on_eh_id
     #' @param change_on_api_id change_on_api_id
-    #' @param change_on_positions change_on_positions
-    #' @param change_off change_off
-    #' @param change_off_eh_id change_off_eh_id
     #' @param change_off_api_id change_off_api_id
-    #' @param change_off_positions change_off_positions
     #' @param change_on_forwards_count change_on_forwards_count
     #' @param change_off_forwards_count change_off_forwards_count
-    #' @param change_on_forwards change_on_forwards
-    #' @param change_on_forwards_eh_id change_on_forwards_eh_id
     #' @param change_on_forwards_api_id change_on_forwards_api_id
-    #' @param change_off_forwards change_off_forwards
-    #' @param change_off_forwards_eh_id change_off_forwards_eh_id
     #' @param change_off_forwards_api_id change_off_forwards_api_id
     #' @param change_on_defense_count change_on_defense_count
     #' @param change_off_defense_count change_off_defense_count
-    #' @param change_on_defense change_on_defense
-    #' @param change_on_defense_eh_id change_on_defense_eh_id
     #' @param change_on_defense_api_id change_on_defense_api_id
-    #' @param change_off_defense change_off_defense
-    #' @param change_off_defense_eh_id change_off_defense_eh_id
     #' @param change_off_defense_api_id change_off_defense_api_id
     #' @param change_on_goalie_count change_on_goalie_count
     #' @param change_off_goalie_count change_off_goalie_count
-    #' @param change_on_goalie change_on_goalie
-    #' @param change_on_goalie_eh_id change_on_goalie_eh_id
     #' @param change_on_goalie_api_id change_on_goalie_api_id
-    #' @param change_off_goalie change_off_goalie
-    #' @param change_off_goalie_eh_id change_off_goalie_eh_id
     #' @param change_off_goalie_api_id change_off_goalie_api_id
     #' @param base_xg base_xg
     #' @param base_xg_adj base_xg_adj
@@ -617,8 +423,10 @@ PbpPublic <- R6::R6Class(
     #' @param pen4 pen4. Default to 0.
     #' @param pen5 pen5. Default to 0.
     #' @param pen10 pen10. Default to 0.
+    #' @param player player
+    #' @param game game
     #' @param ... Other optional arguments.
-    initialize = function(`id`, `season`, `session`, `game_id`, `game_date`, `event_idx`, `period`, `period_seconds`, `game_seconds`, `event`, `score_diff`, `forwards_percent`, `opp_forwards_percent`, `home_score`, `home_score_diff`, `away_score`, `away_score_diff`, `is_home`, `is_away`, `home_team`, `away_team`, `home_skaters`, `away_skaters`, `strength_state` = NULL, `event_team` = NULL, `opp_team` = NULL, `description` = NULL, `zone` = NULL, `coords_x` = NULL, `coords_y` = NULL, `danger` = NULL, `high_danger` = NULL, `player_1` = NULL, `player_1_api_id` = NULL, `player_1_eh_id` = NULL, `player_1_position` = NULL, `player_1_type` = NULL, `player_2` = NULL, `player_2_api_id` = NULL, `player_2_eh_id` = NULL, `player_2_position` = NULL, `player_2_type` = NULL, `player_3` = NULL, `player_3_api_id` = NULL, `player_3_eh_id` = NULL, `player_3_position` = NULL, `player_3_type` = NULL, `score_state` = NULL, `shot_type` = NULL, `event_length` = NULL, `event_distance` = NULL, `pbp_distance` = NULL, `event_angle` = NULL, `penalty` = NULL, `penalty_length` = NULL, `event_team_skaters` = NULL, `teammates` = NULL, `teammates_eh_id` = NULL, `teammates_api_id` = NULL, `teammates_positions` = NULL, `own_goalie` = NULL, `own_goalie_eh_id` = NULL, `own_goalie_api_id` = NULL, `forwards` = NULL, `forwards_eh_id` = NULL, `forwards_api_id` = NULL, `forwards_count` = NULL, `defense` = NULL, `defense_eh_id` = NULL, `defense_api_id` = NULL, `defense_count` = NULL, `opp_strength_state` = NULL, `opp_score_state` = NULL, `opp_score_diff` = NULL, `opp_team_skaters` = NULL, `opp_team_on` = NULL, `opp_team_on_eh_id` = NULL, `opp_team_on_api_id` = NULL, `opp_team_on_positions` = NULL, `opp_goalie` = NULL, `opp_goalie_eh_id` = NULL, `opp_goalie_api_id` = NULL, `opp_forwards` = NULL, `opp_forwards_eh_id` = NULL, `opp_forwards_api_id` = NULL, `opp_forwards_count` = NULL, `opp_defense` = NULL, `opp_defense_eh_id` = NULL, `opp_defense_api_id` = NULL, `opp_defense_count` = NULL, `home_on` = NULL, `home_on_eh_id` = NULL, `home_on_api_id` = NULL, `home_on_positions` = NULL, `away_on` = NULL, `away_on_eh_id` = NULL, `away_on_api_id` = NULL, `away_on_positions` = NULL, `home_forwards` = NULL, `home_forwards_eh_id` = NULL, `home_forwards_api_id` = NULL, `home_forwards_count` = NULL, `home_forwards_percent` = NULL, `home_defense` = NULL, `home_defense_eh_id` = NULL, `home_defense_api_id` = NULL, `home_defense_count` = NULL, `home_goalie` = NULL, `home_goalie_eh_id` = NULL, `home_goalie_api_id` = NULL, `away_forwards` = NULL, `away_forwards_eh_id` = NULL, `away_forwards_api_id` = NULL, `away_forwards_count` = NULL, `away_forwards_percent` = NULL, `away_defense` = NULL, `away_defense_eh_id` = NULL, `away_defense_api_id` = NULL, `away_defense_count` = NULL, `away_goalie` = NULL, `away_goalie_eh_id` = NULL, `away_goalie_api_id` = NULL, `change_on_count` = NULL, `change_off_count` = NULL, `change_on` = NULL, `change_on_eh_id` = NULL, `change_on_api_id` = NULL, `change_on_positions` = NULL, `change_off` = NULL, `change_off_eh_id` = NULL, `change_off_api_id` = NULL, `change_off_positions` = NULL, `change_on_forwards_count` = NULL, `change_off_forwards_count` = NULL, `change_on_forwards` = NULL, `change_on_forwards_eh_id` = NULL, `change_on_forwards_api_id` = NULL, `change_off_forwards` = NULL, `change_off_forwards_eh_id` = NULL, `change_off_forwards_api_id` = NULL, `change_on_defense_count` = NULL, `change_off_defense_count` = NULL, `change_on_defense` = NULL, `change_on_defense_eh_id` = NULL, `change_on_defense_api_id` = NULL, `change_off_defense` = NULL, `change_off_defense_eh_id` = NULL, `change_off_defense_api_id` = NULL, `change_on_goalie_count` = NULL, `change_off_goalie_count` = NULL, `change_on_goalie` = NULL, `change_on_goalie_eh_id` = NULL, `change_on_goalie_api_id` = NULL, `change_off_goalie` = NULL, `change_off_goalie_eh_id` = NULL, `change_off_goalie_api_id` = NULL, `base_xg` = NULL, `base_xg_adj` = NULL, `context_xg` = NULL, `context_xg_adj` = NULL, `pred_goal` = NULL, `pred_goal_adj` = NULL, `goal` = 0, `goal_adj` = 0, `hd_goal` = 0, `shot` = 0, `shot_adj` = 0, `hd_shot` = 0, `miss` = 0, `miss_adj` = 0, `hd_miss` = 0, `fenwick` = 0, `fenwick_adj` = 0, `hd_fenwick` = 0, `corsi` = 0, `corsi_adj` = 0, `block` = 0, `block_adj` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hit` = 0, `give` = 0, `take` = 0, `fac` = 0, `penl` = 0, `change` = 0, `stop` = 0, `chl` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `ozc` = 0, `nzc` = 0, `dzc` = 0, `otf` = 0, `pen0` = 0, `pen2` = 0, `pen4` = 0, `pen5` = 0, `pen10` = 0, ...) {
+    initialize = function(`id`, `season`, `session`, `game_id`, `event_idx`, `period`, `period_seconds`, `game_seconds`, `event`, `score_diff`, `forwards_percent`, `opp_forwards_percent`, `home_score`, `home_score_diff`, `away_score`, `away_score_diff`, `is_home`, `is_away`, `home_skaters`, `away_skaters`, `strength_state` = NULL, `event_team` = NULL, `opp_team` = NULL, `description` = NULL, `zone` = NULL, `coords_x` = NULL, `coords_y` = NULL, `danger` = NULL, `high_danger` = NULL, `player_1_api_id` = NULL, `player_1_type` = NULL, `player_2_api_id` = NULL, `player_2_type` = NULL, `player_3_api_id` = NULL, `player_3_type` = NULL, `score_state` = NULL, `shot_type` = NULL, `event_length` = NULL, `event_distance` = NULL, `pbp_distance` = NULL, `event_angle` = NULL, `penalty` = NULL, `penalty_length` = NULL, `event_team_skaters` = NULL, `teammates_api_id` = NULL, `own_goalie_api_id` = NULL, `forwards_api_id` = NULL, `forwards_count` = NULL, `defense_api_id` = NULL, `defense_count` = NULL, `opp_strength_state` = NULL, `opp_score_state` = NULL, `opp_score_diff` = NULL, `opp_team_skaters` = NULL, `opp_team_on_api_id` = NULL, `opp_goalie_api_id` = NULL, `opp_forwards_api_id` = NULL, `opp_forwards_count` = NULL, `opp_defense_api_id` = NULL, `opp_defense_count` = NULL, `home_on_api_id` = NULL, `away_on_api_id` = NULL, `home_forwards_api_id` = NULL, `home_forwards_count` = NULL, `home_forwards_percent` = NULL, `home_defense_api_id` = NULL, `home_defense_count` = NULL, `home_goalie_api_id` = NULL, `away_forwards_api_id` = NULL, `away_forwards_count` = NULL, `away_forwards_percent` = NULL, `away_defense_api_id` = NULL, `away_defense_count` = NULL, `away_goalie_api_id` = NULL, `change_on_count` = NULL, `change_off_count` = NULL, `change_on_api_id` = NULL, `change_off_api_id` = NULL, `change_on_forwards_count` = NULL, `change_off_forwards_count` = NULL, `change_on_forwards_api_id` = NULL, `change_off_forwards_api_id` = NULL, `change_on_defense_count` = NULL, `change_off_defense_count` = NULL, `change_on_defense_api_id` = NULL, `change_off_defense_api_id` = NULL, `change_on_goalie_count` = NULL, `change_off_goalie_count` = NULL, `change_on_goalie_api_id` = NULL, `change_off_goalie_api_id` = NULL, `base_xg` = NULL, `base_xg_adj` = NULL, `context_xg` = NULL, `context_xg_adj` = NULL, `pred_goal` = NULL, `pred_goal_adj` = NULL, `goal` = 0, `goal_adj` = 0, `hd_goal` = 0, `shot` = 0, `shot_adj` = 0, `hd_shot` = 0, `miss` = 0, `miss_adj` = 0, `hd_miss` = 0, `fenwick` = 0, `fenwick_adj` = 0, `hd_fenwick` = 0, `corsi` = 0, `corsi_adj` = 0, `block` = 0, `block_adj` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hit` = 0, `give` = 0, `take` = 0, `fac` = 0, `penl` = 0, `change` = 0, `stop` = 0, `chl` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `ozc` = 0, `nzc` = 0, `dzc` = 0, `otf` = 0, `pen0` = 0, `pen2` = 0, `pen4` = 0, `pen5` = 0, `pen10` = 0, `player` = NULL, `game` = NULL, ...) {
       if (!missing(`id`)) {
         if (!(is.numeric(`id`) && length(`id`) == 1)) {
           stop(paste("Error! Invalid data for `id`. Must be an integer:", `id`))
@@ -642,12 +450,6 @@ PbpPublic <- R6::R6Class(
           stop(paste("Error! Invalid data for `game_id`. Must be an integer:", `game_id`))
         }
         self$`game_id` <- `game_id`
-      }
-      if (!missing(`game_date`)) {
-        if (!(is.character(`game_date`) && length(`game_date`) == 1)) {
-          stop(paste("Error! Invalid data for `game_date`. Must be a string:", `game_date`))
-        }
-        self$`game_date` <- `game_date`
       }
       if (!missing(`event_idx`)) {
         if (!(is.numeric(`event_idx`) && length(`event_idx`) == 1)) {
@@ -727,18 +529,6 @@ PbpPublic <- R6::R6Class(
         }
         self$`is_away` <- `is_away`
       }
-      if (!missing(`home_team`)) {
-        if (!(is.character(`home_team`) && length(`home_team`) == 1)) {
-          stop(paste("Error! Invalid data for `home_team`. Must be a string:", `home_team`))
-        }
-        self$`home_team` <- `home_team`
-      }
-      if (!missing(`away_team`)) {
-        if (!(is.character(`away_team`) && length(`away_team`) == 1)) {
-          stop(paste("Error! Invalid data for `away_team`. Must be a string:", `away_team`))
-        }
-        self$`away_team` <- `away_team`
-      }
       if (!missing(`home_skaters`)) {
         if (!(is.numeric(`home_skaters`) && length(`home_skaters`) == 1)) {
           stop(paste("Error! Invalid data for `home_skaters`. Must be an integer:", `home_skaters`))
@@ -799,29 +589,11 @@ PbpPublic <- R6::R6Class(
         }
         self$`high_danger` <- `high_danger`
       }
-      if (!is.null(`player_1`)) {
-        if (!(is.character(`player_1`) && length(`player_1`) == 1)) {
-          stop(paste("Error! Invalid data for `player_1`. Must be a string:", `player_1`))
-        }
-        self$`player_1` <- `player_1`
-      }
       if (!is.null(`player_1_api_id`)) {
         if (!(is.numeric(`player_1_api_id`) && length(`player_1_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `player_1_api_id`. Must be an integer:", `player_1_api_id`))
         }
         self$`player_1_api_id` <- `player_1_api_id`
-      }
-      if (!is.null(`player_1_eh_id`)) {
-        if (!(is.character(`player_1_eh_id`) && length(`player_1_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `player_1_eh_id`. Must be a string:", `player_1_eh_id`))
-        }
-        self$`player_1_eh_id` <- `player_1_eh_id`
-      }
-      if (!is.null(`player_1_position`)) {
-        if (!(is.character(`player_1_position`) && length(`player_1_position`) == 1)) {
-          stop(paste("Error! Invalid data for `player_1_position`. Must be a string:", `player_1_position`))
-        }
-        self$`player_1_position` <- `player_1_position`
       }
       if (!is.null(`player_1_type`)) {
         if (!(is.character(`player_1_type`) && length(`player_1_type`) == 1)) {
@@ -829,29 +601,11 @@ PbpPublic <- R6::R6Class(
         }
         self$`player_1_type` <- `player_1_type`
       }
-      if (!is.null(`player_2`)) {
-        if (!(is.character(`player_2`) && length(`player_2`) == 1)) {
-          stop(paste("Error! Invalid data for `player_2`. Must be a string:", `player_2`))
-        }
-        self$`player_2` <- `player_2`
-      }
       if (!is.null(`player_2_api_id`)) {
         if (!(is.numeric(`player_2_api_id`) && length(`player_2_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `player_2_api_id`. Must be an integer:", `player_2_api_id`))
         }
         self$`player_2_api_id` <- `player_2_api_id`
-      }
-      if (!is.null(`player_2_eh_id`)) {
-        if (!(is.character(`player_2_eh_id`) && length(`player_2_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `player_2_eh_id`. Must be a string:", `player_2_eh_id`))
-        }
-        self$`player_2_eh_id` <- `player_2_eh_id`
-      }
-      if (!is.null(`player_2_position`)) {
-        if (!(is.character(`player_2_position`) && length(`player_2_position`) == 1)) {
-          stop(paste("Error! Invalid data for `player_2_position`. Must be a string:", `player_2_position`))
-        }
-        self$`player_2_position` <- `player_2_position`
       }
       if (!is.null(`player_2_type`)) {
         if (!(is.character(`player_2_type`) && length(`player_2_type`) == 1)) {
@@ -859,29 +613,11 @@ PbpPublic <- R6::R6Class(
         }
         self$`player_2_type` <- `player_2_type`
       }
-      if (!is.null(`player_3`)) {
-        if (!(is.character(`player_3`) && length(`player_3`) == 1)) {
-          stop(paste("Error! Invalid data for `player_3`. Must be a string:", `player_3`))
-        }
-        self$`player_3` <- `player_3`
-      }
       if (!is.null(`player_3_api_id`)) {
         if (!(is.numeric(`player_3_api_id`) && length(`player_3_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `player_3_api_id`. Must be an integer:", `player_3_api_id`))
         }
         self$`player_3_api_id` <- `player_3_api_id`
-      }
-      if (!is.null(`player_3_eh_id`)) {
-        if (!(is.character(`player_3_eh_id`) && length(`player_3_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `player_3_eh_id`. Must be a string:", `player_3_eh_id`))
-        }
-        self$`player_3_eh_id` <- `player_3_eh_id`
-      }
-      if (!is.null(`player_3_position`)) {
-        if (!(is.character(`player_3_position`) && length(`player_3_position`) == 1)) {
-          stop(paste("Error! Invalid data for `player_3_position`. Must be a string:", `player_3_position`))
-        }
-        self$`player_3_position` <- `player_3_position`
       }
       if (!is.null(`player_3_type`)) {
         if (!(is.character(`player_3_type`) && length(`player_3_type`) == 1)) {
@@ -934,59 +670,17 @@ PbpPublic <- R6::R6Class(
         }
         self$`event_team_skaters` <- `event_team_skaters`
       }
-      if (!is.null(`teammates`)) {
-        if (!(is.character(`teammates`) && length(`teammates`) == 1)) {
-          stop(paste("Error! Invalid data for `teammates`. Must be a string:", `teammates`))
-        }
-        self$`teammates` <- `teammates`
-      }
-      if (!is.null(`teammates_eh_id`)) {
-        if (!(is.character(`teammates_eh_id`) && length(`teammates_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `teammates_eh_id`. Must be a string:", `teammates_eh_id`))
-        }
-        self$`teammates_eh_id` <- `teammates_eh_id`
-      }
       if (!is.null(`teammates_api_id`)) {
         if (!(is.character(`teammates_api_id`) && length(`teammates_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `teammates_api_id`. Must be a string:", `teammates_api_id`))
         }
         self$`teammates_api_id` <- `teammates_api_id`
       }
-      if (!is.null(`teammates_positions`)) {
-        if (!(is.character(`teammates_positions`) && length(`teammates_positions`) == 1)) {
-          stop(paste("Error! Invalid data for `teammates_positions`. Must be a string:", `teammates_positions`))
-        }
-        self$`teammates_positions` <- `teammates_positions`
-      }
-      if (!is.null(`own_goalie`)) {
-        if (!(is.character(`own_goalie`) && length(`own_goalie`) == 1)) {
-          stop(paste("Error! Invalid data for `own_goalie`. Must be a string:", `own_goalie`))
-        }
-        self$`own_goalie` <- `own_goalie`
-      }
-      if (!is.null(`own_goalie_eh_id`)) {
-        if (!(is.character(`own_goalie_eh_id`) && length(`own_goalie_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `own_goalie_eh_id`. Must be a string:", `own_goalie_eh_id`))
-        }
-        self$`own_goalie_eh_id` <- `own_goalie_eh_id`
-      }
       if (!is.null(`own_goalie_api_id`)) {
-        if (!(is.character(`own_goalie_api_id`) && length(`own_goalie_api_id`) == 1)) {
-          stop(paste("Error! Invalid data for `own_goalie_api_id`. Must be a string:", `own_goalie_api_id`))
+        if (!(is.numeric(`own_goalie_api_id`) && length(`own_goalie_api_id`) == 1)) {
+          stop(paste("Error! Invalid data for `own_goalie_api_id`. Must be an integer:", `own_goalie_api_id`))
         }
         self$`own_goalie_api_id` <- `own_goalie_api_id`
-      }
-      if (!is.null(`forwards`)) {
-        if (!(is.character(`forwards`) && length(`forwards`) == 1)) {
-          stop(paste("Error! Invalid data for `forwards`. Must be a string:", `forwards`))
-        }
-        self$`forwards` <- `forwards`
-      }
-      if (!is.null(`forwards_eh_id`)) {
-        if (!(is.character(`forwards_eh_id`) && length(`forwards_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `forwards_eh_id`. Must be a string:", `forwards_eh_id`))
-        }
-        self$`forwards_eh_id` <- `forwards_eh_id`
       }
       if (!is.null(`forwards_api_id`)) {
         if (!(is.character(`forwards_api_id`) && length(`forwards_api_id`) == 1)) {
@@ -999,18 +693,6 @@ PbpPublic <- R6::R6Class(
           stop(paste("Error! Invalid data for `forwards_count`. Must be an integer:", `forwards_count`))
         }
         self$`forwards_count` <- `forwards_count`
-      }
-      if (!is.null(`defense`)) {
-        if (!(is.character(`defense`) && length(`defense`) == 1)) {
-          stop(paste("Error! Invalid data for `defense`. Must be a string:", `defense`))
-        }
-        self$`defense` <- `defense`
-      }
-      if (!is.null(`defense_eh_id`)) {
-        if (!(is.character(`defense_eh_id`) && length(`defense_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `defense_eh_id`. Must be a string:", `defense_eh_id`))
-        }
-        self$`defense_eh_id` <- `defense_eh_id`
       }
       if (!is.null(`defense_api_id`)) {
         if (!(is.character(`defense_api_id`) && length(`defense_api_id`) == 1)) {
@@ -1048,59 +730,17 @@ PbpPublic <- R6::R6Class(
         }
         self$`opp_team_skaters` <- `opp_team_skaters`
       }
-      if (!is.null(`opp_team_on`)) {
-        if (!(is.character(`opp_team_on`) && length(`opp_team_on`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_team_on`. Must be a string:", `opp_team_on`))
-        }
-        self$`opp_team_on` <- `opp_team_on`
-      }
-      if (!is.null(`opp_team_on_eh_id`)) {
-        if (!(is.character(`opp_team_on_eh_id`) && length(`opp_team_on_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_team_on_eh_id`. Must be a string:", `opp_team_on_eh_id`))
-        }
-        self$`opp_team_on_eh_id` <- `opp_team_on_eh_id`
-      }
       if (!is.null(`opp_team_on_api_id`)) {
         if (!(is.character(`opp_team_on_api_id`) && length(`opp_team_on_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `opp_team_on_api_id`. Must be a string:", `opp_team_on_api_id`))
         }
         self$`opp_team_on_api_id` <- `opp_team_on_api_id`
       }
-      if (!is.null(`opp_team_on_positions`)) {
-        if (!(is.character(`opp_team_on_positions`) && length(`opp_team_on_positions`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_team_on_positions`. Must be a string:", `opp_team_on_positions`))
-        }
-        self$`opp_team_on_positions` <- `opp_team_on_positions`
-      }
-      if (!is.null(`opp_goalie`)) {
-        if (!(is.character(`opp_goalie`) && length(`opp_goalie`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_goalie`. Must be a string:", `opp_goalie`))
-        }
-        self$`opp_goalie` <- `opp_goalie`
-      }
-      if (!is.null(`opp_goalie_eh_id`)) {
-        if (!(is.character(`opp_goalie_eh_id`) && length(`opp_goalie_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_goalie_eh_id`. Must be a string:", `opp_goalie_eh_id`))
-        }
-        self$`opp_goalie_eh_id` <- `opp_goalie_eh_id`
-      }
       if (!is.null(`opp_goalie_api_id`)) {
-        if (!(is.character(`opp_goalie_api_id`) && length(`opp_goalie_api_id`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_goalie_api_id`. Must be a string:", `opp_goalie_api_id`))
+        if (!(is.numeric(`opp_goalie_api_id`) && length(`opp_goalie_api_id`) == 1)) {
+          stop(paste("Error! Invalid data for `opp_goalie_api_id`. Must be an integer:", `opp_goalie_api_id`))
         }
         self$`opp_goalie_api_id` <- `opp_goalie_api_id`
-      }
-      if (!is.null(`opp_forwards`)) {
-        if (!(is.character(`opp_forwards`) && length(`opp_forwards`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_forwards`. Must be a string:", `opp_forwards`))
-        }
-        self$`opp_forwards` <- `opp_forwards`
-      }
-      if (!is.null(`opp_forwards_eh_id`)) {
-        if (!(is.character(`opp_forwards_eh_id`) && length(`opp_forwards_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_forwards_eh_id`. Must be a string:", `opp_forwards_eh_id`))
-        }
-        self$`opp_forwards_eh_id` <- `opp_forwards_eh_id`
       }
       if (!is.null(`opp_forwards_api_id`)) {
         if (!(is.character(`opp_forwards_api_id`) && length(`opp_forwards_api_id`) == 1)) {
@@ -1114,18 +754,6 @@ PbpPublic <- R6::R6Class(
         }
         self$`opp_forwards_count` <- `opp_forwards_count`
       }
-      if (!is.null(`opp_defense`)) {
-        if (!(is.character(`opp_defense`) && length(`opp_defense`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_defense`. Must be a string:", `opp_defense`))
-        }
-        self$`opp_defense` <- `opp_defense`
-      }
-      if (!is.null(`opp_defense_eh_id`)) {
-        if (!(is.character(`opp_defense_eh_id`) && length(`opp_defense_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `opp_defense_eh_id`. Must be a string:", `opp_defense_eh_id`))
-        }
-        self$`opp_defense_eh_id` <- `opp_defense_eh_id`
-      }
       if (!is.null(`opp_defense_api_id`)) {
         if (!(is.character(`opp_defense_api_id`) && length(`opp_defense_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `opp_defense_api_id`. Must be a string:", `opp_defense_api_id`))
@@ -1138,65 +766,17 @@ PbpPublic <- R6::R6Class(
         }
         self$`opp_defense_count` <- `opp_defense_count`
       }
-      if (!is.null(`home_on`)) {
-        if (!(is.character(`home_on`) && length(`home_on`) == 1)) {
-          stop(paste("Error! Invalid data for `home_on`. Must be a string:", `home_on`))
-        }
-        self$`home_on` <- `home_on`
-      }
-      if (!is.null(`home_on_eh_id`)) {
-        if (!(is.character(`home_on_eh_id`) && length(`home_on_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `home_on_eh_id`. Must be a string:", `home_on_eh_id`))
-        }
-        self$`home_on_eh_id` <- `home_on_eh_id`
-      }
       if (!is.null(`home_on_api_id`)) {
         if (!(is.character(`home_on_api_id`) && length(`home_on_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `home_on_api_id`. Must be a string:", `home_on_api_id`))
         }
         self$`home_on_api_id` <- `home_on_api_id`
       }
-      if (!is.null(`home_on_positions`)) {
-        if (!(is.character(`home_on_positions`) && length(`home_on_positions`) == 1)) {
-          stop(paste("Error! Invalid data for `home_on_positions`. Must be a string:", `home_on_positions`))
-        }
-        self$`home_on_positions` <- `home_on_positions`
-      }
-      if (!is.null(`away_on`)) {
-        if (!(is.character(`away_on`) && length(`away_on`) == 1)) {
-          stop(paste("Error! Invalid data for `away_on`. Must be a string:", `away_on`))
-        }
-        self$`away_on` <- `away_on`
-      }
-      if (!is.null(`away_on_eh_id`)) {
-        if (!(is.character(`away_on_eh_id`) && length(`away_on_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `away_on_eh_id`. Must be a string:", `away_on_eh_id`))
-        }
-        self$`away_on_eh_id` <- `away_on_eh_id`
-      }
       if (!is.null(`away_on_api_id`)) {
         if (!(is.character(`away_on_api_id`) && length(`away_on_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `away_on_api_id`. Must be a string:", `away_on_api_id`))
         }
         self$`away_on_api_id` <- `away_on_api_id`
-      }
-      if (!is.null(`away_on_positions`)) {
-        if (!(is.character(`away_on_positions`) && length(`away_on_positions`) == 1)) {
-          stop(paste("Error! Invalid data for `away_on_positions`. Must be a string:", `away_on_positions`))
-        }
-        self$`away_on_positions` <- `away_on_positions`
-      }
-      if (!is.null(`home_forwards`)) {
-        if (!(is.character(`home_forwards`) && length(`home_forwards`) == 1)) {
-          stop(paste("Error! Invalid data for `home_forwards`. Must be a string:", `home_forwards`))
-        }
-        self$`home_forwards` <- `home_forwards`
-      }
-      if (!is.null(`home_forwards_eh_id`)) {
-        if (!(is.character(`home_forwards_eh_id`) && length(`home_forwards_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `home_forwards_eh_id`. Must be a string:", `home_forwards_eh_id`))
-        }
-        self$`home_forwards_eh_id` <- `home_forwards_eh_id`
       }
       if (!is.null(`home_forwards_api_id`)) {
         if (!(is.character(`home_forwards_api_id`) && length(`home_forwards_api_id`) == 1)) {
@@ -1213,18 +793,6 @@ PbpPublic <- R6::R6Class(
       if (!is.null(`home_forwards_percent`)) {
         self$`home_forwards_percent` <- `home_forwards_percent`
       }
-      if (!is.null(`home_defense`)) {
-        if (!(is.character(`home_defense`) && length(`home_defense`) == 1)) {
-          stop(paste("Error! Invalid data for `home_defense`. Must be a string:", `home_defense`))
-        }
-        self$`home_defense` <- `home_defense`
-      }
-      if (!is.null(`home_defense_eh_id`)) {
-        if (!(is.character(`home_defense_eh_id`) && length(`home_defense_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `home_defense_eh_id`. Must be a string:", `home_defense_eh_id`))
-        }
-        self$`home_defense_eh_id` <- `home_defense_eh_id`
-      }
       if (!is.null(`home_defense_api_id`)) {
         if (!(is.character(`home_defense_api_id`) && length(`home_defense_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `home_defense_api_id`. Must be a string:", `home_defense_api_id`))
@@ -1237,35 +805,11 @@ PbpPublic <- R6::R6Class(
         }
         self$`home_defense_count` <- `home_defense_count`
       }
-      if (!is.null(`home_goalie`)) {
-        if (!(is.character(`home_goalie`) && length(`home_goalie`) == 1)) {
-          stop(paste("Error! Invalid data for `home_goalie`. Must be a string:", `home_goalie`))
-        }
-        self$`home_goalie` <- `home_goalie`
-      }
-      if (!is.null(`home_goalie_eh_id`)) {
-        if (!(is.character(`home_goalie_eh_id`) && length(`home_goalie_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `home_goalie_eh_id`. Must be a string:", `home_goalie_eh_id`))
-        }
-        self$`home_goalie_eh_id` <- `home_goalie_eh_id`
-      }
       if (!is.null(`home_goalie_api_id`)) {
-        if (!(is.character(`home_goalie_api_id`) && length(`home_goalie_api_id`) == 1)) {
-          stop(paste("Error! Invalid data for `home_goalie_api_id`. Must be a string:", `home_goalie_api_id`))
+        if (!(is.numeric(`home_goalie_api_id`) && length(`home_goalie_api_id`) == 1)) {
+          stop(paste("Error! Invalid data for `home_goalie_api_id`. Must be an integer:", `home_goalie_api_id`))
         }
         self$`home_goalie_api_id` <- `home_goalie_api_id`
-      }
-      if (!is.null(`away_forwards`)) {
-        if (!(is.character(`away_forwards`) && length(`away_forwards`) == 1)) {
-          stop(paste("Error! Invalid data for `away_forwards`. Must be a string:", `away_forwards`))
-        }
-        self$`away_forwards` <- `away_forwards`
-      }
-      if (!is.null(`away_forwards_eh_id`)) {
-        if (!(is.character(`away_forwards_eh_id`) && length(`away_forwards_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `away_forwards_eh_id`. Must be a string:", `away_forwards_eh_id`))
-        }
-        self$`away_forwards_eh_id` <- `away_forwards_eh_id`
       }
       if (!is.null(`away_forwards_api_id`)) {
         if (!(is.character(`away_forwards_api_id`) && length(`away_forwards_api_id`) == 1)) {
@@ -1282,18 +826,6 @@ PbpPublic <- R6::R6Class(
       if (!is.null(`away_forwards_percent`)) {
         self$`away_forwards_percent` <- `away_forwards_percent`
       }
-      if (!is.null(`away_defense`)) {
-        if (!(is.character(`away_defense`) && length(`away_defense`) == 1)) {
-          stop(paste("Error! Invalid data for `away_defense`. Must be a string:", `away_defense`))
-        }
-        self$`away_defense` <- `away_defense`
-      }
-      if (!is.null(`away_defense_eh_id`)) {
-        if (!(is.character(`away_defense_eh_id`) && length(`away_defense_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `away_defense_eh_id`. Must be a string:", `away_defense_eh_id`))
-        }
-        self$`away_defense_eh_id` <- `away_defense_eh_id`
-      }
       if (!is.null(`away_defense_api_id`)) {
         if (!(is.character(`away_defense_api_id`) && length(`away_defense_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `away_defense_api_id`. Must be a string:", `away_defense_api_id`))
@@ -1306,21 +838,9 @@ PbpPublic <- R6::R6Class(
         }
         self$`away_defense_count` <- `away_defense_count`
       }
-      if (!is.null(`away_goalie`)) {
-        if (!(is.character(`away_goalie`) && length(`away_goalie`) == 1)) {
-          stop(paste("Error! Invalid data for `away_goalie`. Must be a string:", `away_goalie`))
-        }
-        self$`away_goalie` <- `away_goalie`
-      }
-      if (!is.null(`away_goalie_eh_id`)) {
-        if (!(is.character(`away_goalie_eh_id`) && length(`away_goalie_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `away_goalie_eh_id`. Must be a string:", `away_goalie_eh_id`))
-        }
-        self$`away_goalie_eh_id` <- `away_goalie_eh_id`
-      }
       if (!is.null(`away_goalie_api_id`)) {
-        if (!(is.character(`away_goalie_api_id`) && length(`away_goalie_api_id`) == 1)) {
-          stop(paste("Error! Invalid data for `away_goalie_api_id`. Must be a string:", `away_goalie_api_id`))
+        if (!(is.numeric(`away_goalie_api_id`) && length(`away_goalie_api_id`) == 1)) {
+          stop(paste("Error! Invalid data for `away_goalie_api_id`. Must be an integer:", `away_goalie_api_id`))
         }
         self$`away_goalie_api_id` <- `away_goalie_api_id`
       }
@@ -1336,53 +856,17 @@ PbpPublic <- R6::R6Class(
         }
         self$`change_off_count` <- `change_off_count`
       }
-      if (!is.null(`change_on`)) {
-        if (!(is.character(`change_on`) && length(`change_on`) == 1)) {
-          stop(paste("Error! Invalid data for `change_on`. Must be a string:", `change_on`))
-        }
-        self$`change_on` <- `change_on`
-      }
-      if (!is.null(`change_on_eh_id`)) {
-        if (!(is.character(`change_on_eh_id`) && length(`change_on_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `change_on_eh_id`. Must be a string:", `change_on_eh_id`))
-        }
-        self$`change_on_eh_id` <- `change_on_eh_id`
-      }
       if (!is.null(`change_on_api_id`)) {
         if (!(is.character(`change_on_api_id`) && length(`change_on_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `change_on_api_id`. Must be a string:", `change_on_api_id`))
         }
         self$`change_on_api_id` <- `change_on_api_id`
       }
-      if (!is.null(`change_on_positions`)) {
-        if (!(is.character(`change_on_positions`) && length(`change_on_positions`) == 1)) {
-          stop(paste("Error! Invalid data for `change_on_positions`. Must be a string:", `change_on_positions`))
-        }
-        self$`change_on_positions` <- `change_on_positions`
-      }
-      if (!is.null(`change_off`)) {
-        if (!(is.character(`change_off`) && length(`change_off`) == 1)) {
-          stop(paste("Error! Invalid data for `change_off`. Must be a string:", `change_off`))
-        }
-        self$`change_off` <- `change_off`
-      }
-      if (!is.null(`change_off_eh_id`)) {
-        if (!(is.character(`change_off_eh_id`) && length(`change_off_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `change_off_eh_id`. Must be a string:", `change_off_eh_id`))
-        }
-        self$`change_off_eh_id` <- `change_off_eh_id`
-      }
       if (!is.null(`change_off_api_id`)) {
         if (!(is.character(`change_off_api_id`) && length(`change_off_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `change_off_api_id`. Must be a string:", `change_off_api_id`))
         }
         self$`change_off_api_id` <- `change_off_api_id`
-      }
-      if (!is.null(`change_off_positions`)) {
-        if (!(is.character(`change_off_positions`) && length(`change_off_positions`) == 1)) {
-          stop(paste("Error! Invalid data for `change_off_positions`. Must be a string:", `change_off_positions`))
-        }
-        self$`change_off_positions` <- `change_off_positions`
       }
       if (!is.null(`change_on_forwards_count`)) {
         if (!(is.numeric(`change_on_forwards_count`) && length(`change_on_forwards_count`) == 1)) {
@@ -1396,35 +880,11 @@ PbpPublic <- R6::R6Class(
         }
         self$`change_off_forwards_count` <- `change_off_forwards_count`
       }
-      if (!is.null(`change_on_forwards`)) {
-        if (!(is.character(`change_on_forwards`) && length(`change_on_forwards`) == 1)) {
-          stop(paste("Error! Invalid data for `change_on_forwards`. Must be a string:", `change_on_forwards`))
-        }
-        self$`change_on_forwards` <- `change_on_forwards`
-      }
-      if (!is.null(`change_on_forwards_eh_id`)) {
-        if (!(is.character(`change_on_forwards_eh_id`) && length(`change_on_forwards_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `change_on_forwards_eh_id`. Must be a string:", `change_on_forwards_eh_id`))
-        }
-        self$`change_on_forwards_eh_id` <- `change_on_forwards_eh_id`
-      }
       if (!is.null(`change_on_forwards_api_id`)) {
         if (!(is.character(`change_on_forwards_api_id`) && length(`change_on_forwards_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `change_on_forwards_api_id`. Must be a string:", `change_on_forwards_api_id`))
         }
         self$`change_on_forwards_api_id` <- `change_on_forwards_api_id`
-      }
-      if (!is.null(`change_off_forwards`)) {
-        if (!(is.character(`change_off_forwards`) && length(`change_off_forwards`) == 1)) {
-          stop(paste("Error! Invalid data for `change_off_forwards`. Must be a string:", `change_off_forwards`))
-        }
-        self$`change_off_forwards` <- `change_off_forwards`
-      }
-      if (!is.null(`change_off_forwards_eh_id`)) {
-        if (!(is.character(`change_off_forwards_eh_id`) && length(`change_off_forwards_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `change_off_forwards_eh_id`. Must be a string:", `change_off_forwards_eh_id`))
-        }
-        self$`change_off_forwards_eh_id` <- `change_off_forwards_eh_id`
       }
       if (!is.null(`change_off_forwards_api_id`)) {
         if (!(is.character(`change_off_forwards_api_id`) && length(`change_off_forwards_api_id`) == 1)) {
@@ -1444,35 +904,11 @@ PbpPublic <- R6::R6Class(
         }
         self$`change_off_defense_count` <- `change_off_defense_count`
       }
-      if (!is.null(`change_on_defense`)) {
-        if (!(is.character(`change_on_defense`) && length(`change_on_defense`) == 1)) {
-          stop(paste("Error! Invalid data for `change_on_defense`. Must be a string:", `change_on_defense`))
-        }
-        self$`change_on_defense` <- `change_on_defense`
-      }
-      if (!is.null(`change_on_defense_eh_id`)) {
-        if (!(is.character(`change_on_defense_eh_id`) && length(`change_on_defense_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `change_on_defense_eh_id`. Must be a string:", `change_on_defense_eh_id`))
-        }
-        self$`change_on_defense_eh_id` <- `change_on_defense_eh_id`
-      }
       if (!is.null(`change_on_defense_api_id`)) {
         if (!(is.character(`change_on_defense_api_id`) && length(`change_on_defense_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `change_on_defense_api_id`. Must be a string:", `change_on_defense_api_id`))
         }
         self$`change_on_defense_api_id` <- `change_on_defense_api_id`
-      }
-      if (!is.null(`change_off_defense`)) {
-        if (!(is.character(`change_off_defense`) && length(`change_off_defense`) == 1)) {
-          stop(paste("Error! Invalid data for `change_off_defense`. Must be a string:", `change_off_defense`))
-        }
-        self$`change_off_defense` <- `change_off_defense`
-      }
-      if (!is.null(`change_off_defense_eh_id`)) {
-        if (!(is.character(`change_off_defense_eh_id`) && length(`change_off_defense_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `change_off_defense_eh_id`. Must be a string:", `change_off_defense_eh_id`))
-        }
-        self$`change_off_defense_eh_id` <- `change_off_defense_eh_id`
       }
       if (!is.null(`change_off_defense_api_id`)) {
         if (!(is.character(`change_off_defense_api_id`) && length(`change_off_defense_api_id`) == 1)) {
@@ -1492,35 +928,11 @@ PbpPublic <- R6::R6Class(
         }
         self$`change_off_goalie_count` <- `change_off_goalie_count`
       }
-      if (!is.null(`change_on_goalie`)) {
-        if (!(is.character(`change_on_goalie`) && length(`change_on_goalie`) == 1)) {
-          stop(paste("Error! Invalid data for `change_on_goalie`. Must be a string:", `change_on_goalie`))
-        }
-        self$`change_on_goalie` <- `change_on_goalie`
-      }
-      if (!is.null(`change_on_goalie_eh_id`)) {
-        if (!(is.character(`change_on_goalie_eh_id`) && length(`change_on_goalie_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `change_on_goalie_eh_id`. Must be a string:", `change_on_goalie_eh_id`))
-        }
-        self$`change_on_goalie_eh_id` <- `change_on_goalie_eh_id`
-      }
       if (!is.null(`change_on_goalie_api_id`)) {
         if (!(is.character(`change_on_goalie_api_id`) && length(`change_on_goalie_api_id`) == 1)) {
           stop(paste("Error! Invalid data for `change_on_goalie_api_id`. Must be a string:", `change_on_goalie_api_id`))
         }
         self$`change_on_goalie_api_id` <- `change_on_goalie_api_id`
-      }
-      if (!is.null(`change_off_goalie`)) {
-        if (!(is.character(`change_off_goalie`) && length(`change_off_goalie`) == 1)) {
-          stop(paste("Error! Invalid data for `change_off_goalie`. Must be a string:", `change_off_goalie`))
-        }
-        self$`change_off_goalie` <- `change_off_goalie`
-      }
-      if (!is.null(`change_off_goalie_eh_id`)) {
-        if (!(is.character(`change_off_goalie_eh_id`) && length(`change_off_goalie_eh_id`) == 1)) {
-          stop(paste("Error! Invalid data for `change_off_goalie_eh_id`. Must be a string:", `change_off_goalie_eh_id`))
-        }
-        self$`change_off_goalie_eh_id` <- `change_off_goalie_eh_id`
       }
       if (!is.null(`change_off_goalie_api_id`)) {
         if (!(is.character(`change_off_goalie_api_id`) && length(`change_off_goalie_api_id`) == 1)) {
@@ -1753,6 +1165,14 @@ PbpPublic <- R6::R6Class(
         }
         self$`pen10` <- `pen10`
       }
+      if (!is.null(`player`)) {
+        stopifnot(R6::is.R6(`player`))
+        self$`player` <- `player`
+      }
+      if (!is.null(`game`)) {
+        stopifnot(R6::is.R6(`game`))
+        self$`game` <- `game`
+      }
     },
 
     #' @description
@@ -1801,10 +1221,6 @@ PbpPublic <- R6::R6Class(
       if (!is.null(self$`game_id`)) {
         PbpPublicObject[["game_id"]] <-
           self$`game_id`
-      }
-      if (!is.null(self$`game_date`)) {
-        PbpPublicObject[["game_date"]] <-
-          self$`game_date`
       }
       if (!is.null(self$`event_idx`)) {
         PbpPublicObject[["event_idx"]] <-
@@ -1862,61 +1278,25 @@ PbpPublic <- R6::R6Class(
         PbpPublicObject[["high_danger"]] <-
           self$`high_danger`
       }
-      if (!is.null(self$`player_1`)) {
-        PbpPublicObject[["player_1"]] <-
-          self$`player_1`
-      }
       if (!is.null(self$`player_1_api_id`)) {
         PbpPublicObject[["player_1_api_id"]] <-
           self$`player_1_api_id`
-      }
-      if (!is.null(self$`player_1_eh_id`)) {
-        PbpPublicObject[["player_1_eh_id"]] <-
-          self$`player_1_eh_id`
-      }
-      if (!is.null(self$`player_1_position`)) {
-        PbpPublicObject[["player_1_position"]] <-
-          self$`player_1_position`
       }
       if (!is.null(self$`player_1_type`)) {
         PbpPublicObject[["player_1_type"]] <-
           self$`player_1_type`
       }
-      if (!is.null(self$`player_2`)) {
-        PbpPublicObject[["player_2"]] <-
-          self$`player_2`
-      }
       if (!is.null(self$`player_2_api_id`)) {
         PbpPublicObject[["player_2_api_id"]] <-
           self$`player_2_api_id`
-      }
-      if (!is.null(self$`player_2_eh_id`)) {
-        PbpPublicObject[["player_2_eh_id"]] <-
-          self$`player_2_eh_id`
-      }
-      if (!is.null(self$`player_2_position`)) {
-        PbpPublicObject[["player_2_position"]] <-
-          self$`player_2_position`
       }
       if (!is.null(self$`player_2_type`)) {
         PbpPublicObject[["player_2_type"]] <-
           self$`player_2_type`
       }
-      if (!is.null(self$`player_3`)) {
-        PbpPublicObject[["player_3"]] <-
-          self$`player_3`
-      }
       if (!is.null(self$`player_3_api_id`)) {
         PbpPublicObject[["player_3_api_id"]] <-
           self$`player_3_api_id`
-      }
-      if (!is.null(self$`player_3_eh_id`)) {
-        PbpPublicObject[["player_3_eh_id"]] <-
-          self$`player_3_eh_id`
-      }
-      if (!is.null(self$`player_3_position`)) {
-        PbpPublicObject[["player_3_position"]] <-
-          self$`player_3_position`
       }
       if (!is.null(self$`player_3_type`)) {
         PbpPublicObject[["player_3_type"]] <-
@@ -1970,41 +1350,13 @@ PbpPublic <- R6::R6Class(
         PbpPublicObject[["event_team_skaters"]] <-
           self$`event_team_skaters`
       }
-      if (!is.null(self$`teammates`)) {
-        PbpPublicObject[["teammates"]] <-
-          self$`teammates`
-      }
-      if (!is.null(self$`teammates_eh_id`)) {
-        PbpPublicObject[["teammates_eh_id"]] <-
-          self$`teammates_eh_id`
-      }
       if (!is.null(self$`teammates_api_id`)) {
         PbpPublicObject[["teammates_api_id"]] <-
           self$`teammates_api_id`
       }
-      if (!is.null(self$`teammates_positions`)) {
-        PbpPublicObject[["teammates_positions"]] <-
-          self$`teammates_positions`
-      }
-      if (!is.null(self$`own_goalie`)) {
-        PbpPublicObject[["own_goalie"]] <-
-          self$`own_goalie`
-      }
-      if (!is.null(self$`own_goalie_eh_id`)) {
-        PbpPublicObject[["own_goalie_eh_id"]] <-
-          self$`own_goalie_eh_id`
-      }
       if (!is.null(self$`own_goalie_api_id`)) {
         PbpPublicObject[["own_goalie_api_id"]] <-
           self$`own_goalie_api_id`
-      }
-      if (!is.null(self$`forwards`)) {
-        PbpPublicObject[["forwards"]] <-
-          self$`forwards`
-      }
-      if (!is.null(self$`forwards_eh_id`)) {
-        PbpPublicObject[["forwards_eh_id"]] <-
-          self$`forwards_eh_id`
       }
       if (!is.null(self$`forwards_api_id`)) {
         PbpPublicObject[["forwards_api_id"]] <-
@@ -2013,14 +1365,6 @@ PbpPublic <- R6::R6Class(
       if (!is.null(self$`forwards_count`)) {
         PbpPublicObject[["forwards_count"]] <-
           self$`forwards_count`
-      }
-      if (!is.null(self$`defense`)) {
-        PbpPublicObject[["defense"]] <-
-          self$`defense`
-      }
-      if (!is.null(self$`defense_eh_id`)) {
-        PbpPublicObject[["defense_eh_id"]] <-
-          self$`defense_eh_id`
       }
       if (!is.null(self$`defense_api_id`)) {
         PbpPublicObject[["defense_api_id"]] <-
@@ -2046,41 +1390,13 @@ PbpPublic <- R6::R6Class(
         PbpPublicObject[["opp_team_skaters"]] <-
           self$`opp_team_skaters`
       }
-      if (!is.null(self$`opp_team_on`)) {
-        PbpPublicObject[["opp_team_on"]] <-
-          self$`opp_team_on`
-      }
-      if (!is.null(self$`opp_team_on_eh_id`)) {
-        PbpPublicObject[["opp_team_on_eh_id"]] <-
-          self$`opp_team_on_eh_id`
-      }
       if (!is.null(self$`opp_team_on_api_id`)) {
         PbpPublicObject[["opp_team_on_api_id"]] <-
           self$`opp_team_on_api_id`
       }
-      if (!is.null(self$`opp_team_on_positions`)) {
-        PbpPublicObject[["opp_team_on_positions"]] <-
-          self$`opp_team_on_positions`
-      }
-      if (!is.null(self$`opp_goalie`)) {
-        PbpPublicObject[["opp_goalie"]] <-
-          self$`opp_goalie`
-      }
-      if (!is.null(self$`opp_goalie_eh_id`)) {
-        PbpPublicObject[["opp_goalie_eh_id"]] <-
-          self$`opp_goalie_eh_id`
-      }
       if (!is.null(self$`opp_goalie_api_id`)) {
         PbpPublicObject[["opp_goalie_api_id"]] <-
           self$`opp_goalie_api_id`
-      }
-      if (!is.null(self$`opp_forwards`)) {
-        PbpPublicObject[["opp_forwards"]] <-
-          self$`opp_forwards`
-      }
-      if (!is.null(self$`opp_forwards_eh_id`)) {
-        PbpPublicObject[["opp_forwards_eh_id"]] <-
-          self$`opp_forwards_eh_id`
       }
       if (!is.null(self$`opp_forwards_api_id`)) {
         PbpPublicObject[["opp_forwards_api_id"]] <-
@@ -2089,14 +1405,6 @@ PbpPublic <- R6::R6Class(
       if (!is.null(self$`opp_forwards_count`)) {
         PbpPublicObject[["opp_forwards_count"]] <-
           self$`opp_forwards_count`
-      }
-      if (!is.null(self$`opp_defense`)) {
-        PbpPublicObject[["opp_defense"]] <-
-          self$`opp_defense`
-      }
-      if (!is.null(self$`opp_defense_eh_id`)) {
-        PbpPublicObject[["opp_defense_eh_id"]] <-
-          self$`opp_defense_eh_id`
       }
       if (!is.null(self$`opp_defense_api_id`)) {
         PbpPublicObject[["opp_defense_api_id"]] <-
@@ -2130,14 +1438,6 @@ PbpPublic <- R6::R6Class(
         PbpPublicObject[["is_away"]] <-
           self$`is_away`
       }
-      if (!is.null(self$`home_team`)) {
-        PbpPublicObject[["home_team"]] <-
-          self$`home_team`
-      }
-      if (!is.null(self$`away_team`)) {
-        PbpPublicObject[["away_team"]] <-
-          self$`away_team`
-      }
       if (!is.null(self$`home_skaters`)) {
         PbpPublicObject[["home_skaters"]] <-
           self$`home_skaters`
@@ -2146,45 +1446,13 @@ PbpPublic <- R6::R6Class(
         PbpPublicObject[["away_skaters"]] <-
           self$`away_skaters`
       }
-      if (!is.null(self$`home_on`)) {
-        PbpPublicObject[["home_on"]] <-
-          self$`home_on`
-      }
-      if (!is.null(self$`home_on_eh_id`)) {
-        PbpPublicObject[["home_on_eh_id"]] <-
-          self$`home_on_eh_id`
-      }
       if (!is.null(self$`home_on_api_id`)) {
         PbpPublicObject[["home_on_api_id"]] <-
           self$`home_on_api_id`
       }
-      if (!is.null(self$`home_on_positions`)) {
-        PbpPublicObject[["home_on_positions"]] <-
-          self$`home_on_positions`
-      }
-      if (!is.null(self$`away_on`)) {
-        PbpPublicObject[["away_on"]] <-
-          self$`away_on`
-      }
-      if (!is.null(self$`away_on_eh_id`)) {
-        PbpPublicObject[["away_on_eh_id"]] <-
-          self$`away_on_eh_id`
-      }
       if (!is.null(self$`away_on_api_id`)) {
         PbpPublicObject[["away_on_api_id"]] <-
           self$`away_on_api_id`
-      }
-      if (!is.null(self$`away_on_positions`)) {
-        PbpPublicObject[["away_on_positions"]] <-
-          self$`away_on_positions`
-      }
-      if (!is.null(self$`home_forwards`)) {
-        PbpPublicObject[["home_forwards"]] <-
-          self$`home_forwards`
-      }
-      if (!is.null(self$`home_forwards_eh_id`)) {
-        PbpPublicObject[["home_forwards_eh_id"]] <-
-          self$`home_forwards_eh_id`
       }
       if (!is.null(self$`home_forwards_api_id`)) {
         PbpPublicObject[["home_forwards_api_id"]] <-
@@ -2198,14 +1466,6 @@ PbpPublic <- R6::R6Class(
         PbpPublicObject[["home_forwards_percent"]] <-
           self$`home_forwards_percent`
       }
-      if (!is.null(self$`home_defense`)) {
-        PbpPublicObject[["home_defense"]] <-
-          self$`home_defense`
-      }
-      if (!is.null(self$`home_defense_eh_id`)) {
-        PbpPublicObject[["home_defense_eh_id"]] <-
-          self$`home_defense_eh_id`
-      }
       if (!is.null(self$`home_defense_api_id`)) {
         PbpPublicObject[["home_defense_api_id"]] <-
           self$`home_defense_api_id`
@@ -2214,25 +1474,9 @@ PbpPublic <- R6::R6Class(
         PbpPublicObject[["home_defense_count"]] <-
           self$`home_defense_count`
       }
-      if (!is.null(self$`home_goalie`)) {
-        PbpPublicObject[["home_goalie"]] <-
-          self$`home_goalie`
-      }
-      if (!is.null(self$`home_goalie_eh_id`)) {
-        PbpPublicObject[["home_goalie_eh_id"]] <-
-          self$`home_goalie_eh_id`
-      }
       if (!is.null(self$`home_goalie_api_id`)) {
         PbpPublicObject[["home_goalie_api_id"]] <-
           self$`home_goalie_api_id`
-      }
-      if (!is.null(self$`away_forwards`)) {
-        PbpPublicObject[["away_forwards"]] <-
-          self$`away_forwards`
-      }
-      if (!is.null(self$`away_forwards_eh_id`)) {
-        PbpPublicObject[["away_forwards_eh_id"]] <-
-          self$`away_forwards_eh_id`
       }
       if (!is.null(self$`away_forwards_api_id`)) {
         PbpPublicObject[["away_forwards_api_id"]] <-
@@ -2246,14 +1490,6 @@ PbpPublic <- R6::R6Class(
         PbpPublicObject[["away_forwards_percent"]] <-
           self$`away_forwards_percent`
       }
-      if (!is.null(self$`away_defense`)) {
-        PbpPublicObject[["away_defense"]] <-
-          self$`away_defense`
-      }
-      if (!is.null(self$`away_defense_eh_id`)) {
-        PbpPublicObject[["away_defense_eh_id"]] <-
-          self$`away_defense_eh_id`
-      }
       if (!is.null(self$`away_defense_api_id`)) {
         PbpPublicObject[["away_defense_api_id"]] <-
           self$`away_defense_api_id`
@@ -2261,14 +1497,6 @@ PbpPublic <- R6::R6Class(
       if (!is.null(self$`away_defense_count`)) {
         PbpPublicObject[["away_defense_count"]] <-
           self$`away_defense_count`
-      }
-      if (!is.null(self$`away_goalie`)) {
-        PbpPublicObject[["away_goalie"]] <-
-          self$`away_goalie`
-      }
-      if (!is.null(self$`away_goalie_eh_id`)) {
-        PbpPublicObject[["away_goalie_eh_id"]] <-
-          self$`away_goalie_eh_id`
       }
       if (!is.null(self$`away_goalie_api_id`)) {
         PbpPublicObject[["away_goalie_api_id"]] <-
@@ -2282,37 +1510,13 @@ PbpPublic <- R6::R6Class(
         PbpPublicObject[["change_off_count"]] <-
           self$`change_off_count`
       }
-      if (!is.null(self$`change_on`)) {
-        PbpPublicObject[["change_on"]] <-
-          self$`change_on`
-      }
-      if (!is.null(self$`change_on_eh_id`)) {
-        PbpPublicObject[["change_on_eh_id"]] <-
-          self$`change_on_eh_id`
-      }
       if (!is.null(self$`change_on_api_id`)) {
         PbpPublicObject[["change_on_api_id"]] <-
           self$`change_on_api_id`
       }
-      if (!is.null(self$`change_on_positions`)) {
-        PbpPublicObject[["change_on_positions"]] <-
-          self$`change_on_positions`
-      }
-      if (!is.null(self$`change_off`)) {
-        PbpPublicObject[["change_off"]] <-
-          self$`change_off`
-      }
-      if (!is.null(self$`change_off_eh_id`)) {
-        PbpPublicObject[["change_off_eh_id"]] <-
-          self$`change_off_eh_id`
-      }
       if (!is.null(self$`change_off_api_id`)) {
         PbpPublicObject[["change_off_api_id"]] <-
           self$`change_off_api_id`
-      }
-      if (!is.null(self$`change_off_positions`)) {
-        PbpPublicObject[["change_off_positions"]] <-
-          self$`change_off_positions`
       }
       if (!is.null(self$`change_on_forwards_count`)) {
         PbpPublicObject[["change_on_forwards_count"]] <-
@@ -2322,25 +1526,9 @@ PbpPublic <- R6::R6Class(
         PbpPublicObject[["change_off_forwards_count"]] <-
           self$`change_off_forwards_count`
       }
-      if (!is.null(self$`change_on_forwards`)) {
-        PbpPublicObject[["change_on_forwards"]] <-
-          self$`change_on_forwards`
-      }
-      if (!is.null(self$`change_on_forwards_eh_id`)) {
-        PbpPublicObject[["change_on_forwards_eh_id"]] <-
-          self$`change_on_forwards_eh_id`
-      }
       if (!is.null(self$`change_on_forwards_api_id`)) {
         PbpPublicObject[["change_on_forwards_api_id"]] <-
           self$`change_on_forwards_api_id`
-      }
-      if (!is.null(self$`change_off_forwards`)) {
-        PbpPublicObject[["change_off_forwards"]] <-
-          self$`change_off_forwards`
-      }
-      if (!is.null(self$`change_off_forwards_eh_id`)) {
-        PbpPublicObject[["change_off_forwards_eh_id"]] <-
-          self$`change_off_forwards_eh_id`
       }
       if (!is.null(self$`change_off_forwards_api_id`)) {
         PbpPublicObject[["change_off_forwards_api_id"]] <-
@@ -2354,25 +1542,9 @@ PbpPublic <- R6::R6Class(
         PbpPublicObject[["change_off_defense_count"]] <-
           self$`change_off_defense_count`
       }
-      if (!is.null(self$`change_on_defense`)) {
-        PbpPublicObject[["change_on_defense"]] <-
-          self$`change_on_defense`
-      }
-      if (!is.null(self$`change_on_defense_eh_id`)) {
-        PbpPublicObject[["change_on_defense_eh_id"]] <-
-          self$`change_on_defense_eh_id`
-      }
       if (!is.null(self$`change_on_defense_api_id`)) {
         PbpPublicObject[["change_on_defense_api_id"]] <-
           self$`change_on_defense_api_id`
-      }
-      if (!is.null(self$`change_off_defense`)) {
-        PbpPublicObject[["change_off_defense"]] <-
-          self$`change_off_defense`
-      }
-      if (!is.null(self$`change_off_defense_eh_id`)) {
-        PbpPublicObject[["change_off_defense_eh_id"]] <-
-          self$`change_off_defense_eh_id`
       }
       if (!is.null(self$`change_off_defense_api_id`)) {
         PbpPublicObject[["change_off_defense_api_id"]] <-
@@ -2386,25 +1558,9 @@ PbpPublic <- R6::R6Class(
         PbpPublicObject[["change_off_goalie_count"]] <-
           self$`change_off_goalie_count`
       }
-      if (!is.null(self$`change_on_goalie`)) {
-        PbpPublicObject[["change_on_goalie"]] <-
-          self$`change_on_goalie`
-      }
-      if (!is.null(self$`change_on_goalie_eh_id`)) {
-        PbpPublicObject[["change_on_goalie_eh_id"]] <-
-          self$`change_on_goalie_eh_id`
-      }
       if (!is.null(self$`change_on_goalie_api_id`)) {
         PbpPublicObject[["change_on_goalie_api_id"]] <-
           self$`change_on_goalie_api_id`
-      }
-      if (!is.null(self$`change_off_goalie`)) {
-        PbpPublicObject[["change_off_goalie"]] <-
-          self$`change_off_goalie`
-      }
-      if (!is.null(self$`change_off_goalie_eh_id`)) {
-        PbpPublicObject[["change_off_goalie_eh_id"]] <-
-          self$`change_off_goalie_eh_id`
       }
       if (!is.null(self$`change_off_goalie_api_id`)) {
         PbpPublicObject[["change_off_goalie_api_id"]] <-
@@ -2586,6 +1742,14 @@ PbpPublic <- R6::R6Class(
         PbpPublicObject[["pen10"]] <-
           self$`pen10`
       }
+      if (!is.null(self$`player`)) {
+        PbpPublicObject[["player"]] <-
+          self$`player`$toSimpleType()
+      }
+      if (!is.null(self$`game`)) {
+        PbpPublicObject[["game"]] <-
+          self$`game`$toSimpleType()
+      }
       return(PbpPublicObject)
     },
 
@@ -2607,9 +1771,6 @@ PbpPublic <- R6::R6Class(
       }
       if (!is.null(this_object$`game_id`)) {
         self$`game_id` <- this_object$`game_id`
-      }
-      if (!is.null(this_object$`game_date`)) {
-        self$`game_date` <- this_object$`game_date`
       }
       if (!is.null(this_object$`event_idx`)) {
         self$`event_idx` <- this_object$`event_idx`
@@ -2653,47 +1814,20 @@ PbpPublic <- R6::R6Class(
       if (!is.null(this_object$`high_danger`)) {
         self$`high_danger` <- this_object$`high_danger`
       }
-      if (!is.null(this_object$`player_1`)) {
-        self$`player_1` <- this_object$`player_1`
-      }
       if (!is.null(this_object$`player_1_api_id`)) {
         self$`player_1_api_id` <- this_object$`player_1_api_id`
-      }
-      if (!is.null(this_object$`player_1_eh_id`)) {
-        self$`player_1_eh_id` <- this_object$`player_1_eh_id`
-      }
-      if (!is.null(this_object$`player_1_position`)) {
-        self$`player_1_position` <- this_object$`player_1_position`
       }
       if (!is.null(this_object$`player_1_type`)) {
         self$`player_1_type` <- this_object$`player_1_type`
       }
-      if (!is.null(this_object$`player_2`)) {
-        self$`player_2` <- this_object$`player_2`
-      }
       if (!is.null(this_object$`player_2_api_id`)) {
         self$`player_2_api_id` <- this_object$`player_2_api_id`
-      }
-      if (!is.null(this_object$`player_2_eh_id`)) {
-        self$`player_2_eh_id` <- this_object$`player_2_eh_id`
-      }
-      if (!is.null(this_object$`player_2_position`)) {
-        self$`player_2_position` <- this_object$`player_2_position`
       }
       if (!is.null(this_object$`player_2_type`)) {
         self$`player_2_type` <- this_object$`player_2_type`
       }
-      if (!is.null(this_object$`player_3`)) {
-        self$`player_3` <- this_object$`player_3`
-      }
       if (!is.null(this_object$`player_3_api_id`)) {
         self$`player_3_api_id` <- this_object$`player_3_api_id`
-      }
-      if (!is.null(this_object$`player_3_eh_id`)) {
-        self$`player_3_eh_id` <- this_object$`player_3_eh_id`
-      }
-      if (!is.null(this_object$`player_3_position`)) {
-        self$`player_3_position` <- this_object$`player_3_position`
       }
       if (!is.null(this_object$`player_3_type`)) {
         self$`player_3_type` <- this_object$`player_3_type`
@@ -2734,44 +1868,17 @@ PbpPublic <- R6::R6Class(
       if (!is.null(this_object$`event_team_skaters`)) {
         self$`event_team_skaters` <- this_object$`event_team_skaters`
       }
-      if (!is.null(this_object$`teammates`)) {
-        self$`teammates` <- this_object$`teammates`
-      }
-      if (!is.null(this_object$`teammates_eh_id`)) {
-        self$`teammates_eh_id` <- this_object$`teammates_eh_id`
-      }
       if (!is.null(this_object$`teammates_api_id`)) {
         self$`teammates_api_id` <- this_object$`teammates_api_id`
       }
-      if (!is.null(this_object$`teammates_positions`)) {
-        self$`teammates_positions` <- this_object$`teammates_positions`
-      }
-      if (!is.null(this_object$`own_goalie`)) {
-        self$`own_goalie` <- this_object$`own_goalie`
-      }
-      if (!is.null(this_object$`own_goalie_eh_id`)) {
-        self$`own_goalie_eh_id` <- this_object$`own_goalie_eh_id`
-      }
       if (!is.null(this_object$`own_goalie_api_id`)) {
         self$`own_goalie_api_id` <- this_object$`own_goalie_api_id`
-      }
-      if (!is.null(this_object$`forwards`)) {
-        self$`forwards` <- this_object$`forwards`
-      }
-      if (!is.null(this_object$`forwards_eh_id`)) {
-        self$`forwards_eh_id` <- this_object$`forwards_eh_id`
       }
       if (!is.null(this_object$`forwards_api_id`)) {
         self$`forwards_api_id` <- this_object$`forwards_api_id`
       }
       if (!is.null(this_object$`forwards_count`)) {
         self$`forwards_count` <- this_object$`forwards_count`
-      }
-      if (!is.null(this_object$`defense`)) {
-        self$`defense` <- this_object$`defense`
-      }
-      if (!is.null(this_object$`defense_eh_id`)) {
-        self$`defense_eh_id` <- this_object$`defense_eh_id`
       }
       if (!is.null(this_object$`defense_api_id`)) {
         self$`defense_api_id` <- this_object$`defense_api_id`
@@ -2791,44 +1898,17 @@ PbpPublic <- R6::R6Class(
       if (!is.null(this_object$`opp_team_skaters`)) {
         self$`opp_team_skaters` <- this_object$`opp_team_skaters`
       }
-      if (!is.null(this_object$`opp_team_on`)) {
-        self$`opp_team_on` <- this_object$`opp_team_on`
-      }
-      if (!is.null(this_object$`opp_team_on_eh_id`)) {
-        self$`opp_team_on_eh_id` <- this_object$`opp_team_on_eh_id`
-      }
       if (!is.null(this_object$`opp_team_on_api_id`)) {
         self$`opp_team_on_api_id` <- this_object$`opp_team_on_api_id`
       }
-      if (!is.null(this_object$`opp_team_on_positions`)) {
-        self$`opp_team_on_positions` <- this_object$`opp_team_on_positions`
-      }
-      if (!is.null(this_object$`opp_goalie`)) {
-        self$`opp_goalie` <- this_object$`opp_goalie`
-      }
-      if (!is.null(this_object$`opp_goalie_eh_id`)) {
-        self$`opp_goalie_eh_id` <- this_object$`opp_goalie_eh_id`
-      }
       if (!is.null(this_object$`opp_goalie_api_id`)) {
         self$`opp_goalie_api_id` <- this_object$`opp_goalie_api_id`
-      }
-      if (!is.null(this_object$`opp_forwards`)) {
-        self$`opp_forwards` <- this_object$`opp_forwards`
-      }
-      if (!is.null(this_object$`opp_forwards_eh_id`)) {
-        self$`opp_forwards_eh_id` <- this_object$`opp_forwards_eh_id`
       }
       if (!is.null(this_object$`opp_forwards_api_id`)) {
         self$`opp_forwards_api_id` <- this_object$`opp_forwards_api_id`
       }
       if (!is.null(this_object$`opp_forwards_count`)) {
         self$`opp_forwards_count` <- this_object$`opp_forwards_count`
-      }
-      if (!is.null(this_object$`opp_defense`)) {
-        self$`opp_defense` <- this_object$`opp_defense`
-      }
-      if (!is.null(this_object$`opp_defense_eh_id`)) {
-        self$`opp_defense_eh_id` <- this_object$`opp_defense_eh_id`
       }
       if (!is.null(this_object$`opp_defense_api_id`)) {
         self$`opp_defense_api_id` <- this_object$`opp_defense_api_id`
@@ -2854,47 +1934,17 @@ PbpPublic <- R6::R6Class(
       if (!is.null(this_object$`is_away`)) {
         self$`is_away` <- this_object$`is_away`
       }
-      if (!is.null(this_object$`home_team`)) {
-        self$`home_team` <- this_object$`home_team`
-      }
-      if (!is.null(this_object$`away_team`)) {
-        self$`away_team` <- this_object$`away_team`
-      }
       if (!is.null(this_object$`home_skaters`)) {
         self$`home_skaters` <- this_object$`home_skaters`
       }
       if (!is.null(this_object$`away_skaters`)) {
         self$`away_skaters` <- this_object$`away_skaters`
       }
-      if (!is.null(this_object$`home_on`)) {
-        self$`home_on` <- this_object$`home_on`
-      }
-      if (!is.null(this_object$`home_on_eh_id`)) {
-        self$`home_on_eh_id` <- this_object$`home_on_eh_id`
-      }
       if (!is.null(this_object$`home_on_api_id`)) {
         self$`home_on_api_id` <- this_object$`home_on_api_id`
       }
-      if (!is.null(this_object$`home_on_positions`)) {
-        self$`home_on_positions` <- this_object$`home_on_positions`
-      }
-      if (!is.null(this_object$`away_on`)) {
-        self$`away_on` <- this_object$`away_on`
-      }
-      if (!is.null(this_object$`away_on_eh_id`)) {
-        self$`away_on_eh_id` <- this_object$`away_on_eh_id`
-      }
       if (!is.null(this_object$`away_on_api_id`)) {
         self$`away_on_api_id` <- this_object$`away_on_api_id`
-      }
-      if (!is.null(this_object$`away_on_positions`)) {
-        self$`away_on_positions` <- this_object$`away_on_positions`
-      }
-      if (!is.null(this_object$`home_forwards`)) {
-        self$`home_forwards` <- this_object$`home_forwards`
-      }
-      if (!is.null(this_object$`home_forwards_eh_id`)) {
-        self$`home_forwards_eh_id` <- this_object$`home_forwards_eh_id`
       }
       if (!is.null(this_object$`home_forwards_api_id`)) {
         self$`home_forwards_api_id` <- this_object$`home_forwards_api_id`
@@ -2905,32 +1955,14 @@ PbpPublic <- R6::R6Class(
       if (!is.null(this_object$`home_forwards_percent`)) {
         self$`home_forwards_percent` <- this_object$`home_forwards_percent`
       }
-      if (!is.null(this_object$`home_defense`)) {
-        self$`home_defense` <- this_object$`home_defense`
-      }
-      if (!is.null(this_object$`home_defense_eh_id`)) {
-        self$`home_defense_eh_id` <- this_object$`home_defense_eh_id`
-      }
       if (!is.null(this_object$`home_defense_api_id`)) {
         self$`home_defense_api_id` <- this_object$`home_defense_api_id`
       }
       if (!is.null(this_object$`home_defense_count`)) {
         self$`home_defense_count` <- this_object$`home_defense_count`
       }
-      if (!is.null(this_object$`home_goalie`)) {
-        self$`home_goalie` <- this_object$`home_goalie`
-      }
-      if (!is.null(this_object$`home_goalie_eh_id`)) {
-        self$`home_goalie_eh_id` <- this_object$`home_goalie_eh_id`
-      }
       if (!is.null(this_object$`home_goalie_api_id`)) {
         self$`home_goalie_api_id` <- this_object$`home_goalie_api_id`
-      }
-      if (!is.null(this_object$`away_forwards`)) {
-        self$`away_forwards` <- this_object$`away_forwards`
-      }
-      if (!is.null(this_object$`away_forwards_eh_id`)) {
-        self$`away_forwards_eh_id` <- this_object$`away_forwards_eh_id`
       }
       if (!is.null(this_object$`away_forwards_api_id`)) {
         self$`away_forwards_api_id` <- this_object$`away_forwards_api_id`
@@ -2941,23 +1973,11 @@ PbpPublic <- R6::R6Class(
       if (!is.null(this_object$`away_forwards_percent`)) {
         self$`away_forwards_percent` <- this_object$`away_forwards_percent`
       }
-      if (!is.null(this_object$`away_defense`)) {
-        self$`away_defense` <- this_object$`away_defense`
-      }
-      if (!is.null(this_object$`away_defense_eh_id`)) {
-        self$`away_defense_eh_id` <- this_object$`away_defense_eh_id`
-      }
       if (!is.null(this_object$`away_defense_api_id`)) {
         self$`away_defense_api_id` <- this_object$`away_defense_api_id`
       }
       if (!is.null(this_object$`away_defense_count`)) {
         self$`away_defense_count` <- this_object$`away_defense_count`
-      }
-      if (!is.null(this_object$`away_goalie`)) {
-        self$`away_goalie` <- this_object$`away_goalie`
-      }
-      if (!is.null(this_object$`away_goalie_eh_id`)) {
-        self$`away_goalie_eh_id` <- this_object$`away_goalie_eh_id`
       }
       if (!is.null(this_object$`away_goalie_api_id`)) {
         self$`away_goalie_api_id` <- this_object$`away_goalie_api_id`
@@ -2968,29 +1988,11 @@ PbpPublic <- R6::R6Class(
       if (!is.null(this_object$`change_off_count`)) {
         self$`change_off_count` <- this_object$`change_off_count`
       }
-      if (!is.null(this_object$`change_on`)) {
-        self$`change_on` <- this_object$`change_on`
-      }
-      if (!is.null(this_object$`change_on_eh_id`)) {
-        self$`change_on_eh_id` <- this_object$`change_on_eh_id`
-      }
       if (!is.null(this_object$`change_on_api_id`)) {
         self$`change_on_api_id` <- this_object$`change_on_api_id`
       }
-      if (!is.null(this_object$`change_on_positions`)) {
-        self$`change_on_positions` <- this_object$`change_on_positions`
-      }
-      if (!is.null(this_object$`change_off`)) {
-        self$`change_off` <- this_object$`change_off`
-      }
-      if (!is.null(this_object$`change_off_eh_id`)) {
-        self$`change_off_eh_id` <- this_object$`change_off_eh_id`
-      }
       if (!is.null(this_object$`change_off_api_id`)) {
         self$`change_off_api_id` <- this_object$`change_off_api_id`
-      }
-      if (!is.null(this_object$`change_off_positions`)) {
-        self$`change_off_positions` <- this_object$`change_off_positions`
       }
       if (!is.null(this_object$`change_on_forwards_count`)) {
         self$`change_on_forwards_count` <- this_object$`change_on_forwards_count`
@@ -2998,20 +2000,8 @@ PbpPublic <- R6::R6Class(
       if (!is.null(this_object$`change_off_forwards_count`)) {
         self$`change_off_forwards_count` <- this_object$`change_off_forwards_count`
       }
-      if (!is.null(this_object$`change_on_forwards`)) {
-        self$`change_on_forwards` <- this_object$`change_on_forwards`
-      }
-      if (!is.null(this_object$`change_on_forwards_eh_id`)) {
-        self$`change_on_forwards_eh_id` <- this_object$`change_on_forwards_eh_id`
-      }
       if (!is.null(this_object$`change_on_forwards_api_id`)) {
         self$`change_on_forwards_api_id` <- this_object$`change_on_forwards_api_id`
-      }
-      if (!is.null(this_object$`change_off_forwards`)) {
-        self$`change_off_forwards` <- this_object$`change_off_forwards`
-      }
-      if (!is.null(this_object$`change_off_forwards_eh_id`)) {
-        self$`change_off_forwards_eh_id` <- this_object$`change_off_forwards_eh_id`
       }
       if (!is.null(this_object$`change_off_forwards_api_id`)) {
         self$`change_off_forwards_api_id` <- this_object$`change_off_forwards_api_id`
@@ -3022,20 +2012,8 @@ PbpPublic <- R6::R6Class(
       if (!is.null(this_object$`change_off_defense_count`)) {
         self$`change_off_defense_count` <- this_object$`change_off_defense_count`
       }
-      if (!is.null(this_object$`change_on_defense`)) {
-        self$`change_on_defense` <- this_object$`change_on_defense`
-      }
-      if (!is.null(this_object$`change_on_defense_eh_id`)) {
-        self$`change_on_defense_eh_id` <- this_object$`change_on_defense_eh_id`
-      }
       if (!is.null(this_object$`change_on_defense_api_id`)) {
         self$`change_on_defense_api_id` <- this_object$`change_on_defense_api_id`
-      }
-      if (!is.null(this_object$`change_off_defense`)) {
-        self$`change_off_defense` <- this_object$`change_off_defense`
-      }
-      if (!is.null(this_object$`change_off_defense_eh_id`)) {
-        self$`change_off_defense_eh_id` <- this_object$`change_off_defense_eh_id`
       }
       if (!is.null(this_object$`change_off_defense_api_id`)) {
         self$`change_off_defense_api_id` <- this_object$`change_off_defense_api_id`
@@ -3046,20 +2024,8 @@ PbpPublic <- R6::R6Class(
       if (!is.null(this_object$`change_off_goalie_count`)) {
         self$`change_off_goalie_count` <- this_object$`change_off_goalie_count`
       }
-      if (!is.null(this_object$`change_on_goalie`)) {
-        self$`change_on_goalie` <- this_object$`change_on_goalie`
-      }
-      if (!is.null(this_object$`change_on_goalie_eh_id`)) {
-        self$`change_on_goalie_eh_id` <- this_object$`change_on_goalie_eh_id`
-      }
       if (!is.null(this_object$`change_on_goalie_api_id`)) {
         self$`change_on_goalie_api_id` <- this_object$`change_on_goalie_api_id`
-      }
-      if (!is.null(this_object$`change_off_goalie`)) {
-        self$`change_off_goalie` <- this_object$`change_off_goalie`
-      }
-      if (!is.null(this_object$`change_off_goalie_eh_id`)) {
-        self$`change_off_goalie_eh_id` <- this_object$`change_off_goalie_eh_id`
       }
       if (!is.null(this_object$`change_off_goalie_api_id`)) {
         self$`change_off_goalie_api_id` <- this_object$`change_off_goalie_api_id`
@@ -3196,6 +2162,16 @@ PbpPublic <- R6::R6Class(
       if (!is.null(this_object$`pen10`)) {
         self$`pen10` <- this_object$`pen10`
       }
+      if (!is.null(this_object$`player`)) {
+        `player_object` <- PlayerPublic$new()
+        `player_object`$fromJSON(jsonlite::toJSON(this_object$`player`, auto_unbox = TRUE, digits = NA))
+        self$`player` <- `player_object`
+      }
+      if (!is.null(this_object$`game`)) {
+        `game_object` <- GamePublic$new()
+        `game_object`$fromJSON(jsonlite::toJSON(this_object$`game`, auto_unbox = TRUE, digits = NA))
+        self$`game` <- `game_object`
+      }
       self
     },
 
@@ -3221,7 +2197,6 @@ PbpPublic <- R6::R6Class(
       self$`season` <- this_object$`season`
       self$`session` <- this_object$`session`
       self$`game_id` <- this_object$`game_id`
-      self$`game_date` <- this_object$`game_date`
       self$`event_idx` <- this_object$`event_idx`
       self$`period` <- this_object$`period`
       self$`period_seconds` <- this_object$`period_seconds`
@@ -3236,20 +2211,11 @@ PbpPublic <- R6::R6Class(
       self$`coords_y` <- this_object$`coords_y`
       self$`danger` <- this_object$`danger`
       self$`high_danger` <- this_object$`high_danger`
-      self$`player_1` <- this_object$`player_1`
       self$`player_1_api_id` <- this_object$`player_1_api_id`
-      self$`player_1_eh_id` <- this_object$`player_1_eh_id`
-      self$`player_1_position` <- this_object$`player_1_position`
       self$`player_1_type` <- this_object$`player_1_type`
-      self$`player_2` <- this_object$`player_2`
       self$`player_2_api_id` <- this_object$`player_2_api_id`
-      self$`player_2_eh_id` <- this_object$`player_2_eh_id`
-      self$`player_2_position` <- this_object$`player_2_position`
       self$`player_2_type` <- this_object$`player_2_type`
-      self$`player_3` <- this_object$`player_3`
       self$`player_3_api_id` <- this_object$`player_3_api_id`
-      self$`player_3_eh_id` <- this_object$`player_3_eh_id`
-      self$`player_3_position` <- this_object$`player_3_position`
       self$`player_3_type` <- this_object$`player_3_type`
       self$`score_state` <- this_object$`score_state`
       self$`score_diff` <- this_object$`score_diff`
@@ -3263,38 +2229,20 @@ PbpPublic <- R6::R6Class(
       self$`penalty` <- this_object$`penalty`
       self$`penalty_length` <- this_object$`penalty_length`
       self$`event_team_skaters` <- this_object$`event_team_skaters`
-      self$`teammates` <- this_object$`teammates`
-      self$`teammates_eh_id` <- this_object$`teammates_eh_id`
       self$`teammates_api_id` <- this_object$`teammates_api_id`
-      self$`teammates_positions` <- this_object$`teammates_positions`
-      self$`own_goalie` <- this_object$`own_goalie`
-      self$`own_goalie_eh_id` <- this_object$`own_goalie_eh_id`
       self$`own_goalie_api_id` <- this_object$`own_goalie_api_id`
-      self$`forwards` <- this_object$`forwards`
-      self$`forwards_eh_id` <- this_object$`forwards_eh_id`
       self$`forwards_api_id` <- this_object$`forwards_api_id`
       self$`forwards_count` <- this_object$`forwards_count`
-      self$`defense` <- this_object$`defense`
-      self$`defense_eh_id` <- this_object$`defense_eh_id`
       self$`defense_api_id` <- this_object$`defense_api_id`
       self$`defense_count` <- this_object$`defense_count`
       self$`opp_strength_state` <- this_object$`opp_strength_state`
       self$`opp_score_state` <- this_object$`opp_score_state`
       self$`opp_score_diff` <- this_object$`opp_score_diff`
       self$`opp_team_skaters` <- this_object$`opp_team_skaters`
-      self$`opp_team_on` <- this_object$`opp_team_on`
-      self$`opp_team_on_eh_id` <- this_object$`opp_team_on_eh_id`
       self$`opp_team_on_api_id` <- this_object$`opp_team_on_api_id`
-      self$`opp_team_on_positions` <- this_object$`opp_team_on_positions`
-      self$`opp_goalie` <- this_object$`opp_goalie`
-      self$`opp_goalie_eh_id` <- this_object$`opp_goalie_eh_id`
       self$`opp_goalie_api_id` <- this_object$`opp_goalie_api_id`
-      self$`opp_forwards` <- this_object$`opp_forwards`
-      self$`opp_forwards_eh_id` <- this_object$`opp_forwards_eh_id`
       self$`opp_forwards_api_id` <- this_object$`opp_forwards_api_id`
       self$`opp_forwards_count` <- this_object$`opp_forwards_count`
-      self$`opp_defense` <- this_object$`opp_defense`
-      self$`opp_defense_eh_id` <- this_object$`opp_defense_eh_id`
       self$`opp_defense_api_id` <- this_object$`opp_defense_api_id`
       self$`opp_defense_count` <- this_object$`opp_defense_count`
       self$`home_score` <- this_object$`home_score`
@@ -3303,75 +2251,37 @@ PbpPublic <- R6::R6Class(
       self$`away_score_diff` <- this_object$`away_score_diff`
       self$`is_home` <- this_object$`is_home`
       self$`is_away` <- this_object$`is_away`
-      self$`home_team` <- this_object$`home_team`
-      self$`away_team` <- this_object$`away_team`
       self$`home_skaters` <- this_object$`home_skaters`
       self$`away_skaters` <- this_object$`away_skaters`
-      self$`home_on` <- this_object$`home_on`
-      self$`home_on_eh_id` <- this_object$`home_on_eh_id`
       self$`home_on_api_id` <- this_object$`home_on_api_id`
-      self$`home_on_positions` <- this_object$`home_on_positions`
-      self$`away_on` <- this_object$`away_on`
-      self$`away_on_eh_id` <- this_object$`away_on_eh_id`
       self$`away_on_api_id` <- this_object$`away_on_api_id`
-      self$`away_on_positions` <- this_object$`away_on_positions`
-      self$`home_forwards` <- this_object$`home_forwards`
-      self$`home_forwards_eh_id` <- this_object$`home_forwards_eh_id`
       self$`home_forwards_api_id` <- this_object$`home_forwards_api_id`
       self$`home_forwards_count` <- this_object$`home_forwards_count`
       self$`home_forwards_percent` <- this_object$`home_forwards_percent`
-      self$`home_defense` <- this_object$`home_defense`
-      self$`home_defense_eh_id` <- this_object$`home_defense_eh_id`
       self$`home_defense_api_id` <- this_object$`home_defense_api_id`
       self$`home_defense_count` <- this_object$`home_defense_count`
-      self$`home_goalie` <- this_object$`home_goalie`
-      self$`home_goalie_eh_id` <- this_object$`home_goalie_eh_id`
       self$`home_goalie_api_id` <- this_object$`home_goalie_api_id`
-      self$`away_forwards` <- this_object$`away_forwards`
-      self$`away_forwards_eh_id` <- this_object$`away_forwards_eh_id`
       self$`away_forwards_api_id` <- this_object$`away_forwards_api_id`
       self$`away_forwards_count` <- this_object$`away_forwards_count`
       self$`away_forwards_percent` <- this_object$`away_forwards_percent`
-      self$`away_defense` <- this_object$`away_defense`
-      self$`away_defense_eh_id` <- this_object$`away_defense_eh_id`
       self$`away_defense_api_id` <- this_object$`away_defense_api_id`
       self$`away_defense_count` <- this_object$`away_defense_count`
-      self$`away_goalie` <- this_object$`away_goalie`
-      self$`away_goalie_eh_id` <- this_object$`away_goalie_eh_id`
       self$`away_goalie_api_id` <- this_object$`away_goalie_api_id`
       self$`change_on_count` <- this_object$`change_on_count`
       self$`change_off_count` <- this_object$`change_off_count`
-      self$`change_on` <- this_object$`change_on`
-      self$`change_on_eh_id` <- this_object$`change_on_eh_id`
       self$`change_on_api_id` <- this_object$`change_on_api_id`
-      self$`change_on_positions` <- this_object$`change_on_positions`
-      self$`change_off` <- this_object$`change_off`
-      self$`change_off_eh_id` <- this_object$`change_off_eh_id`
       self$`change_off_api_id` <- this_object$`change_off_api_id`
-      self$`change_off_positions` <- this_object$`change_off_positions`
       self$`change_on_forwards_count` <- this_object$`change_on_forwards_count`
       self$`change_off_forwards_count` <- this_object$`change_off_forwards_count`
-      self$`change_on_forwards` <- this_object$`change_on_forwards`
-      self$`change_on_forwards_eh_id` <- this_object$`change_on_forwards_eh_id`
       self$`change_on_forwards_api_id` <- this_object$`change_on_forwards_api_id`
-      self$`change_off_forwards` <- this_object$`change_off_forwards`
-      self$`change_off_forwards_eh_id` <- this_object$`change_off_forwards_eh_id`
       self$`change_off_forwards_api_id` <- this_object$`change_off_forwards_api_id`
       self$`change_on_defense_count` <- this_object$`change_on_defense_count`
       self$`change_off_defense_count` <- this_object$`change_off_defense_count`
-      self$`change_on_defense` <- this_object$`change_on_defense`
-      self$`change_on_defense_eh_id` <- this_object$`change_on_defense_eh_id`
       self$`change_on_defense_api_id` <- this_object$`change_on_defense_api_id`
-      self$`change_off_defense` <- this_object$`change_off_defense`
-      self$`change_off_defense_eh_id` <- this_object$`change_off_defense_eh_id`
       self$`change_off_defense_api_id` <- this_object$`change_off_defense_api_id`
       self$`change_on_goalie_count` <- this_object$`change_on_goalie_count`
       self$`change_off_goalie_count` <- this_object$`change_off_goalie_count`
-      self$`change_on_goalie` <- this_object$`change_on_goalie`
-      self$`change_on_goalie_eh_id` <- this_object$`change_on_goalie_eh_id`
       self$`change_on_goalie_api_id` <- this_object$`change_on_goalie_api_id`
-      self$`change_off_goalie` <- this_object$`change_off_goalie`
-      self$`change_off_goalie_eh_id` <- this_object$`change_off_goalie_eh_id`
       self$`change_off_goalie_api_id` <- this_object$`change_off_goalie_api_id`
       self$`base_xg` <- this_object$`base_xg`
       self$`base_xg_adj` <- this_object$`base_xg_adj`
@@ -3417,6 +2327,8 @@ PbpPublic <- R6::R6Class(
       self$`pen4` <- this_object$`pen4`
       self$`pen5` <- this_object$`pen5`
       self$`pen10` <- this_object$`pen10`
+      self$`player` <- PlayerPublic$new()$fromJSON(jsonlite::toJSON(this_object$`player`, auto_unbox = TRUE, digits = NA))
+      self$`game` <- GamePublic$new()$fromJSON(jsonlite::toJSON(this_object$`game`, auto_unbox = TRUE, digits = NA))
       self
     },
 
@@ -3457,14 +2369,6 @@ PbpPublic <- R6::R6Class(
         }
       } else {
         stop(paste("The JSON input `", input, "` is invalid for PbpPublic: the required field `game_id` is missing."))
-      }
-      # check the required field `game_date`
-      if (!is.null(input_json$`game_date`)) {
-        if (!(is.character(input_json$`game_date`) && length(input_json$`game_date`) == 1)) {
-          stop(paste("Error! Invalid data for `game_date`. Must be a string:", input_json$`game_date`))
-        }
-      } else {
-        stop(paste("The JSON input `", input, "` is invalid for PbpPublic: the required field `game_date` is missing."))
       }
       # check the required field `event_idx`
       if (!is.null(input_json$`event_idx`)) {
@@ -3572,22 +2476,6 @@ PbpPublic <- R6::R6Class(
       } else {
         stop(paste("The JSON input `", input, "` is invalid for PbpPublic: the required field `is_away` is missing."))
       }
-      # check the required field `home_team`
-      if (!is.null(input_json$`home_team`)) {
-        if (!(is.character(input_json$`home_team`) && length(input_json$`home_team`) == 1)) {
-          stop(paste("Error! Invalid data for `home_team`. Must be a string:", input_json$`home_team`))
-        }
-      } else {
-        stop(paste("The JSON input `", input, "` is invalid for PbpPublic: the required field `home_team` is missing."))
-      }
-      # check the required field `away_team`
-      if (!is.null(input_json$`away_team`)) {
-        if (!(is.character(input_json$`away_team`) && length(input_json$`away_team`) == 1)) {
-          stop(paste("Error! Invalid data for `away_team`. Must be a string:", input_json$`away_team`))
-        }
-      } else {
-        stop(paste("The JSON input `", input, "` is invalid for PbpPublic: the required field `away_team` is missing."))
-      }
       # check the required field `home_skaters`
       if (!is.null(input_json$`home_skaters`)) {
         if (!(is.numeric(input_json$`home_skaters`) && length(input_json$`home_skaters`) == 1)) {
@@ -3636,11 +2524,6 @@ PbpPublic <- R6::R6Class(
 
       # check if the required `game_id` is null
       if (is.null(self$`game_id`)) {
-        return(FALSE)
-      }
-
-      # check if the required `game_date` is null
-      if (is.null(self$`game_date`)) {
         return(FALSE)
       }
 
@@ -3714,16 +2597,6 @@ PbpPublic <- R6::R6Class(
         return(FALSE)
       }
 
-      # check if the required `home_team` is null
-      if (is.null(self$`home_team`)) {
-        return(FALSE)
-      }
-
-      # check if the required `away_team` is null
-      if (is.null(self$`away_team`)) {
-        return(FALSE)
-      }
-
       # check if the required `home_skaters` is null
       if (is.null(self$`home_skaters`)) {
         return(FALSE)
@@ -3761,11 +2634,6 @@ PbpPublic <- R6::R6Class(
       # check if the required `game_id` is null
       if (is.null(self$`game_id`)) {
         invalid_fields["game_id"] <- "Non-nullable required field `game_id` cannot be null."
-      }
-
-      # check if the required `game_date` is null
-      if (is.null(self$`game_date`)) {
-        invalid_fields["game_date"] <- "Non-nullable required field `game_date` cannot be null."
       }
 
       # check if the required `event_idx` is null
@@ -3836,16 +2704,6 @@ PbpPublic <- R6::R6Class(
       # check if the required `is_away` is null
       if (is.null(self$`is_away`)) {
         invalid_fields["is_away"] <- "Non-nullable required field `is_away` cannot be null."
-      }
-
-      # check if the required `home_team` is null
-      if (is.null(self$`home_team`)) {
-        invalid_fields["home_team"] <- "Non-nullable required field `home_team` cannot be null."
-      }
-
-      # check if the required `away_team` is null
-      if (is.null(self$`away_team`)) {
-        invalid_fields["away_team"] <- "Non-nullable required field `away_team` cannot be null."
       }
 
       # check if the required `home_skaters` is null

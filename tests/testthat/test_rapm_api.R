@@ -11,10 +11,12 @@ test_that("ReadRapm", {
   # Read Rapm
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)
-  # @param api_id array[integer]  (optional)
-  # @param name array[character]  (optional)
-  # @param team array[character]  (optional)
   # @param situation array[character]  (optional)
+  # @param player array[character]  (optional)
+  # @param api_id array[integer]  (optional)
+  # @param eh_id array[character]  (optional)
+  # @param team array[character]  (optional)
+  # @param pos array[character]  (optional)
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [RapmResponse]

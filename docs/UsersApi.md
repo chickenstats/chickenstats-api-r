@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**ResendVerification**](UsersApi.md#ResendVerification) | **POST** /api/v1/users/me/resend-verification | Resend Verification
 [**RotateProgrammaticCredentials**](UsersApi.md#RotateProgrammaticCredentials) | **POST** /api/v1/users/me/programmatic-credentials/rotate | Rotate Programmatic Credentials
 [**Signup**](UsersApi.md#Signup) | **POST** /api/v1/users/signup | Signup
-[**SyncGhostTier**](UsersApi.md#SyncGhostTier) | **POST** /api/v1/users/me/sync-ghost | Sync Ghost Tier
 [**UpdatePasswordMe**](UsersApi.md#UpdatePasswordMe) | **PATCH** /api/v1/users/me/password | Update Password Me
 [**UpdateUserMe**](UsersApi.md#UpdateUserMe) | **PATCH** /api/v1/users/me | Update User Me
 
@@ -20,7 +19,7 @@ Method | HTTP request | Description
 
 Delete User Me
 
-Delete own user and block Auth0 account.
+Delete own user and disable Firebase account.
 
 ### Example
 ```R
@@ -152,7 +151,7 @@ This endpoint does not need any parameter.
 
 Resend Verification
 
-Trigger Auth0 to resend the verification email.
+Trigger Firebase to resend the verification email.
 
 ### Example
 ```R
@@ -240,7 +239,7 @@ This endpoint does not need any parameter.
 
 Signup
 
-Public self-registration. Creates a local user, an Auth0 user, and a Ghost member.  If the account exists but is inactive (previously deactivated/pruned), reactivates it with the new credentials rather than rejecting the request.
+Public self-registration. Creates a local user, a Firebase user, and a Ghost member.  If the account exists but is inactive (previously deactivated/pruned), reactivates it with the new credentials rather than rejecting the request.
 
 ### Example
 ```R
@@ -283,56 +282,12 @@ No authorization required
 | **200** | Successful Response |  -  |
 | **422** | Validation Error |  -  |
 
-# **SyncGhostTier**
-> Message SyncGhostTier()
-
-Sync Ghost Tier
-
-Refresh tier from Ghost subscription state. No-op for contributor/superuser.
-
-### Example
-```R
-library(chickenstats.api)
-
-# Sync Ghost Tier
-#
-
-api_instance <- UsersApi$new()
-# Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
-# to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$SyncGhostTier(data_file = "result.txt")
-result <- api_instance$SyncGhostTier()
-dput(result)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**Message**](Message.md)
-
-### Authorization
-
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-
 # **UpdatePasswordMe**
 > Message UpdatePasswordMe(update_password)
 
 Update Password Me
 
-Update own password in Auth0. Verifies current password against Auth0 before changing.
+Update own password in Firebase. Verifies current password against Firebase before changing.
 
 ### Example
 ```R

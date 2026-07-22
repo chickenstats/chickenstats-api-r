@@ -17,6 +17,7 @@ test_that("ReadGameTeamStats", {
   # @param strength_state array[character]  (optional)
   # @param score_state character  (optional)
   # @param level character  (optional)
+  # @param include array[character]  (optional)
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [TeamStatsGameResponse]
