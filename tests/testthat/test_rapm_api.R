@@ -9,6 +9,9 @@ test_that("ReadRapm", {
   # tests for ReadRapm
   # base path: https://api.chickenstats.com
   # Read Rapm
+  # @param limit integer  (optional)
+  # @param offset integer  (optional)
+  # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)
   # @param situation array[character]  (optional)
@@ -17,8 +20,6 @@ test_that("ReadRapm", {
   # @param eh_id array[character]  (optional)
   # @param team array[character]  (optional)
   # @param pos array[character]  (optional)
-  # @param limit integer  (optional)
-  # @param offset integer  (optional)
   # @return [RapmResponse]
 
   # uncomment below to test the operation

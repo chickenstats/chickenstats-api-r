@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **ReadPredGoal**
-> PredGoalResponse ReadPredGoal(game_id = var.game_id, season = var.season, sessions = var.sessions, limit = 10000, offset = 0)
+> PredGoalResponse ReadPredGoal(game_id = var.game_id, season = var.season, sessions = var.sessions, limit = 10000, offset = 0, with_total = TRUE)
 
 Read Pred Goal
 
@@ -26,13 +26,14 @@ var_season <- c(123) # array[integer] |  (Optional)
 var_sessions <- c("inner_example") # array[character] |  (Optional)
 var_limit <- 10000 # integer |  (Optional)
 var_offset <- 0 # integer |  (Optional)
+var_with_total <- TRUE # character |  (Optional)
 
 api_instance <- InferenceApi$new()
 # Configure OAuth2 access token for authorization: OAuth2PasswordBearer
 api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$ReadPredGoal(game_id = var_game_id, season = var_season, sessions = var_sessions, limit = var_limit, offset = var_offsetdata_file = "result.txt")
-result <- api_instance$ReadPredGoal(game_id = var_game_id, season = var_season, sessions = var_sessions, limit = var_limit, offset = var_offset)
+# result <- api_instance$ReadPredGoal(game_id = var_game_id, season = var_season, sessions = var_sessions, limit = var_limit, offset = var_offset, with_total = var_with_totaldata_file = "result.txt")
+result <- api_instance$ReadPredGoal(game_id = var_game_id, season = var_season, sessions = var_sessions, limit = var_limit, offset = var_offset, with_total = var_with_total)
 dput(result)
 ```
 
@@ -45,6 +46,7 @@ Name | Type | Description  | Notes
  **sessions** | list( **character** )|  | [optional] 
  **limit** | **integer**|  | [optional] [default to 10000]
  **offset** | **integer**|  | [optional] [default to 0]
+ **with_total** | **character**|  | [optional] [default to TRUE]
 
 ### Return type
 

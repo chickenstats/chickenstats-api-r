@@ -20,11 +20,12 @@ test_that("ReadPlayers", {
   # tests for ReadPlayers
   # base path: https://api.chickenstats.com
   # Read Players
+  # @param limit integer  (optional)
+  # @param offset integer  (optional)
+  # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param name array[character]  (optional)
   # @param eh_id array[character]  (optional)
   # @param api_id array[integer]  (optional)
-  # @param limit integer  (optional)
-  # @param offset integer  (optional)
   # @return [PlayerResponse]
 
   # uncomment below to test the operation

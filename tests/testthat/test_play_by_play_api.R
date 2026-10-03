@@ -9,6 +9,9 @@ test_that("ReadPbp", {
   # tests for ReadPbp
   # base path: https://api.chickenstats.com
   # Read Pbp
+  # @param limit integer  (optional)
+  # @param offset integer  (optional)
+  # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)
   # @param game_id array[integer]  (optional)
@@ -20,8 +23,6 @@ test_that("ReadPbp", {
   # @param opp_team array[character]  (optional)
   # @param strength_state array[character]  (optional)
   # @param include array[character]  (optional)
-  # @param limit integer  (optional)
-  # @param offset integer  (optional)
   # @return [PbpResponse]
 
   # uncomment below to test the operation
@@ -32,10 +33,11 @@ test_that("ReadPbpGameIds", {
   # tests for ReadPbpGameIds
   # base path: https://api.chickenstats.com
   # Read Pbp Game Ids
-  # @param season array[integer]  (optional)
-  # @param sessions array[character]  (optional)
   # @param limit integer  (optional)
   # @param offset integer  (optional)
+  # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
+  # @param season array[integer]  (optional)
+  # @param sessions array[character]  (optional)
   # @return [array[integer]]
 
   # uncomment below to test the operation
@@ -46,11 +48,12 @@ test_that("ReadPbpPlayIds", {
   # tests for ReadPbpPlayIds
   # base path: https://api.chickenstats.com
   # Read Pbp Play Ids
+  # @param limit integer  (optional)
+  # @param offset integer  (optional)
+  # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)
   # @param game_id array[integer]  (optional)
-  # @param limit integer  (optional)
-  # @param offset integer  (optional)
   # @return [array[integer]]
 
   # uncomment below to test the operation

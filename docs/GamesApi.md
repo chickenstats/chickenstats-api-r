@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 | **422** | Validation Error |  -  |
 
 # **ReadGames**
-> GameResponse ReadGames(season = var.season, sessions = var.sessions, team = var.team, limit = 10000, offset = 0)
+> GameResponse ReadGames(limit = 10000, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions, team = var.team)
 
 Read Games
 
@@ -68,18 +68,19 @@ library(chickenstats.api)
 # Read Games
 #
 # prepare function argument(s)
+var_limit <- 10000 # integer |  (Optional)
+var_offset <- 0 # integer |  (Optional)
+var_with_total <- TRUE # character | Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (Optional)
 var_season <- c(123) # array[integer] |  (Optional)
 var_sessions <- c("R") # array[character] |  (Optional)
 var_team <- c("inner_example") # array[character] |  (Optional)
-var_limit <- 10000 # integer |  (Optional)
-var_offset <- 0 # integer |  (Optional)
 
 api_instance <- GamesApi$new()
 # Configure OAuth2 access token for authorization: OAuth2PasswordBearer
 api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$ReadGames(season = var_season, sessions = var_sessions, team = var_team, limit = var_limit, offset = var_offsetdata_file = "result.txt")
-result <- api_instance$ReadGames(season = var_season, sessions = var_sessions, team = var_team, limit = var_limit, offset = var_offset)
+# result <- api_instance$ReadGames(limit = var_limit, offset = var_offset, with_total = var_with_total, season = var_season, sessions = var_sessions, team = var_teamdata_file = "result.txt")
+result <- api_instance$ReadGames(limit = var_limit, offset = var_offset, with_total = var_with_total, season = var_season, sessions = var_sessions, team = var_team)
 dput(result)
 ```
 
@@ -87,11 +88,12 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **limit** | **integer**|  | [optional] [default to 10000]
+ **offset** | **integer**|  | [optional] [default to 0]
+ **with_total** | **character**| Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. &#x60;total&#x60; is then -1 and &#x60;has_next&#x60; still works. | [optional] [default to TRUE]
  **season** | list( **integer** )|  | [optional] 
  **sessions** | Enum [R, P] |  | [optional] 
  **team** | list( **character** )|  | [optional] 
- **limit** | **integer**|  | [optional] [default to 10000]
- **offset** | **integer**|  | [optional] [default to 0]
 
 ### Return type
 

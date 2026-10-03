@@ -9,6 +9,9 @@ test_that("ReadGameTeamStats", {
   # tests for ReadGameTeamStats
   # base path: https://api.chickenstats.com
   # Read Game Team Stats
+  # @param limit integer  (optional)
+  # @param offset integer  (optional)
+  # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)
   # @param game_id array[integer]  (optional)
@@ -18,8 +21,6 @@ test_that("ReadGameTeamStats", {
   # @param score_state character  (optional)
   # @param level character  (optional)
   # @param include array[character]  (optional)
-  # @param limit integer  (optional)
-  # @param offset integer  (optional)
   # @return [TeamStatsGameResponse]
 
   # uncomment below to test the operation
@@ -30,14 +31,15 @@ test_that("ReadSeasonTeamStats", {
   # tests for ReadSeasonTeamStats
   # base path: https://api.chickenstats.com
   # Read Season Team Stats
+  # @param limit integer  (optional)
+  # @param offset integer  (optional)
+  # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)
   # @param team array[character]  (optional)
   # @param opp_team array[character]  (optional)
   # @param strength_state array[character]  (optional)
   # @param score_state character  (optional)
-  # @param limit integer  (optional)
-  # @param offset integer  (optional)
   # @return [TeamStatsSeasonResponse]
 
   # uncomment below to test the operation
@@ -48,25 +50,12 @@ test_that("ReadTeamStatsGameIds", {
   # tests for ReadTeamStatsGameIds
   # base path: https://api.chickenstats.com
   # Read Team Stats Game Ids
-  # @param season array[integer]  (optional)
-  # @param sessions array[character]  (optional)
   # @param limit integer  (optional)
   # @param offset integer  (optional)
+  # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
+  # @param season array[integer]  (optional)
+  # @param sessions array[character]  (optional)
   # @return [array[integer]]
-
-  # uncomment below to test the operation
-  #expect_equal(result, "EXPECTED_RESULT")
-})
-
-test_that("ReadTeamStatsIds", {
-  # tests for ReadTeamStatsIds
-  # base path: https://api.chickenstats.com
-  # Read Team Stats Ids
-  # @param season array[integer]  (optional)
-  # @param sessions array[character]  (optional)
-  # @param limit integer  (optional)
-  # @param offset integer  (optional)
-  # @return [array[character]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

@@ -146,7 +146,6 @@
 #' @field nzs  integer [optional]
 #' @field dzs  integer [optional]
 #' @field otf  integer [optional]
-#' @field id  character
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -292,7 +291,6 @@ StatsCreate <- R6::R6Class(
     `nzs` = NULL,
     `dzs` = NULL,
     `otf` = NULL,
-    `id` = NULL,
 
     #' @description
     #' Initialize a new StatsCreate class.
@@ -303,7 +301,6 @@ StatsCreate <- R6::R6Class(
     #' @param api_id api_id
     #' @param team team
     #' @param toi toi
-    #' @param id id
     #' @param opp_team opp_team
     #' @param strength_state strength_state
     #' @param period period
@@ -438,7 +435,7 @@ StatsCreate <- R6::R6Class(
     #' @param dzs dzs. Default to 0.
     #' @param otf otf. Default to 0.
     #' @param ... Other optional arguments.
-    initialize = function(`season`, `session`, `game_id`, `api_id`, `team`, `toi`, `id`, `opp_team` = NULL, `strength_state` = NULL, `period` = NULL, `score_state` = NULL, `forwards_api_id` = NULL, `defense_api_id` = NULL, `own_goalie_api_id` = NULL, `opp_forwards_api_id` = NULL, `opp_defense_api_id` = NULL, `opp_goalie_api_id` = NULL, `g` = 0, `g_adj` = 0, `ihdg` = 0, `a1` = 0, `a2` = 0, `base_ixg` = 0, `base_ixg_adj` = 0, `ixg` = 0, `ixg_adj` = 0, `context_ixg` = 0, `context_ixg_adj` = 0, `isf` = 0, `isf_adj` = 0, `ihdsf` = 0, `imsf` = 0, `imsf_adj` = 0, `ihdm` = 0, `iff` = 0, `iff_adj` = 0, `ihdf` = 0, `isb` = 0, `isb_adj` = 0, `icf` = 0, `icf_adj` = 0, `ibs` = 0, `ibs_adj` = 0, `igive` = 0, `itake` = 0, `ihf` = 0, `iht` = 0, `ifow` = 0, `ifol` = 0, `iozfw` = 0, `iozfl` = 0, `inzfw` = 0, `inzfl` = 0, `idzfw` = 0, `idzfl` = 0, `a1_xg` = 0, `a2_xg` = 0, `ipent0` = 0, `ipent2` = 0, `ipent4` = 0, `ipent5` = 0, `ipent10` = 0, `ipend0` = 0, `ipend2` = 0, `ipend4` = 0, `ipend5` = 0, `ipend10` = 0, `gf` = 0, `ga` = 0, `gf_adj` = 0, `ga_adj` = 0, `hdgf` = 0, `hdga` = 0, `base_xgf` = 0, `base_xga` = 0, `base_xgf_adj` = 0, `base_xga_adj` = 0, `context_xgf` = 0, `context_xga` = 0, `context_xgf_adj` = 0, `context_xga_adj` = 0, `xgf` = 0, `xga` = 0, `xgf_adj` = 0, `xga_adj` = 0, `sf` = 0, `sa` = 0, `sf_adj` = 0, `sa_adj` = 0, `hdsf` = 0, `hdsa` = 0, `ff` = 0, `fa` = 0, `ff_adj` = 0, `fa_adj` = 0, `hdff` = 0, `hdfa` = 0, `cf` = 0, `ca` = 0, `cf_adj` = 0, `ca_adj` = 0, `bsf` = 0, `bsa` = 0, `bsf_adj` = 0, `bsa_adj` = 0, `msf` = 0, `msa` = 0, `msf_adj` = 0, `msa_adj` = 0, `hdmsf` = 0, `hdmsa` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hf` = 0, `ht` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `fow` = 0, `fol` = 0, `ozfw` = 0, `ozfl` = 0, `nzfw` = 0, `nzfl` = 0, `dzfw` = 0, `dzfl` = 0, `pent0` = 0, `pent2` = 0, `pent4` = 0, `pent5` = 0, `pent10` = 0, `pend0` = 0, `pend2` = 0, `pend4` = 0, `pend5` = 0, `pend10` = 0, `ozs` = 0, `nzs` = 0, `dzs` = 0, `otf` = 0, ...) {
+    initialize = function(`season`, `session`, `game_id`, `api_id`, `team`, `toi`, `opp_team` = NULL, `strength_state` = NULL, `period` = NULL, `score_state` = NULL, `forwards_api_id` = NULL, `defense_api_id` = NULL, `own_goalie_api_id` = NULL, `opp_forwards_api_id` = NULL, `opp_defense_api_id` = NULL, `opp_goalie_api_id` = NULL, `g` = 0, `g_adj` = 0, `ihdg` = 0, `a1` = 0, `a2` = 0, `base_ixg` = 0, `base_ixg_adj` = 0, `ixg` = 0, `ixg_adj` = 0, `context_ixg` = 0, `context_ixg_adj` = 0, `isf` = 0, `isf_adj` = 0, `ihdsf` = 0, `imsf` = 0, `imsf_adj` = 0, `ihdm` = 0, `iff` = 0, `iff_adj` = 0, `ihdf` = 0, `isb` = 0, `isb_adj` = 0, `icf` = 0, `icf_adj` = 0, `ibs` = 0, `ibs_adj` = 0, `igive` = 0, `itake` = 0, `ihf` = 0, `iht` = 0, `ifow` = 0, `ifol` = 0, `iozfw` = 0, `iozfl` = 0, `inzfw` = 0, `inzfl` = 0, `idzfw` = 0, `idzfl` = 0, `a1_xg` = 0, `a2_xg` = 0, `ipent0` = 0, `ipent2` = 0, `ipent4` = 0, `ipent5` = 0, `ipent10` = 0, `ipend0` = 0, `ipend2` = 0, `ipend4` = 0, `ipend5` = 0, `ipend10` = 0, `gf` = 0, `ga` = 0, `gf_adj` = 0, `ga_adj` = 0, `hdgf` = 0, `hdga` = 0, `base_xgf` = 0, `base_xga` = 0, `base_xgf_adj` = 0, `base_xga_adj` = 0, `context_xgf` = 0, `context_xga` = 0, `context_xgf_adj` = 0, `context_xga_adj` = 0, `xgf` = 0, `xga` = 0, `xgf_adj` = 0, `xga_adj` = 0, `sf` = 0, `sa` = 0, `sf_adj` = 0, `sa_adj` = 0, `hdsf` = 0, `hdsa` = 0, `ff` = 0, `fa` = 0, `ff_adj` = 0, `fa_adj` = 0, `hdff` = 0, `hdfa` = 0, `cf` = 0, `ca` = 0, `cf_adj` = 0, `ca_adj` = 0, `bsf` = 0, `bsa` = 0, `bsf_adj` = 0, `bsa_adj` = 0, `msf` = 0, `msa` = 0, `msf_adj` = 0, `msa_adj` = 0, `hdmsf` = 0, `hdmsa` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hf` = 0, `ht` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `fow` = 0, `fol` = 0, `ozfw` = 0, `ozfl` = 0, `nzfw` = 0, `nzfl` = 0, `dzfw` = 0, `dzfl` = 0, `pent0` = 0, `pent2` = 0, `pent4` = 0, `pent5` = 0, `pent10` = 0, `pend0` = 0, `pend2` = 0, `pend4` = 0, `pend5` = 0, `pend10` = 0, `ozs` = 0, `nzs` = 0, `dzs` = 0, `otf` = 0, ...) {
       if (!missing(`season`)) {
         if (!(is.numeric(`season`) && length(`season`) == 1)) {
           stop(paste("Error! Invalid data for `season`. Must be an integer:", `season`))
@@ -471,12 +468,6 @@ StatsCreate <- R6::R6Class(
       }
       if (!missing(`toi`)) {
         self$`toi` <- `toi`
-      }
-      if (!missing(`id`)) {
-        if (!(is.character(`id`) && length(`id`) == 1)) {
-          stop(paste("Error! Invalid data for `id`. Must be a string:", `id`))
-        }
-        self$`id` <- `id`
       }
       if (!is.null(`opp_team`)) {
         if (!(is.character(`opp_team`) && length(`opp_team`) == 1)) {
@@ -1745,10 +1736,6 @@ StatsCreate <- R6::R6Class(
         StatsCreateObject[["otf"]] <-
           self$`otf`
       }
-      if (!is.null(self$`id`)) {
-        StatsCreateObject[["id"]] <-
-          self$`id`
-      }
       return(StatsCreateObject)
     },
 
@@ -2176,9 +2163,6 @@ StatsCreate <- R6::R6Class(
       if (!is.null(this_object$`otf`)) {
         self$`otf` <- this_object$`otf`
       }
-      if (!is.null(this_object$`id`)) {
-        self$`id` <- this_object$`id`
-      }
       self
     },
 
@@ -2339,7 +2323,6 @@ StatsCreate <- R6::R6Class(
       self$`nzs` <- this_object$`nzs`
       self$`dzs` <- this_object$`dzs`
       self$`otf` <- this_object$`otf`
-      self$`id` <- this_object$`id`
       self
     },
 
@@ -2394,14 +2377,6 @@ StatsCreate <- R6::R6Class(
       } else {
         stop(paste("The JSON input `", input, "` is invalid for StatsCreate: the required field `toi` is missing."))
       }
-      # check the required field `id`
-      if (!is.null(input_json$`id`)) {
-        if (!(is.character(input_json$`id`) && length(input_json$`id`) == 1)) {
-          stop(paste("Error! Invalid data for `id`. Must be a string:", input_json$`id`))
-        }
-      } else {
-        stop(paste("The JSON input `", input, "` is invalid for StatsCreate: the required field `id` is missing."))
-      }
     },
 
     #' @description
@@ -2447,11 +2422,6 @@ StatsCreate <- R6::R6Class(
         return(FALSE)
       }
 
-      # check if the required `id` is null
-      if (is.null(self$`id`)) {
-        return(FALSE)
-      }
-
       TRUE
     },
 
@@ -2489,11 +2459,6 @@ StatsCreate <- R6::R6Class(
       # check if the required `toi` is null
       if (is.null(self$`toi`)) {
         invalid_fields["toi"] <- "Non-nullable required field `toi` cannot be null."
-      }
-
-      # check if the required `id` is null
-      if (is.null(self$`id`)) {
-        invalid_fields["id"] <- "Non-nullable required field `id` cannot be null."
       }
 
       invalid_fields

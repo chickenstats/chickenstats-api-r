@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **ReadChanges**
-> ChangesResponse ReadChanges(season = var.season, sessions = var.sessions, game_id = var.game_id, event_team = var.event_team, period = var.period, include = var.include, limit = 10000, offset = 0)
+> ChangesResponse ReadChanges(limit = 10000, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions, game_id = var.game_id, event_team = var.event_team, period = var.period, include = var.include)
 
 Read Changes
 
@@ -20,21 +20,22 @@ library(chickenstats.api)
 # Read Changes
 #
 # prepare function argument(s)
+var_limit <- 10000 # integer |  (Optional)
+var_offset <- 0 # integer |  (Optional)
+var_with_total <- TRUE # character | Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (Optional)
 var_season <- c(123) # array[integer] |  (Optional)
 var_sessions <- c("R") # array[character] |  (Optional)
 var_game_id <- c(123) # array[integer] |  (Optional)
 var_event_team <- c("inner_example") # array[character] |  (Optional)
 var_period <- c(123) # array[integer] |  (Optional)
 var_include <- c("game") # array[character] |  (Optional)
-var_limit <- 10000 # integer |  (Optional)
-var_offset <- 0 # integer |  (Optional)
 
 api_instance <- ChangesApi$new()
 # Configure OAuth2 access token for authorization: OAuth2PasswordBearer
 api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$ReadChanges(season = var_season, sessions = var_sessions, game_id = var_game_id, event_team = var_event_team, period = var_period, include = var_include, limit = var_limit, offset = var_offsetdata_file = "result.txt")
-result <- api_instance$ReadChanges(season = var_season, sessions = var_sessions, game_id = var_game_id, event_team = var_event_team, period = var_period, include = var_include, limit = var_limit, offset = var_offset)
+# result <- api_instance$ReadChanges(limit = var_limit, offset = var_offset, with_total = var_with_total, season = var_season, sessions = var_sessions, game_id = var_game_id, event_team = var_event_team, period = var_period, include = var_includedata_file = "result.txt")
+result <- api_instance$ReadChanges(limit = var_limit, offset = var_offset, with_total = var_with_total, season = var_season, sessions = var_sessions, game_id = var_game_id, event_team = var_event_team, period = var_period, include = var_include)
 dput(result)
 ```
 
@@ -42,14 +43,15 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **limit** | **integer**|  | [optional] [default to 10000]
+ **offset** | **integer**|  | [optional] [default to 0]
+ **with_total** | **character**| Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. &#x60;total&#x60; is then -1 and &#x60;has_next&#x60; still works. | [optional] [default to TRUE]
  **season** | list( **integer** )|  | [optional] 
  **sessions** | Enum [R, P] |  | [optional] 
  **game_id** | list( **integer** )|  | [optional] 
  **event_team** | list( **character** )|  | [optional] 
  **period** | list( **integer** )|  | [optional] 
  **include** | Enum [game] |  | [optional] 
- **limit** | **integer**|  | [optional] [default to 10000]
- **offset** | **integer**|  | [optional] [default to 0]
 
 ### Return type
 
@@ -71,7 +73,7 @@ Name | Type | Description  | Notes
 | **422** | Validation Error |  -  |
 
 # **ReadChangesGameIds**
-> array[integer] ReadChangesGameIds(season = var.season, sessions = var.sessions, limit = 10000, offset = 0)
+> array[integer] ReadChangesGameIds(limit = 10000, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions)
 
 Read Changes Game Ids
 
@@ -82,17 +84,18 @@ library(chickenstats.api)
 # Read Changes Game Ids
 #
 # prepare function argument(s)
-var_season <- c(123) # array[integer] |  (Optional)
-var_sessions <- c("R") # array[character] |  (Optional)
 var_limit <- 10000 # integer |  (Optional)
 var_offset <- 0 # integer |  (Optional)
+var_with_total <- TRUE # character | Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (Optional)
+var_season <- c(123) # array[integer] |  (Optional)
+var_sessions <- c("R") # array[character] |  (Optional)
 
 api_instance <- ChangesApi$new()
 # Configure OAuth2 access token for authorization: OAuth2PasswordBearer
 api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$ReadChangesGameIds(season = var_season, sessions = var_sessions, limit = var_limit, offset = var_offsetdata_file = "result.txt")
-result <- api_instance$ReadChangesGameIds(season = var_season, sessions = var_sessions, limit = var_limit, offset = var_offset)
+# result <- api_instance$ReadChangesGameIds(limit = var_limit, offset = var_offset, with_total = var_with_total, season = var_season, sessions = var_sessionsdata_file = "result.txt")
+result <- api_instance$ReadChangesGameIds(limit = var_limit, offset = var_offset, with_total = var_with_total, season = var_season, sessions = var_sessions)
 dput(result)
 ```
 
@@ -100,10 +103,11 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **season** | list( **integer** )|  | [optional] 
- **sessions** | Enum [R, P] |  | [optional] 
  **limit** | **integer**|  | [optional] [default to 10000]
  **offset** | **integer**|  | [optional] [default to 0]
+ **with_total** | **character**| Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. &#x60;total&#x60; is then -1 and &#x60;has_next&#x60; still works. | [optional] [default to TRUE]
+ **season** | list( **integer** )|  | [optional] 
+ **sessions** | Enum [R, P] |  | [optional] 
 
 ### Return type
 

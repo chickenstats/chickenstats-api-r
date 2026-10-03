@@ -15,6 +15,7 @@ test_that("ReadPredGoal", {
   # @param sessions array[character]  (optional)
   # @param limit integer  (optional)
   # @param offset integer  (optional)
+  # @param with_total character  (optional)
   # @return [PredGoalResponse]
 
   # uncomment below to test the operation

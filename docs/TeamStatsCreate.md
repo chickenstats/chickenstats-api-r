@@ -82,6 +82,5 @@ Name | Type | Description | Notes
 **strength_state** | **character** |  | [optional] 
 **period** | **integer** |  | [optional] 
 **score_state** | **character** |  | [optional] 
-**id** | **character** |  | 
 
 

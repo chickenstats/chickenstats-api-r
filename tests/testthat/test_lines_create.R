@@ -592,10 +592,3 @@ test_that("opp_goalie_api_id", {
   # uncomment below to test the property
   #expect_equal(model.instance$`opp_goalie_api_id`, "EXPECTED_RESULT")
 })
-
-test_that("id", {
-  # tests for the property `id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
-})

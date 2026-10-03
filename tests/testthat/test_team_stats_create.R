@@ -550,10 +550,3 @@ test_that("score_state", {
   # uncomment below to test the property
   #expect_equal(model.instance$`score_state`, "EXPECTED_RESULT")
 })
-
-test_that("id", {
-  # tests for the property `id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
-})

@@ -143,6 +143,5 @@ Name | Type | Description | Notes
 **nzs** | **integer** |  | [optional] [default to 0] 
 **dzs** | **integer** |  | [optional] [default to 0] 
 **otf** | **integer** |  | [optional] [default to 0] 
-**id** | **character** |  | 
 
 

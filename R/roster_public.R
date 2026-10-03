@@ -7,6 +7,8 @@
 #' @title RosterPublic
 #' @description RosterPublic Class
 #' @format An \code{R6Class} generator object
+#' @field season  integer
+#' @field session  character
 #' @field game_id  integer
 #' @field api_id  integer [optional]
 #' @field team  character
@@ -26,6 +28,8 @@
 RosterPublic <- R6::R6Class(
   "RosterPublic",
   public = list(
+    `season` = NULL,
+    `session` = NULL,
     `game_id` = NULL,
     `api_id` = NULL,
     `team` = NULL,
@@ -43,6 +47,8 @@ RosterPublic <- R6::R6Class(
     #' @description
     #' Initialize a new RosterPublic class.
     #'
+    #' @param season season
+    #' @param session session
     #' @param game_id game_id
     #' @param team team
     #' @param api_id api_id
@@ -57,7 +63,19 @@ RosterPublic <- R6::R6Class(
     #' @param player player
     #' @param game game
     #' @param ... Other optional arguments.
-    initialize = function(`game_id`, `team`, `api_id` = NULL, `jersey` = NULL, `position` = NULL, `starter` = NULL, `rookie` = NULL, `captain` = NULL, `alternate_captain` = NULL, `status` = NULL, `active` = NULL, `player` = NULL, `game` = NULL, ...) {
+    initialize = function(`season`, `session`, `game_id`, `team`, `api_id` = NULL, `jersey` = NULL, `position` = NULL, `starter` = NULL, `rookie` = NULL, `captain` = NULL, `alternate_captain` = NULL, `status` = NULL, `active` = NULL, `player` = NULL, `game` = NULL, ...) {
+      if (!missing(`season`)) {
+        if (!(is.numeric(`season`) && length(`season`) == 1)) {
+          stop(paste("Error! Invalid data for `season`. Must be an integer:", `season`))
+        }
+        self$`season` <- `season`
+      }
+      if (!missing(`session`)) {
+        if (!(is.character(`session`) && length(`session`) == 1)) {
+          stop(paste("Error! Invalid data for `session`. Must be a string:", `session`))
+        }
+        self$`session` <- `session`
+      }
       if (!missing(`game_id`)) {
         if (!(is.numeric(`game_id`) && length(`game_id`) == 1)) {
           stop(paste("Error! Invalid data for `game_id`. Must be an integer:", `game_id`))
@@ -165,6 +183,14 @@ RosterPublic <- R6::R6Class(
     #' @return A base R type, e.g. a list or numeric/character array.
     toSimpleType = function() {
       RosterPublicObject <- list()
+      if (!is.null(self$`season`)) {
+        RosterPublicObject[["season"]] <-
+          self$`season`
+      }
+      if (!is.null(self$`session`)) {
+        RosterPublicObject[["session"]] <-
+          self$`session`
+      }
       if (!is.null(self$`game_id`)) {
         RosterPublicObject[["game_id"]] <-
           self$`game_id`
@@ -227,6 +253,12 @@ RosterPublic <- R6::R6Class(
     #' @return the instance of RosterPublic
     fromJSON = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
+      if (!is.null(this_object$`season`)) {
+        self$`season` <- this_object$`season`
+      }
+      if (!is.null(this_object$`session`)) {
+        self$`session` <- this_object$`session`
+      }
       if (!is.null(this_object$`game_id`)) {
         self$`game_id` <- this_object$`game_id`
       }
@@ -291,6 +323,8 @@ RosterPublic <- R6::R6Class(
     #' @return the instance of RosterPublic
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
+      self$`season` <- this_object$`season`
+      self$`session` <- this_object$`session`
       self$`game_id` <- this_object$`game_id`
       self$`api_id` <- this_object$`api_id`
       self$`team` <- this_object$`team`
@@ -313,6 +347,22 @@ RosterPublic <- R6::R6Class(
     #' @param input the JSON input
     validateJSON = function(input) {
       input_json <- jsonlite::fromJSON(input)
+      # check the required field `season`
+      if (!is.null(input_json$`season`)) {
+        if (!(is.numeric(input_json$`season`) && length(input_json$`season`) == 1)) {
+          stop(paste("Error! Invalid data for `season`. Must be an integer:", input_json$`season`))
+        }
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for RosterPublic: the required field `season` is missing."))
+      }
+      # check the required field `session`
+      if (!is.null(input_json$`session`)) {
+        if (!(is.character(input_json$`session`) && length(input_json$`session`) == 1)) {
+          stop(paste("Error! Invalid data for `session`. Must be a string:", input_json$`session`))
+        }
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for RosterPublic: the required field `session` is missing."))
+      }
       # check the required field `game_id`
       if (!is.null(input_json$`game_id`)) {
         if (!(is.numeric(input_json$`game_id`) && length(input_json$`game_id`) == 1)) {
@@ -344,6 +394,16 @@ RosterPublic <- R6::R6Class(
     #'
     #' @return true if the values in all fields are valid.
     isValid = function() {
+      # check if the required `season` is null
+      if (is.null(self$`season`)) {
+        return(FALSE)
+      }
+
+      # check if the required `session` is null
+      if (is.null(self$`session`)) {
+        return(FALSE)
+      }
+
       # check if the required `game_id` is null
       if (is.null(self$`game_id`)) {
         return(FALSE)
@@ -363,6 +423,16 @@ RosterPublic <- R6::R6Class(
     #' @return A list of invalid fields (if any).
     getInvalidFields = function() {
       invalid_fields <- list()
+      # check if the required `season` is null
+      if (is.null(self$`season`)) {
+        invalid_fields["season"] <- "Non-nullable required field `season` cannot be null."
+      }
+
+      # check if the required `session` is null
+      if (is.null(self$`session`)) {
+        invalid_fields["session"] <- "Non-nullable required field `session` cannot be null."
+      }
+
       # check if the required `game_id` is null
       if (is.null(self$`game_id`)) {
         invalid_fields["game_id"] <- "Non-nullable required field `game_id` cannot be null."

@@ -51,7 +51,7 @@ This endpoint does not need any parameter.
 | **200** | Successful Response |  -  |
 
 # **ReadLivePbp**
-> LivePbpResponse ReadLivePbp(game_id = var.game_id, limit = 10000, offset = 0)
+> LivePbpResponse ReadLivePbp(game_id = var.game_id, limit = 10000, offset = 0, with_total = TRUE)
 
 Read Live Pbp
 
@@ -65,13 +65,14 @@ library(chickenstats.api)
 var_game_id <- c(123) # array[integer] |  (Optional)
 var_limit <- 10000 # integer |  (Optional)
 var_offset <- 0 # integer |  (Optional)
+var_with_total <- TRUE # character |  (Optional)
 
 api_instance <- LiveApi$new()
 # Configure OAuth2 access token for authorization: OAuth2PasswordBearer
 api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$ReadLivePbp(game_id = var_game_id, limit = var_limit, offset = var_offsetdata_file = "result.txt")
-result <- api_instance$ReadLivePbp(game_id = var_game_id, limit = var_limit, offset = var_offset)
+# result <- api_instance$ReadLivePbp(game_id = var_game_id, limit = var_limit, offset = var_offset, with_total = var_with_totaldata_file = "result.txt")
+result <- api_instance$ReadLivePbp(game_id = var_game_id, limit = var_limit, offset = var_offset, with_total = var_with_total)
 dput(result)
 ```
 
@@ -82,6 +83,7 @@ Name | Type | Description  | Notes
  **game_id** | list( **integer** )|  | [optional] 
  **limit** | **integer**|  | [optional] [default to 10000]
  **offset** | **integer**|  | [optional] [default to 0]
+ **with_total** | **character**|  | [optional] [default to TRUE]
 
 ### Return type
 

@@ -977,10 +977,3 @@ test_that("otf", {
   # uncomment below to test the property
   #expect_equal(model.instance$`otf`, "EXPECTED_RESULT")
 })
-
-test_that("id", {
-  # tests for the property `id` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
-})

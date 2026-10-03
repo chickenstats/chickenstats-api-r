@@ -22,6 +22,7 @@ test_that("ReadLivePbp", {
   # @param game_id array[integer]  (optional)
   # @param limit integer  (optional)
   # @param offset integer  (optional)
+  # @param with_total character  (optional)
   # @return [LivePbpResponse]
 
   # uncomment below to test the operation

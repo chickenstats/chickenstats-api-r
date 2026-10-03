@@ -9,6 +9,9 @@ test_that("ReadShifts", {
   # tests for ReadShifts
   # base path: https://api.chickenstats.com
   # Read Shifts
+  # @param limit integer  (optional)
+  # @param offset integer  (optional)
+  # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)
   # @param game_id array[integer]  (optional)
@@ -16,8 +19,6 @@ test_that("ReadShifts", {
   # @param team array[character]  (optional)
   # @param period array[integer]  (optional)
   # @param include array[character]  (optional)
-  # @param limit integer  (optional)
-  # @param offset integer  (optional)
   # @return [ShiftsResponse]
 
   # uncomment below to test the operation
@@ -28,10 +29,11 @@ test_that("ReadShiftsGameIds", {
   # tests for ReadShiftsGameIds
   # base path: https://api.chickenstats.com
   # Read Shifts Game Ids
-  # @param season array[integer]  (optional)
-  # @param sessions array[character]  (optional)
   # @param limit integer  (optional)
   # @param offset integer  (optional)
+  # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
+  # @param season array[integer]  (optional)
+  # @param sessions array[character]  (optional)
   # @return [array[integer]]
 
   # uncomment below to test the operation

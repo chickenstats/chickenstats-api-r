@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**season** | **integer** |  | 
+**session** | **character** |  | 
 **game_id** | **integer** |  | 
 **api_id** | **integer** |  | [optional] 
 **team** | **character** |  | 

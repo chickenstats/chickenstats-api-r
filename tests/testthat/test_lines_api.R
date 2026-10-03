@@ -9,6 +9,9 @@ test_that("ReadGameLines", {
   # tests for ReadGameLines
   # base path: https://api.chickenstats.com
   # Read Game Lines
+  # @param limit integer  (optional)
+  # @param offset integer  (optional)
+  # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)
   # @param game_id array[integer]  (optional)
@@ -20,8 +23,6 @@ test_that("ReadGameLines", {
   # @param linemates character  (optional)
   # @param opposition character  (optional)
   # @param include array[character]  (optional)
-  # @param limit integer  (optional)
-  # @param offset integer  (optional)
   # @return [LinesGameResponse]
 
   # uncomment below to test the operation
@@ -32,25 +33,12 @@ test_that("ReadLinesGameIds", {
   # tests for ReadLinesGameIds
   # base path: https://api.chickenstats.com
   # Read Lines Game Ids
-  # @param season array[integer]  (optional)
-  # @param sessions array[character]  (optional)
   # @param limit integer  (optional)
   # @param offset integer  (optional)
+  # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
+  # @param season array[integer]  (optional)
+  # @param sessions array[character]  (optional)
   # @return [array[integer]]
-
-  # uncomment below to test the operation
-  #expect_equal(result, "EXPECTED_RESULT")
-})
-
-test_that("ReadLinesLineIds", {
-  # tests for ReadLinesLineIds
-  # base path: https://api.chickenstats.com
-  # Read Lines Line Ids
-  # @param season array[integer]  (optional)
-  # @param sessions array[character]  (optional)
-  # @param limit integer  (optional)
-  # @param offset integer  (optional)
-  # @return [array[character]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -60,6 +48,9 @@ test_that("ReadSeasonLines", {
   # tests for ReadSeasonLines
   # base path: https://api.chickenstats.com
   # Read Season Lines
+  # @param limit integer  (optional)
+  # @param offset integer  (optional)
+  # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)
   # @param team array[character]  (optional)
@@ -68,8 +59,6 @@ test_that("ReadSeasonLines", {
   # @param score_state character  (optional)
   # @param linemates character  (optional)
   # @param opposition character  (optional)
-  # @param limit integer  (optional)
-  # @param offset integer  (optional)
   # @return [LinesSeasonResponse]
 
   # uncomment below to test the operation

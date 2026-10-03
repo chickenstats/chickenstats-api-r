@@ -85,7 +85,6 @@
 #' @field strength_state  character [optional]
 #' @field period  integer [optional]
 #' @field score_state  character [optional]
-#' @field id  character
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -170,7 +169,6 @@ TeamStatsCreate <- R6::R6Class(
     `strength_state` = NULL,
     `period` = NULL,
     `score_state` = NULL,
-    `id` = NULL,
 
     #' @description
     #' Initialize a new TeamStatsCreate class.
@@ -180,7 +178,6 @@ TeamStatsCreate <- R6::R6Class(
     #' @param session session
     #' @param game_id game_id
     #' @param team team
-    #' @param id id
     #' @param gf gf. Default to 0.
     #' @param ga ga. Default to 0.
     #' @param gf_adj gf_adj. Default to 0.
@@ -255,7 +252,7 @@ TeamStatsCreate <- R6::R6Class(
     #' @param period period
     #' @param score_state score_state
     #' @param ... Other optional arguments.
-    initialize = function(`toi`, `season`, `session`, `game_id`, `team`, `id`, `gf` = 0, `ga` = 0, `gf_adj` = 0, `ga_adj` = 0, `hdgf` = 0, `hdga` = 0, `base_xgf` = 0, `base_xga` = 0, `base_xgf_adj` = 0, `base_xga_adj` = 0, `context_xgf` = 0, `context_xga` = 0, `context_xgf_adj` = 0, `context_xga_adj` = 0, `xgf` = 0, `xga` = 0, `xgf_adj` = 0, `xga_adj` = 0, `sf` = 0, `sa` = 0, `sf_adj` = 0, `sa_adj` = 0, `hdsf` = 0, `hdsa` = 0, `ff` = 0, `fa` = 0, `ff_adj` = 0, `fa_adj` = 0, `hdff` = 0, `hdfa` = 0, `cf` = 0, `ca` = 0, `cf_adj` = 0, `ca_adj` = 0, `bsf` = 0, `bsa` = 0, `bsf_adj` = 0, `bsa_adj` = 0, `msf` = 0, `msa` = 0, `msf_adj` = 0, `msa_adj` = 0, `hdmsf` = 0, `hdmsa` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hf` = 0, `ht` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `fow` = 0, `fol` = 0, `ozfw` = 0, `ozfl` = 0, `nzfw` = 0, `nzfl` = 0, `dzfw` = 0, `dzfl` = 0, `pent0` = 0, `pent2` = 0, `pent4` = 0, `pent5` = 0, `pent10` = 0, `pend0` = 0, `pend2` = 0, `pend4` = 0, `pend5` = 0, `pend10` = 0, `opp_team` = NULL, `strength_state` = NULL, `period` = NULL, `score_state` = NULL, ...) {
+    initialize = function(`toi`, `season`, `session`, `game_id`, `team`, `gf` = 0, `ga` = 0, `gf_adj` = 0, `ga_adj` = 0, `hdgf` = 0, `hdga` = 0, `base_xgf` = 0, `base_xga` = 0, `base_xgf_adj` = 0, `base_xga_adj` = 0, `context_xgf` = 0, `context_xga` = 0, `context_xgf_adj` = 0, `context_xga_adj` = 0, `xgf` = 0, `xga` = 0, `xgf_adj` = 0, `xga_adj` = 0, `sf` = 0, `sa` = 0, `sf_adj` = 0, `sa_adj` = 0, `hdsf` = 0, `hdsa` = 0, `ff` = 0, `fa` = 0, `ff_adj` = 0, `fa_adj` = 0, `hdff` = 0, `hdfa` = 0, `cf` = 0, `ca` = 0, `cf_adj` = 0, `ca_adj` = 0, `bsf` = 0, `bsa` = 0, `bsf_adj` = 0, `bsa_adj` = 0, `msf` = 0, `msa` = 0, `msf_adj` = 0, `msa_adj` = 0, `hdmsf` = 0, `hdmsa` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hf` = 0, `ht` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `fow` = 0, `fol` = 0, `ozfw` = 0, `ozfl` = 0, `nzfw` = 0, `nzfl` = 0, `dzfw` = 0, `dzfl` = 0, `pent0` = 0, `pent2` = 0, `pent4` = 0, `pent5` = 0, `pent10` = 0, `pend0` = 0, `pend2` = 0, `pend4` = 0, `pend5` = 0, `pend10` = 0, `opp_team` = NULL, `strength_state` = NULL, `period` = NULL, `score_state` = NULL, ...) {
       if (!missing(`toi`)) {
         self$`toi` <- `toi`
       }
@@ -282,12 +279,6 @@ TeamStatsCreate <- R6::R6Class(
           stop(paste("Error! Invalid data for `team`. Must be a string:", `team`))
         }
         self$`team` <- `team`
-      }
-      if (!missing(`id`)) {
-        if (!(is.character(`id`) && length(`id`) == 1)) {
-          stop(paste("Error! Invalid data for `id`. Must be a string:", `id`))
-        }
-        self$`id` <- `id`
       }
       if (!is.null(`gf`)) {
         if (!(is.numeric(`gf`) && length(`gf`) == 1)) {
@@ -997,10 +988,6 @@ TeamStatsCreate <- R6::R6Class(
         TeamStatsCreateObject[["score_state"]] <-
           self$`score_state`
       }
-      if (!is.null(self$`id`)) {
-        TeamStatsCreateObject[["id"]] <-
-          self$`id`
-      }
       return(TeamStatsCreateObject)
     },
 
@@ -1245,9 +1232,6 @@ TeamStatsCreate <- R6::R6Class(
       if (!is.null(this_object$`score_state`)) {
         self$`score_state` <- this_object$`score_state`
       }
-      if (!is.null(this_object$`id`)) {
-        self$`id` <- this_object$`id`
-      }
       self
     },
 
@@ -1347,7 +1331,6 @@ TeamStatsCreate <- R6::R6Class(
       self$`strength_state` <- this_object$`strength_state`
       self$`period` <- this_object$`period`
       self$`score_state` <- this_object$`score_state`
-      self$`id` <- this_object$`id`
       self
     },
 
@@ -1394,14 +1377,6 @@ TeamStatsCreate <- R6::R6Class(
       } else {
         stop(paste("The JSON input `", input, "` is invalid for TeamStatsCreate: the required field `team` is missing."))
       }
-      # check the required field `id`
-      if (!is.null(input_json$`id`)) {
-        if (!(is.character(input_json$`id`) && length(input_json$`id`) == 1)) {
-          stop(paste("Error! Invalid data for `id`. Must be a string:", input_json$`id`))
-        }
-      } else {
-        stop(paste("The JSON input `", input, "` is invalid for TeamStatsCreate: the required field `id` is missing."))
-      }
     },
 
     #' @description
@@ -1442,11 +1417,6 @@ TeamStatsCreate <- R6::R6Class(
         return(FALSE)
       }
 
-      # check if the required `id` is null
-      if (is.null(self$`id`)) {
-        return(FALSE)
-      }
-
       TRUE
     },
 
@@ -1479,11 +1449,6 @@ TeamStatsCreate <- R6::R6Class(
       # check if the required `team` is null
       if (is.null(self$`team`)) {
         invalid_fields["team"] <- "Non-nullable required field `team` cannot be null."
-      }
-
-      # check if the required `id` is null
-      if (is.null(self$`id`)) {
-        invalid_fields["id"] <- "Non-nullable required field `id` cannot be null."
       }
 
       invalid_fields

@@ -5,6 +5,20 @@ context("Test RosterPublic")
 
 model_instance <- RosterPublic$new()
 
+test_that("season", {
+  # tests for the property `season` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`season`, "EXPECTED_RESULT")
+})
+
+test_that("session", {
+  # tests for the property `session` (character)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`session`, "EXPECTED_RESULT")
+})
+
 test_that("game_id", {
   # tests for the property `game_id` (integer)
 
