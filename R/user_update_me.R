@@ -8,7 +8,6 @@
 #' @description UserUpdateMe Class
 #' @format An \code{R6Class} generator object
 #' @field full_name  character [optional]
-#' @field email  character [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -16,26 +15,18 @@ UserUpdateMe <- R6::R6Class(
   "UserUpdateMe",
   public = list(
     `full_name` = NULL,
-    `email` = NULL,
 
     #' @description
     #' Initialize a new UserUpdateMe class.
     #'
     #' @param full_name full_name
-    #' @param email email
     #' @param ... Other optional arguments.
-    initialize = function(`full_name` = NULL, `email` = NULL, ...) {
+    initialize = function(`full_name` = NULL, ...) {
       if (!is.null(`full_name`)) {
         if (!(is.character(`full_name`) && length(`full_name`) == 1)) {
           stop(paste("Error! Invalid data for `full_name`. Must be a string:", `full_name`))
         }
         self$`full_name` <- `full_name`
-      }
-      if (!is.null(`email`)) {
-        if (!(is.character(`email`) && length(`email`) == 1)) {
-          stop(paste("Error! Invalid data for `email`. Must be a string:", `email`))
-        }
-        self$`email` <- `email`
       }
     },
 
@@ -74,10 +65,6 @@ UserUpdateMe <- R6::R6Class(
         UserUpdateMeObject[["full_name"]] <-
           self$`full_name`
       }
-      if (!is.null(self$`email`)) {
-        UserUpdateMeObject[["email"]] <-
-          self$`email`
-      }
       return(UserUpdateMeObject)
     },
 
@@ -90,9 +77,6 @@ UserUpdateMe <- R6::R6Class(
       this_object <- jsonlite::fromJSON(input_json)
       if (!is.null(this_object$`full_name`)) {
         self$`full_name` <- this_object$`full_name`
-      }
-      if (!is.null(this_object$`email`)) {
-        self$`email` <- this_object$`email`
       }
       self
     },
@@ -116,7 +100,6 @@ UserUpdateMe <- R6::R6Class(
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       self$`full_name` <- this_object$`full_name`
-      self$`email` <- this_object$`email`
       self
     },
 
@@ -145,10 +128,6 @@ UserUpdateMe <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`email`) > 255) {
-        return(FALSE)
-      }
-
       TRUE
     },
 
@@ -160,10 +139,6 @@ UserUpdateMe <- R6::R6Class(
       invalid_fields <- list()
       if (nchar(self$`full_name`) > 255) {
         invalid_fields["full_name"] <- "Invalid length for `full_name`, must be smaller than or equal to 255."
-      }
-
-      if (nchar(self$`email`) > 255) {
-        invalid_fields["email"] <- "Invalid length for `email`, must be smaller than or equal to 255."
       }
 
       invalid_fields

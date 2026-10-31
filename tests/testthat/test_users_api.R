@@ -9,7 +9,7 @@ test_that("DeleteUserMe", {
   # tests for DeleteUserMe
   # base path: https://api.chickenstats.com
   # Delete User Me
-  # Delete own user and disable Firebase account.
+  # Delete own user and disable Firebase account.  Refused while the account has a live Stripe subscription: deleting it left the subscription billing and took away the portal it is cancelled from.
   # @return [Message]
 
   # uncomment below to test the operation
@@ -31,7 +31,7 @@ test_that("ReadUserMe", {
   # tests for ReadUserMe
   # base path: https://api.chickenstats.com
   # Read User Me
-  # Get current user.
+  # Get current user, with the tier they have now.
   # @return [UserPublic]
 
   # uncomment below to test the operation
@@ -64,7 +64,7 @@ test_that("Signup", {
   # tests for Signup
   # base path: https://api.chickenstats.com
   # Signup
-  # Public self-registration. Creates a local user, a Firebase user, and a Ghost member.  If the account exists but is inactive (previously deactivated/pruned), reactivates it with the new credentials rather than rejecting the request.
+  # Public self-registration. Creates a local user, a Firebase user, and a Ghost member.  An address that already has a row is refused, active or not (changed 2026-10-17). Signing up over a deactivated account used to reset its password and re-enable it for whoever asked, keeping its flags, its service credentials and its Stripe portal. Reactivation is an admin action now (PATCH /users/{id} with is_active).  An address with a Firebase account but no row is a deleted account if that Firebase account is disabled, which is what deleting leaves behind: it is given the new password and enabled again, so the address can be used once more. An enabled one belongs to someone, so it is refused rather than having its password changed.
   # @param user_register UserRegister 
   # @return [UserPublic]
 
@@ -88,7 +88,7 @@ test_that("UpdateUserMe", {
   # tests for UpdateUserMe
   # base path: https://api.chickenstats.com
   # Update User Me
-  # Update own user.
+  # Update own user. The email address cannot be changed here.
   # @param user_update_me UserUpdateMe 
   # @return [UserPublic]
 

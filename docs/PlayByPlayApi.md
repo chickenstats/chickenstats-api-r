@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **ReadPbp**
-> PbpResponse ReadPbp(limit = 10000, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions, game_id = var.game_id, play_id = var.play_id, event = var.event, player_1 = var.player_1, goalie = var.goalie, event_team = var.event_team, opp_team = var.opp_team, strength_state = var.strength_state, include = var.include)
+> PbpResponse ReadPbp(limit = var.limit, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions, game_id = var.game_id, play_id = var.play_id, event = var.event, player_1 = var.player_1, goalie = var.goalie, event_team = var.event_team, opp_team = var.opp_team, strength_state = var.strength_state, include = var.include)
 
 Read Pbp
 
@@ -21,7 +21,7 @@ library(chickenstats.api)
 # Read Pbp
 #
 # prepare function argument(s)
-var_limit <- 10000 # integer |  (Optional)
+var_limit <- 56 # integer | Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (Optional)
 var_offset <- 0 # integer |  (Optional)
 var_with_total <- TRUE # character | Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (Optional)
 var_season <- c(123) # array[integer] |  (Optional)
@@ -49,7 +49,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **integer**|  | [optional] [default to 10000]
+ **limit** | **integer**| Rows per page. When omitted, 10,000 or your tier&#39;s maximum, whichever is smaller; the response&#39;s &#x60;limit&#x60; says which. A value over your tier&#39;s maximum is refused with a 400. | [optional] 
  **offset** | **integer**|  | [optional] [default to 0]
  **with_total** | **character**| Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. &#x60;total&#x60; is then -1 and &#x60;has_next&#x60; still works. | [optional] [default to TRUE]
  **season** | list( **integer** )|  | [optional] 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 | **422** | Validation Error |  -  |
 
 # **ReadPbpGameIds**
-> array[integer] ReadPbpGameIds(limit = 10000, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions)
+> array[integer] ReadPbpGameIds(limit = var.limit, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions)
 
 Read Pbp Game Ids
 
@@ -95,7 +95,7 @@ library(chickenstats.api)
 # Read Pbp Game Ids
 #
 # prepare function argument(s)
-var_limit <- 10000 # integer |  (Optional)
+var_limit <- 56 # integer | Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (Optional)
 var_offset <- 0 # integer |  (Optional)
 var_with_total <- TRUE # character | Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (Optional)
 var_season <- c(123) # array[integer] |  (Optional)
@@ -114,7 +114,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **integer**|  | [optional] [default to 10000]
+ **limit** | **integer**| Rows per page. When omitted, 10,000 or your tier&#39;s maximum, whichever is smaller; the response&#39;s &#x60;limit&#x60; says which. A value over your tier&#39;s maximum is refused with a 400. | [optional] 
  **offset** | **integer**|  | [optional] [default to 0]
  **with_total** | **character**| Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. &#x60;total&#x60; is then -1 and &#x60;has_next&#x60; still works. | [optional] [default to TRUE]
  **season** | list( **integer** )|  | [optional] 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 | **422** | Validation Error |  -  |
 
 # **ReadPbpPlayIds**
-> array[integer] ReadPbpPlayIds(limit = 10000, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions, game_id = var.game_id)
+> array[integer] ReadPbpPlayIds(limit = var.limit, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions, game_id = var.game_id)
 
 Read Pbp Play Ids
 
@@ -151,7 +151,7 @@ library(chickenstats.api)
 # Read Pbp Play Ids
 #
 # prepare function argument(s)
-var_limit <- 10000 # integer |  (Optional)
+var_limit <- 56 # integer | Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (Optional)
 var_offset <- 0 # integer |  (Optional)
 var_with_total <- TRUE # character | Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (Optional)
 var_season <- c(123) # array[integer] |  (Optional)
@@ -171,7 +171,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **integer**|  | [optional] [default to 10000]
+ **limit** | **integer**| Rows per page. When omitted, 10,000 or your tier&#39;s maximum, whichever is smaller; the response&#39;s &#x60;limit&#x60; says which. A value over your tier&#39;s maximum is refused with a 400. | [optional] 
  **offset** | **integer**|  | [optional] [default to 0]
  **with_total** | **character**| Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. &#x60;total&#x60; is then -1 and &#x60;has_next&#x60; still works. | [optional] [default to TRUE]
  **season** | list( **integer** )|  | [optional] 

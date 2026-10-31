@@ -11,7 +11,7 @@ test_that("ReadRosterGameIds", {
   # Read Roster Game Ids
   # @param api_id array[integer]  (optional)
   # @param team array[character]  (optional)
-  # @param limit integer  (optional)
+  # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
   # @param offset integer  (optional)
   # @return [array[integer]]
 
@@ -23,7 +23,7 @@ test_that("ReadRosters", {
   # tests for ReadRosters
   # base path: https://api.chickenstats.com
   # Read Rosters
-  # @param limit integer  (optional)
+  # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
   # @param offset integer  (optional)
   # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param game_id array[integer]  (optional)

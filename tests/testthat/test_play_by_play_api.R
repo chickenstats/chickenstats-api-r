@@ -9,7 +9,7 @@ test_that("ReadPbp", {
   # tests for ReadPbp
   # base path: https://api.chickenstats.com
   # Read Pbp
-  # @param limit integer  (optional)
+  # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
   # @param offset integer  (optional)
   # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param season array[integer]  (optional)
@@ -33,7 +33,7 @@ test_that("ReadPbpGameIds", {
   # tests for ReadPbpGameIds
   # base path: https://api.chickenstats.com
   # Read Pbp Game Ids
-  # @param limit integer  (optional)
+  # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
   # @param offset integer  (optional)
   # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param season array[integer]  (optional)
@@ -48,7 +48,7 @@ test_that("ReadPbpPlayIds", {
   # tests for ReadPbpPlayIds
   # base path: https://api.chickenstats.com
   # Read Pbp Play Ids
-  # @param limit integer  (optional)
+  # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
   # @param offset integer  (optional)
   # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param season array[integer]  (optional)

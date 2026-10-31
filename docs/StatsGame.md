@@ -143,5 +143,7 @@ Name | Type | Description | Notes
 **nzs** | **integer** |  | [optional] [default to 0] 
 **dzs** | **integer** |  | [optional] [default to 0] 
 **otf** | **integer** |  | [optional] [default to 0] 
+**player** | [**PlayerPublic**](PlayerPublic.md) |  | [optional] 
+**game** | [**GamePublic**](GamePublic.md) |  | [optional] 
 
 

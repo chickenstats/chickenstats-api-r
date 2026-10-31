@@ -13,7 +13,7 @@ test_that("ReadPredGoal", {
   # @param game_id array[integer]  (optional)
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)
-  # @param limit integer  (optional)
+  # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
   # @param offset integer  (optional)
   # @param with_total character  (optional)
   # @return [PredGoalResponse]

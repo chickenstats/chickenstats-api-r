@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **ReadPredGoal**
-> PredGoalResponse ReadPredGoal(game_id = var.game_id, season = var.season, sessions = var.sessions, limit = 10000, offset = 0, with_total = TRUE)
+> PredGoalResponse ReadPredGoal(game_id = var.game_id, season = var.season, sessions = var.sessions, limit = var.limit, offset = 0, with_total = TRUE)
 
 Read Pred Goal
 
@@ -24,7 +24,7 @@ library(chickenstats.api)
 var_game_id <- c(123) # array[integer] |  (Optional)
 var_season <- c(123) # array[integer] |  (Optional)
 var_sessions <- c("inner_example") # array[character] |  (Optional)
-var_limit <- 10000 # integer |  (Optional)
+var_limit <- 56 # integer | Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (Optional)
 var_offset <- 0 # integer |  (Optional)
 var_with_total <- TRUE # character |  (Optional)
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
  **game_id** | list( **integer** )|  | [optional] 
  **season** | list( **integer** )|  | [optional] 
  **sessions** | list( **character** )|  | [optional] 
- **limit** | **integer**|  | [optional] [default to 10000]
+ **limit** | **integer**| Rows per page. When omitted, 10,000 or your tier&#39;s maximum, whichever is smaller; the response&#39;s &#x60;limit&#x60; says which. A value over your tier&#39;s maximum is refused with a 400. | [optional] 
  **offset** | **integer**|  | [optional] [default to 0]
  **with_total** | **character**|  | [optional] [default to TRUE]
 

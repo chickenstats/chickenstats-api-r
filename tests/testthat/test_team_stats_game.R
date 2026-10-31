@@ -550,3 +550,10 @@ test_that("score_state", {
   # uncomment below to test the property
   #expect_equal(model.instance$`score_state`, "EXPECTED_RESULT")
 })
+
+test_that("game", {
+  # tests for the property `game` (GamePublic)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`game`, "EXPECTED_RESULT")
+})

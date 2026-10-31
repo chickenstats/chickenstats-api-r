@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **ReadRosterGameIds**
-> array[integer] ReadRosterGameIds(api_id = var.api_id, team = var.team, limit = 10000, offset = 0)
+> array[integer] ReadRosterGameIds(api_id = var.api_id, team = var.team, limit = var.limit, offset = 0)
 
 Read Roster Game Ids
 
@@ -22,7 +22,7 @@ library(chickenstats.api)
 # prepare function argument(s)
 var_api_id <- c(123) # array[integer] |  (Optional)
 var_team <- c("inner_example") # array[character] |  (Optional)
-var_limit <- 10000 # integer |  (Optional)
+var_limit <- 56 # integer | Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (Optional)
 var_offset <- 0 # integer |  (Optional)
 
 api_instance <- RostersApi$new()
@@ -40,7 +40,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_id** | list( **integer** )|  | [optional] 
  **team** | list( **character** )|  | [optional] 
- **limit** | **integer**|  | [optional] [default to 10000]
+ **limit** | **integer**| Rows per page. When omitted, 10,000 or your tier&#39;s maximum, whichever is smaller; the response&#39;s &#x60;limit&#x60; says which. A value over your tier&#39;s maximum is refused with a 400. | [optional] 
  **offset** | **integer**|  | [optional] [default to 0]
 
 ### Return type
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 | **422** | Validation Error |  -  |
 
 # **ReadRosters**
-> RosterResponse ReadRosters(limit = 10000, offset = 0, with_total = TRUE, game_id = var.game_id, api_id = var.api_id, team = var.team, include = var.include)
+> RosterResponse ReadRosters(limit = var.limit, offset = 0, with_total = TRUE, game_id = var.game_id, api_id = var.api_id, team = var.team, include = var.include)
 
 Read Rosters
 
@@ -74,7 +74,7 @@ library(chickenstats.api)
 # Read Rosters
 #
 # prepare function argument(s)
-var_limit <- 10000 # integer |  (Optional)
+var_limit <- 56 # integer | Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (Optional)
 var_offset <- 0 # integer |  (Optional)
 var_with_total <- TRUE # character | Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (Optional)
 var_game_id <- c(123) # array[integer] |  (Optional)
@@ -95,7 +95,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **integer**|  | [optional] [default to 10000]
+ **limit** | **integer**| Rows per page. When omitted, 10,000 or your tier&#39;s maximum, whichever is smaller; the response&#39;s &#x60;limit&#x60; says which. A value over your tier&#39;s maximum is refused with a 400. | [optional] 
  **offset** | **integer**|  | [optional] [default to 0]
  **with_total** | **character**| Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. &#x60;total&#x60; is then -1 and &#x60;has_next&#x60; still works. | [optional] [default to TRUE]
  **game_id** | list( **integer** )|  | [optional] 

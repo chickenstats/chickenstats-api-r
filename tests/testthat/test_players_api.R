@@ -20,7 +20,7 @@ test_that("ReadPlayers", {
   # tests for ReadPlayers
   # base path: https://api.chickenstats.com
   # Read Players
-  # @param limit integer  (optional)
+  # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
   # @param offset integer  (optional)
   # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param name array[character]  (optional)

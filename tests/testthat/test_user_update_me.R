@@ -11,10 +11,3 @@ test_that("full_name", {
   # uncomment below to test the property
   #expect_equal(model.instance$`full_name`, "EXPECTED_RESULT")
 })
-
-test_that("email", {
-  # tests for the property `email` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`email`, "EXPECTED_RESULT")
-})
