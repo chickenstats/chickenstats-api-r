@@ -17,6 +17,18 @@ test_that("ConfirmEmailChange", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("DeleteSignInMethod", {
+  # tests for DeleteSignInMethod
+  # base path: https://api.chickenstats.com
+  # Delete Sign In Method
+  # Remove a way in, unless it is the last one.
+  # @param provider character 
+  # @return [Message]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("DeleteUserMe", {
   # tests for DeleteUserMe
   # base path: https://api.chickenstats.com
@@ -34,6 +46,28 @@ test_that("GetProgrammaticCredentials", {
   # Get Programmatic Credentials
   # Return the CF client ID for programmatic access. The secret is never retrievable —.  rotate credentials if the secret was lost.
   # @return [ProgrammaticCredentials]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("ReadLinkToken", {
+  # tests for ReadLinkToken
+  # base path: https://api.chickenstats.com
+  # Read Link Token
+  # A Firebase custom token, for the account page to add a method with.  Verified accounts only: otherwise someone holding an unproven address could attach their own Google or GitHub to it before its owner arrives.
+  # @return [LinkToken]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("ReadSignInMethods", {
+  # tests for ReadSignInMethods
+  # base path: https://api.chickenstats.com
+  # Read Sign In Methods
+  # The ways into this account (API-172).
+  # @return [SignInMethods]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

@@ -110,8 +110,11 @@ Class | Method | HTTP request | Description
 *TeamStatsApi* | [**ReadTeamStatsGameIds**](docs/TeamStatsApi.md#ReadTeamStatsGameIds) | **GET** /api/v1/chicken_nhl/team_stats/game_ids | Read Team Stats Game Ids
 *TeamsApi* | [**ReadTeams**](docs/TeamsApi.md#ReadTeams) | **GET** /api/v1/chicken_nhl/teams | Read Teams
 *UsersApi* | [**ConfirmEmailChange**](docs/UsersApi.md#ConfirmEmailChange) | **POST** /api/v1/users/email/confirm | Confirm Email Change
+*UsersApi* | [**DeleteSignInMethod**](docs/UsersApi.md#DeleteSignInMethod) | **DELETE** /api/v1/users/me/sign-in-methods/{provider} | Delete Sign In Method
 *UsersApi* | [**DeleteUserMe**](docs/UsersApi.md#DeleteUserMe) | **DELETE** /api/v1/users/me | Delete User Me
 *UsersApi* | [**GetProgrammaticCredentials**](docs/UsersApi.md#GetProgrammaticCredentials) | **GET** /api/v1/users/me/programmatic-credentials | Get Programmatic Credentials
+*UsersApi* | [**ReadLinkToken**](docs/UsersApi.md#ReadLinkToken) | **POST** /api/v1/users/me/sign-in-methods/link-token | Read Link Token
+*UsersApi* | [**ReadSignInMethods**](docs/UsersApi.md#ReadSignInMethods) | **GET** /api/v1/users/me/sign-in-methods | Read Sign In Methods
 *UsersApi* | [**ReadUserMe**](docs/UsersApi.md#ReadUserMe) | **GET** /api/v1/users/me | Read User Me
 *UsersApi* | [**RequestEmailChange**](docs/UsersApi.md#RequestEmailChange) | **POST** /api/v1/users/me/email | Request Email Change
 *UsersApi* | [**ResendVerification**](docs/UsersApi.md#ResendVerification) | **POST** /api/v1/users/me/resend-verification | Resend Verification
@@ -137,6 +140,7 @@ Class | Method | HTTP request | Description
  - [LinesPublic](docs/LinesPublic.md)
  - [LinesSeason](docs/LinesSeason.md)
  - [LinesSeasonResponse](docs/LinesSeasonResponse.md)
+ - [LinkToken](docs/LinkToken.md)
  - [LiveGamesPublic](docs/LiveGamesPublic.md)
  - [LivePbpPublic](docs/LivePbpPublic.md)
  - [LivePbpResponse](docs/LivePbpResponse.md)
@@ -156,6 +160,7 @@ Class | Method | HTTP request | Description
  - [RosterResponse](docs/RosterResponse.md)
  - [ShiftsPublic](docs/ShiftsPublic.md)
  - [ShiftsResponse](docs/ShiftsResponse.md)
+ - [SignInMethods](docs/SignInMethods.md)
  - [StandingsPublic](docs/StandingsPublic.md)
  - [StandingsResponse](docs/StandingsResponse.md)
  - [StatsCreate](docs/StatsCreate.md)

@@ -5,8 +5,11 @@ All URIs are relative to *https://api.chickenstats.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ConfirmEmailChange**](UsersApi.md#ConfirmEmailChange) | **POST** /api/v1/users/email/confirm | Confirm Email Change
+[**DeleteSignInMethod**](UsersApi.md#DeleteSignInMethod) | **DELETE** /api/v1/users/me/sign-in-methods/{provider} | Delete Sign In Method
 [**DeleteUserMe**](UsersApi.md#DeleteUserMe) | **DELETE** /api/v1/users/me | Delete User Me
 [**GetProgrammaticCredentials**](UsersApi.md#GetProgrammaticCredentials) | **GET** /api/v1/users/me/programmatic-credentials | Get Programmatic Credentials
+[**ReadLinkToken**](UsersApi.md#ReadLinkToken) | **POST** /api/v1/users/me/sign-in-methods/link-token | Read Link Token
+[**ReadSignInMethods**](UsersApi.md#ReadSignInMethods) | **GET** /api/v1/users/me/sign-in-methods | Read Sign In Methods
 [**ReadUserMe**](UsersApi.md#ReadUserMe) | **GET** /api/v1/users/me | Read User Me
 [**RequestEmailChange**](UsersApi.md#RequestEmailChange) | **POST** /api/v1/users/me/email | Request Email Change
 [**ResendVerification**](UsersApi.md#ResendVerification) | **POST** /api/v1/users/me/resend-verification | Resend Verification
@@ -56,6 +59,56 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+# **DeleteSignInMethod**
+> Message DeleteSignInMethod(provider)
+
+Delete Sign In Method
+
+Remove a way in, unless it is the last one.
+
+### Example
+```R
+library(chickenstats.api)
+
+# Delete Sign In Method
+#
+# prepare function argument(s)
+var_provider <- "provider_example" # character | 
+
+api_instance <- UsersApi$new()
+# Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
+# to save the result into a file, simply add the optional `data_file` parameter, e.g.
+# result <- api_instance$DeleteSignInMethod(var_providerdata_file = "result.txt")
+result <- api_instance$DeleteSignInMethod(var_provider)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **provider** | **character**|  | 
+
+### Return type
+
+[**Message**](Message.md)
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -137,6 +190,94 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ProgrammaticCredentials**](ProgrammaticCredentials.md)
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+# **ReadLinkToken**
+> LinkToken ReadLinkToken()
+
+Read Link Token
+
+A Firebase custom token, for the account page to add a method with.  Verified accounts only: otherwise someone holding an unproven address could attach their own Google or GitHub to it before its owner arrives.
+
+### Example
+```R
+library(chickenstats.api)
+
+# Read Link Token
+#
+
+api_instance <- UsersApi$new()
+# Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
+# to save the result into a file, simply add the optional `data_file` parameter, e.g.
+# result <- api_instance$ReadLinkToken(data_file = "result.txt")
+result <- api_instance$ReadLinkToken()
+dput(result)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**LinkToken**](LinkToken.md)
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+# **ReadSignInMethods**
+> SignInMethods ReadSignInMethods()
+
+Read Sign In Methods
+
+The ways into this account (API-172).
+
+### Example
+```R
+library(chickenstats.api)
+
+# Read Sign In Methods
+#
+
+api_instance <- UsersApi$new()
+# Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
+# to save the result into a file, simply add the optional `data_file` parameter, e.g.
+# result <- api_instance$ReadSignInMethods(data_file = "result.txt")
+result <- api_instance$ReadSignInMethods()
+dput(result)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SignInMethods**](SignInMethods.md)
 
 ### Authorization
 

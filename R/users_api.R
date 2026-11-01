@@ -28,6 +28,23 @@
 #' dput(result)
 #'
 #'
+#' ####################  DeleteSignInMethod  ####################
+#'
+#' library(chickenstats.api)
+#' var_provider <- "provider_example" # character | 
+#'
+#' #Delete Sign In Method
+#' api_instance <- UsersApi$new()
+#'
+#' # Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+#' api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
+#'
+#' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
+#' # result <- api_instance$DeleteSignInMethod(var_providerdata_file = "result.txt")
+#' result <- api_instance$DeleteSignInMethod(var_provider)
+#' dput(result)
+#'
+#'
 #' ####################  DeleteUserMe  ####################
 #'
 #' library(chickenstats.api)
@@ -57,6 +74,38 @@
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 #' # result <- api_instance$GetProgrammaticCredentials(data_file = "result.txt")
 #' result <- api_instance$GetProgrammaticCredentials()
+#' dput(result)
+#'
+#'
+#' ####################  ReadLinkToken  ####################
+#'
+#' library(chickenstats.api)
+#'
+#' #Read Link Token
+#' api_instance <- UsersApi$new()
+#'
+#' # Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+#' api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
+#'
+#' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
+#' # result <- api_instance$ReadLinkToken(data_file = "result.txt")
+#' result <- api_instance$ReadLinkToken()
+#' dput(result)
+#'
+#'
+#' ####################  ReadSignInMethods  ####################
+#'
+#' library(chickenstats.api)
+#'
+#' #Read Sign In Methods
+#' api_instance <- UsersApi$new()
+#'
+#' # Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+#' api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
+#'
+#' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
+#' # result <- api_instance$ReadSignInMethods(data_file = "result.txt")
+#' result <- api_instance$ReadSignInMethods()
 #' dput(result)
 #'
 #'
@@ -295,6 +344,107 @@ UsersApi <- R6::R6Class(
     },
 
     #' @description
+    #' Delete Sign In Method
+    #'
+    #' @param provider 
+    #' @param data_file (optional) name of the data file to save the result
+    #' @param ... Other optional arguments
+    #'
+    #' @return Message
+    DeleteSignInMethod = function(provider, data_file = NULL, ...) {
+      local_var_response <- self$DeleteSignInMethodWithHttpInfo(provider, data_file = data_file, ...)
+      if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
+        return(local_var_response$content)
+      } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
+        return(local_var_response)
+      } else if (local_var_response$status_code >= 400 && local_var_response$status_code <= 499) {
+        return(local_var_response)
+      } else if (local_var_response$status_code >= 500 && local_var_response$status_code <= 599) {
+        return(local_var_response)
+      }
+    },
+
+    #' @description
+    #' Delete Sign In Method
+    #'
+    #' @param provider 
+    #' @param data_file (optional) name of the data file to save the result
+    #' @param ... Other optional arguments
+    #'
+    #' @return API response (Message) with additional information such as HTTP status code, headers
+    DeleteSignInMethodWithHttpInfo = function(provider, data_file = NULL, ...) {
+      args <- list(...)
+      query_params <- list()
+      header_params <- c()
+      form_params <- list()
+      file_params <- list()
+      local_var_body <- NULL
+      oauth_scopes <- NULL
+      is_oauth <- FALSE
+
+      if (missing(`provider`)) {
+        stop("Missing required parameter `provider`.")
+      }
+
+
+      local_var_url_path <- "/api/v1/users/me/sign-in-methods/{provider}"
+      if (!missing(`provider`)) {
+        local_var_url_path <- gsub("\\{provider\\}", URLencode(as.character(`provider`), reserved = TRUE), local_var_url_path)
+      }
+
+      # OAuth-related settings
+      is_oauth <- TRUE
+      oauth_scopes <- ""
+
+      # The Accept request HTTP header
+      local_var_accepts <- list("application/json")
+
+      # The Content-Type representation header
+      local_var_content_types <- list()
+
+      local_var_resp <- self$api_client$CallApi(url = paste0(self$api_client$base_path, local_var_url_path),
+                                 method = "DELETE",
+                                 query_params = query_params,
+                                 header_params = header_params,
+                                 form_params = form_params,
+                                 file_params = file_params,
+                                 accepts = local_var_accepts,
+                                 content_types = local_var_content_types,
+                                 body = local_var_body,
+                                 is_oauth = is_oauth,
+                                 oauth_scopes = oauth_scopes,
+                                 ...)
+
+      if (local_var_resp$status_code >= 200 && local_var_resp$status_code <= 299) {
+        # save response in a file
+        if (!is.null(data_file)) {
+          self$api_client$WriteFile(local_var_resp, data_file)
+        }
+
+        deserialized_resp_obj <- tryCatch(
+          self$api_client$DeserializeResponse(local_var_resp, "Message"),
+          error = function(e) {
+            stop("Failed to deserialize response")
+          }
+        )
+        local_var_resp$content <- deserialized_resp_obj
+        return(local_var_resp)
+      } 
+      
+      local_var_error_msg <- local_var_resp$response_as_text()      
+      if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
+        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+      } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
+        ApiResponse$new("API client error", local_var_resp)
+      } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
+        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+          local_var_resp$response <- "API server error"
+        }
+        return(local_var_resp)
+      }
+    },
+
+    #' @description
     #' Delete User Me
     #'
     #' @param data_file (optional) name of the data file to save the result
@@ -453,6 +603,186 @@ UsersApi <- R6::R6Class(
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "ProgrammaticCredentials"),
+          error = function(e) {
+            stop("Failed to deserialize response")
+          }
+        )
+        local_var_resp$content <- deserialized_resp_obj
+        return(local_var_resp)
+      } 
+      
+      local_var_error_msg <- local_var_resp$response_as_text()      
+      if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
+        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+      } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
+        ApiResponse$new("API client error", local_var_resp)
+      } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
+        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+          local_var_resp$response <- "API server error"
+        }
+        return(local_var_resp)
+      }
+    },
+
+    #' @description
+    #' Read Link Token
+    #'
+    #' @param data_file (optional) name of the data file to save the result
+    #' @param ... Other optional arguments
+    #'
+    #' @return LinkToken
+    ReadLinkToken = function(data_file = NULL, ...) {
+      local_var_response <- self$ReadLinkTokenWithHttpInfo(data_file = data_file, ...)
+      if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
+        return(local_var_response$content)
+      } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
+        return(local_var_response)
+      } else if (local_var_response$status_code >= 400 && local_var_response$status_code <= 499) {
+        return(local_var_response)
+      } else if (local_var_response$status_code >= 500 && local_var_response$status_code <= 599) {
+        return(local_var_response)
+      }
+    },
+
+    #' @description
+    #' Read Link Token
+    #'
+    #' @param data_file (optional) name of the data file to save the result
+    #' @param ... Other optional arguments
+    #'
+    #' @return API response (LinkToken) with additional information such as HTTP status code, headers
+    ReadLinkTokenWithHttpInfo = function(data_file = NULL, ...) {
+      args <- list(...)
+      query_params <- list()
+      header_params <- c()
+      form_params <- list()
+      file_params <- list()
+      local_var_body <- NULL
+      oauth_scopes <- NULL
+      is_oauth <- FALSE
+
+      local_var_url_path <- "/api/v1/users/me/sign-in-methods/link-token"
+      # OAuth-related settings
+      is_oauth <- TRUE
+      oauth_scopes <- ""
+
+      # The Accept request HTTP header
+      local_var_accepts <- list("application/json")
+
+      # The Content-Type representation header
+      local_var_content_types <- list()
+
+      local_var_resp <- self$api_client$CallApi(url = paste0(self$api_client$base_path, local_var_url_path),
+                                 method = "POST",
+                                 query_params = query_params,
+                                 header_params = header_params,
+                                 form_params = form_params,
+                                 file_params = file_params,
+                                 accepts = local_var_accepts,
+                                 content_types = local_var_content_types,
+                                 body = local_var_body,
+                                 is_oauth = is_oauth,
+                                 oauth_scopes = oauth_scopes,
+                                 ...)
+
+      if (local_var_resp$status_code >= 200 && local_var_resp$status_code <= 299) {
+        # save response in a file
+        if (!is.null(data_file)) {
+          self$api_client$WriteFile(local_var_resp, data_file)
+        }
+
+        deserialized_resp_obj <- tryCatch(
+          self$api_client$DeserializeResponse(local_var_resp, "LinkToken"),
+          error = function(e) {
+            stop("Failed to deserialize response")
+          }
+        )
+        local_var_resp$content <- deserialized_resp_obj
+        return(local_var_resp)
+      } 
+      
+      local_var_error_msg <- local_var_resp$response_as_text()      
+      if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
+        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+      } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
+        ApiResponse$new("API client error", local_var_resp)
+      } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
+        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+          local_var_resp$response <- "API server error"
+        }
+        return(local_var_resp)
+      }
+    },
+
+    #' @description
+    #' Read Sign In Methods
+    #'
+    #' @param data_file (optional) name of the data file to save the result
+    #' @param ... Other optional arguments
+    #'
+    #' @return SignInMethods
+    ReadSignInMethods = function(data_file = NULL, ...) {
+      local_var_response <- self$ReadSignInMethodsWithHttpInfo(data_file = data_file, ...)
+      if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
+        return(local_var_response$content)
+      } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
+        return(local_var_response)
+      } else if (local_var_response$status_code >= 400 && local_var_response$status_code <= 499) {
+        return(local_var_response)
+      } else if (local_var_response$status_code >= 500 && local_var_response$status_code <= 599) {
+        return(local_var_response)
+      }
+    },
+
+    #' @description
+    #' Read Sign In Methods
+    #'
+    #' @param data_file (optional) name of the data file to save the result
+    #' @param ... Other optional arguments
+    #'
+    #' @return API response (SignInMethods) with additional information such as HTTP status code, headers
+    ReadSignInMethodsWithHttpInfo = function(data_file = NULL, ...) {
+      args <- list(...)
+      query_params <- list()
+      header_params <- c()
+      form_params <- list()
+      file_params <- list()
+      local_var_body <- NULL
+      oauth_scopes <- NULL
+      is_oauth <- FALSE
+
+      local_var_url_path <- "/api/v1/users/me/sign-in-methods"
+      # OAuth-related settings
+      is_oauth <- TRUE
+      oauth_scopes <- ""
+
+      # The Accept request HTTP header
+      local_var_accepts <- list("application/json")
+
+      # The Content-Type representation header
+      local_var_content_types <- list()
+
+      local_var_resp <- self$api_client$CallApi(url = paste0(self$api_client$base_path, local_var_url_path),
+                                 method = "GET",
+                                 query_params = query_params,
+                                 header_params = header_params,
+                                 form_params = form_params,
+                                 file_params = file_params,
+                                 accepts = local_var_accepts,
+                                 content_types = local_var_content_types,
+                                 body = local_var_body,
+                                 is_oauth = is_oauth,
+                                 oauth_scopes = oauth_scopes,
+                                 ...)
+
+      if (local_var_resp$status_code >= 200 && local_var_resp$status_code <= 299) {
+        # save response in a file
+        if (!is.null(data_file)) {
+          self$api_client$WriteFile(local_var_resp, data_file)
+        }
+
+        deserialized_resp_obj <- tryCatch(
+          self$api_client$DeserializeResponse(local_var_resp, "SignInMethods"),
           error = function(e) {
             stop("Failed to deserialize response")
           }
