@@ -109,9 +109,11 @@ Class | Method | HTTP request | Description
 *TeamStatsApi* | [**ReadSeasonTeamStats**](docs/TeamStatsApi.md#ReadSeasonTeamStats) | **GET** /api/v1/chicken_nhl/team_stats/season | Read Season Team Stats
 *TeamStatsApi* | [**ReadTeamStatsGameIds**](docs/TeamStatsApi.md#ReadTeamStatsGameIds) | **GET** /api/v1/chicken_nhl/team_stats/game_ids | Read Team Stats Game Ids
 *TeamsApi* | [**ReadTeams**](docs/TeamsApi.md#ReadTeams) | **GET** /api/v1/chicken_nhl/teams | Read Teams
+*UsersApi* | [**ConfirmEmailChange**](docs/UsersApi.md#ConfirmEmailChange) | **POST** /api/v1/users/email/confirm | Confirm Email Change
 *UsersApi* | [**DeleteUserMe**](docs/UsersApi.md#DeleteUserMe) | **DELETE** /api/v1/users/me | Delete User Me
 *UsersApi* | [**GetProgrammaticCredentials**](docs/UsersApi.md#GetProgrammaticCredentials) | **GET** /api/v1/users/me/programmatic-credentials | Get Programmatic Credentials
 *UsersApi* | [**ReadUserMe**](docs/UsersApi.md#ReadUserMe) | **GET** /api/v1/users/me | Read User Me
+*UsersApi* | [**RequestEmailChange**](docs/UsersApi.md#RequestEmailChange) | **POST** /api/v1/users/me/email | Request Email Change
 *UsersApi* | [**ResendVerification**](docs/UsersApi.md#ResendVerification) | **POST** /api/v1/users/me/resend-verification | Resend Verification
 *UsersApi* | [**RotateProgrammaticCredentials**](docs/UsersApi.md#RotateProgrammaticCredentials) | **POST** /api/v1/users/me/programmatic-credentials/rotate | Rotate Programmatic Credentials
 *UsersApi* | [**Signup**](docs/UsersApi.md#Signup) | **POST** /api/v1/users/signup | Signup
@@ -123,6 +125,8 @@ Class | Method | HTTP request | Description
 
  - [ChangesPublic](docs/ChangesPublic.md)
  - [ChangesResponse](docs/ChangesResponse.md)
+ - [EmailChangeConfirm](docs/EmailChangeConfirm.md)
+ - [EmailChangeRequest](docs/EmailChangeRequest.md)
  - [GamePublic](docs/GamePublic.md)
  - [GameResponse](docs/GameResponse.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)

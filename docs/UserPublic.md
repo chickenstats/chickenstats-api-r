@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **id** | **character** |  | 
 **tools_write** | **character** |  | [optional] [default to FALSE] 
 **cf_client_id** | **character** |  | [optional] 
+**email_verified** | **character** |  | [optional] 
 
 

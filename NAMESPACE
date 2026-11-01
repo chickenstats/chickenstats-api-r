@@ -15,6 +15,8 @@ export(ApiResponse)
 # Models
 export(ChangesPublic)
 export(ChangesResponse)
+export(EmailChangeConfirm)
+export(EmailChangeRequest)
 export(GamePublic)
 export(GameResponse)
 export(HTTPValidationError)

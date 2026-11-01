@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **home_score** | **integer** |  | 
 **away_score** | **integer** |  | 
 **last_updated** | **character** |  | 
+**xg_status** | **character** |  | [optional] [Enum: [scored, disabled, failed]] 
 
 

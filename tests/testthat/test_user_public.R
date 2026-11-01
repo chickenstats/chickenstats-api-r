@@ -67,3 +67,10 @@ test_that("cf_client_id", {
   # uncomment below to test the property
   #expect_equal(model.instance$`cf_client_id`, "EXPECTED_RESULT")
 })
+
+test_that("email_verified", {
+  # tests for the property `email_verified` (character)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`email_verified`, "EXPECTED_RESULT")
+})

@@ -74,3 +74,10 @@ test_that("last_updated", {
   # uncomment below to test the property
   #expect_equal(model.instance$`last_updated`, "EXPECTED_RESULT")
 })
+
+test_that("xg_status", {
+  # tests for the property `xg_status` (character)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`xg_status`, "EXPECTED_RESULT")
+})

@@ -4,15 +4,65 @@ All URIs are relative to *https://api.chickenstats.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ConfirmEmailChange**](UsersApi.md#ConfirmEmailChange) | **POST** /api/v1/users/email/confirm | Confirm Email Change
 [**DeleteUserMe**](UsersApi.md#DeleteUserMe) | **DELETE** /api/v1/users/me | Delete User Me
 [**GetProgrammaticCredentials**](UsersApi.md#GetProgrammaticCredentials) | **GET** /api/v1/users/me/programmatic-credentials | Get Programmatic Credentials
 [**ReadUserMe**](UsersApi.md#ReadUserMe) | **GET** /api/v1/users/me | Read User Me
+[**RequestEmailChange**](UsersApi.md#RequestEmailChange) | **POST** /api/v1/users/me/email | Request Email Change
 [**ResendVerification**](UsersApi.md#ResendVerification) | **POST** /api/v1/users/me/resend-verification | Resend Verification
 [**RotateProgrammaticCredentials**](UsersApi.md#RotateProgrammaticCredentials) | **POST** /api/v1/users/me/programmatic-credentials/rotate | Rotate Programmatic Credentials
 [**Signup**](UsersApi.md#Signup) | **POST** /api/v1/users/signup | Signup
 [**UpdatePasswordMe**](UsersApi.md#UpdatePasswordMe) | **PATCH** /api/v1/users/me/password | Update Password Me
 [**UpdateUserMe**](UsersApi.md#UpdateUserMe) | **PATCH** /api/v1/users/me | Update User Me
 
+
+# **ConfirmEmailChange**
+> Message ConfirmEmailChange(email_change_confirm)
+
+Confirm Email Change
+
+Move the account to the address the link was sent to.  No session needed: the link is the proof, and it may be opened on another device. It names the address the account had, so it is spent once the change is made, and a later change makes an older link useless.  Stripe, then Firebase, then Postgres, and each step is undone if a later one fails: an account whose three addresses disagree cannot sign in, buy or open its portal. Firebase keeps its uid, so the stripeRole claim comes along; the user row keeps its id, so contributor flags, the service token and refresh-token ownership do too. Usage rows are re-keyed in the same commit as the address.
+
+### Example
+```R
+library(chickenstats.api)
+
+# Confirm Email Change
+#
+# prepare function argument(s)
+var_email_change_confirm <- EmailChangeConfirm$new("token_example") # EmailChangeConfirm | 
+
+api_instance <- UsersApi$new()
+# to save the result into a file, simply add the optional `data_file` parameter, e.g.
+# result <- api_instance$ConfirmEmailChange(var_email_change_confirmdata_file = "result.txt")
+result <- api_instance$ConfirmEmailChange(var_email_change_confirm)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email_change_confirm** | [**EmailChangeConfirm**](EmailChangeConfirm.md)|  | 
+
+### Return type
+
+[**Message**](Message.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
 
 # **DeleteUserMe**
 > Message DeleteUserMe()
@@ -107,7 +157,7 @@ This endpoint does not need any parameter.
 
 Read User Me
 
-Get current user, with the tier they have now.
+Get current user, with the tier they have now and whether they are verified.
 
 ### Example
 ```R
@@ -145,6 +195,56 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+
+# **RequestEmailChange**
+> Message RequestEmailChange(email_change_request)
+
+Request Email Change
+
+Email a link to a new address; the change happens when it is clicked.  Nothing moves here. The address is the account's identity in Firebase, Stripe and the quota, so it changes only once the new one has proved it receives mail (API-20, BR-03). A verified account only: an unproven address has no claim to hand on.
+
+### Example
+```R
+library(chickenstats.api)
+
+# Request Email Change
+#
+# prepare function argument(s)
+var_email_change_request <- EmailChangeRequest$new("new_email_example") # EmailChangeRequest | 
+
+api_instance <- UsersApi$new()
+# Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+api_instance$api_client$access_token <- Sys.getenv("ACCESS_TOKEN")
+# to save the result into a file, simply add the optional `data_file` parameter, e.g.
+# result <- api_instance$RequestEmailChange(var_email_change_requestdata_file = "result.txt")
+result <- api_instance$RequestEmailChange(var_email_change_request)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email_change_request** | [**EmailChangeRequest**](EmailChangeRequest.md)|  | 
+
+### Return type
+
+[**Message**](Message.md)
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
 
 # **ResendVerification**
 > Message ResendVerification()

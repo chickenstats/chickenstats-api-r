@@ -11,6 +11,8 @@ R/api_response.R
 R/changes_api.R
 R/changes_public.R
 R/changes_response.R
+R/email_change_confirm.R
+R/email_change_request.R
 R/game_public.R
 R/game_response.R
 R/games_api.R
@@ -84,6 +86,8 @@ README.md
 docs/ChangesApi.md
 docs/ChangesPublic.md
 docs/ChangesResponse.md
+docs/EmailChangeConfirm.md
+docs/EmailChangeRequest.md
 docs/GamePublic.md
 docs/GameResponse.md
 docs/GamesApi.md
@@ -158,6 +162,8 @@ tests/testthat.R
 tests/testthat/test_changes_api.R
 tests/testthat/test_changes_public.R
 tests/testthat/test_changes_response.R
+tests/testthat/test_email_change_confirm.R
+tests/testthat/test_email_change_request.R
 tests/testthat/test_game_public.R
 tests/testthat/test_game_response.R
 tests/testthat/test_games_api.R

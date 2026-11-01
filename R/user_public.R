@@ -16,6 +16,7 @@
 #' @field id  character
 #' @field tools_write  character [optional]
 #' @field cf_client_id  character [optional]
+#' @field email_verified  character [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -31,6 +32,7 @@ UserPublic <- R6::R6Class(
     `id` = NULL,
     `tools_write` = NULL,
     `cf_client_id` = NULL,
+    `email_verified` = NULL,
 
     #' @description
     #' Initialize a new UserPublic class.
@@ -44,8 +46,9 @@ UserPublic <- R6::R6Class(
     #' @param tier tier. Default to "free".
     #' @param tools_write tools_write. Default to FALSE.
     #' @param cf_client_id cf_client_id
+    #' @param email_verified email_verified
     #' @param ... Other optional arguments.
-    initialize = function(`email`, `id`, `is_active` = TRUE, `is_superuser` = FALSE, `is_contributor` = FALSE, `full_name` = NULL, `tier` = "free", `tools_write` = FALSE, `cf_client_id` = NULL, ...) {
+    initialize = function(`email`, `id`, `is_active` = TRUE, `is_superuser` = FALSE, `is_contributor` = FALSE, `full_name` = NULL, `tier` = "free", `tools_write` = FALSE, `cf_client_id` = NULL, `email_verified` = NULL, ...) {
       if (!missing(`email`)) {
         if (!(is.character(`email`) && length(`email`) == 1)) {
           stop(paste("Error! Invalid data for `email`. Must be a string:", `email`))
@@ -99,6 +102,12 @@ UserPublic <- R6::R6Class(
           stop(paste("Error! Invalid data for `cf_client_id`. Must be a string:", `cf_client_id`))
         }
         self$`cf_client_id` <- `cf_client_id`
+      }
+      if (!is.null(`email_verified`)) {
+        if (!(is.logical(`email_verified`) && length(`email_verified`) == 1)) {
+          stop(paste("Error! Invalid data for `email_verified`. Must be a boolean:", `email_verified`))
+        }
+        self$`email_verified` <- `email_verified`
       }
     },
 
@@ -169,6 +178,10 @@ UserPublic <- R6::R6Class(
         UserPublicObject[["cf_client_id"]] <-
           self$`cf_client_id`
       }
+      if (!is.null(self$`email_verified`)) {
+        UserPublicObject[["email_verified"]] <-
+          self$`email_verified`
+      }
       return(UserPublicObject)
     },
 
@@ -206,6 +219,9 @@ UserPublic <- R6::R6Class(
       if (!is.null(this_object$`cf_client_id`)) {
         self$`cf_client_id` <- this_object$`cf_client_id`
       }
+      if (!is.null(this_object$`email_verified`)) {
+        self$`email_verified` <- this_object$`email_verified`
+      }
       self
     },
 
@@ -236,6 +252,7 @@ UserPublic <- R6::R6Class(
       self$`id` <- this_object$`id`
       self$`tools_write` <- this_object$`tools_write`
       self$`cf_client_id` <- this_object$`cf_client_id`
+      self$`email_verified` <- this_object$`email_verified`
       self
     },
 

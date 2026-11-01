@@ -17,6 +17,7 @@
 #' @field home_score  integer
 #' @field away_score  integer
 #' @field last_updated  character
+#' @field xg_status  character [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -33,6 +34,7 @@ LiveGamesPublic <- R6::R6Class(
     `home_score` = NULL,
     `away_score` = NULL,
     `last_updated` = NULL,
+    `xg_status` = NULL,
 
     #' @description
     #' Initialize a new LiveGamesPublic class.
@@ -47,8 +49,9 @@ LiveGamesPublic <- R6::R6Class(
     #' @param home_score home_score
     #' @param away_score away_score
     #' @param last_updated last_updated
+    #' @param xg_status xg_status
     #' @param ... Other optional arguments.
-    initialize = function(`game_id`, `game_date`, `home_team`, `away_team`, `game_state`, `period`, `time_remaining`, `home_score`, `away_score`, `last_updated`, ...) {
+    initialize = function(`game_id`, `game_date`, `home_team`, `away_team`, `game_state`, `period`, `time_remaining`, `home_score`, `away_score`, `last_updated`, `xg_status` = NULL, ...) {
       if (!missing(`game_id`)) {
         if (!(is.numeric(`game_id`) && length(`game_id`) == 1)) {
           stop(paste("Error! Invalid data for `game_id`. Must be an integer:", `game_id`))
@@ -108,6 +111,15 @@ LiveGamesPublic <- R6::R6Class(
           stop(paste("Error! Invalid data for `last_updated`. Must be a string:", `last_updated`))
         }
         self$`last_updated` <- `last_updated`
+      }
+      if (!is.null(`xg_status`)) {
+        if (!(`xg_status` %in% c("scored", "disabled", "failed"))) {
+          stop(paste("Error! \"", `xg_status`, "\" cannot be assigned to `xg_status`. Must be \"scored\", \"disabled\", \"failed\".", sep = ""))
+        }
+        if (!(is.character(`xg_status`) && length(`xg_status`) == 1)) {
+          stop(paste("Error! Invalid data for `xg_status`. Must be a string:", `xg_status`))
+        }
+        self$`xg_status` <- `xg_status`
       }
     },
 
@@ -182,6 +194,10 @@ LiveGamesPublic <- R6::R6Class(
         LiveGamesPublicObject[["last_updated"]] <-
           self$`last_updated`
       }
+      if (!is.null(self$`xg_status`)) {
+        LiveGamesPublicObject[["xg_status"]] <-
+          self$`xg_status`
+      }
       return(LiveGamesPublicObject)
     },
 
@@ -222,6 +238,12 @@ LiveGamesPublic <- R6::R6Class(
       if (!is.null(this_object$`last_updated`)) {
         self$`last_updated` <- this_object$`last_updated`
       }
+      if (!is.null(this_object$`xg_status`)) {
+        if (!is.null(this_object$`xg_status`) && !(this_object$`xg_status` %in% c("scored", "disabled", "failed"))) {
+          stop(paste("Error! \"", this_object$`xg_status`, "\" cannot be assigned to `xg_status`. Must be \"scored\", \"disabled\", \"failed\".", sep = ""))
+        }
+        self$`xg_status` <- this_object$`xg_status`
+      }
       self
     },
 
@@ -253,6 +275,10 @@ LiveGamesPublic <- R6::R6Class(
       self$`home_score` <- this_object$`home_score`
       self$`away_score` <- this_object$`away_score`
       self$`last_updated` <- this_object$`last_updated`
+      if (!is.null(this_object$`xg_status`) && !(this_object$`xg_status` %in% c("scored", "disabled", "failed"))) {
+        stop(paste("Error! \"", this_object$`xg_status`, "\" cannot be assigned to `xg_status`. Must be \"scored\", \"disabled\", \"failed\".", sep = ""))
+      }
+      self$`xg_status` <- this_object$`xg_status`
       self
     },
 

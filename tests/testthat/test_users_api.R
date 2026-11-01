@@ -5,6 +5,18 @@ context("Test UsersApi")
 
 api_instance <- UsersApi$new()
 
+test_that("ConfirmEmailChange", {
+  # tests for ConfirmEmailChange
+  # base path: https://api.chickenstats.com
+  # Confirm Email Change
+  # Move the account to the address the link was sent to.  No session needed: the link is the proof, and it may be opened on another device. It names the address the account had, so it is spent once the change is made, and a later change makes an older link useless.  Stripe, then Firebase, then Postgres, and each step is undone if a later one fails: an account whose three addresses disagree cannot sign in, buy or open its portal. Firebase keeps its uid, so the stripeRole claim comes along; the user row keeps its id, so contributor flags, the service token and refresh-token ownership do too. Usage rows are re-keyed in the same commit as the address.
+  # @param email_change_confirm EmailChangeConfirm 
+  # @return [Message]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("DeleteUserMe", {
   # tests for DeleteUserMe
   # base path: https://api.chickenstats.com
@@ -31,8 +43,20 @@ test_that("ReadUserMe", {
   # tests for ReadUserMe
   # base path: https://api.chickenstats.com
   # Read User Me
-  # Get current user, with the tier they have now.
+  # Get current user, with the tier they have now and whether they are verified.
   # @return [UserPublic]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("RequestEmailChange", {
+  # tests for RequestEmailChange
+  # base path: https://api.chickenstats.com
+  # Request Email Change
+  # Email a link to a new address; the change happens when it is clicked.  Nothing moves here. The address is the account&#39;s identity in Firebase, Stripe and the quota, so it changes only once the new one has proved it receives mail (API-20, BR-03). A verified account only: an unproven address has no claim to hand on.
+  # @param email_change_request EmailChangeRequest 
+  # @return [Message]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
