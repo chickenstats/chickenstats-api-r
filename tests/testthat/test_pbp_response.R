@@ -40,9 +40,23 @@ test_that("has_next", {
   #expect_equal(model.instance$`has_next`, "EXPECTED_RESULT")
 })
 
+test_that("notice", {
+  # tests for the property `notice` (character)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`notice`, "EXPECTED_RESULT")
+})
+
 test_that("data", {
   # tests for the property `data` (array[PbpPublic])
 
   # uncomment below to test the property
   #expect_equal(model.instance$`data`, "EXPECTED_RESULT")
+})
+
+test_that("next_cursor", {
+  # tests for the property `next_cursor` (character)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`next_cursor`, "EXPECTED_RESULT")
 })

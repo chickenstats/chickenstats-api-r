@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **tier** | **character** |  | [optional] [default to &quot;free&quot;] [Max. length: 20] 
 **id** | **character** |  | 
 **tools_write** | **character** |  | [optional] [default to FALSE] 
-**cf_client_id** | **character** |  | [optional] 
 **email_verified** | **character** |  | [optional] 
 
 

@@ -4,25 +4,25 @@ All URIs are relative to *https://api.chickenstats.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ReadGameTeamStats**](TeamStatsApi.md#ReadGameTeamStats) | **GET** /api/v1/chicken_nhl/team_stats/game | Read Game Team Stats
-[**ReadSeasonTeamStats**](TeamStatsApi.md#ReadSeasonTeamStats) | **GET** /api/v1/chicken_nhl/team_stats/season | Read Season Team Stats
-[**ReadTeamStatsGameIds**](TeamStatsApi.md#ReadTeamStatsGameIds) | **GET** /api/v1/chicken_nhl/team_stats/game_ids | Read Team Stats Game Ids
+[**ReadGameTeamStats**](TeamStatsApi.md#ReadGameTeamStats) | **GET** /api/v1/chicken_nhl/team_stats/game | Team stats by game
+[**ReadSeasonTeamStats**](TeamStatsApi.md#ReadSeasonTeamStats) | **GET** /api/v1/chicken_nhl/team_stats/season | Team stats by season
+[**ReadTeamStatsGameIds**](TeamStatsApi.md#ReadTeamStatsGameIds) | **GET** /api/v1/chicken_nhl/team_stats/game_ids | Game IDs with team stats
 
 
 # **ReadGameTeamStats**
 > TeamStatsGameResponse ReadGameTeamStats(limit = var.limit, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions, game_id = var.game_id, team = var.team, opp_team = var.opp_team, strength_state = var.strength_state, score_state = var.score_state, level = var.level, include = var.include)
 
-Read Game Team Stats
+Team stats by game
 
 ### Example
 ```R
 library(chickenstats.api)
 
-# Read Game Team Stats
+# Team stats by game
 #
 # prepare function argument(s)
 var_limit <- 56 # integer | Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (Optional)
-var_offset <- 0 # integer |  (Optional)
+var_offset <- 0 # integer | Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. (Optional)
 var_with_total <- TRUE # character | Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (Optional)
 var_season <- c(123) # array[integer] |  (Optional)
 var_sessions <- c("R") # array[character] |  (Optional)
@@ -48,7 +48,7 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **integer**| Rows per page. When omitted, 10,000 or your tier&#39;s maximum, whichever is smaller; the response&#39;s &#x60;limit&#x60; says which. A value over your tier&#39;s maximum is refused with a 400. | [optional] 
- **offset** | **integer**|  | [optional] [default to 0]
+ **offset** | **integer**| Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. | [optional] [default to 0]
  **with_total** | **character**| Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. &#x60;total&#x60; is then -1 and &#x60;has_next&#x60; still works. | [optional] [default to TRUE]
  **season** | list( **integer** )|  | [optional] 
  **sessions** | Enum [R, P] |  | [optional] 
@@ -77,22 +77,23 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+| **401** | No token, or an expired or revoked one: error_description is token_expired (refresh), token_revoked (sign in again), recent_sign_in_required (sign in again for this change), or named_token_expired or named_token_revoked (make a new API token). |  -  |
 | **422** | Validation Error |  -  |
 
 # **ReadSeasonTeamStats**
 > TeamStatsSeasonResponse ReadSeasonTeamStats(limit = var.limit, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions, team = var.team, opp_team = var.opp_team, strength_state = var.strength_state, score_state = var.score_state)
 
-Read Season Team Stats
+Team stats by season
 
 ### Example
 ```R
 library(chickenstats.api)
 
-# Read Season Team Stats
+# Team stats by season
 #
 # prepare function argument(s)
 var_limit <- 56 # integer | Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (Optional)
-var_offset <- 0 # integer |  (Optional)
+var_offset <- 0 # integer | Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. (Optional)
 var_with_total <- TRUE # character | Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (Optional)
 var_season <- c(123) # array[integer] |  (Optional)
 var_sessions <- c("R") # array[character] |  (Optional)
@@ -115,7 +116,7 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **integer**| Rows per page. When omitted, 10,000 or your tier&#39;s maximum, whichever is smaller; the response&#39;s &#x60;limit&#x60; says which. A value over your tier&#39;s maximum is refused with a 400. | [optional] 
- **offset** | **integer**|  | [optional] [default to 0]
+ **offset** | **integer**| Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. | [optional] [default to 0]
  **with_total** | **character**| Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. &#x60;total&#x60; is then -1 and &#x60;has_next&#x60; still works. | [optional] [default to TRUE]
  **season** | list( **integer** )|  | [optional] 
  **sessions** | Enum [R, P] |  | [optional] 
@@ -141,22 +142,23 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+| **401** | No token, or an expired or revoked one: error_description is token_expired (refresh), token_revoked (sign in again), recent_sign_in_required (sign in again for this change), or named_token_expired or named_token_revoked (make a new API token). |  -  |
 | **422** | Validation Error |  -  |
 
 # **ReadTeamStatsGameIds**
 > array[integer] ReadTeamStatsGameIds(limit = var.limit, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions)
 
-Read Team Stats Game Ids
+Game IDs with team stats
 
 ### Example
 ```R
 library(chickenstats.api)
 
-# Read Team Stats Game Ids
+# Game IDs with team stats
 #
 # prepare function argument(s)
 var_limit <- 56 # integer | Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (Optional)
-var_offset <- 0 # integer |  (Optional)
+var_offset <- 0 # integer | Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. (Optional)
 var_with_total <- TRUE # character | Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (Optional)
 var_season <- c(123) # array[integer] |  (Optional)
 var_sessions <- c("R") # array[character] |  (Optional)
@@ -175,7 +177,7 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **integer**| Rows per page. When omitted, 10,000 or your tier&#39;s maximum, whichever is smaller; the response&#39;s &#x60;limit&#x60; says which. A value over your tier&#39;s maximum is refused with a 400. | [optional] 
- **offset** | **integer**|  | [optional] [default to 0]
+ **offset** | **integer**| Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. | [optional] [default to 0]
  **with_total** | **character**| Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. &#x60;total&#x60; is then -1 and &#x60;has_next&#x60; still works. | [optional] [default to TRUE]
  **season** | list( **integer** )|  | [optional] 
  **sessions** | Enum [R, P] |  | [optional] 
@@ -197,5 +199,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+| **401** | No token, or an expired or revoked one: error_description is token_expired (refresh), token_revoked (sign in again), recent_sign_in_required (sign in again for this change), or named_token_expired or named_token_revoked (make a new API token). |  -  |
 | **422** | Validation Error |  -  |
 

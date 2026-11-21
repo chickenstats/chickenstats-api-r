@@ -8,9 +8,9 @@ api_instance <- LinesApi$new()
 test_that("ReadGameLines", {
   # tests for ReadGameLines
   # base path: https://api.chickenstats.com
-  # Read Game Lines
+  # Line stats by game
   # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
-  # @param offset integer  (optional)
+  # @param offset integer Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. (optional)
   # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)
@@ -32,9 +32,9 @@ test_that("ReadGameLines", {
 test_that("ReadLinesGameIds", {
   # tests for ReadLinesGameIds
   # base path: https://api.chickenstats.com
-  # Read Lines Game Ids
+  # Game IDs with line stats
   # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
-  # @param offset integer  (optional)
+  # @param offset integer Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. (optional)
   # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)
@@ -47,9 +47,9 @@ test_that("ReadLinesGameIds", {
 test_that("ReadSeasonLines", {
   # tests for ReadSeasonLines
   # base path: https://api.chickenstats.com
-  # Read Season Lines
+  # Line stats by season
   # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
-  # @param offset integer  (optional)
+  # @param offset integer Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. (optional)
   # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)

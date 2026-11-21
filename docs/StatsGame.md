@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **session** | **character** |  | 
 **game_id** | **integer** |  | 
 **api_id** | **integer** |  | 
+**position** | **character** |  | [optional] 
 **team** | **character** |  | 
 **opp_team** | **character** |  | [optional] 
 **strength_state** | **character** |  | [optional] 
@@ -116,6 +117,10 @@ Name | Type | Description | Notes
 **hdmsa** | **integer** |  | [optional] [default to 0] 
 **teammate_block** | **integer** |  | [optional] [default to 0] 
 **teammate_block_adj** | **numeric** |  | [optional] [default to 0] 
+**opp_teammate_block** | **integer** |  | [optional] 
+**opp_teammate_block_adj** | **numeric** |  | [optional] 
+**give** | **integer** |  | [optional] 
+**take** | **integer** |  | [optional] 
 **hf** | **integer** |  | [optional] [default to 0] 
 **ht** | **integer** |  | [optional] [default to 0] 
 **ozf** | **integer** |  | [optional] [default to 0] 

@@ -4,19 +4,19 @@ All URIs are relative to *https://api.chickenstats.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ReadStandings**](StandingsApi.md#ReadStandings) | **GET** /api/v1/chicken_nhl/standings | Read Standings
+[**ReadStandings**](StandingsApi.md#ReadStandings) | **GET** /api/v1/chicken_nhl/standings | Standings
 
 
 # **ReadStandings**
 > StandingsResponse ReadStandings(season = var.season, team = var.team)
 
-Read Standings
+Standings
 
 ### Example
 ```R
 library(chickenstats.api)
 
-# Read Standings
+# Standings
 #
 # prepare function argument(s)
 var_season <- c(123) # array[integer] |  (Optional)
@@ -53,5 +53,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+| **401** | No token, or an expired or revoked one: error_description is token_expired (refresh), token_revoked (sign in again), recent_sign_in_required (sign in again for this change), or named_token_expired or named_token_revoked (make a new API token). |  -  |
 | **422** | Validation Error |  -  |
 

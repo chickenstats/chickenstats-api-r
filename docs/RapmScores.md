@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **pos** | **character** |  | [optional] 
 **pos2** | **character** |  | [optional] 
 **toi_minutes** | **numeric** |  | [optional] 
+**def_toi_minutes** | **numeric** |  | [optional] 
 **rapm_off** | **numeric** |  | [optional] 
 **rapm_def** | **numeric** |  | [optional] 
 **off_coeff_corsi** | **numeric** |  | [optional] 

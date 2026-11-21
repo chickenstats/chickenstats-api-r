@@ -19,9 +19,30 @@ test_that("token_type", {
   #expect_equal(model.instance$`token_type`, "EXPECTED_RESULT")
 })
 
+test_that("expires_in", {
+  # tests for the property `expires_in` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`expires_in`, "EXPECTED_RESULT")
+})
+
 test_that("refresh_token", {
   # tests for the property `refresh_token` (character)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`refresh_token`, "EXPECTED_RESULT")
+})
+
+test_that("first_sign_in", {
+  # tests for the property `first_sign_in` (character)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`first_sign_in`, "EXPECTED_RESULT")
+})
+
+test_that("issued_token_type", {
+  # tests for the property `issued_token_type` (character)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`issued_token_type`, "EXPECTED_RESULT")
 })

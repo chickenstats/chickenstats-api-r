@@ -12,7 +12,9 @@
 #' @field limit  integer
 #' @field offset  integer
 #' @field has_next  character
+#' @field notice  character [optional]
 #' @field data  list(\link{PbpPublic})
+#' @field next_cursor  character [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -24,7 +26,9 @@ PbpResponse <- R6::R6Class(
     `limit` = NULL,
     `offset` = NULL,
     `has_next` = NULL,
+    `notice` = NULL,
     `data` = NULL,
+    `next_cursor` = NULL,
 
     #' @description
     #' Initialize a new PbpResponse class.
@@ -35,8 +39,10 @@ PbpResponse <- R6::R6Class(
     #' @param offset offset
     #' @param has_next has_next
     #' @param data data
+    #' @param notice notice
+    #' @param next_cursor next_cursor
     #' @param ... Other optional arguments.
-    initialize = function(`count`, `total`, `limit`, `offset`, `has_next`, `data`, ...) {
+    initialize = function(`count`, `total`, `limit`, `offset`, `has_next`, `data`, `notice` = NULL, `next_cursor` = NULL, ...) {
       if (!missing(`count`)) {
         if (!(is.numeric(`count`) && length(`count`) == 1)) {
           stop(paste("Error! Invalid data for `count`. Must be an integer:", `count`))
@@ -71,6 +77,18 @@ PbpResponse <- R6::R6Class(
         stopifnot(is.vector(`data`), length(`data`) != 0)
         sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
         self$`data` <- `data`
+      }
+      if (!is.null(`notice`)) {
+        if (!(is.character(`notice`) && length(`notice`) == 1)) {
+          stop(paste("Error! Invalid data for `notice`. Must be a string:", `notice`))
+        }
+        self$`notice` <- `notice`
+      }
+      if (!is.null(`next_cursor`)) {
+        if (!(is.character(`next_cursor`) && length(`next_cursor`) == 1)) {
+          stop(paste("Error! Invalid data for `next_cursor`. Must be a string:", `next_cursor`))
+        }
+        self$`next_cursor` <- `next_cursor`
       }
     },
 
@@ -125,9 +143,17 @@ PbpResponse <- R6::R6Class(
         PbpResponseObject[["has_next"]] <-
           self$`has_next`
       }
+      if (!is.null(self$`notice`)) {
+        PbpResponseObject[["notice"]] <-
+          self$`notice`
+      }
       if (!is.null(self$`data`)) {
         PbpResponseObject[["data"]] <-
           lapply(self$`data`, function(x) x$toSimpleType())
+      }
+      if (!is.null(self$`next_cursor`)) {
+        PbpResponseObject[["next_cursor"]] <-
+          self$`next_cursor`
       }
       return(PbpResponseObject)
     },
@@ -154,8 +180,14 @@ PbpResponse <- R6::R6Class(
       if (!is.null(this_object$`has_next`)) {
         self$`has_next` <- this_object$`has_next`
       }
+      if (!is.null(this_object$`notice`)) {
+        self$`notice` <- this_object$`notice`
+      }
       if (!is.null(this_object$`data`)) {
         self$`data` <- ApiClient$new()$deserializeObj(this_object$`data`, "array[PbpPublic]", loadNamespace("chickenstats.api"))
+      }
+      if (!is.null(this_object$`next_cursor`)) {
+        self$`next_cursor` <- this_object$`next_cursor`
       }
       self
     },
@@ -183,7 +215,9 @@ PbpResponse <- R6::R6Class(
       self$`limit` <- this_object$`limit`
       self$`offset` <- this_object$`offset`
       self$`has_next` <- this_object$`has_next`
+      self$`notice` <- this_object$`notice`
       self$`data` <- ApiClient$new()$deserializeObj(this_object$`data`, "array[PbpPublic]", loadNamespace("chickenstats.api"))
+      self$`next_cursor` <- this_object$`next_cursor`
       self
     },
 

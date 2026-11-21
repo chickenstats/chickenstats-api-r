@@ -68,6 +68,13 @@ test_that("toi_minutes", {
   #expect_equal(model.instance$`toi_minutes`, "EXPECTED_RESULT")
 })
 
+test_that("def_toi_minutes", {
+  # tests for the property `def_toi_minutes` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`def_toi_minutes`, "EXPECTED_RESULT")
+})
+
 test_that("rapm_off", {
   # tests for the property `rapm_off` (numeric)
 

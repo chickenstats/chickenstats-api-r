@@ -19,13 +19,6 @@ test_that("team_name", {
   #expect_equal(model.instance$`team_name`, "EXPECTED_RESULT")
 })
 
-test_that("team_id", {
-  # tests for the property `team_id` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`team_id`, "EXPECTED_RESULT")
-})
-
 test_that("division", {
   # tests for the property `division` (character)
 
@@ -33,23 +26,9 @@ test_that("division", {
   #expect_equal(model.instance$`division`, "EXPECTED_RESULT")
 })
 
-test_that("division_id", {
-  # tests for the property `division_id` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`division_id`, "EXPECTED_RESULT")
-})
-
 test_that("conference", {
   # tests for the property `conference` (character)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`conference`, "EXPECTED_RESULT")
-})
-
-test_that("conference_id", {
-  # tests for the property `conference_id` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`conference_id`, "EXPECTED_RESULT")
 })

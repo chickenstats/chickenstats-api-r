@@ -8,7 +8,7 @@ api_instance <- TeamsApi$new()
 test_that("ReadTeams", {
   # tests for ReadTeams
   # base path: https://api.chickenstats.com
-  # Read Teams
+  # Teams
   # @return [TeamResponse]
 
   # uncomment below to test the operation

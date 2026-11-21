@@ -33,6 +33,34 @@ test_that("session", {
   #expect_equal(model.instance$`session`, "EXPECTED_RESULT")
 })
 
+test_that("event", {
+  # tests for the property `event` (character)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`event`, "EXPECTED_RESULT")
+})
+
+test_that("period", {
+  # tests for the property `period` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`period`, "EXPECTED_RESULT")
+})
+
+test_that("period_seconds", {
+  # tests for the property `period_seconds` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`period_seconds`, "EXPECTED_RESULT")
+})
+
+test_that("player_1_api_id", {
+  # tests for the property `player_1_api_id` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`player_1_api_id`, "EXPECTED_RESULT")
+})
+
 test_that("base_xg", {
   # tests for the property `base_xg` (numeric)
 

@@ -9,19 +9,6 @@
 #' @format An \code{R6Class} generator object
 #' @field season  integer
 #' @field team  character
-#' @field division_rank  integer [optional]
-#' @field conference_rank  integer [optional]
-#' @field league_rank  integer [optional]
-#' @field division_rank_home  integer [optional]
-#' @field division_rank_road  integer [optional]
-#' @field division_rank_last10  integer [optional]
-#' @field conference_rank_home  integer [optional]
-#' @field conference_rank_road  integer [optional]
-#' @field conference_rank_last10  integer [optional]
-#' @field league_rank_home  integer [optional]
-#' @field league_rank_road  integer [optional]
-#' @field league_rank_last10  integer [optional]
-#' @field wildcard_rank  integer [optional]
 #' @field points  integer [optional]
 #' @field points_percentage  numeric [optional]
 #' @field wins  integer [optional]
@@ -31,9 +18,6 @@
 #' @field goals_scored  integer [optional]
 #' @field goals_against  integer [optional]
 #' @field streak  character [optional]
-#' @field pp_rank_division  integer [optional]
-#' @field pp_rank_conference  integer [optional]
-#' @field pp_rank_league  integer [optional]
 #' @field last_updated  character [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -43,19 +27,6 @@ StandingsPublic <- R6::R6Class(
   public = list(
     `season` = NULL,
     `team` = NULL,
-    `division_rank` = NULL,
-    `conference_rank` = NULL,
-    `league_rank` = NULL,
-    `division_rank_home` = NULL,
-    `division_rank_road` = NULL,
-    `division_rank_last10` = NULL,
-    `conference_rank_home` = NULL,
-    `conference_rank_road` = NULL,
-    `conference_rank_last10` = NULL,
-    `league_rank_home` = NULL,
-    `league_rank_road` = NULL,
-    `league_rank_last10` = NULL,
-    `wildcard_rank` = NULL,
     `points` = NULL,
     `points_percentage` = NULL,
     `wins` = NULL,
@@ -65,9 +36,6 @@ StandingsPublic <- R6::R6Class(
     `goals_scored` = NULL,
     `goals_against` = NULL,
     `streak` = NULL,
-    `pp_rank_division` = NULL,
-    `pp_rank_conference` = NULL,
-    `pp_rank_league` = NULL,
     `last_updated` = NULL,
 
     #' @description
@@ -75,19 +43,6 @@ StandingsPublic <- R6::R6Class(
     #'
     #' @param season season
     #' @param team team
-    #' @param division_rank division_rank
-    #' @param conference_rank conference_rank
-    #' @param league_rank league_rank
-    #' @param division_rank_home division_rank_home
-    #' @param division_rank_road division_rank_road
-    #' @param division_rank_last10 division_rank_last10
-    #' @param conference_rank_home conference_rank_home
-    #' @param conference_rank_road conference_rank_road
-    #' @param conference_rank_last10 conference_rank_last10
-    #' @param league_rank_home league_rank_home
-    #' @param league_rank_road league_rank_road
-    #' @param league_rank_last10 league_rank_last10
-    #' @param wildcard_rank wildcard_rank
     #' @param points points
     #' @param points_percentage points_percentage
     #' @param wins wins
@@ -97,12 +52,9 @@ StandingsPublic <- R6::R6Class(
     #' @param goals_scored goals_scored
     #' @param goals_against goals_against
     #' @param streak streak
-    #' @param pp_rank_division pp_rank_division
-    #' @param pp_rank_conference pp_rank_conference
-    #' @param pp_rank_league pp_rank_league
     #' @param last_updated last_updated
     #' @param ... Other optional arguments.
-    initialize = function(`season`, `team`, `division_rank` = NULL, `conference_rank` = NULL, `league_rank` = NULL, `division_rank_home` = NULL, `division_rank_road` = NULL, `division_rank_last10` = NULL, `conference_rank_home` = NULL, `conference_rank_road` = NULL, `conference_rank_last10` = NULL, `league_rank_home` = NULL, `league_rank_road` = NULL, `league_rank_last10` = NULL, `wildcard_rank` = NULL, `points` = NULL, `points_percentage` = NULL, `wins` = NULL, `losses` = NULL, `otl` = NULL, `games_played` = NULL, `goals_scored` = NULL, `goals_against` = NULL, `streak` = NULL, `pp_rank_division` = NULL, `pp_rank_conference` = NULL, `pp_rank_league` = NULL, `last_updated` = NULL, ...) {
+    initialize = function(`season`, `team`, `points` = NULL, `points_percentage` = NULL, `wins` = NULL, `losses` = NULL, `otl` = NULL, `games_played` = NULL, `goals_scored` = NULL, `goals_against` = NULL, `streak` = NULL, `last_updated` = NULL, ...) {
       if (!missing(`season`)) {
         if (!(is.numeric(`season`) && length(`season`) == 1)) {
           stop(paste("Error! Invalid data for `season`. Must be an integer:", `season`))
@@ -114,84 +66,6 @@ StandingsPublic <- R6::R6Class(
           stop(paste("Error! Invalid data for `team`. Must be a string:", `team`))
         }
         self$`team` <- `team`
-      }
-      if (!is.null(`division_rank`)) {
-        if (!(is.numeric(`division_rank`) && length(`division_rank`) == 1)) {
-          stop(paste("Error! Invalid data for `division_rank`. Must be an integer:", `division_rank`))
-        }
-        self$`division_rank` <- `division_rank`
-      }
-      if (!is.null(`conference_rank`)) {
-        if (!(is.numeric(`conference_rank`) && length(`conference_rank`) == 1)) {
-          stop(paste("Error! Invalid data for `conference_rank`. Must be an integer:", `conference_rank`))
-        }
-        self$`conference_rank` <- `conference_rank`
-      }
-      if (!is.null(`league_rank`)) {
-        if (!(is.numeric(`league_rank`) && length(`league_rank`) == 1)) {
-          stop(paste("Error! Invalid data for `league_rank`. Must be an integer:", `league_rank`))
-        }
-        self$`league_rank` <- `league_rank`
-      }
-      if (!is.null(`division_rank_home`)) {
-        if (!(is.numeric(`division_rank_home`) && length(`division_rank_home`) == 1)) {
-          stop(paste("Error! Invalid data for `division_rank_home`. Must be an integer:", `division_rank_home`))
-        }
-        self$`division_rank_home` <- `division_rank_home`
-      }
-      if (!is.null(`division_rank_road`)) {
-        if (!(is.numeric(`division_rank_road`) && length(`division_rank_road`) == 1)) {
-          stop(paste("Error! Invalid data for `division_rank_road`. Must be an integer:", `division_rank_road`))
-        }
-        self$`division_rank_road` <- `division_rank_road`
-      }
-      if (!is.null(`division_rank_last10`)) {
-        if (!(is.numeric(`division_rank_last10`) && length(`division_rank_last10`) == 1)) {
-          stop(paste("Error! Invalid data for `division_rank_last10`. Must be an integer:", `division_rank_last10`))
-        }
-        self$`division_rank_last10` <- `division_rank_last10`
-      }
-      if (!is.null(`conference_rank_home`)) {
-        if (!(is.numeric(`conference_rank_home`) && length(`conference_rank_home`) == 1)) {
-          stop(paste("Error! Invalid data for `conference_rank_home`. Must be an integer:", `conference_rank_home`))
-        }
-        self$`conference_rank_home` <- `conference_rank_home`
-      }
-      if (!is.null(`conference_rank_road`)) {
-        if (!(is.numeric(`conference_rank_road`) && length(`conference_rank_road`) == 1)) {
-          stop(paste("Error! Invalid data for `conference_rank_road`. Must be an integer:", `conference_rank_road`))
-        }
-        self$`conference_rank_road` <- `conference_rank_road`
-      }
-      if (!is.null(`conference_rank_last10`)) {
-        if (!(is.numeric(`conference_rank_last10`) && length(`conference_rank_last10`) == 1)) {
-          stop(paste("Error! Invalid data for `conference_rank_last10`. Must be an integer:", `conference_rank_last10`))
-        }
-        self$`conference_rank_last10` <- `conference_rank_last10`
-      }
-      if (!is.null(`league_rank_home`)) {
-        if (!(is.numeric(`league_rank_home`) && length(`league_rank_home`) == 1)) {
-          stop(paste("Error! Invalid data for `league_rank_home`. Must be an integer:", `league_rank_home`))
-        }
-        self$`league_rank_home` <- `league_rank_home`
-      }
-      if (!is.null(`league_rank_road`)) {
-        if (!(is.numeric(`league_rank_road`) && length(`league_rank_road`) == 1)) {
-          stop(paste("Error! Invalid data for `league_rank_road`. Must be an integer:", `league_rank_road`))
-        }
-        self$`league_rank_road` <- `league_rank_road`
-      }
-      if (!is.null(`league_rank_last10`)) {
-        if (!(is.numeric(`league_rank_last10`) && length(`league_rank_last10`) == 1)) {
-          stop(paste("Error! Invalid data for `league_rank_last10`. Must be an integer:", `league_rank_last10`))
-        }
-        self$`league_rank_last10` <- `league_rank_last10`
-      }
-      if (!is.null(`wildcard_rank`)) {
-        if (!(is.numeric(`wildcard_rank`) && length(`wildcard_rank`) == 1)) {
-          stop(paste("Error! Invalid data for `wildcard_rank`. Must be an integer:", `wildcard_rank`))
-        }
-        self$`wildcard_rank` <- `wildcard_rank`
       }
       if (!is.null(`points`)) {
         if (!(is.numeric(`points`) && length(`points`) == 1)) {
@@ -244,24 +118,6 @@ StandingsPublic <- R6::R6Class(
         }
         self$`streak` <- `streak`
       }
-      if (!is.null(`pp_rank_division`)) {
-        if (!(is.numeric(`pp_rank_division`) && length(`pp_rank_division`) == 1)) {
-          stop(paste("Error! Invalid data for `pp_rank_division`. Must be an integer:", `pp_rank_division`))
-        }
-        self$`pp_rank_division` <- `pp_rank_division`
-      }
-      if (!is.null(`pp_rank_conference`)) {
-        if (!(is.numeric(`pp_rank_conference`) && length(`pp_rank_conference`) == 1)) {
-          stop(paste("Error! Invalid data for `pp_rank_conference`. Must be an integer:", `pp_rank_conference`))
-        }
-        self$`pp_rank_conference` <- `pp_rank_conference`
-      }
-      if (!is.null(`pp_rank_league`)) {
-        if (!(is.numeric(`pp_rank_league`) && length(`pp_rank_league`) == 1)) {
-          stop(paste("Error! Invalid data for `pp_rank_league`. Must be an integer:", `pp_rank_league`))
-        }
-        self$`pp_rank_league` <- `pp_rank_league`
-      }
       if (!is.null(`last_updated`)) {
         if (!is.character(`last_updated`)) {
           stop(paste("Error! Invalid data for `last_updated`. Must be a string:", `last_updated`))
@@ -309,58 +165,6 @@ StandingsPublic <- R6::R6Class(
         StandingsPublicObject[["team"]] <-
           self$`team`
       }
-      if (!is.null(self$`division_rank`)) {
-        StandingsPublicObject[["division_rank"]] <-
-          self$`division_rank`
-      }
-      if (!is.null(self$`conference_rank`)) {
-        StandingsPublicObject[["conference_rank"]] <-
-          self$`conference_rank`
-      }
-      if (!is.null(self$`league_rank`)) {
-        StandingsPublicObject[["league_rank"]] <-
-          self$`league_rank`
-      }
-      if (!is.null(self$`division_rank_home`)) {
-        StandingsPublicObject[["division_rank_home"]] <-
-          self$`division_rank_home`
-      }
-      if (!is.null(self$`division_rank_road`)) {
-        StandingsPublicObject[["division_rank_road"]] <-
-          self$`division_rank_road`
-      }
-      if (!is.null(self$`division_rank_last10`)) {
-        StandingsPublicObject[["division_rank_last10"]] <-
-          self$`division_rank_last10`
-      }
-      if (!is.null(self$`conference_rank_home`)) {
-        StandingsPublicObject[["conference_rank_home"]] <-
-          self$`conference_rank_home`
-      }
-      if (!is.null(self$`conference_rank_road`)) {
-        StandingsPublicObject[["conference_rank_road"]] <-
-          self$`conference_rank_road`
-      }
-      if (!is.null(self$`conference_rank_last10`)) {
-        StandingsPublicObject[["conference_rank_last10"]] <-
-          self$`conference_rank_last10`
-      }
-      if (!is.null(self$`league_rank_home`)) {
-        StandingsPublicObject[["league_rank_home"]] <-
-          self$`league_rank_home`
-      }
-      if (!is.null(self$`league_rank_road`)) {
-        StandingsPublicObject[["league_rank_road"]] <-
-          self$`league_rank_road`
-      }
-      if (!is.null(self$`league_rank_last10`)) {
-        StandingsPublicObject[["league_rank_last10"]] <-
-          self$`league_rank_last10`
-      }
-      if (!is.null(self$`wildcard_rank`)) {
-        StandingsPublicObject[["wildcard_rank"]] <-
-          self$`wildcard_rank`
-      }
       if (!is.null(self$`points`)) {
         StandingsPublicObject[["points"]] <-
           self$`points`
@@ -397,18 +201,6 @@ StandingsPublic <- R6::R6Class(
         StandingsPublicObject[["streak"]] <-
           self$`streak`
       }
-      if (!is.null(self$`pp_rank_division`)) {
-        StandingsPublicObject[["pp_rank_division"]] <-
-          self$`pp_rank_division`
-      }
-      if (!is.null(self$`pp_rank_conference`)) {
-        StandingsPublicObject[["pp_rank_conference"]] <-
-          self$`pp_rank_conference`
-      }
-      if (!is.null(self$`pp_rank_league`)) {
-        StandingsPublicObject[["pp_rank_league"]] <-
-          self$`pp_rank_league`
-      }
       if (!is.null(self$`last_updated`)) {
         StandingsPublicObject[["last_updated"]] <-
           self$`last_updated`
@@ -428,45 +220,6 @@ StandingsPublic <- R6::R6Class(
       }
       if (!is.null(this_object$`team`)) {
         self$`team` <- this_object$`team`
-      }
-      if (!is.null(this_object$`division_rank`)) {
-        self$`division_rank` <- this_object$`division_rank`
-      }
-      if (!is.null(this_object$`conference_rank`)) {
-        self$`conference_rank` <- this_object$`conference_rank`
-      }
-      if (!is.null(this_object$`league_rank`)) {
-        self$`league_rank` <- this_object$`league_rank`
-      }
-      if (!is.null(this_object$`division_rank_home`)) {
-        self$`division_rank_home` <- this_object$`division_rank_home`
-      }
-      if (!is.null(this_object$`division_rank_road`)) {
-        self$`division_rank_road` <- this_object$`division_rank_road`
-      }
-      if (!is.null(this_object$`division_rank_last10`)) {
-        self$`division_rank_last10` <- this_object$`division_rank_last10`
-      }
-      if (!is.null(this_object$`conference_rank_home`)) {
-        self$`conference_rank_home` <- this_object$`conference_rank_home`
-      }
-      if (!is.null(this_object$`conference_rank_road`)) {
-        self$`conference_rank_road` <- this_object$`conference_rank_road`
-      }
-      if (!is.null(this_object$`conference_rank_last10`)) {
-        self$`conference_rank_last10` <- this_object$`conference_rank_last10`
-      }
-      if (!is.null(this_object$`league_rank_home`)) {
-        self$`league_rank_home` <- this_object$`league_rank_home`
-      }
-      if (!is.null(this_object$`league_rank_road`)) {
-        self$`league_rank_road` <- this_object$`league_rank_road`
-      }
-      if (!is.null(this_object$`league_rank_last10`)) {
-        self$`league_rank_last10` <- this_object$`league_rank_last10`
-      }
-      if (!is.null(this_object$`wildcard_rank`)) {
-        self$`wildcard_rank` <- this_object$`wildcard_rank`
       }
       if (!is.null(this_object$`points`)) {
         self$`points` <- this_object$`points`
@@ -495,15 +248,6 @@ StandingsPublic <- R6::R6Class(
       if (!is.null(this_object$`streak`)) {
         self$`streak` <- this_object$`streak`
       }
-      if (!is.null(this_object$`pp_rank_division`)) {
-        self$`pp_rank_division` <- this_object$`pp_rank_division`
-      }
-      if (!is.null(this_object$`pp_rank_conference`)) {
-        self$`pp_rank_conference` <- this_object$`pp_rank_conference`
-      }
-      if (!is.null(this_object$`pp_rank_league`)) {
-        self$`pp_rank_league` <- this_object$`pp_rank_league`
-      }
       if (!is.null(this_object$`last_updated`)) {
         self$`last_updated` <- this_object$`last_updated`
       }
@@ -530,19 +274,6 @@ StandingsPublic <- R6::R6Class(
       this_object <- jsonlite::fromJSON(input_json)
       self$`season` <- this_object$`season`
       self$`team` <- this_object$`team`
-      self$`division_rank` <- this_object$`division_rank`
-      self$`conference_rank` <- this_object$`conference_rank`
-      self$`league_rank` <- this_object$`league_rank`
-      self$`division_rank_home` <- this_object$`division_rank_home`
-      self$`division_rank_road` <- this_object$`division_rank_road`
-      self$`division_rank_last10` <- this_object$`division_rank_last10`
-      self$`conference_rank_home` <- this_object$`conference_rank_home`
-      self$`conference_rank_road` <- this_object$`conference_rank_road`
-      self$`conference_rank_last10` <- this_object$`conference_rank_last10`
-      self$`league_rank_home` <- this_object$`league_rank_home`
-      self$`league_rank_road` <- this_object$`league_rank_road`
-      self$`league_rank_last10` <- this_object$`league_rank_last10`
-      self$`wildcard_rank` <- this_object$`wildcard_rank`
       self$`points` <- this_object$`points`
       self$`points_percentage` <- this_object$`points_percentage`
       self$`wins` <- this_object$`wins`
@@ -552,9 +283,6 @@ StandingsPublic <- R6::R6Class(
       self$`goals_scored` <- this_object$`goals_scored`
       self$`goals_against` <- this_object$`goals_against`
       self$`streak` <- this_object$`streak`
-      self$`pp_rank_division` <- this_object$`pp_rank_division`
-      self$`pp_rank_conference` <- this_object$`pp_rank_conference`
-      self$`pp_rank_league` <- this_object$`pp_rank_league`
       self$`last_updated` <- this_object$`last_updated`
       self
     },

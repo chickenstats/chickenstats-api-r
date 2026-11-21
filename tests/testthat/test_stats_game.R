@@ -33,6 +33,13 @@ test_that("api_id", {
   #expect_equal(model.instance$`api_id`, "EXPECTED_RESULT")
 })
 
+test_that("position", {
+  # tests for the property `position` (character)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`position`, "EXPECTED_RESULT")
+})
+
 test_that("team", {
   # tests for the property `team` (character)
 
@@ -787,6 +794,34 @@ test_that("teammate_block_adj", {
 
   # uncomment below to test the property
   #expect_equal(model.instance$`teammate_block_adj`, "EXPECTED_RESULT")
+})
+
+test_that("opp_teammate_block", {
+  # tests for the property `opp_teammate_block` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`opp_teammate_block`, "EXPECTED_RESULT")
+})
+
+test_that("opp_teammate_block_adj", {
+  # tests for the property `opp_teammate_block_adj` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`opp_teammate_block_adj`, "EXPECTED_RESULT")
+})
+
+test_that("give", {
+  # tests for the property `give` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`give`, "EXPECTED_RESULT")
+})
+
+test_that("take", {
+  # tests for the property `take` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`take`, "EXPECTED_RESULT")
 })
 
 test_that("hf", {

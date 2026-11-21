@@ -11,6 +11,10 @@
 #' @field event_idx  integer
 #' @field season  integer
 #' @field session  character
+#' @field event  character
+#' @field period  integer
+#' @field period_seconds  integer
+#' @field player_1_api_id  integer
 #' @field base_xg  numeric
 #' @field context_xg  numeric
 #' @field pred_goal  numeric
@@ -24,6 +28,10 @@ PredGoalRow <- R6::R6Class(
     `event_idx` = NULL,
     `season` = NULL,
     `session` = NULL,
+    `event` = NULL,
+    `period` = NULL,
+    `period_seconds` = NULL,
+    `player_1_api_id` = NULL,
     `base_xg` = NULL,
     `context_xg` = NULL,
     `pred_goal` = NULL,
@@ -35,11 +43,15 @@ PredGoalRow <- R6::R6Class(
     #' @param event_idx event_idx
     #' @param season season
     #' @param session session
+    #' @param event event
+    #' @param period period
+    #' @param period_seconds period_seconds
+    #' @param player_1_api_id player_1_api_id
     #' @param base_xg base_xg
     #' @param context_xg context_xg
     #' @param pred_goal pred_goal
     #' @param ... Other optional arguments.
-    initialize = function(`game_id`, `event_idx`, `season`, `session`, `base_xg`, `context_xg`, `pred_goal`, ...) {
+    initialize = function(`game_id`, `event_idx`, `season`, `session`, `event`, `period`, `period_seconds`, `player_1_api_id`, `base_xg`, `context_xg`, `pred_goal`, ...) {
       if (!missing(`game_id`)) {
         if (!(is.numeric(`game_id`) && length(`game_id`) == 1)) {
           stop(paste("Error! Invalid data for `game_id`. Must be an integer:", `game_id`))
@@ -63,6 +75,30 @@ PredGoalRow <- R6::R6Class(
           stop(paste("Error! Invalid data for `session`. Must be a string:", `session`))
         }
         self$`session` <- `session`
+      }
+      if (!missing(`event`)) {
+        if (!(is.character(`event`) && length(`event`) == 1)) {
+          stop(paste("Error! Invalid data for `event`. Must be a string:", `event`))
+        }
+        self$`event` <- `event`
+      }
+      if (!missing(`period`)) {
+        if (!(is.numeric(`period`) && length(`period`) == 1)) {
+          stop(paste("Error! Invalid data for `period`. Must be an integer:", `period`))
+        }
+        self$`period` <- `period`
+      }
+      if (!missing(`period_seconds`)) {
+        if (!(is.numeric(`period_seconds`) && length(`period_seconds`) == 1)) {
+          stop(paste("Error! Invalid data for `period_seconds`. Must be an integer:", `period_seconds`))
+        }
+        self$`period_seconds` <- `period_seconds`
+      }
+      if (!missing(`player_1_api_id`)) {
+        if (!(is.numeric(`player_1_api_id`) && length(`player_1_api_id`) == 1)) {
+          stop(paste("Error! Invalid data for `player_1_api_id`. Must be an integer:", `player_1_api_id`))
+        }
+        self$`player_1_api_id` <- `player_1_api_id`
       }
       if (!missing(`base_xg`)) {
         self$`base_xg` <- `base_xg`
@@ -122,6 +158,22 @@ PredGoalRow <- R6::R6Class(
         PredGoalRowObject[["session"]] <-
           self$`session`
       }
+      if (!is.null(self$`event`)) {
+        PredGoalRowObject[["event"]] <-
+          self$`event`
+      }
+      if (!is.null(self$`period`)) {
+        PredGoalRowObject[["period"]] <-
+          self$`period`
+      }
+      if (!is.null(self$`period_seconds`)) {
+        PredGoalRowObject[["period_seconds"]] <-
+          self$`period_seconds`
+      }
+      if (!is.null(self$`player_1_api_id`)) {
+        PredGoalRowObject[["player_1_api_id"]] <-
+          self$`player_1_api_id`
+      }
       if (!is.null(self$`base_xg`)) {
         PredGoalRowObject[["base_xg"]] <-
           self$`base_xg`
@@ -155,6 +207,18 @@ PredGoalRow <- R6::R6Class(
       }
       if (!is.null(this_object$`session`)) {
         self$`session` <- this_object$`session`
+      }
+      if (!is.null(this_object$`event`)) {
+        self$`event` <- this_object$`event`
+      }
+      if (!is.null(this_object$`period`)) {
+        self$`period` <- this_object$`period`
+      }
+      if (!is.null(this_object$`period_seconds`)) {
+        self$`period_seconds` <- this_object$`period_seconds`
+      }
+      if (!is.null(this_object$`player_1_api_id`)) {
+        self$`player_1_api_id` <- this_object$`player_1_api_id`
       }
       if (!is.null(this_object$`base_xg`)) {
         self$`base_xg` <- this_object$`base_xg`
@@ -190,6 +254,10 @@ PredGoalRow <- R6::R6Class(
       self$`event_idx` <- this_object$`event_idx`
       self$`season` <- this_object$`season`
       self$`session` <- this_object$`session`
+      self$`event` <- this_object$`event`
+      self$`period` <- this_object$`period`
+      self$`period_seconds` <- this_object$`period_seconds`
+      self$`player_1_api_id` <- this_object$`player_1_api_id`
       self$`base_xg` <- this_object$`base_xg`
       self$`context_xg` <- this_object$`context_xg`
       self$`pred_goal` <- this_object$`pred_goal`
@@ -233,6 +301,38 @@ PredGoalRow <- R6::R6Class(
         }
       } else {
         stop(paste("The JSON input `", input, "` is invalid for PredGoalRow: the required field `session` is missing."))
+      }
+      # check the required field `event`
+      if (!is.null(input_json$`event`)) {
+        if (!(is.character(input_json$`event`) && length(input_json$`event`) == 1)) {
+          stop(paste("Error! Invalid data for `event`. Must be a string:", input_json$`event`))
+        }
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PredGoalRow: the required field `event` is missing."))
+      }
+      # check the required field `period`
+      if (!is.null(input_json$`period`)) {
+        if (!(is.numeric(input_json$`period`) && length(input_json$`period`) == 1)) {
+          stop(paste("Error! Invalid data for `period`. Must be an integer:", input_json$`period`))
+        }
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PredGoalRow: the required field `period` is missing."))
+      }
+      # check the required field `period_seconds`
+      if (!is.null(input_json$`period_seconds`)) {
+        if (!(is.numeric(input_json$`period_seconds`) && length(input_json$`period_seconds`) == 1)) {
+          stop(paste("Error! Invalid data for `period_seconds`. Must be an integer:", input_json$`period_seconds`))
+        }
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PredGoalRow: the required field `period_seconds` is missing."))
+      }
+      # check the required field `player_1_api_id`
+      if (!is.null(input_json$`player_1_api_id`)) {
+        if (!(is.numeric(input_json$`player_1_api_id`) && length(input_json$`player_1_api_id`) == 1)) {
+          stop(paste("Error! Invalid data for `player_1_api_id`. Must be an integer:", input_json$`player_1_api_id`))
+        }
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PredGoalRow: the required field `player_1_api_id` is missing."))
       }
       # check the required field `base_xg`
       if (!is.null(input_json$`base_xg`)) {
@@ -284,6 +384,21 @@ PredGoalRow <- R6::R6Class(
         return(FALSE)
       }
 
+      # check if the required `event` is null
+      if (is.null(self$`event`)) {
+        return(FALSE)
+      }
+
+      # check if the required `period` is null
+      if (is.null(self$`period`)) {
+        return(FALSE)
+      }
+
+      # check if the required `period_seconds` is null
+      if (is.null(self$`period_seconds`)) {
+        return(FALSE)
+      }
+
       TRUE
     },
 
@@ -311,6 +426,21 @@ PredGoalRow <- R6::R6Class(
       # check if the required `session` is null
       if (is.null(self$`session`)) {
         invalid_fields["session"] <- "Non-nullable required field `session` cannot be null."
+      }
+
+      # check if the required `event` is null
+      if (is.null(self$`event`)) {
+        invalid_fields["event"] <- "Non-nullable required field `event` cannot be null."
+      }
+
+      # check if the required `period` is null
+      if (is.null(self$`period`)) {
+        invalid_fields["period"] <- "Non-nullable required field `period` cannot be null."
+      }
+
+      # check if the required `period_seconds` is null
+      if (is.null(self$`period_seconds`)) {
+        invalid_fields["period_seconds"] <- "Non-nullable required field `period_seconds` cannot be null."
       }
 
       invalid_fields

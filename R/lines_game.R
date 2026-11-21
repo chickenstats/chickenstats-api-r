@@ -54,6 +54,14 @@
 #' @field hdmsa  integer [optional]
 #' @field teammate_block  integer [optional]
 #' @field teammate_block_adj  numeric [optional]
+#' @field opp_teammate_block  integer [optional]
+#' @field opp_teammate_block_adj  numeric [optional]
+#' @field give  integer [optional]
+#' @field take  integer [optional]
+#' @field ozs  integer [optional]
+#' @field nzs  integer [optional]
+#' @field dzs  integer [optional]
+#' @field otf  integer [optional]
 #' @field hf  integer [optional]
 #' @field ht  integer [optional]
 #' @field ozf  integer [optional]
@@ -145,6 +153,14 @@ LinesGame <- R6::R6Class(
     `hdmsa` = NULL,
     `teammate_block` = NULL,
     `teammate_block_adj` = NULL,
+    `opp_teammate_block` = NULL,
+    `opp_teammate_block_adj` = NULL,
+    `give` = NULL,
+    `take` = NULL,
+    `ozs` = NULL,
+    `nzs` = NULL,
+    `dzs` = NULL,
+    `otf` = NULL,
     `hf` = NULL,
     `ht` = NULL,
     `ozf` = NULL,
@@ -238,6 +254,14 @@ LinesGame <- R6::R6Class(
     #' @param hdmsa hdmsa. Default to 0.
     #' @param teammate_block teammate_block. Default to 0.
     #' @param teammate_block_adj teammate_block_adj. Default to 0.
+    #' @param opp_teammate_block opp_teammate_block
+    #' @param opp_teammate_block_adj opp_teammate_block_adj
+    #' @param give give
+    #' @param take take
+    #' @param ozs ozs
+    #' @param nzs nzs
+    #' @param dzs dzs
+    #' @param otf otf
     #' @param hf hf. Default to 0.
     #' @param ht ht. Default to 0.
     #' @param ozf ozf. Default to 0.
@@ -273,7 +297,7 @@ LinesGame <- R6::R6Class(
     #' @param opp_goalie_api_id opp_goalie_api_id
     #' @param game game
     #' @param ... Other optional arguments.
-    initialize = function(`toi`, `season`, `session`, `game_id`, `team`, `gf` = 0, `ga` = 0, `gf_adj` = 0, `ga_adj` = 0, `hdgf` = 0, `hdga` = 0, `base_xgf` = 0, `base_xga` = 0, `base_xgf_adj` = 0, `base_xga_adj` = 0, `context_xgf` = 0, `context_xga` = 0, `context_xgf_adj` = 0, `context_xga_adj` = 0, `xgf` = 0, `xga` = 0, `xgf_adj` = 0, `xga_adj` = 0, `sf` = 0, `sa` = 0, `sf_adj` = 0, `sa_adj` = 0, `hdsf` = 0, `hdsa` = 0, `ff` = 0, `fa` = 0, `ff_adj` = 0, `fa_adj` = 0, `hdff` = 0, `hdfa` = 0, `cf` = 0, `ca` = 0, `cf_adj` = 0, `ca_adj` = 0, `bsf` = 0, `bsa` = 0, `bsf_adj` = 0, `bsa_adj` = 0, `msf` = 0, `msa` = 0, `msf_adj` = 0, `msa_adj` = 0, `hdmsf` = 0, `hdmsa` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hf` = 0, `ht` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `fow` = 0, `fol` = 0, `ozfw` = 0, `ozfl` = 0, `nzfw` = 0, `nzfl` = 0, `dzfw` = 0, `dzfl` = 0, `pent0` = 0, `pent2` = 0, `pent4` = 0, `pent5` = 0, `pent10` = 0, `pend0` = 0, `pend2` = 0, `pend4` = 0, `pend5` = 0, `pend10` = 0, `opp_team` = NULL, `strength_state` = NULL, `period` = NULL, `score_state` = NULL, `forwards_api_id` = NULL, `defense_api_id` = NULL, `own_goalie_api_id` = NULL, `opp_forwards_api_id` = NULL, `opp_defense_api_id` = NULL, `opp_goalie_api_id` = NULL, `game` = NULL, ...) {
+    initialize = function(`toi`, `season`, `session`, `game_id`, `team`, `gf` = 0, `ga` = 0, `gf_adj` = 0, `ga_adj` = 0, `hdgf` = 0, `hdga` = 0, `base_xgf` = 0, `base_xga` = 0, `base_xgf_adj` = 0, `base_xga_adj` = 0, `context_xgf` = 0, `context_xga` = 0, `context_xgf_adj` = 0, `context_xga_adj` = 0, `xgf` = 0, `xga` = 0, `xgf_adj` = 0, `xga_adj` = 0, `sf` = 0, `sa` = 0, `sf_adj` = 0, `sa_adj` = 0, `hdsf` = 0, `hdsa` = 0, `ff` = 0, `fa` = 0, `ff_adj` = 0, `fa_adj` = 0, `hdff` = 0, `hdfa` = 0, `cf` = 0, `ca` = 0, `cf_adj` = 0, `ca_adj` = 0, `bsf` = 0, `bsa` = 0, `bsf_adj` = 0, `bsa_adj` = 0, `msf` = 0, `msa` = 0, `msf_adj` = 0, `msa_adj` = 0, `hdmsf` = 0, `hdmsa` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `opp_teammate_block` = NULL, `opp_teammate_block_adj` = NULL, `give` = NULL, `take` = NULL, `ozs` = NULL, `nzs` = NULL, `dzs` = NULL, `otf` = NULL, `hf` = 0, `ht` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `fow` = 0, `fol` = 0, `ozfw` = 0, `ozfl` = 0, `nzfw` = 0, `nzfl` = 0, `dzfw` = 0, `dzfl` = 0, `pent0` = 0, `pent2` = 0, `pent4` = 0, `pent5` = 0, `pent10` = 0, `pend0` = 0, `pend2` = 0, `pend4` = 0, `pend5` = 0, `pend10` = 0, `opp_team` = NULL, `strength_state` = NULL, `period` = NULL, `score_state` = NULL, `forwards_api_id` = NULL, `defense_api_id` = NULL, `own_goalie_api_id` = NULL, `opp_forwards_api_id` = NULL, `opp_defense_api_id` = NULL, `opp_goalie_api_id` = NULL, `game` = NULL, ...) {
       if (!missing(`toi`)) {
         self$`toi` <- `toi`
       }
@@ -501,6 +525,51 @@ LinesGame <- R6::R6Class(
       }
       if (!is.null(`teammate_block_adj`)) {
         self$`teammate_block_adj` <- `teammate_block_adj`
+      }
+      if (!is.null(`opp_teammate_block`)) {
+        if (!(is.numeric(`opp_teammate_block`) && length(`opp_teammate_block`) == 1)) {
+          stop(paste("Error! Invalid data for `opp_teammate_block`. Must be an integer:", `opp_teammate_block`))
+        }
+        self$`opp_teammate_block` <- `opp_teammate_block`
+      }
+      if (!is.null(`opp_teammate_block_adj`)) {
+        self$`opp_teammate_block_adj` <- `opp_teammate_block_adj`
+      }
+      if (!is.null(`give`)) {
+        if (!(is.numeric(`give`) && length(`give`) == 1)) {
+          stop(paste("Error! Invalid data for `give`. Must be an integer:", `give`))
+        }
+        self$`give` <- `give`
+      }
+      if (!is.null(`take`)) {
+        if (!(is.numeric(`take`) && length(`take`) == 1)) {
+          stop(paste("Error! Invalid data for `take`. Must be an integer:", `take`))
+        }
+        self$`take` <- `take`
+      }
+      if (!is.null(`ozs`)) {
+        if (!(is.numeric(`ozs`) && length(`ozs`) == 1)) {
+          stop(paste("Error! Invalid data for `ozs`. Must be an integer:", `ozs`))
+        }
+        self$`ozs` <- `ozs`
+      }
+      if (!is.null(`nzs`)) {
+        if (!(is.numeric(`nzs`) && length(`nzs`) == 1)) {
+          stop(paste("Error! Invalid data for `nzs`. Must be an integer:", `nzs`))
+        }
+        self$`nzs` <- `nzs`
+      }
+      if (!is.null(`dzs`)) {
+        if (!(is.numeric(`dzs`) && length(`dzs`) == 1)) {
+          stop(paste("Error! Invalid data for `dzs`. Must be an integer:", `dzs`))
+        }
+        self$`dzs` <- `dzs`
+      }
+      if (!is.null(`otf`)) {
+        if (!(is.numeric(`otf`) && length(`otf`) == 1)) {
+          stop(paste("Error! Invalid data for `otf`. Must be an integer:", `otf`))
+        }
+        self$`otf` <- `otf`
       }
       if (!is.null(`hf`)) {
         if (!(is.numeric(`hf`) && length(`hf`) == 1)) {
@@ -925,6 +994,38 @@ LinesGame <- R6::R6Class(
         LinesGameObject[["teammate_block_adj"]] <-
           self$`teammate_block_adj`
       }
+      if (!is.null(self$`opp_teammate_block`)) {
+        LinesGameObject[["opp_teammate_block"]] <-
+          self$`opp_teammate_block`
+      }
+      if (!is.null(self$`opp_teammate_block_adj`)) {
+        LinesGameObject[["opp_teammate_block_adj"]] <-
+          self$`opp_teammate_block_adj`
+      }
+      if (!is.null(self$`give`)) {
+        LinesGameObject[["give"]] <-
+          self$`give`
+      }
+      if (!is.null(self$`take`)) {
+        LinesGameObject[["take"]] <-
+          self$`take`
+      }
+      if (!is.null(self$`ozs`)) {
+        LinesGameObject[["ozs"]] <-
+          self$`ozs`
+      }
+      if (!is.null(self$`nzs`)) {
+        LinesGameObject[["nzs"]] <-
+          self$`nzs`
+      }
+      if (!is.null(self$`dzs`)) {
+        LinesGameObject[["dzs"]] <-
+          self$`dzs`
+      }
+      if (!is.null(self$`otf`)) {
+        LinesGameObject[["otf"]] <-
+          self$`otf`
+      }
       if (!is.null(self$`hf`)) {
         LinesGameObject[["hf"]] <-
           self$`hf`
@@ -1228,6 +1329,30 @@ LinesGame <- R6::R6Class(
       if (!is.null(this_object$`teammate_block_adj`)) {
         self$`teammate_block_adj` <- this_object$`teammate_block_adj`
       }
+      if (!is.null(this_object$`opp_teammate_block`)) {
+        self$`opp_teammate_block` <- this_object$`opp_teammate_block`
+      }
+      if (!is.null(this_object$`opp_teammate_block_adj`)) {
+        self$`opp_teammate_block_adj` <- this_object$`opp_teammate_block_adj`
+      }
+      if (!is.null(this_object$`give`)) {
+        self$`give` <- this_object$`give`
+      }
+      if (!is.null(this_object$`take`)) {
+        self$`take` <- this_object$`take`
+      }
+      if (!is.null(this_object$`ozs`)) {
+        self$`ozs` <- this_object$`ozs`
+      }
+      if (!is.null(this_object$`nzs`)) {
+        self$`nzs` <- this_object$`nzs`
+      }
+      if (!is.null(this_object$`dzs`)) {
+        self$`dzs` <- this_object$`dzs`
+      }
+      if (!is.null(this_object$`otf`)) {
+        self$`otf` <- this_object$`otf`
+      }
       if (!is.null(this_object$`hf`)) {
         self$`hf` <- this_object$`hf`
       }
@@ -1412,6 +1537,14 @@ LinesGame <- R6::R6Class(
       self$`hdmsa` <- this_object$`hdmsa`
       self$`teammate_block` <- this_object$`teammate_block`
       self$`teammate_block_adj` <- this_object$`teammate_block_adj`
+      self$`opp_teammate_block` <- this_object$`opp_teammate_block`
+      self$`opp_teammate_block_adj` <- this_object$`opp_teammate_block_adj`
+      self$`give` <- this_object$`give`
+      self$`take` <- this_object$`take`
+      self$`ozs` <- this_object$`ozs`
+      self$`nzs` <- this_object$`nzs`
+      self$`dzs` <- this_object$`dzs`
+      self$`otf` <- this_object$`otf`
       self$`hf` <- this_object$`hf`
       self$`ht` <- this_object$`ht`
       self$`ozf` <- this_object$`ozf`

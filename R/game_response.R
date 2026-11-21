@@ -12,6 +12,7 @@
 #' @field limit  integer
 #' @field offset  integer
 #' @field has_next  character
+#' @field notice  character [optional]
 #' @field data  list(\link{GamePublic})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -24,6 +25,7 @@ GameResponse <- R6::R6Class(
     `limit` = NULL,
     `offset` = NULL,
     `has_next` = NULL,
+    `notice` = NULL,
     `data` = NULL,
 
     #' @description
@@ -35,8 +37,9 @@ GameResponse <- R6::R6Class(
     #' @param offset offset
     #' @param has_next has_next
     #' @param data data
+    #' @param notice notice
     #' @param ... Other optional arguments.
-    initialize = function(`count`, `total`, `limit`, `offset`, `has_next`, `data`, ...) {
+    initialize = function(`count`, `total`, `limit`, `offset`, `has_next`, `data`, `notice` = NULL, ...) {
       if (!missing(`count`)) {
         if (!(is.numeric(`count`) && length(`count`) == 1)) {
           stop(paste("Error! Invalid data for `count`. Must be an integer:", `count`))
@@ -71,6 +74,12 @@ GameResponse <- R6::R6Class(
         stopifnot(is.vector(`data`), length(`data`) != 0)
         sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
         self$`data` <- `data`
+      }
+      if (!is.null(`notice`)) {
+        if (!(is.character(`notice`) && length(`notice`) == 1)) {
+          stop(paste("Error! Invalid data for `notice`. Must be a string:", `notice`))
+        }
+        self$`notice` <- `notice`
       }
     },
 
@@ -125,6 +134,10 @@ GameResponse <- R6::R6Class(
         GameResponseObject[["has_next"]] <-
           self$`has_next`
       }
+      if (!is.null(self$`notice`)) {
+        GameResponseObject[["notice"]] <-
+          self$`notice`
+      }
       if (!is.null(self$`data`)) {
         GameResponseObject[["data"]] <-
           lapply(self$`data`, function(x) x$toSimpleType())
@@ -153,6 +166,9 @@ GameResponse <- R6::R6Class(
       }
       if (!is.null(this_object$`has_next`)) {
         self$`has_next` <- this_object$`has_next`
+      }
+      if (!is.null(this_object$`notice`)) {
+        self$`notice` <- this_object$`notice`
       }
       if (!is.null(this_object$`data`)) {
         self$`data` <- ApiClient$new()$deserializeObj(this_object$`data`, "array[GamePublic]", loadNamespace("chickenstats.api"))
@@ -183,6 +199,7 @@ GameResponse <- R6::R6Class(
       self$`limit` <- this_object$`limit`
       self$`offset` <- this_object$`offset`
       self$`has_next` <- this_object$`has_next`
+      self$`notice` <- this_object$`notice`
       self$`data` <- ApiClient$new()$deserializeObj(this_object$`data`, "array[GamePublic]", loadNamespace("chickenstats.api"))
       self
     },

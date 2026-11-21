@@ -8,7 +8,7 @@ api_instance <- StandingsApi$new()
 test_that("ReadStandings", {
   # tests for ReadStandings
   # base path: https://api.chickenstats.com
-  # Read Standings
+  # Standings
   # @param season array[integer]  (optional)
   # @param team array[character]  (optional)
   # @return [StandingsResponse]

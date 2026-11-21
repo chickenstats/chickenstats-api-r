@@ -9,7 +9,10 @@
 #' @format An \code{R6Class} generator object
 #' @field access_token  character
 #' @field token_type  character [optional]
+#' @field expires_in  integer
 #' @field refresh_token  character [optional]
+#' @field first_sign_in  character [optional]
+#' @field issued_token_type  character [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -18,21 +21,33 @@ Token <- R6::R6Class(
   public = list(
     `access_token` = NULL,
     `token_type` = NULL,
+    `expires_in` = NULL,
     `refresh_token` = NULL,
+    `first_sign_in` = NULL,
+    `issued_token_type` = NULL,
 
     #' @description
     #' Initialize a new Token class.
     #'
     #' @param access_token access_token
-    #' @param token_type token_type. Default to "bearer".
+    #' @param expires_in expires_in
+    #' @param token_type token_type. Default to "Bearer".
     #' @param refresh_token refresh_token
+    #' @param first_sign_in first_sign_in. Default to FALSE.
+    #' @param issued_token_type issued_token_type
     #' @param ... Other optional arguments.
-    initialize = function(`access_token`, `token_type` = "bearer", `refresh_token` = NULL, ...) {
+    initialize = function(`access_token`, `expires_in`, `token_type` = "Bearer", `refresh_token` = NULL, `first_sign_in` = FALSE, `issued_token_type` = NULL, ...) {
       if (!missing(`access_token`)) {
         if (!(is.character(`access_token`) && length(`access_token`) == 1)) {
           stop(paste("Error! Invalid data for `access_token`. Must be a string:", `access_token`))
         }
         self$`access_token` <- `access_token`
+      }
+      if (!missing(`expires_in`)) {
+        if (!(is.numeric(`expires_in`) && length(`expires_in`) == 1)) {
+          stop(paste("Error! Invalid data for `expires_in`. Must be an integer:", `expires_in`))
+        }
+        self$`expires_in` <- `expires_in`
       }
       if (!is.null(`token_type`)) {
         if (!(is.character(`token_type`) && length(`token_type`) == 1)) {
@@ -45,6 +60,18 @@ Token <- R6::R6Class(
           stop(paste("Error! Invalid data for `refresh_token`. Must be a string:", `refresh_token`))
         }
         self$`refresh_token` <- `refresh_token`
+      }
+      if (!is.null(`first_sign_in`)) {
+        if (!(is.logical(`first_sign_in`) && length(`first_sign_in`) == 1)) {
+          stop(paste("Error! Invalid data for `first_sign_in`. Must be a boolean:", `first_sign_in`))
+        }
+        self$`first_sign_in` <- `first_sign_in`
+      }
+      if (!is.null(`issued_token_type`)) {
+        if (!(is.character(`issued_token_type`) && length(`issued_token_type`) == 1)) {
+          stop(paste("Error! Invalid data for `issued_token_type`. Must be a string:", `issued_token_type`))
+        }
+        self$`issued_token_type` <- `issued_token_type`
       }
     },
 
@@ -87,9 +114,21 @@ Token <- R6::R6Class(
         TokenObject[["token_type"]] <-
           self$`token_type`
       }
+      if (!is.null(self$`expires_in`)) {
+        TokenObject[["expires_in"]] <-
+          self$`expires_in`
+      }
       if (!is.null(self$`refresh_token`)) {
         TokenObject[["refresh_token"]] <-
           self$`refresh_token`
+      }
+      if (!is.null(self$`first_sign_in`)) {
+        TokenObject[["first_sign_in"]] <-
+          self$`first_sign_in`
+      }
+      if (!is.null(self$`issued_token_type`)) {
+        TokenObject[["issued_token_type"]] <-
+          self$`issued_token_type`
       }
       return(TokenObject)
     },
@@ -107,8 +146,17 @@ Token <- R6::R6Class(
       if (!is.null(this_object$`token_type`)) {
         self$`token_type` <- this_object$`token_type`
       }
+      if (!is.null(this_object$`expires_in`)) {
+        self$`expires_in` <- this_object$`expires_in`
+      }
       if (!is.null(this_object$`refresh_token`)) {
         self$`refresh_token` <- this_object$`refresh_token`
+      }
+      if (!is.null(this_object$`first_sign_in`)) {
+        self$`first_sign_in` <- this_object$`first_sign_in`
+      }
+      if (!is.null(this_object$`issued_token_type`)) {
+        self$`issued_token_type` <- this_object$`issued_token_type`
       }
       self
     },
@@ -133,7 +181,10 @@ Token <- R6::R6Class(
       this_object <- jsonlite::fromJSON(input_json)
       self$`access_token` <- this_object$`access_token`
       self$`token_type` <- this_object$`token_type`
+      self$`expires_in` <- this_object$`expires_in`
       self$`refresh_token` <- this_object$`refresh_token`
+      self$`first_sign_in` <- this_object$`first_sign_in`
+      self$`issued_token_type` <- this_object$`issued_token_type`
       self
     },
 
@@ -150,6 +201,14 @@ Token <- R6::R6Class(
         }
       } else {
         stop(paste("The JSON input `", input, "` is invalid for Token: the required field `access_token` is missing."))
+      }
+      # check the required field `expires_in`
+      if (!is.null(input_json$`expires_in`)) {
+        if (!(is.numeric(input_json$`expires_in`) && length(input_json$`expires_in`) == 1)) {
+          stop(paste("Error! Invalid data for `expires_in`. Must be an integer:", input_json$`expires_in`))
+        }
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for Token: the required field `expires_in` is missing."))
       }
     },
 
@@ -171,6 +230,11 @@ Token <- R6::R6Class(
         return(FALSE)
       }
 
+      # check if the required `expires_in` is null
+      if (is.null(self$`expires_in`)) {
+        return(FALSE)
+      }
+
       TRUE
     },
 
@@ -183,6 +247,11 @@ Token <- R6::R6Class(
       # check if the required `access_token` is null
       if (is.null(self$`access_token`)) {
         invalid_fields["access_token"] <- "Non-nullable required field `access_token` cannot be null."
+      }
+
+      # check if the required `expires_in` is null
+      if (is.null(self$`expires_in`)) {
+        invalid_fields["expires_in"] <- "Non-nullable required field `expires_in` cannot be null."
       }
 
       invalid_fields

@@ -19,97 +19,6 @@ test_that("team", {
   #expect_equal(model.instance$`team`, "EXPECTED_RESULT")
 })
 
-test_that("division_rank", {
-  # tests for the property `division_rank` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`division_rank`, "EXPECTED_RESULT")
-})
-
-test_that("conference_rank", {
-  # tests for the property `conference_rank` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`conference_rank`, "EXPECTED_RESULT")
-})
-
-test_that("league_rank", {
-  # tests for the property `league_rank` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`league_rank`, "EXPECTED_RESULT")
-})
-
-test_that("division_rank_home", {
-  # tests for the property `division_rank_home` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`division_rank_home`, "EXPECTED_RESULT")
-})
-
-test_that("division_rank_road", {
-  # tests for the property `division_rank_road` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`division_rank_road`, "EXPECTED_RESULT")
-})
-
-test_that("division_rank_last10", {
-  # tests for the property `division_rank_last10` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`division_rank_last10`, "EXPECTED_RESULT")
-})
-
-test_that("conference_rank_home", {
-  # tests for the property `conference_rank_home` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`conference_rank_home`, "EXPECTED_RESULT")
-})
-
-test_that("conference_rank_road", {
-  # tests for the property `conference_rank_road` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`conference_rank_road`, "EXPECTED_RESULT")
-})
-
-test_that("conference_rank_last10", {
-  # tests for the property `conference_rank_last10` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`conference_rank_last10`, "EXPECTED_RESULT")
-})
-
-test_that("league_rank_home", {
-  # tests for the property `league_rank_home` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`league_rank_home`, "EXPECTED_RESULT")
-})
-
-test_that("league_rank_road", {
-  # tests for the property `league_rank_road` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`league_rank_road`, "EXPECTED_RESULT")
-})
-
-test_that("league_rank_last10", {
-  # tests for the property `league_rank_last10` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`league_rank_last10`, "EXPECTED_RESULT")
-})
-
-test_that("wildcard_rank", {
-  # tests for the property `wildcard_rank` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`wildcard_rank`, "EXPECTED_RESULT")
-})
-
 test_that("points", {
   # tests for the property `points` (integer)
 
@@ -171,27 +80,6 @@ test_that("streak", {
 
   # uncomment below to test the property
   #expect_equal(model.instance$`streak`, "EXPECTED_RESULT")
-})
-
-test_that("pp_rank_division", {
-  # tests for the property `pp_rank_division` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`pp_rank_division`, "EXPECTED_RESULT")
-})
-
-test_that("pp_rank_conference", {
-  # tests for the property `pp_rank_conference` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`pp_rank_conference`, "EXPECTED_RESULT")
-})
-
-test_that("pp_rank_league", {
-  # tests for the property `pp_rank_league` (integer)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`pp_rank_league`, "EXPECTED_RESULT")
 })
 
 test_that("last_updated", {

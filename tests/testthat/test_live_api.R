@@ -8,7 +8,7 @@ api_instance <- LiveApi$new()
 test_that("ReadLiveGames", {
   # tests for ReadLiveGames
   # base path: https://api.chickenstats.com
-  # Read Live Games
+  # Live games
   # @param since character  (optional)
   # @return [array[LiveGamesPublic]]
 
@@ -19,10 +19,11 @@ test_that("ReadLiveGames", {
 test_that("ReadLivePbp", {
   # tests for ReadLivePbp
   # base path: https://api.chickenstats.com
-  # Read Live Pbp
+  # Live play-by-play
+  # Play-by-play for live games. Live scoring is off, so xG fields are null.
   # @param game_id array[integer]  (optional)
   # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
-  # @param offset integer  (optional)
+  # @param offset integer Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. (optional)
   # @param with_total character  (optional)
   # @param since character  (optional)
   # @return [LivePbpResponse]

@@ -11,6 +11,7 @@
 #' @field session  character
 #' @field game_id  integer [optional]
 #' @field api_id  integer
+#' @field position  character [optional]
 #' @field team  character
 #' @field opp_team  character [optional]
 #' @field strength_state  character [optional]
@@ -119,6 +120,10 @@
 #' @field hdmsa  integer [optional]
 #' @field teammate_block  integer [optional]
 #' @field teammate_block_adj  numeric [optional]
+#' @field opp_teammate_block  integer [optional]
+#' @field opp_teammate_block_adj  numeric [optional]
+#' @field give  integer [optional]
+#' @field take  integer [optional]
 #' @field hf  integer [optional]
 #' @field ht  integer [optional]
 #' @field ozf  integer [optional]
@@ -157,6 +162,7 @@ StatsSeason <- R6::R6Class(
     `session` = NULL,
     `game_id` = NULL,
     `api_id` = NULL,
+    `position` = NULL,
     `team` = NULL,
     `opp_team` = NULL,
     `strength_state` = NULL,
@@ -265,6 +271,10 @@ StatsSeason <- R6::R6Class(
     `hdmsa` = NULL,
     `teammate_block` = NULL,
     `teammate_block_adj` = NULL,
+    `opp_teammate_block` = NULL,
+    `opp_teammate_block_adj` = NULL,
+    `give` = NULL,
+    `take` = NULL,
     `hf` = NULL,
     `ht` = NULL,
     `ozf` = NULL,
@@ -303,6 +313,7 @@ StatsSeason <- R6::R6Class(
     #' @param team team
     #' @param toi toi
     #' @param game_id game_id
+    #' @param position position
     #' @param opp_team opp_team
     #' @param strength_state strength_state
     #' @param period period
@@ -409,6 +420,10 @@ StatsSeason <- R6::R6Class(
     #' @param hdmsa hdmsa. Default to 0.
     #' @param teammate_block teammate_block. Default to 0.
     #' @param teammate_block_adj teammate_block_adj. Default to 0.
+    #' @param opp_teammate_block opp_teammate_block
+    #' @param opp_teammate_block_adj opp_teammate_block_adj
+    #' @param give give
+    #' @param take take
     #' @param hf hf. Default to 0.
     #' @param ht ht. Default to 0.
     #' @param ozf ozf. Default to 0.
@@ -438,7 +453,7 @@ StatsSeason <- R6::R6Class(
     #' @param otf otf. Default to 0.
     #' @param player player
     #' @param ... Other optional arguments.
-    initialize = function(`season`, `session`, `api_id`, `team`, `toi`, `game_id` = NULL, `opp_team` = NULL, `strength_state` = NULL, `period` = NULL, `score_state` = NULL, `forwards_api_id` = NULL, `defense_api_id` = NULL, `own_goalie_api_id` = NULL, `opp_forwards_api_id` = NULL, `opp_defense_api_id` = NULL, `opp_goalie_api_id` = NULL, `g` = 0, `g_adj` = 0, `ihdg` = 0, `a1` = 0, `a2` = 0, `base_ixg` = 0, `base_ixg_adj` = 0, `ixg` = 0, `ixg_adj` = 0, `context_ixg` = 0, `context_ixg_adj` = 0, `isf` = 0, `isf_adj` = 0, `ihdsf` = 0, `imsf` = 0, `imsf_adj` = 0, `ihdm` = 0, `iff` = 0, `iff_adj` = 0, `ihdf` = 0, `isb` = 0, `isb_adj` = 0, `icf` = 0, `icf_adj` = 0, `ibs` = 0, `ibs_adj` = 0, `igive` = 0, `itake` = 0, `ihf` = 0, `iht` = 0, `ifow` = 0, `ifol` = 0, `iozfw` = 0, `iozfl` = 0, `inzfw` = 0, `inzfl` = 0, `idzfw` = 0, `idzfl` = 0, `a1_xg` = 0, `a2_xg` = 0, `ipent0` = 0, `ipent2` = 0, `ipent4` = 0, `ipent5` = 0, `ipent10` = 0, `ipend0` = 0, `ipend2` = 0, `ipend4` = 0, `ipend5` = 0, `ipend10` = 0, `gf` = 0, `ga` = 0, `gf_adj` = 0, `ga_adj` = 0, `hdgf` = 0, `hdga` = 0, `base_xgf` = 0, `base_xga` = 0, `base_xgf_adj` = 0, `base_xga_adj` = 0, `context_xgf` = 0, `context_xga` = 0, `context_xgf_adj` = 0, `context_xga_adj` = 0, `xgf` = 0, `xga` = 0, `xgf_adj` = 0, `xga_adj` = 0, `sf` = 0, `sa` = 0, `sf_adj` = 0, `sa_adj` = 0, `hdsf` = 0, `hdsa` = 0, `ff` = 0, `fa` = 0, `ff_adj` = 0, `fa_adj` = 0, `hdff` = 0, `hdfa` = 0, `cf` = 0, `ca` = 0, `cf_adj` = 0, `ca_adj` = 0, `bsf` = 0, `bsa` = 0, `bsf_adj` = 0, `bsa_adj` = 0, `msf` = 0, `msa` = 0, `msf_adj` = 0, `msa_adj` = 0, `hdmsf` = 0, `hdmsa` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hf` = 0, `ht` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `fow` = 0, `fol` = 0, `ozfw` = 0, `ozfl` = 0, `nzfw` = 0, `nzfl` = 0, `dzfw` = 0, `dzfl` = 0, `pent0` = 0, `pent2` = 0, `pent4` = 0, `pent5` = 0, `pent10` = 0, `pend0` = 0, `pend2` = 0, `pend4` = 0, `pend5` = 0, `pend10` = 0, `ozs` = 0, `nzs` = 0, `dzs` = 0, `otf` = 0, `player` = NULL, ...) {
+    initialize = function(`season`, `session`, `api_id`, `team`, `toi`, `game_id` = NULL, `position` = NULL, `opp_team` = NULL, `strength_state` = NULL, `period` = NULL, `score_state` = NULL, `forwards_api_id` = NULL, `defense_api_id` = NULL, `own_goalie_api_id` = NULL, `opp_forwards_api_id` = NULL, `opp_defense_api_id` = NULL, `opp_goalie_api_id` = NULL, `g` = 0, `g_adj` = 0, `ihdg` = 0, `a1` = 0, `a2` = 0, `base_ixg` = 0, `base_ixg_adj` = 0, `ixg` = 0, `ixg_adj` = 0, `context_ixg` = 0, `context_ixg_adj` = 0, `isf` = 0, `isf_adj` = 0, `ihdsf` = 0, `imsf` = 0, `imsf_adj` = 0, `ihdm` = 0, `iff` = 0, `iff_adj` = 0, `ihdf` = 0, `isb` = 0, `isb_adj` = 0, `icf` = 0, `icf_adj` = 0, `ibs` = 0, `ibs_adj` = 0, `igive` = 0, `itake` = 0, `ihf` = 0, `iht` = 0, `ifow` = 0, `ifol` = 0, `iozfw` = 0, `iozfl` = 0, `inzfw` = 0, `inzfl` = 0, `idzfw` = 0, `idzfl` = 0, `a1_xg` = 0, `a2_xg` = 0, `ipent0` = 0, `ipent2` = 0, `ipent4` = 0, `ipent5` = 0, `ipent10` = 0, `ipend0` = 0, `ipend2` = 0, `ipend4` = 0, `ipend5` = 0, `ipend10` = 0, `gf` = 0, `ga` = 0, `gf_adj` = 0, `ga_adj` = 0, `hdgf` = 0, `hdga` = 0, `base_xgf` = 0, `base_xga` = 0, `base_xgf_adj` = 0, `base_xga_adj` = 0, `context_xgf` = 0, `context_xga` = 0, `context_xgf_adj` = 0, `context_xga_adj` = 0, `xgf` = 0, `xga` = 0, `xgf_adj` = 0, `xga_adj` = 0, `sf` = 0, `sa` = 0, `sf_adj` = 0, `sa_adj` = 0, `hdsf` = 0, `hdsa` = 0, `ff` = 0, `fa` = 0, `ff_adj` = 0, `fa_adj` = 0, `hdff` = 0, `hdfa` = 0, `cf` = 0, `ca` = 0, `cf_adj` = 0, `ca_adj` = 0, `bsf` = 0, `bsa` = 0, `bsf_adj` = 0, `bsa_adj` = 0, `msf` = 0, `msa` = 0, `msf_adj` = 0, `msa_adj` = 0, `hdmsf` = 0, `hdmsa` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `opp_teammate_block` = NULL, `opp_teammate_block_adj` = NULL, `give` = NULL, `take` = NULL, `hf` = 0, `ht` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `fow` = 0, `fol` = 0, `ozfw` = 0, `ozfl` = 0, `nzfw` = 0, `nzfl` = 0, `dzfw` = 0, `dzfl` = 0, `pent0` = 0, `pent2` = 0, `pent4` = 0, `pent5` = 0, `pent10` = 0, `pend0` = 0, `pend2` = 0, `pend4` = 0, `pend5` = 0, `pend10` = 0, `ozs` = 0, `nzs` = 0, `dzs` = 0, `otf` = 0, `player` = NULL, ...) {
       if (!missing(`season`)) {
         if (!(is.numeric(`season`) && length(`season`) == 1)) {
           stop(paste("Error! Invalid data for `season`. Must be an integer:", `season`))
@@ -471,6 +486,12 @@ StatsSeason <- R6::R6Class(
           stop(paste("Error! Invalid data for `game_id`. Must be an integer:", `game_id`))
         }
         self$`game_id` <- `game_id`
+      }
+      if (!is.null(`position`)) {
+        if (!(is.character(`position`) && length(`position`) == 1)) {
+          stop(paste("Error! Invalid data for `position`. Must be a string:", `position`))
+        }
+        self$`position` <- `position`
       }
       if (!is.null(`opp_team`)) {
         if (!(is.character(`opp_team`) && length(`opp_team`) == 1)) {
@@ -988,6 +1009,27 @@ StatsSeason <- R6::R6Class(
       if (!is.null(`teammate_block_adj`)) {
         self$`teammate_block_adj` <- `teammate_block_adj`
       }
+      if (!is.null(`opp_teammate_block`)) {
+        if (!(is.numeric(`opp_teammate_block`) && length(`opp_teammate_block`) == 1)) {
+          stop(paste("Error! Invalid data for `opp_teammate_block`. Must be an integer:", `opp_teammate_block`))
+        }
+        self$`opp_teammate_block` <- `opp_teammate_block`
+      }
+      if (!is.null(`opp_teammate_block_adj`)) {
+        self$`opp_teammate_block_adj` <- `opp_teammate_block_adj`
+      }
+      if (!is.null(`give`)) {
+        if (!(is.numeric(`give`) && length(`give`) == 1)) {
+          stop(paste("Error! Invalid data for `give`. Must be an integer:", `give`))
+        }
+        self$`give` <- `give`
+      }
+      if (!is.null(`take`)) {
+        if (!(is.numeric(`take`) && length(`take`) == 1)) {
+          stop(paste("Error! Invalid data for `take`. Must be an integer:", `take`))
+        }
+        self$`take` <- `take`
+      }
       if (!is.null(`hf`)) {
         if (!(is.numeric(`hf`) && length(`hf`) == 1)) {
           stop(paste("Error! Invalid data for `hf`. Must be an integer:", `hf`))
@@ -1202,6 +1244,10 @@ StatsSeason <- R6::R6Class(
       if (!is.null(self$`api_id`)) {
         StatsSeasonObject[["api_id"]] <-
           self$`api_id`
+      }
+      if (!is.null(self$`position`)) {
+        StatsSeasonObject[["position"]] <-
+          self$`position`
       }
       if (!is.null(self$`team`)) {
         StatsSeasonObject[["team"]] <-
@@ -1635,6 +1681,22 @@ StatsSeason <- R6::R6Class(
         StatsSeasonObject[["teammate_block_adj"]] <-
           self$`teammate_block_adj`
       }
+      if (!is.null(self$`opp_teammate_block`)) {
+        StatsSeasonObject[["opp_teammate_block"]] <-
+          self$`opp_teammate_block`
+      }
+      if (!is.null(self$`opp_teammate_block_adj`)) {
+        StatsSeasonObject[["opp_teammate_block_adj"]] <-
+          self$`opp_teammate_block_adj`
+      }
+      if (!is.null(self$`give`)) {
+        StatsSeasonObject[["give"]] <-
+          self$`give`
+      }
+      if (!is.null(self$`take`)) {
+        StatsSeasonObject[["take"]] <-
+          self$`take`
+      }
       if (!is.null(self$`hf`)) {
         StatsSeasonObject[["hf"]] <-
           self$`hf`
@@ -1768,6 +1830,9 @@ StatsSeason <- R6::R6Class(
       }
       if (!is.null(this_object$`api_id`)) {
         self$`api_id` <- this_object$`api_id`
+      }
+      if (!is.null(this_object$`position`)) {
+        self$`position` <- this_object$`position`
       }
       if (!is.null(this_object$`team`)) {
         self$`team` <- this_object$`team`
@@ -2093,6 +2158,18 @@ StatsSeason <- R6::R6Class(
       if (!is.null(this_object$`teammate_block_adj`)) {
         self$`teammate_block_adj` <- this_object$`teammate_block_adj`
       }
+      if (!is.null(this_object$`opp_teammate_block`)) {
+        self$`opp_teammate_block` <- this_object$`opp_teammate_block`
+      }
+      if (!is.null(this_object$`opp_teammate_block_adj`)) {
+        self$`opp_teammate_block_adj` <- this_object$`opp_teammate_block_adj`
+      }
+      if (!is.null(this_object$`give`)) {
+        self$`give` <- this_object$`give`
+      }
+      if (!is.null(this_object$`take`)) {
+        self$`take` <- this_object$`take`
+      }
       if (!is.null(this_object$`hf`)) {
         self$`hf` <- this_object$`hf`
       }
@@ -2204,6 +2281,7 @@ StatsSeason <- R6::R6Class(
       self$`session` <- this_object$`session`
       self$`game_id` <- this_object$`game_id`
       self$`api_id` <- this_object$`api_id`
+      self$`position` <- this_object$`position`
       self$`team` <- this_object$`team`
       self$`opp_team` <- this_object$`opp_team`
       self$`strength_state` <- this_object$`strength_state`
@@ -2312,6 +2390,10 @@ StatsSeason <- R6::R6Class(
       self$`hdmsa` <- this_object$`hdmsa`
       self$`teammate_block` <- this_object$`teammate_block`
       self$`teammate_block_adj` <- this_object$`teammate_block_adj`
+      self$`opp_teammate_block` <- this_object$`opp_teammate_block`
+      self$`opp_teammate_block_adj` <- this_object$`opp_teammate_block_adj`
+      self$`give` <- this_object$`give`
+      self$`take` <- this_object$`take`
       self$`hf` <- this_object$`hf`
       self$`ht` <- this_object$`ht`
       self$`ozf` <- this_object$`ozf`

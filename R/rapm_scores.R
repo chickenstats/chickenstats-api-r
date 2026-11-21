@@ -16,6 +16,7 @@
 #' @field pos  character [optional]
 #' @field pos2  character [optional]
 #' @field toi_minutes  numeric [optional]
+#' @field def_toi_minutes  numeric [optional]
 #' @field rapm_off  numeric [optional]
 #' @field rapm_def  numeric [optional]
 #' @field off_coeff_corsi  numeric [optional]
@@ -85,6 +86,7 @@ RapmScores <- R6::R6Class(
     `pos` = NULL,
     `pos2` = NULL,
     `toi_minutes` = NULL,
+    `def_toi_minutes` = NULL,
     `rapm_off` = NULL,
     `rapm_def` = NULL,
     `off_coeff_corsi` = NULL,
@@ -152,6 +154,7 @@ RapmScores <- R6::R6Class(
     #' @param pos pos
     #' @param pos2 pos2
     #' @param toi_minutes toi_minutes
+    #' @param def_toi_minutes def_toi_minutes
     #' @param rapm_off rapm_off
     #' @param rapm_def rapm_def
     #' @param off_coeff_corsi off_coeff_corsi
@@ -207,7 +210,7 @@ RapmScores <- R6::R6Class(
     #' @param total_rapm_corsi_z total_rapm_corsi_z
     #' @param total_rapm_goals_z total_rapm_goals_z
     #' @param ... Other optional arguments.
-    initialize = function(`id`, `api_id`, `season`, `session`, `situation`, `team` = NULL, `pos` = NULL, `pos2` = NULL, `toi_minutes` = NULL, `rapm_off` = NULL, `rapm_def` = NULL, `off_coeff_corsi` = NULL, `off_coeff_goals` = NULL, `def_coeff_corsi` = NULL, `def_coeff_goals` = NULL, `metric_for_context_xg` = NULL, `metric_against_context_xg` = NULL, `metric_diff_context_xg` = NULL, `metric_for_corsi` = NULL, `metric_against_corsi` = NULL, `metric_diff_corsi` = NULL, `metric_for_goals` = NULL, `metric_against_goals` = NULL, `metric_diff_goals` = NULL, `on_ice_for_60_context_xg` = NULL, `on_ice_against_60_context_xg` = NULL, `on_ice_diff_60_context_xg` = NULL, `on_ice_for_60_corsi` = NULL, `on_ice_against_60_corsi` = NULL, `on_ice_diff_60_corsi` = NULL, `on_ice_for_60_goals` = NULL, `on_ice_against_60_goals` = NULL, `on_ice_diff_60_goals` = NULL, `total_rapm_context_xg` = NULL, `total_rapm_corsi` = NULL, `total_rapm_goals` = NULL, `off_coeff_context_xg_z` = NULL, `off_coeff_corsi_z` = NULL, `off_coeff_goals_z` = NULL, `def_coeff_context_xg_z` = NULL, `def_coeff_corsi_z` = NULL, `def_coeff_goals_z` = NULL, `metric_for_context_xg_z` = NULL, `metric_against_context_xg_z` = NULL, `metric_diff_context_xg_z` = NULL, `metric_for_corsi_z` = NULL, `metric_against_corsi_z` = NULL, `metric_diff_corsi_z` = NULL, `metric_for_goals_z` = NULL, `metric_against_goals_z` = NULL, `metric_diff_goals_z` = NULL, `on_ice_for_60_context_xg_z` = NULL, `on_ice_against_60_context_xg_z` = NULL, `on_ice_diff_60_context_xg_z` = NULL, `on_ice_for_60_corsi_z` = NULL, `on_ice_against_60_corsi_z` = NULL, `on_ice_diff_60_corsi_z` = NULL, `on_ice_for_60_goals_z` = NULL, `on_ice_against_60_goals_z` = NULL, `on_ice_diff_60_goals_z` = NULL, `total_rapm_context_xg_z` = NULL, `total_rapm_corsi_z` = NULL, `total_rapm_goals_z` = NULL, ...) {
+    initialize = function(`id`, `api_id`, `season`, `session`, `situation`, `team` = NULL, `pos` = NULL, `pos2` = NULL, `toi_minutes` = NULL, `def_toi_minutes` = NULL, `rapm_off` = NULL, `rapm_def` = NULL, `off_coeff_corsi` = NULL, `off_coeff_goals` = NULL, `def_coeff_corsi` = NULL, `def_coeff_goals` = NULL, `metric_for_context_xg` = NULL, `metric_against_context_xg` = NULL, `metric_diff_context_xg` = NULL, `metric_for_corsi` = NULL, `metric_against_corsi` = NULL, `metric_diff_corsi` = NULL, `metric_for_goals` = NULL, `metric_against_goals` = NULL, `metric_diff_goals` = NULL, `on_ice_for_60_context_xg` = NULL, `on_ice_against_60_context_xg` = NULL, `on_ice_diff_60_context_xg` = NULL, `on_ice_for_60_corsi` = NULL, `on_ice_against_60_corsi` = NULL, `on_ice_diff_60_corsi` = NULL, `on_ice_for_60_goals` = NULL, `on_ice_against_60_goals` = NULL, `on_ice_diff_60_goals` = NULL, `total_rapm_context_xg` = NULL, `total_rapm_corsi` = NULL, `total_rapm_goals` = NULL, `off_coeff_context_xg_z` = NULL, `off_coeff_corsi_z` = NULL, `off_coeff_goals_z` = NULL, `def_coeff_context_xg_z` = NULL, `def_coeff_corsi_z` = NULL, `def_coeff_goals_z` = NULL, `metric_for_context_xg_z` = NULL, `metric_against_context_xg_z` = NULL, `metric_diff_context_xg_z` = NULL, `metric_for_corsi_z` = NULL, `metric_against_corsi_z` = NULL, `metric_diff_corsi_z` = NULL, `metric_for_goals_z` = NULL, `metric_against_goals_z` = NULL, `metric_diff_goals_z` = NULL, `on_ice_for_60_context_xg_z` = NULL, `on_ice_against_60_context_xg_z` = NULL, `on_ice_diff_60_context_xg_z` = NULL, `on_ice_for_60_corsi_z` = NULL, `on_ice_against_60_corsi_z` = NULL, `on_ice_diff_60_corsi_z` = NULL, `on_ice_for_60_goals_z` = NULL, `on_ice_against_60_goals_z` = NULL, `on_ice_diff_60_goals_z` = NULL, `total_rapm_context_xg_z` = NULL, `total_rapm_corsi_z` = NULL, `total_rapm_goals_z` = NULL, ...) {
       if (!missing(`id`)) {
         if (!(is.character(`id`) && length(`id`) == 1)) {
           stop(paste("Error! Invalid data for `id`. Must be a string:", `id`))
@@ -258,6 +261,9 @@ RapmScores <- R6::R6Class(
       }
       if (!is.null(`toi_minutes`)) {
         self$`toi_minutes` <- `toi_minutes`
+      }
+      if (!is.null(`def_toi_minutes`)) {
+        self$`def_toi_minutes` <- `def_toi_minutes`
       }
       if (!is.null(`rapm_off`)) {
         self$`rapm_off` <- `rapm_off`
@@ -489,6 +495,10 @@ RapmScores <- R6::R6Class(
       if (!is.null(self$`toi_minutes`)) {
         RapmScoresObject[["toi_minutes"]] <-
           self$`toi_minutes`
+      }
+      if (!is.null(self$`def_toi_minutes`)) {
+        RapmScoresObject[["def_toi_minutes"]] <-
+          self$`def_toi_minutes`
       }
       if (!is.null(self$`rapm_off`)) {
         RapmScoresObject[["rapm_off"]] <-
@@ -743,6 +753,9 @@ RapmScores <- R6::R6Class(
       if (!is.null(this_object$`toi_minutes`)) {
         self$`toi_minutes` <- this_object$`toi_minutes`
       }
+      if (!is.null(this_object$`def_toi_minutes`)) {
+        self$`def_toi_minutes` <- this_object$`def_toi_minutes`
+      }
       if (!is.null(this_object$`rapm_off`)) {
         self$`rapm_off` <- this_object$`rapm_off`
       }
@@ -935,6 +948,7 @@ RapmScores <- R6::R6Class(
       self$`pos` <- this_object$`pos`
       self$`pos2` <- this_object$`pos2`
       self$`toi_minutes` <- this_object$`toi_minutes`
+      self$`def_toi_minutes` <- this_object$`def_toi_minutes`
       self$`rapm_off` <- this_object$`rapm_off`
       self$`rapm_def` <- this_object$`rapm_def`
       self$`off_coeff_corsi` <- this_object$`off_coeff_corsi`

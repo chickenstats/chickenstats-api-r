@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **limit** | **integer** |  | 
 **offset** | **integer** |  | 
 **has_next** | **character** |  | 
+**notice** | **character** |  | [optional] 
 **data** | [**array[TeamStatsSeason]**](TeamStatsSeason.md) |  | 
 
 

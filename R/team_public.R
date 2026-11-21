@@ -9,11 +9,8 @@
 #' @format An \code{R6Class} generator object
 #' @field code  character
 #' @field team_name  character [optional]
-#' @field team_id  integer [optional]
 #' @field division  character [optional]
-#' @field division_id  integer [optional]
 #' @field conference  character [optional]
-#' @field conference_id  integer [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -22,24 +19,18 @@ TeamPublic <- R6::R6Class(
   public = list(
     `code` = NULL,
     `team_name` = NULL,
-    `team_id` = NULL,
     `division` = NULL,
-    `division_id` = NULL,
     `conference` = NULL,
-    `conference_id` = NULL,
 
     #' @description
     #' Initialize a new TeamPublic class.
     #'
     #' @param code code
     #' @param team_name team_name
-    #' @param team_id team_id
     #' @param division division
-    #' @param division_id division_id
     #' @param conference conference
-    #' @param conference_id conference_id
     #' @param ... Other optional arguments.
-    initialize = function(`code`, `team_name` = NULL, `team_id` = NULL, `division` = NULL, `division_id` = NULL, `conference` = NULL, `conference_id` = NULL, ...) {
+    initialize = function(`code`, `team_name` = NULL, `division` = NULL, `conference` = NULL, ...) {
       if (!missing(`code`)) {
         if (!(is.character(`code`) && length(`code`) == 1)) {
           stop(paste("Error! Invalid data for `code`. Must be a string:", `code`))
@@ -52,35 +43,17 @@ TeamPublic <- R6::R6Class(
         }
         self$`team_name` <- `team_name`
       }
-      if (!is.null(`team_id`)) {
-        if (!(is.numeric(`team_id`) && length(`team_id`) == 1)) {
-          stop(paste("Error! Invalid data for `team_id`. Must be an integer:", `team_id`))
-        }
-        self$`team_id` <- `team_id`
-      }
       if (!is.null(`division`)) {
         if (!(is.character(`division`) && length(`division`) == 1)) {
           stop(paste("Error! Invalid data for `division`. Must be a string:", `division`))
         }
         self$`division` <- `division`
       }
-      if (!is.null(`division_id`)) {
-        if (!(is.numeric(`division_id`) && length(`division_id`) == 1)) {
-          stop(paste("Error! Invalid data for `division_id`. Must be an integer:", `division_id`))
-        }
-        self$`division_id` <- `division_id`
-      }
       if (!is.null(`conference`)) {
         if (!(is.character(`conference`) && length(`conference`) == 1)) {
           stop(paste("Error! Invalid data for `conference`. Must be a string:", `conference`))
         }
         self$`conference` <- `conference`
-      }
-      if (!is.null(`conference_id`)) {
-        if (!(is.numeric(`conference_id`) && length(`conference_id`) == 1)) {
-          stop(paste("Error! Invalid data for `conference_id`. Must be an integer:", `conference_id`))
-        }
-        self$`conference_id` <- `conference_id`
       }
     },
 
@@ -123,25 +96,13 @@ TeamPublic <- R6::R6Class(
         TeamPublicObject[["team_name"]] <-
           self$`team_name`
       }
-      if (!is.null(self$`team_id`)) {
-        TeamPublicObject[["team_id"]] <-
-          self$`team_id`
-      }
       if (!is.null(self$`division`)) {
         TeamPublicObject[["division"]] <-
           self$`division`
       }
-      if (!is.null(self$`division_id`)) {
-        TeamPublicObject[["division_id"]] <-
-          self$`division_id`
-      }
       if (!is.null(self$`conference`)) {
         TeamPublicObject[["conference"]] <-
           self$`conference`
-      }
-      if (!is.null(self$`conference_id`)) {
-        TeamPublicObject[["conference_id"]] <-
-          self$`conference_id`
       }
       return(TeamPublicObject)
     },
@@ -159,20 +120,11 @@ TeamPublic <- R6::R6Class(
       if (!is.null(this_object$`team_name`)) {
         self$`team_name` <- this_object$`team_name`
       }
-      if (!is.null(this_object$`team_id`)) {
-        self$`team_id` <- this_object$`team_id`
-      }
       if (!is.null(this_object$`division`)) {
         self$`division` <- this_object$`division`
       }
-      if (!is.null(this_object$`division_id`)) {
-        self$`division_id` <- this_object$`division_id`
-      }
       if (!is.null(this_object$`conference`)) {
         self$`conference` <- this_object$`conference`
-      }
-      if (!is.null(this_object$`conference_id`)) {
-        self$`conference_id` <- this_object$`conference_id`
       }
       self
     },
@@ -197,11 +149,8 @@ TeamPublic <- R6::R6Class(
       this_object <- jsonlite::fromJSON(input_json)
       self$`code` <- this_object$`code`
       self$`team_name` <- this_object$`team_name`
-      self$`team_id` <- this_object$`team_id`
       self$`division` <- this_object$`division`
-      self$`division_id` <- this_object$`division_id`
       self$`conference` <- this_object$`conference`
-      self$`conference_id` <- this_object$`conference_id`
       self
     },
 
@@ -239,10 +188,6 @@ TeamPublic <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`code`) > 3) {
-        return(FALSE)
-      }
-
       TRUE
     },
 
@@ -255,10 +200,6 @@ TeamPublic <- R6::R6Class(
       # check if the required `code` is null
       if (is.null(self$`code`)) {
         invalid_fields["code"] <- "Non-nullable required field `code` cannot be null."
-      }
-
-      if (nchar(self$`code`) > 3) {
-        invalid_fields["code"] <- "Invalid length for `code`, must be smaller than or equal to 3."
       }
 
       invalid_fields

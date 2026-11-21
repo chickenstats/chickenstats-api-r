@@ -138,6 +138,9 @@ Name | Type | Description | Notes
 **pen4** | **integer** |  | [optional] [default to 0] 
 **pen5** | **integer** |  | [optional] [default to 0] 
 **pen10** | **integer** |  | [optional] [default to 0] 
+**cs_version** | **character** |  | [optional] 
+**shootout_attempt** | **integer** |  | [optional] 
+**shootout_goal** | **integer** |  | [optional] 
 **player** | [**PlayerPublic**](PlayerPublic.md) |  | [optional] 
 **game** | [**GamePublic**](GamePublic.md) |  | [optional] 
 **last_updated** | **character** |  | 

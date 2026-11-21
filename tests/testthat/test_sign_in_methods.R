@@ -11,3 +11,17 @@ test_that("methods", {
   # uncomment below to test the property
   #expect_equal(model.instance$`methods`, "EXPECTED_RESULT")
 })
+
+test_that("authenticator", {
+  # tests for the property `authenticator` (character)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`authenticator`, "EXPECTED_RESULT")
+})
+
+test_that("recovery_codes", {
+  # tests for the property `recovery_codes` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`recovery_codes`, "EXPECTED_RESULT")
+})

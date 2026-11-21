@@ -8,13 +8,13 @@ api_instance <- InferenceApi$new()
 test_that("ReadPredGoal", {
   # tests for ReadPredGoal
   # base path: https://api.chickenstats.com
-  # Read Pred Goal
-  # Pre-computed pred_goal values from pbpcs for shot/miss/goal events.
+  # Expected goals (pred_goal)
+  # Pre-computed xG for shot/miss/goal events in finished, scored games.  Live games are not scored right now, so nothing here is live.
   # @param game_id array[integer]  (optional)
   # @param season array[integer]  (optional)
   # @param sessions array[character]  (optional)
   # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
-  # @param offset integer  (optional)
+  # @param offset integer Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. (optional)
   # @param with_total character  (optional)
   # @return [PredGoalResponse]
 

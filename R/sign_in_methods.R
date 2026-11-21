@@ -8,6 +8,8 @@
 #' @description SignInMethods Class
 #' @format An \code{R6Class} generator object
 #' @field methods  list(character)
+#' @field authenticator  character [optional]
+#' @field recovery_codes  integer [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -15,17 +17,33 @@ SignInMethods <- R6::R6Class(
   "SignInMethods",
   public = list(
     `methods` = NULL,
+    `authenticator` = NULL,
+    `recovery_codes` = NULL,
 
     #' @description
     #' Initialize a new SignInMethods class.
     #'
     #' @param methods methods
+    #' @param authenticator authenticator. Default to FALSE.
+    #' @param recovery_codes recovery_codes. Default to 0.
     #' @param ... Other optional arguments.
-    initialize = function(`methods`, ...) {
+    initialize = function(`methods`, `authenticator` = FALSE, `recovery_codes` = 0, ...) {
       if (!missing(`methods`)) {
         stopifnot(is.vector(`methods`), length(`methods`) != 0)
         sapply(`methods`, function(x) stopifnot(is.character(x)))
         self$`methods` <- `methods`
+      }
+      if (!is.null(`authenticator`)) {
+        if (!(is.logical(`authenticator`) && length(`authenticator`) == 1)) {
+          stop(paste("Error! Invalid data for `authenticator`. Must be a boolean:", `authenticator`))
+        }
+        self$`authenticator` <- `authenticator`
+      }
+      if (!is.null(`recovery_codes`)) {
+        if (!(is.numeric(`recovery_codes`) && length(`recovery_codes`) == 1)) {
+          stop(paste("Error! Invalid data for `recovery_codes`. Must be an integer:", `recovery_codes`))
+        }
+        self$`recovery_codes` <- `recovery_codes`
       }
     },
 
@@ -64,6 +82,14 @@ SignInMethods <- R6::R6Class(
         SignInMethodsObject[["methods"]] <-
           self$`methods`
       }
+      if (!is.null(self$`authenticator`)) {
+        SignInMethodsObject[["authenticator"]] <-
+          self$`authenticator`
+      }
+      if (!is.null(self$`recovery_codes`)) {
+        SignInMethodsObject[["recovery_codes"]] <-
+          self$`recovery_codes`
+      }
       return(SignInMethodsObject)
     },
 
@@ -76,6 +102,12 @@ SignInMethods <- R6::R6Class(
       this_object <- jsonlite::fromJSON(input_json)
       if (!is.null(this_object$`methods`)) {
         self$`methods` <- ApiClient$new()$deserializeObj(this_object$`methods`, "array[character]", loadNamespace("chickenstats.api"))
+      }
+      if (!is.null(this_object$`authenticator`)) {
+        self$`authenticator` <- this_object$`authenticator`
+      }
+      if (!is.null(this_object$`recovery_codes`)) {
+        self$`recovery_codes` <- this_object$`recovery_codes`
       }
       self
     },
@@ -99,6 +131,8 @@ SignInMethods <- R6::R6Class(
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       self$`methods` <- ApiClient$new()$deserializeObj(this_object$`methods`, "array[character]", loadNamespace("chickenstats.api"))
+      self$`authenticator` <- this_object$`authenticator`
+      self$`recovery_codes` <- this_object$`recovery_codes`
       self
     },
 

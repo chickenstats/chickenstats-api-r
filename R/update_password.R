@@ -162,7 +162,7 @@ UpdatePassword <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`current_password`) > 40) {
+      if (nchar(self$`current_password`) > 128) {
         return(FALSE)
       }
       if (nchar(self$`current_password`) < 8) {
@@ -174,7 +174,7 @@ UpdatePassword <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`new_password`) > 40) {
+      if (nchar(self$`new_password`) > 128) {
         return(FALSE)
       }
       if (nchar(self$`new_password`) < 8) {
@@ -195,8 +195,8 @@ UpdatePassword <- R6::R6Class(
         invalid_fields["current_password"] <- "Non-nullable required field `current_password` cannot be null."
       }
 
-      if (nchar(self$`current_password`) > 40) {
-        invalid_fields["current_password"] <- "Invalid length for `current_password`, must be smaller than or equal to 40."
+      if (nchar(self$`current_password`) > 128) {
+        invalid_fields["current_password"] <- "Invalid length for `current_password`, must be smaller than or equal to 128."
       }
       if (nchar(self$`current_password`) < 8) {
         invalid_fields["current_password"] <- "Invalid length for `current_password`, must be bigger than or equal to 8."
@@ -207,8 +207,8 @@ UpdatePassword <- R6::R6Class(
         invalid_fields["new_password"] <- "Non-nullable required field `new_password` cannot be null."
       }
 
-      if (nchar(self$`new_password`) > 40) {
-        invalid_fields["new_password"] <- "Invalid length for `new_password`, must be smaller than or equal to 40."
+      if (nchar(self$`new_password`) > 128) {
+        invalid_fields["new_password"] <- "Invalid length for `new_password`, must be smaller than or equal to 128."
       }
       if (nchar(self$`new_password`) < 8) {
         invalid_fields["new_password"] <- "Invalid length for `new_password`, must be bigger than or equal to 8."

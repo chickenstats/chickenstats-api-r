@@ -141,6 +141,9 @@
 #' @field pen4  integer [optional]
 #' @field pen5  integer [optional]
 #' @field pen10  integer [optional]
+#' @field cs_version  character [optional]
+#' @field shootout_attempt  integer [optional]
+#' @field shootout_goal  integer [optional]
 #' @field player  \link{PlayerPublic} [optional]
 #' @field game  \link{GamePublic} [optional]
 #' @field last_updated  character
@@ -284,6 +287,9 @@ LivePbpPublic <- R6::R6Class(
     `pen4` = NULL,
     `pen5` = NULL,
     `pen10` = NULL,
+    `cs_version` = NULL,
+    `shootout_attempt` = NULL,
+    `shootout_goal` = NULL,
     `player` = NULL,
     `game` = NULL,
     `last_updated` = NULL,
@@ -426,10 +432,13 @@ LivePbpPublic <- R6::R6Class(
     #' @param pen4 pen4. Default to 0.
     #' @param pen5 pen5. Default to 0.
     #' @param pen10 pen10. Default to 0.
+    #' @param cs_version cs_version
+    #' @param shootout_attempt shootout_attempt
+    #' @param shootout_goal shootout_goal
     #' @param player player
     #' @param game game
     #' @param ... Other optional arguments.
-    initialize = function(`id`, `season`, `session`, `game_id`, `event_idx`, `period`, `period_seconds`, `game_seconds`, `event`, `score_diff`, `forwards_percent`, `opp_forwards_percent`, `home_score`, `home_score_diff`, `away_score`, `away_score_diff`, `is_home`, `is_away`, `home_skaters`, `away_skaters`, `last_updated`, `strength_state` = NULL, `event_team` = NULL, `opp_team` = NULL, `description` = NULL, `zone` = NULL, `coords_x` = NULL, `coords_y` = NULL, `danger` = NULL, `high_danger` = NULL, `player_1_api_id` = NULL, `player_1_type` = NULL, `player_2_api_id` = NULL, `player_2_type` = NULL, `player_3_api_id` = NULL, `player_3_type` = NULL, `score_state` = NULL, `shot_type` = NULL, `event_length` = NULL, `event_distance` = NULL, `pbp_distance` = NULL, `event_angle` = NULL, `penalty` = NULL, `penalty_length` = NULL, `event_team_skaters` = NULL, `teammates_api_id` = NULL, `own_goalie_api_id` = NULL, `forwards_api_id` = NULL, `forwards_count` = NULL, `defense_api_id` = NULL, `defense_count` = NULL, `opp_strength_state` = NULL, `opp_score_state` = NULL, `opp_score_diff` = NULL, `opp_team_skaters` = NULL, `opp_team_on_api_id` = NULL, `opp_goalie_api_id` = NULL, `opp_forwards_api_id` = NULL, `opp_forwards_count` = NULL, `opp_defense_api_id` = NULL, `opp_defense_count` = NULL, `home_on_api_id` = NULL, `away_on_api_id` = NULL, `home_forwards_api_id` = NULL, `home_forwards_count` = NULL, `home_forwards_percent` = NULL, `home_defense_api_id` = NULL, `home_defense_count` = NULL, `home_goalie_api_id` = NULL, `away_forwards_api_id` = NULL, `away_forwards_count` = NULL, `away_forwards_percent` = NULL, `away_defense_api_id` = NULL, `away_defense_count` = NULL, `away_goalie_api_id` = NULL, `change_on_count` = NULL, `change_off_count` = NULL, `change_on_api_id` = NULL, `change_off_api_id` = NULL, `change_on_forwards_count` = NULL, `change_off_forwards_count` = NULL, `change_on_forwards_api_id` = NULL, `change_off_forwards_api_id` = NULL, `change_on_defense_count` = NULL, `change_off_defense_count` = NULL, `change_on_defense_api_id` = NULL, `change_off_defense_api_id` = NULL, `change_on_goalie_count` = NULL, `change_off_goalie_count` = NULL, `change_on_goalie_api_id` = NULL, `change_off_goalie_api_id` = NULL, `base_xg` = NULL, `base_xg_adj` = NULL, `context_xg` = NULL, `context_xg_adj` = NULL, `pred_goal` = NULL, `pred_goal_adj` = NULL, `goal` = 0, `goal_adj` = 0, `hd_goal` = 0, `shot` = 0, `shot_adj` = 0, `hd_shot` = 0, `miss` = 0, `miss_adj` = 0, `hd_miss` = 0, `fenwick` = 0, `fenwick_adj` = 0, `hd_fenwick` = 0, `corsi` = 0, `corsi_adj` = 0, `block` = 0, `block_adj` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hit` = 0, `give` = 0, `take` = 0, `fac` = 0, `penl` = 0, `change` = 0, `stop` = 0, `chl` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `ozc` = 0, `nzc` = 0, `dzc` = 0, `otf` = 0, `pen0` = 0, `pen2` = 0, `pen4` = 0, `pen5` = 0, `pen10` = 0, `player` = NULL, `game` = NULL, ...) {
+    initialize = function(`id`, `season`, `session`, `game_id`, `event_idx`, `period`, `period_seconds`, `game_seconds`, `event`, `score_diff`, `forwards_percent`, `opp_forwards_percent`, `home_score`, `home_score_diff`, `away_score`, `away_score_diff`, `is_home`, `is_away`, `home_skaters`, `away_skaters`, `last_updated`, `strength_state` = NULL, `event_team` = NULL, `opp_team` = NULL, `description` = NULL, `zone` = NULL, `coords_x` = NULL, `coords_y` = NULL, `danger` = NULL, `high_danger` = NULL, `player_1_api_id` = NULL, `player_1_type` = NULL, `player_2_api_id` = NULL, `player_2_type` = NULL, `player_3_api_id` = NULL, `player_3_type` = NULL, `score_state` = NULL, `shot_type` = NULL, `event_length` = NULL, `event_distance` = NULL, `pbp_distance` = NULL, `event_angle` = NULL, `penalty` = NULL, `penalty_length` = NULL, `event_team_skaters` = NULL, `teammates_api_id` = NULL, `own_goalie_api_id` = NULL, `forwards_api_id` = NULL, `forwards_count` = NULL, `defense_api_id` = NULL, `defense_count` = NULL, `opp_strength_state` = NULL, `opp_score_state` = NULL, `opp_score_diff` = NULL, `opp_team_skaters` = NULL, `opp_team_on_api_id` = NULL, `opp_goalie_api_id` = NULL, `opp_forwards_api_id` = NULL, `opp_forwards_count` = NULL, `opp_defense_api_id` = NULL, `opp_defense_count` = NULL, `home_on_api_id` = NULL, `away_on_api_id` = NULL, `home_forwards_api_id` = NULL, `home_forwards_count` = NULL, `home_forwards_percent` = NULL, `home_defense_api_id` = NULL, `home_defense_count` = NULL, `home_goalie_api_id` = NULL, `away_forwards_api_id` = NULL, `away_forwards_count` = NULL, `away_forwards_percent` = NULL, `away_defense_api_id` = NULL, `away_defense_count` = NULL, `away_goalie_api_id` = NULL, `change_on_count` = NULL, `change_off_count` = NULL, `change_on_api_id` = NULL, `change_off_api_id` = NULL, `change_on_forwards_count` = NULL, `change_off_forwards_count` = NULL, `change_on_forwards_api_id` = NULL, `change_off_forwards_api_id` = NULL, `change_on_defense_count` = NULL, `change_off_defense_count` = NULL, `change_on_defense_api_id` = NULL, `change_off_defense_api_id` = NULL, `change_on_goalie_count` = NULL, `change_off_goalie_count` = NULL, `change_on_goalie_api_id` = NULL, `change_off_goalie_api_id` = NULL, `base_xg` = NULL, `base_xg_adj` = NULL, `context_xg` = NULL, `context_xg_adj` = NULL, `pred_goal` = NULL, `pred_goal_adj` = NULL, `goal` = 0, `goal_adj` = 0, `hd_goal` = 0, `shot` = 0, `shot_adj` = 0, `hd_shot` = 0, `miss` = 0, `miss_adj` = 0, `hd_miss` = 0, `fenwick` = 0, `fenwick_adj` = 0, `hd_fenwick` = 0, `corsi` = 0, `corsi_adj` = 0, `block` = 0, `block_adj` = 0, `teammate_block` = 0, `teammate_block_adj` = 0, `hit` = 0, `give` = 0, `take` = 0, `fac` = 0, `penl` = 0, `change` = 0, `stop` = 0, `chl` = 0, `ozf` = 0, `nzf` = 0, `dzf` = 0, `ozc` = 0, `nzc` = 0, `dzc` = 0, `otf` = 0, `pen0` = 0, `pen2` = 0, `pen4` = 0, `pen5` = 0, `pen10` = 0, `cs_version` = NULL, `shootout_attempt` = NULL, `shootout_goal` = NULL, `player` = NULL, `game` = NULL, ...) {
       if (!missing(`id`)) {
         if (!(is.numeric(`id`) && length(`id`) == 1)) {
           stop(paste("Error! Invalid data for `id`. Must be an integer:", `id`))
@@ -1174,6 +1183,24 @@ LivePbpPublic <- R6::R6Class(
         }
         self$`pen10` <- `pen10`
       }
+      if (!is.null(`cs_version`)) {
+        if (!(is.character(`cs_version`) && length(`cs_version`) == 1)) {
+          stop(paste("Error! Invalid data for `cs_version`. Must be a string:", `cs_version`))
+        }
+        self$`cs_version` <- `cs_version`
+      }
+      if (!is.null(`shootout_attempt`)) {
+        if (!(is.numeric(`shootout_attempt`) && length(`shootout_attempt`) == 1)) {
+          stop(paste("Error! Invalid data for `shootout_attempt`. Must be an integer:", `shootout_attempt`))
+        }
+        self$`shootout_attempt` <- `shootout_attempt`
+      }
+      if (!is.null(`shootout_goal`)) {
+        if (!(is.numeric(`shootout_goal`) && length(`shootout_goal`) == 1)) {
+          stop(paste("Error! Invalid data for `shootout_goal`. Must be an integer:", `shootout_goal`))
+        }
+        self$`shootout_goal` <- `shootout_goal`
+      }
       if (!is.null(`player`)) {
         stopifnot(R6::is.R6(`player`))
         self$`player` <- `player`
@@ -1751,6 +1778,18 @@ LivePbpPublic <- R6::R6Class(
         LivePbpPublicObject[["pen10"]] <-
           self$`pen10`
       }
+      if (!is.null(self$`cs_version`)) {
+        LivePbpPublicObject[["cs_version"]] <-
+          self$`cs_version`
+      }
+      if (!is.null(self$`shootout_attempt`)) {
+        LivePbpPublicObject[["shootout_attempt"]] <-
+          self$`shootout_attempt`
+      }
+      if (!is.null(self$`shootout_goal`)) {
+        LivePbpPublicObject[["shootout_goal"]] <-
+          self$`shootout_goal`
+      }
       if (!is.null(self$`player`)) {
         LivePbpPublicObject[["player"]] <-
           self$`player`$toSimpleType()
@@ -2175,6 +2214,15 @@ LivePbpPublic <- R6::R6Class(
       if (!is.null(this_object$`pen10`)) {
         self$`pen10` <- this_object$`pen10`
       }
+      if (!is.null(this_object$`cs_version`)) {
+        self$`cs_version` <- this_object$`cs_version`
+      }
+      if (!is.null(this_object$`shootout_attempt`)) {
+        self$`shootout_attempt` <- this_object$`shootout_attempt`
+      }
+      if (!is.null(this_object$`shootout_goal`)) {
+        self$`shootout_goal` <- this_object$`shootout_goal`
+      }
       if (!is.null(this_object$`player`)) {
         `player_object` <- PlayerPublic$new()
         `player_object`$fromJSON(jsonlite::toJSON(this_object$`player`, auto_unbox = TRUE, digits = NA))
@@ -2343,6 +2391,9 @@ LivePbpPublic <- R6::R6Class(
       self$`pen4` <- this_object$`pen4`
       self$`pen5` <- this_object$`pen5`
       self$`pen10` <- this_object$`pen10`
+      self$`cs_version` <- this_object$`cs_version`
+      self$`shootout_attempt` <- this_object$`shootout_attempt`
+      self$`shootout_goal` <- this_object$`shootout_goal`
       self$`player` <- PlayerPublic$new()$fromJSON(jsonlite::toJSON(this_object$`player`, auto_unbox = TRUE, digits = NA))
       self$`game` <- GamePublic$new()$fromJSON(jsonlite::toJSON(this_object$`game`, auto_unbox = TRUE, digits = NA))
       self$`last_updated` <- this_object$`last_updated`

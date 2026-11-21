@@ -8,11 +8,11 @@ api_instance <- RostersApi$new()
 test_that("ReadRosterGameIds", {
   # tests for ReadRosterGameIds
   # base path: https://api.chickenstats.com
-  # Read Roster Game Ids
+  # Game IDs with rosters
   # @param api_id array[integer]  (optional)
   # @param team array[character]  (optional)
   # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
-  # @param offset integer  (optional)
+  # @param offset integer Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. (optional)
   # @return [array[integer]]
 
   # uncomment below to test the operation
@@ -22,9 +22,9 @@ test_that("ReadRosterGameIds", {
 test_that("ReadRosters", {
   # tests for ReadRosters
   # base path: https://api.chickenstats.com
-  # Read Rosters
+  # Rosters
   # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
-  # @param offset integer  (optional)
+  # @param offset integer Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. (optional)
   # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
   # @param game_id array[integer]  (optional)
   # @param api_id array[integer]  (optional)

@@ -5,10 +5,21 @@ context("Test UsersApi")
 
 api_instance <- UsersApi$new()
 
+test_that("AuthenticatorChanged", {
+  # tests for AuthenticatorChanged
+  # base path: https://api.chickenstats.com
+  # Record an authenticator change
+  # End the other sessions after an authenticator app goes on or off.  The browser turns the app on or off with Firebase directly, then calls this. Every session ends, ours and Firebase&#39;s, so a device that signed in before the change has to sign in again under the new rule. The caller gets a new token with the same claims and expiry as the one it sent, in a session of its own so signing out still ends it, which is what keeps this browser signed in. It needs a sign-in in the last ten minutes, as the change itself does.
+  # @return [Token]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("ConfirmEmailChange", {
   # tests for ConfirmEmailChange
   # base path: https://api.chickenstats.com
-  # Confirm Email Change
+  # Confirm an email change
   # Move the account to the address the link was sent to.  No session needed: the link is the proof, and it may be opened on another device. It names the address the account had, so it is spent once the change is made, and a later change makes an older link useless.  Stripe, then Firebase, then Postgres, and each step is undone if a later one fails: an account whose three addresses disagree cannot sign in, buy or open its portal. Firebase keeps its uid, so the stripeRole claim comes along; the user row keeps its id, so contributor flags, the service token and refresh-token ownership do too. Usage rows are re-keyed in the same commit as the address.
   # @param email_change_confirm EmailChangeConfirm 
   # @return [Message]
@@ -17,10 +28,22 @@ test_that("ConfirmEmailChange", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("CreateApiToken", {
+  # tests for CreateApiToken
+  # base path: https://api.chickenstats.com
+  # Make an API token
+  # A named token for scripts, the SDKs and chickenstats, shown this once.  It reads data with your live tier and nothing else: it can&#39;t manage the account or make another token. It lasts until revoked, or expires_in_days. It needs a sign-in in the last ten minutes, so a stolen session can&#39;t leave a token behind that outlives it.
+  # @param api_token_create ApiTokenCreate 
+  # @return [ApiTokenCreated]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("DeleteSignInMethod", {
   # tests for DeleteSignInMethod
   # base path: https://api.chickenstats.com
-  # Delete Sign In Method
+  # Remove a sign-in method
   # Remove a way in, unless it is the last one.
   # @param provider character 
   # @return [Message]
@@ -32,20 +55,20 @@ test_that("DeleteSignInMethod", {
 test_that("DeleteUserMe", {
   # tests for DeleteUserMe
   # base path: https://api.chickenstats.com
-  # Delete User Me
-  # Delete own user and disable Firebase account.  Refused while the account has a live Stripe subscription: deleting it left the subscription billing and took away the portal it is cancelled from.
+  # Delete your account
+  # Delete own account everywhere, ending any subscription now (see _purge).  Only just after a sign-in: a stolen session could otherwise end a subscription and an account that can&#39;t be brought back.
   # @return [Message]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetProgrammaticCredentials", {
-  # tests for GetProgrammaticCredentials
+test_that("ListApiTokens", {
+  # tests for ListApiTokens
   # base path: https://api.chickenstats.com
-  # Get Programmatic Credentials
-  # Return the CF client ID for programmatic access. The secret is never retrievable —.  rotate credentials if the secret was lost.
-  # @return [ProgrammaticCredentials]
+  # Your API tokens
+  # Your named tokens, newest first. The tokens themselves are never shown again.
+  # @return [array[ApiTokenPublic]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -54,9 +77,20 @@ test_that("GetProgrammaticCredentials", {
 test_that("ReadLinkToken", {
   # tests for ReadLinkToken
   # base path: https://api.chickenstats.com
-  # Read Link Token
-  # A Firebase custom token, for the account page to add a method with.  Verified accounts only: otherwise someone holding an unproven address could attach their own Google or GitHub to it before its owner arrives.
+  # Start linking a sign-in method
+  # A Firebase custom token, for the account page to add a method with.  Verified accounts only: otherwise someone holding an unproven address could attach their own Google or GitHub to it before its owner arrives. And only just after a sign-in, so a stolen session can&#39;t add a way in of its own.
   # @return [LinkToken]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("ReadNewsletter", {
+  # tests for ReadNewsletter
+  # base path: https://api.chickenstats.com
+  # Newsletter preference
+  # Which newsletters this account gets, as Ghost has it now.  The paid one needs Ghost&#39;s paid access: bought from Ghost itself, or given with Pro, Elite, a contributor or a superuser account.
+  # @return [Newsletters]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -65,9 +99,20 @@ test_that("ReadLinkToken", {
 test_that("ReadSignInMethods", {
   # tests for ReadSignInMethods
   # base path: https://api.chickenstats.com
-  # Read Sign In Methods
+  # Your sign-in methods
   # The ways into this account (API-172).
   # @return [SignInMethods]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("ReadUsage", {
+  # tests for ReadUsage
+  # base path: https://api.chickenstats.com
+  # Your usage this month
+  # Data requests counted so far this month, against the tier&#39;s allowance.  The same count the quota checks, so the account page and the X-Quota headers can&#39;t disagree.
+  # @return [Usage]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -76,7 +121,7 @@ test_that("ReadSignInMethods", {
 test_that("ReadUserMe", {
   # tests for ReadUserMe
   # base path: https://api.chickenstats.com
-  # Read User Me
+  # Your account
   # Get current user, with the tier they have now and whether they are verified.
   # @return [UserPublic]
 
@@ -87,8 +132,8 @@ test_that("ReadUserMe", {
 test_that("RequestEmailChange", {
   # tests for RequestEmailChange
   # base path: https://api.chickenstats.com
-  # Request Email Change
-  # Email a link to a new address; the change happens when it is clicked.  Nothing moves here. The address is the account&#39;s identity in Firebase, Stripe and the quota, so it changes only once the new one has proved it receives mail (API-20, BR-03). A verified account only: an unproven address has no claim to hand on.
+  # Change your email
+  # Email a link to a new address; the change happens when it is clicked.  Nothing moves here. The address is the account&#39;s identity in Firebase, Stripe and the quota, so it changes only once the new one has proved it receives mail (API-20, BR-03). A verified account only: an unproven address has no claim to hand on. And a recent sign-in, since the link goes to an address whoever asks chooses.
   # @param email_change_request EmailChangeRequest 
   # @return [Message]
 
@@ -99,7 +144,7 @@ test_that("RequestEmailChange", {
 test_that("ResendVerification", {
   # tests for ResendVerification
   # base path: https://api.chickenstats.com
-  # Resend Verification
+  # Resend the verification email
   # Trigger Firebase to resend the verification email.
   # @return [Message]
 
@@ -107,12 +152,23 @@ test_that("ResendVerification", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("RotateProgrammaticCredentials", {
-  # tests for RotateProgrammaticCredentials
+test_that("RevokeAllApiTokens", {
+  # tests for RevokeAllApiTokens
   # base path: https://api.chickenstats.com
-  # Rotate Programmatic Credentials
-  # Delete the existing CF service token and issue a new one. The new secret is.  returned once in the response and optionally emailed. Store it immediately.
-  # @return [ProgrammaticCredentials]
+  # Revoke every API token
+  # Stop every named token at once. Sessions are left signed in.
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("RevokeApiToken", {
+  # tests for RevokeApiToken
+  # base path: https://api.chickenstats.com
+  # Revoke an API token
+  # @param token_id character 
+  # @return [Void]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -121,10 +177,22 @@ test_that("RotateProgrammaticCredentials", {
 test_that("Signup", {
   # tests for Signup
   # base path: https://api.chickenstats.com
-  # Signup
-  # Public self-registration. Creates a local user, a Firebase user, and a Ghost member.  An address that already has a row is refused, active or not (changed 2026-10-17). Signing up over a deactivated account used to reset its password and re-enable it for whoever asked, keeping its flags, its service credentials and its Stripe portal. Reactivation is an admin action now (PATCH /users/{id} with is_active).  An address with a Firebase account but no row is a deleted account if that Firebase account is disabled, which is what deleting leaves behind: it is given the new password and enabled again, so the address can be used once more. An enabled one belongs to someone, so it is refused rather than having its password changed.
+  # Sign up
+  # Public self-registration. Creates a local user, a Firebase user, and a Ghost member.  The reply is the same whether or not the address already has an account, so signup cannot be used to learn who has one (API-246). A taken address is left as it is; its owner can sign in or reset the password.  It takes no password (API-316). The Firebase account gets a random one nobody knows, and the person chooses theirs once the verification link has proven the address (POST /verify-email). Taken at signup, a squatter&#39;s password became a working way into the real owner&#39;s account the moment the owner clicked the link.  Every account is a newsletter member, which keeps access in step. It gets email only once the address is proven, and only if the person asked to there; the signup box, off by default, only ticks that one ahead.  An address that already has a row is refused, active or not (changed 2026-10-17). Signing up over a deactivated account used to reset its password and re-enable it for whoever asked, keeping its flags, its service credentials and its Stripe portal. Reactivation is an admin action now (PATCH /users/{id} with is_active).  The accounts are made after the reply (API-316). Made before it, only a new address waited on Firebase and the mail, so the time the reply took said what the words didn&#39;t.  An address with a Firebase account but no row is a deleted account if that Firebase account is disabled, which is what deleting left behind before it deleted the Firebase user too (API-233). That account is deleted and made again, so the new one starts unverified and with no claims; enabling it handed the newcomer the old owner&#39;s verified flag. An enabled one belongs to someone, so it is refused rather than having its password changed.
   # @param user_register UserRegister 
-  # @return [UserPublic]
+  # @return [Message]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("UpdateNewsletter", {
+  # tests for UpdateNewsletter
+  # base path: https://api.chickenstats.com
+  # Change newsletter preference
+  # Turn each newsletter on or off. Membership itself stays either way.  Verified accounts only, so nobody can sign up someone else&#39;s address. The paid one is left off for an account without paid access.
+  # @param newsletter_preference NewsletterPreference 
+  # @return [Newsletters]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -133,7 +201,7 @@ test_that("Signup", {
 test_that("UpdatePasswordMe", {
   # tests for UpdatePasswordMe
   # base path: https://api.chickenstats.com
-  # Update Password Me
+  # Change your password
   # Update own password in Firebase. Verifies current password against Firebase before changing.
   # @param update_password UpdatePassword 
   # @return [Message]
@@ -145,7 +213,7 @@ test_that("UpdatePasswordMe", {
 test_that("UpdateUserMe", {
   # tests for UpdateUserMe
   # base path: https://api.chickenstats.com
-  # Update User Me
+  # Update your account
   # Update own user. The email address cannot be changed here.
   # @param user_update_me UserUpdateMe 
   # @return [UserPublic]

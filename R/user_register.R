@@ -8,8 +8,8 @@
 #' @description UserRegister Class
 #' @format An \code{R6Class} generator object
 #' @field email  character
-#' @field password  character
 #' @field full_name  character [optional]
+#' @field newsletter  character [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -17,34 +17,34 @@ UserRegister <- R6::R6Class(
   "UserRegister",
   public = list(
     `email` = NULL,
-    `password` = NULL,
     `full_name` = NULL,
+    `newsletter` = NULL,
 
     #' @description
     #' Initialize a new UserRegister class.
     #'
     #' @param email email
-    #' @param password password
     #' @param full_name full_name
+    #' @param newsletter newsletter. Default to FALSE.
     #' @param ... Other optional arguments.
-    initialize = function(`email`, `password`, `full_name` = NULL, ...) {
+    initialize = function(`email`, `full_name` = NULL, `newsletter` = FALSE, ...) {
       if (!missing(`email`)) {
         if (!(is.character(`email`) && length(`email`) == 1)) {
           stop(paste("Error! Invalid data for `email`. Must be a string:", `email`))
         }
         self$`email` <- `email`
       }
-      if (!missing(`password`)) {
-        if (!(is.character(`password`) && length(`password`) == 1)) {
-          stop(paste("Error! Invalid data for `password`. Must be a string:", `password`))
-        }
-        self$`password` <- `password`
-      }
       if (!is.null(`full_name`)) {
         if (!(is.character(`full_name`) && length(`full_name`) == 1)) {
           stop(paste("Error! Invalid data for `full_name`. Must be a string:", `full_name`))
         }
         self$`full_name` <- `full_name`
+      }
+      if (!is.null(`newsletter`)) {
+        if (!(is.logical(`newsletter`) && length(`newsletter`) == 1)) {
+          stop(paste("Error! Invalid data for `newsletter`. Must be a boolean:", `newsletter`))
+        }
+        self$`newsletter` <- `newsletter`
       }
     },
 
@@ -83,13 +83,13 @@ UserRegister <- R6::R6Class(
         UserRegisterObject[["email"]] <-
           self$`email`
       }
-      if (!is.null(self$`password`)) {
-        UserRegisterObject[["password"]] <-
-          self$`password`
-      }
       if (!is.null(self$`full_name`)) {
         UserRegisterObject[["full_name"]] <-
           self$`full_name`
+      }
+      if (!is.null(self$`newsletter`)) {
+        UserRegisterObject[["newsletter"]] <-
+          self$`newsletter`
       }
       return(UserRegisterObject)
     },
@@ -104,11 +104,11 @@ UserRegister <- R6::R6Class(
       if (!is.null(this_object$`email`)) {
         self$`email` <- this_object$`email`
       }
-      if (!is.null(this_object$`password`)) {
-        self$`password` <- this_object$`password`
-      }
       if (!is.null(this_object$`full_name`)) {
         self$`full_name` <- this_object$`full_name`
+      }
+      if (!is.null(this_object$`newsletter`)) {
+        self$`newsletter` <- this_object$`newsletter`
       }
       self
     },
@@ -132,8 +132,8 @@ UserRegister <- R6::R6Class(
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       self$`email` <- this_object$`email`
-      self$`password` <- this_object$`password`
       self$`full_name` <- this_object$`full_name`
+      self$`newsletter` <- this_object$`newsletter`
       self
     },
 
@@ -150,14 +150,6 @@ UserRegister <- R6::R6Class(
         }
       } else {
         stop(paste("The JSON input `", input, "` is invalid for UserRegister: the required field `email` is missing."))
-      }
-      # check the required field `password`
-      if (!is.null(input_json$`password`)) {
-        if (!(is.character(input_json$`password`) && length(input_json$`password`) == 1)) {
-          stop(paste("Error! Invalid data for `password`. Must be a string:", input_json$`password`))
-        }
-      } else {
-        stop(paste("The JSON input `", input, "` is invalid for UserRegister: the required field `password` is missing."))
       }
     },
 
@@ -183,18 +175,6 @@ UserRegister <- R6::R6Class(
         return(FALSE)
       }
 
-      # check if the required `password` is null
-      if (is.null(self$`password`)) {
-        return(FALSE)
-      }
-
-      if (nchar(self$`password`) > 40) {
-        return(FALSE)
-      }
-      if (nchar(self$`password`) < 8) {
-        return(FALSE)
-      }
-
       if (nchar(self$`full_name`) > 255) {
         return(FALSE)
       }
@@ -215,18 +195,6 @@ UserRegister <- R6::R6Class(
 
       if (nchar(self$`email`) > 255) {
         invalid_fields["email"] <- "Invalid length for `email`, must be smaller than or equal to 255."
-      }
-
-      # check if the required `password` is null
-      if (is.null(self$`password`)) {
-        invalid_fields["password"] <- "Non-nullable required field `password` cannot be null."
-      }
-
-      if (nchar(self$`password`) > 40) {
-        invalid_fields["password"] <- "Invalid length for `password`, must be smaller than or equal to 40."
-      }
-      if (nchar(self$`password`) < 8) {
-        invalid_fields["password"] <- "Invalid length for `password`, must be bigger than or equal to 8."
       }
 
       if (nchar(self$`full_name`) > 255) {

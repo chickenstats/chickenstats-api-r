@@ -334,6 +334,62 @@ test_that("teammate_block_adj", {
   #expect_equal(model.instance$`teammate_block_adj`, "EXPECTED_RESULT")
 })
 
+test_that("opp_teammate_block", {
+  # tests for the property `opp_teammate_block` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`opp_teammate_block`, "EXPECTED_RESULT")
+})
+
+test_that("opp_teammate_block_adj", {
+  # tests for the property `opp_teammate_block_adj` (numeric)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`opp_teammate_block_adj`, "EXPECTED_RESULT")
+})
+
+test_that("give", {
+  # tests for the property `give` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`give`, "EXPECTED_RESULT")
+})
+
+test_that("take", {
+  # tests for the property `take` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`take`, "EXPECTED_RESULT")
+})
+
+test_that("ozs", {
+  # tests for the property `ozs` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`ozs`, "EXPECTED_RESULT")
+})
+
+test_that("nzs", {
+  # tests for the property `nzs` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`nzs`, "EXPECTED_RESULT")
+})
+
+test_that("dzs", {
+  # tests for the property `dzs` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`dzs`, "EXPECTED_RESULT")
+})
+
+test_that("otf", {
+  # tests for the property `otf` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`otf`, "EXPECTED_RESULT")
+})
+
 test_that("hf", {
   # tests for the property `hf` (integer)
 

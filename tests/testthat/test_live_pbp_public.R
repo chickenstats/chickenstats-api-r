@@ -943,6 +943,27 @@ test_that("pen10", {
   #expect_equal(model.instance$`pen10`, "EXPECTED_RESULT")
 })
 
+test_that("cs_version", {
+  # tests for the property `cs_version` (character)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`cs_version`, "EXPECTED_RESULT")
+})
+
+test_that("shootout_attempt", {
+  # tests for the property `shootout_attempt` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`shootout_attempt`, "EXPECTED_RESULT")
+})
+
+test_that("shootout_goal", {
+  # tests for the property `shootout_goal` (integer)
+
+  # uncomment below to test the property
+  #expect_equal(model.instance$`shootout_goal`, "EXPECTED_RESULT")
+})
+
 test_that("player", {
   # tests for the property `player` (PlayerPublic)
 
