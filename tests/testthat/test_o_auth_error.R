@@ -25,10 +25,3 @@ test_that("detail", {
   # uncomment below to test the property
   #expect_equal(model.instance$`detail`, "EXPECTED_RESULT")
 })
-
-test_that("mfa_token", {
-  # tests for the property `mfa_token` (character)
-
-  # uncomment below to test the property
-  #expect_equal(model.instance$`mfa_token`, "EXPECTED_RESULT")
-})

@@ -9,6 +9,7 @@ test_that("ReadGameLines", {
   # tests for ReadGameLines
   # base path: https://api.chickenstats.com
   # Line stats by game
+  # Stats for each line combination by game.  Rows are line combinations unless &#x60;linemates&#x60; is false.
   # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
   # @param offset integer Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. (optional)
   # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
@@ -20,7 +21,7 @@ test_that("ReadGameLines", {
   # @param strength_state array[character]  (optional)
   # @param score_state character  (optional)
   # @param level character  (optional)
-  # @param linemates character  (optional)
+  # @param linemates character Split rows by the forwards, defense and goalie on the ice, so each row is one line combination. On by default; set false for one row per team and strength state, which /team_stats also covers. (optional)
   # @param opposition character  (optional)
   # @param include array[character]  (optional)
   # @return [LinesGameResponse]
@@ -48,6 +49,7 @@ test_that("ReadSeasonLines", {
   # tests for ReadSeasonLines
   # base path: https://api.chickenstats.com
   # Line stats by season
+  # Stats for each line combination by season.  Rows are line combinations unless &#x60;linemates&#x60; is false, and line combinations need a team: a whole season of them sorts too many rows.
   # @param limit integer Rows per page. When omitted, 10,000 or your tier's maximum, whichever is smaller; the response's `limit` says which. A value over your tier's maximum is refused with a 400. (optional)
   # @param offset integer Rows to skip. At most 10,000,000; past that, narrow the query with a filter such as season or game_id. (optional)
   # @param with_total character Include the exact total row count. Set false on broad queries: the count scans every matching row, which on a season-wide filter costs far more than the page itself. `total` is then -1 and `has_next` still works. (optional)
@@ -57,7 +59,7 @@ test_that("ReadSeasonLines", {
   # @param opp_team array[character]  (optional)
   # @param strength_state array[character]  (optional)
   # @param score_state character  (optional)
-  # @param linemates character  (optional)
+  # @param linemates character Split rows by the forwards, defense and goalie on the ice, so each row is one line combination. On by default; set false for one row per team and strength state, which /team_stats also covers. (optional)
   # @param opposition character  (optional)
   # @return [LinesSeasonResponse]
 

@@ -37,6 +37,7 @@ R/live_games_public.R
 R/live_pbp_public.R
 R/live_pbp_response.R
 R/message.R
+R/mfa_challenge.R
 R/new_password.R
 R/newsletter_preference.R
 R/newsletters.R
@@ -119,6 +120,7 @@ docs/LiveGamesPublic.md
 docs/LivePbpPublic.md
 docs/LivePbpResponse.md
 docs/Message.md
+docs/MfaChallenge.md
 docs/NewPassword.md
 docs/NewsletterPreference.md
 docs/Newsletters.md
@@ -202,6 +204,7 @@ tests/testthat/test_live_games_public.R
 tests/testthat/test_live_pbp_public.R
 tests/testthat/test_live_pbp_response.R
 tests/testthat/test_message.R
+tests/testthat/test_mfa_challenge.R
 tests/testthat/test_new_password.R
 tests/testthat/test_newsletter_preference.R
 tests/testthat/test_newsletters.R

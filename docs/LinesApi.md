@@ -10,9 +10,11 @@ Method | HTTP request | Description
 
 
 # **ReadGameLines**
-> LinesGameResponse ReadGameLines(limit = var.limit, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions, game_id = var.game_id, team = var.team, opp_team = var.opp_team, strength_state = var.strength_state, score_state = var.score_state, level = var.level, linemates = var.linemates, opposition = var.opposition, include = var.include)
+> LinesGameResponse ReadGameLines(limit = var.limit, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions, game_id = var.game_id, team = var.team, opp_team = var.opp_team, strength_state = var.strength_state, score_state = var.score_state, level = var.level, linemates = TRUE, opposition = var.opposition, include = var.include)
 
 Line stats by game
+
+Stats for each line combination by game.  Rows are line combinations unless `linemates` is false.
 
 ### Example
 ```R
@@ -32,7 +34,7 @@ var_opp_team <- c("inner_example") # array[character] |  (Optional)
 var_strength_state <- c("5v5") # array[character] |  (Optional)
 var_score_state <- "score_state_example" # character |  (Optional)
 var_level <- "level_example" # character |  (Optional)
-var_linemates <- "linemates_example" # character |  (Optional)
+var_linemates <- TRUE # character | Split rows by the forwards, defense and goalie on the ice, so each row is one line combination. On by default; set false for one row per team and strength state, which /team_stats also covers. (Optional)
 var_opposition <- "opposition_example" # character |  (Optional)
 var_include <- c("game") # array[character] |  (Optional)
 
@@ -60,7 +62,7 @@ Name | Type | Description  | Notes
  **strength_state** | Enum [5v5, 4v4, 3v3, 5v4, 5v3, 4v3, 4v5, 3v4, 3v5] |  | [optional] 
  **score_state** | **character**|  | [optional] 
  **level** | Enum [game, period] |  | [optional] 
- **linemates** | **character**|  | [optional] 
+ **linemates** | **character**| Split rows by the forwards, defense and goalie on the ice, so each row is one line combination. On by default; set false for one row per team and strength state, which /team_stats also covers. | [optional] [default to TRUE]
  **opposition** | **character**|  | [optional] 
  **include** | Enum [game] |  | [optional] 
 
@@ -142,9 +144,11 @@ Name | Type | Description  | Notes
 | **422** | Validation Error |  -  |
 
 # **ReadSeasonLines**
-> LinesSeasonResponse ReadSeasonLines(limit = var.limit, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions, team = var.team, opp_team = var.opp_team, strength_state = var.strength_state, score_state = var.score_state, linemates = var.linemates, opposition = var.opposition)
+> LinesSeasonResponse ReadSeasonLines(limit = var.limit, offset = 0, with_total = TRUE, season = var.season, sessions = var.sessions, team = var.team, opp_team = var.opp_team, strength_state = var.strength_state, score_state = var.score_state, linemates = TRUE, opposition = var.opposition)
 
 Line stats by season
+
+Stats for each line combination by season.  Rows are line combinations unless `linemates` is false, and line combinations need a team: a whole season of them sorts too many rows.
 
 ### Example
 ```R
@@ -162,7 +166,7 @@ var_team <- c("inner_example") # array[character] |  (Optional)
 var_opp_team <- c("inner_example") # array[character] |  (Optional)
 var_strength_state <- c("5v5") # array[character] |  (Optional)
 var_score_state <- "score_state_example" # character |  (Optional)
-var_linemates <- "linemates_example" # character |  (Optional)
+var_linemates <- TRUE # character | Split rows by the forwards, defense and goalie on the ice, so each row is one line combination. On by default; set false for one row per team and strength state, which /team_stats also covers. (Optional)
 var_opposition <- "opposition_example" # character |  (Optional)
 
 api_instance <- LinesApi$new()
@@ -187,7 +191,7 @@ Name | Type | Description  | Notes
  **opp_team** | list( **character** )|  | [optional] 
  **strength_state** | Enum [5v5, 4v4, 3v3, 5v4, 5v3, 4v3, 4v5, 3v4, 3v5] |  | [optional] 
  **score_state** | **character**|  | [optional] 
- **linemates** | **character**|  | [optional] 
+ **linemates** | **character**| Split rows by the forwards, defense and goalie on the ice, so each row is one line combination. On by default; set false for one row per team and strength state, which /team_stats also covers. | [optional] [default to TRUE]
  **opposition** | **character**|  | [optional] 
 
 ### Return type

@@ -10,7 +10,6 @@
 #' @field error  character [optional]
 #' @field error_description  character [optional]
 #' @field detail  character [optional]
-#' @field mfa_token  character [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -20,7 +19,6 @@ OAuthError <- R6::R6Class(
     `error` = NULL,
     `error_description` = NULL,
     `detail` = NULL,
-    `mfa_token` = NULL,
 
     #' @description
     #' Initialize a new OAuthError class.
@@ -28,9 +26,8 @@ OAuthError <- R6::R6Class(
     #' @param error error
     #' @param error_description error_description
     #' @param detail detail
-    #' @param mfa_token mfa_token
     #' @param ... Other optional arguments.
-    initialize = function(`error` = NULL, `error_description` = NULL, `detail` = NULL, `mfa_token` = NULL, ...) {
+    initialize = function(`error` = NULL, `error_description` = NULL, `detail` = NULL, ...) {
       if (!is.null(`error`)) {
         if (!(is.character(`error`) && length(`error`) == 1)) {
           stop(paste("Error! Invalid data for `error`. Must be a string:", `error`))
@@ -48,12 +45,6 @@ OAuthError <- R6::R6Class(
           stop(paste("Error! Invalid data for `detail`. Must be a string:", `detail`))
         }
         self$`detail` <- `detail`
-      }
-      if (!is.null(`mfa_token`)) {
-        if (!(is.character(`mfa_token`) && length(`mfa_token`) == 1)) {
-          stop(paste("Error! Invalid data for `mfa_token`. Must be a string:", `mfa_token`))
-        }
-        self$`mfa_token` <- `mfa_token`
       }
     },
 
@@ -100,10 +91,6 @@ OAuthError <- R6::R6Class(
         OAuthErrorObject[["detail"]] <-
           self$`detail`
       }
-      if (!is.null(self$`mfa_token`)) {
-        OAuthErrorObject[["mfa_token"]] <-
-          self$`mfa_token`
-      }
       return(OAuthErrorObject)
     },
 
@@ -122,9 +109,6 @@ OAuthError <- R6::R6Class(
       }
       if (!is.null(this_object$`detail`)) {
         self$`detail` <- this_object$`detail`
-      }
-      if (!is.null(this_object$`mfa_token`)) {
-        self$`mfa_token` <- this_object$`mfa_token`
       }
       self
     },
@@ -150,7 +134,6 @@ OAuthError <- R6::R6Class(
       self$`error` <- this_object$`error`
       self$`error_description` <- this_object$`error_description`
       self$`detail` <- this_object$`detail`
-      self$`mfa_token` <- this_object$`mfa_token`
       self
     },
 
